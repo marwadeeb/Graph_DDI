@@ -1,0 +1,24 @@
+# Raw XML input (too large for git)
+*.xml
+
+# Step 1 & 2 outputs — local only, not pushed to GitHub
+data/step1_full/
+data/step2_dedup/
+
+# Step 3 (FDA-approved subset) IS tracked — do not ignore
+# data/step3_approved/
+
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+.env
+venv/
+.venv/
+
+# Claude Code settings
+.claude/
+
+# OS
+.DS_Store
+Thumbs.db

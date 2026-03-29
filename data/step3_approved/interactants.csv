@@ -1,0 +1,3459 @@
+interactant_id,name,organism
+BE0000048,Prothrombin,Humans
+BE0000767,Epidermal growth factor receptor,Humans
+BE0000901,Low affinity immunoglobulin gamma Fc region receptor III-B,Humans
+BE0002094,Complement C1q subcomponent subunit A,Humans
+BE0002095,Complement C1q subcomponent subunit B,Humans
+BE0002096,Complement C1q subcomponent subunit C,Humans
+BE0002097,Low affinity immunoglobulin gamma Fc region receptor III-A,Humans
+BE0000710,High affinity immunoglobulin gamma Fc receptor I,Humans
+BE0002098,Low affinity immunoglobulin gamma Fc region receptor II-a,Humans
+BE0012829,Deoxyribonuclease-1,Humans
+BE0000658,Interleukin-2 receptor subunit alpha,Humans
+BE0000651,Interleukin-2 receptor subunit beta,Humans
+BE0000704,Tumor necrosis factor,Humans
+BE0001087,Lymphotoxin-alpha,Humans
+BE0002099,Low affinity immunoglobulin gamma Fc region receptor II-b,Humans
+BE0002100,Low affinity immunoglobulin gamma Fc region receptor II-c,Humans
+BE0009995,Complement component 1q (C1q),Humans
+BE0001075,Myeloperoxidase,Humans
+BE0000203,Gonadotropin-releasing hormone receptor,Humans
+BE0010526,Progonadoliberin-1,Humans
+BE0000385,Interferon alpha/beta receptor 2,Humans
+BE0000661,Interferon alpha/beta receptor 1,Humans
+BE0003450,Interferon alpha-2,Humans
+BE0002433,Cytochrome P450 1A2,Humans
+BE0000211,Plasminogen,Humans
+BE0000538,Fibrinogen alpha chain,Humans
+BE0002092,Fibrinogen gamma chain,Humans
+BE0000240,Plasminogen activator inhibitor 1,Humans
+BE0000625,Growth hormone-releasing hormone receptor,Humans
+BE0000654,Erythropoietin receptor,Humans
+BE0000717,Urokinase plasminogen activator surface receptor,Humans
+BE0000969,Plasminogen activator inhibitor 2,Humans
+BE0000895,Urokinase-type plasminogen activator,Humans
+BE0002112,Plasma serine protease inhibitor,Humans
+BE0000942,Low-density lipoprotein receptor-related protein 2,Humans
+BE0001656,Suppressor of tumorigenicity 14 protein,Humans
+BE0002113,Nidogen-1,Humans
+BE0001198,Macrophage metalloelastase,Humans
+BE0000134,Lutropin-choriogonadotropic hormone receptor,Humans
+BE0000431,Calcitonin receptor,Humans
+BE0000793,Granulocyte colony-stimulating factor receptor,Humans
+BE0000394,Neutrophil elastase,Humans
+BE0000628,Granulocyte-macrophage colony-stimulating factor receptor subunit alpha,Humans
+BE0001036,Interleukin-3 receptor subunit alpha,Humans
+BE0002115,Cytokine receptor common subunit beta,Humans
+BE0002116,Syndecan-2,Humans
+BE0002363,Cytochrome P450 2D6,Humans
+BE0002793,Cytochrome P450 2C9,Humans
+BE0004798,L-asparagine,Humans
+BE0000537,Thyroxine-binding globulin,Humans
+BE0000490,Thyrotropin receptor,Humans
+BE0000216,Coagulation factor X,Humans
+BE0000364,Coagulation factor IX,Humans
+BE0001043,von Willebrand factor,Humans
+BE0002117,"Phytanoyl-CoA dioxygenase, peroxisomal",Humans
+BE0002118,Asialoglycoprotein receptor 2,Humans
+BE0001098,Endoplasmic reticulum chaperone BiP,Humans
+BE0002109,Calreticulin,Humans
+BE0001011,Calnexin,Humans
+BE0002119,Protein ERGIC-53,Humans
+BE0002110,Prolow-density lipoprotein receptor-related protein 1,Humans
+BE0002120,Multiple coagulation factor deficiency protein 2,Humans
+BE0000380,Vitamin K-dependent protein C,Humans
+BE0000565,Interleukin-1 receptor type 1,Humans
+BE0000803,Dihydropteroate synthase,Escherichia coli (strain K12)
+BE0001032,ATP-dependent translocase ABCB1,Humans
+BE0004684,Putative high affinity immunoglobulin gamma Fc receptor IB,Humans
+BE0003455,Complement C3,Humans
+BE0004685,Complement C4-A,Humans
+BE0004686,Complement C4-B,Humans
+BE0000855,Complement C5,Humans
+BE0000033,Insulin receptor,Humans
+BE0000858,Insulin-like growth factor 1 receptor,Humans
+BE0001123,Carboxypeptidase E,Humans
+BE0001147,CCN family member 3,Humans
+BE0002126,Insulin-like growth factor-binding protein 7,Humans
+BE0001183,Insulin-degrading enzyme,Humans
+BE0002124,Neuroendocrine convertase 2,Humans
+BE0002125,Neuroendocrine convertase 1,Humans
+BE0000387,Follicle-stimulating hormone receptor,Humans
+BE0000711,Interferon gamma receptor 1,Humans
+BE0000467,Interferon gamma receptor 2,Humans
+BE0000293,Vasopressin V2 receptor,Humans
+BE0000165,Vasopressin V1a receptor,Humans
+BE0000773,Vasopressin V1b receptor,Humans
+BE0000844,Oxytocin receptor,Humans
+BE0000262,Prostaglandin G/H synthase 2,Humans
+BE0000017,Prostaglandin G/H synthase 1,Humans
+BE0001178,Tissue factor,Humans
+BE0000416,Interleukin-11 receptor subunit alpha,Humans
+BE0000748,Fibroblast growth factor receptor 2,Humans
+BE0002131,Fibroblast growth factor receptor 1,Humans
+BE0001031,Basement membrane-specific heparan sulfate proteoglycan core protein,Humans
+BE0000527,Glucagon receptor,Humans
+BE0002134,Glucagon-like peptide 2 receptor,Humans
+BE0000857,Glucagon-like peptide 1 receptor,Humans
+BE0002102,Cytokine receptor common subunit gamma,Humans
+BE0001029,Interleukin-2,Humans
+BE0000657,Cytosolic phospholipase A2,Humans
+BE0002638,Cytochrome P450 3A4,Humans
+BE0002204,Xanthine dehydrogenase/oxidase,Humans
+BE0003533,Cytochrome P450 2E1,Humans
+BE0002137,Vesicle-associated membrane protein 2,Humans
+BE0002136,Vesicle-associated membrane protein 1,Humans
+BE0002138,Synaptotagmin-2,Humans
+BE0010138,Immunoglobulin heavy constant epsilon,Humans
+BE0000049,High affinity immunoglobulin epsilon receptor subunit gamma,Humans
+BE0001164,Toll-like receptor 2,Humans
+BE0003491,Insulin,Humans
+BE0000025,Collagen alpha-1(I) chain,Humans
+BE0002140,Collagen alpha-1(II) chain,Humans
+BE0002130,Collagen alpha-1(III) chain,Humans
+BE0004823,Uric acid,Humans
+BE0000075,Growth hormone receptor,Humans
+BE0000345,Prolactin receptor,Humans
+BE0003536,Cytochrome P450 2C19,Humans
+BE0004806,Glucocerebroside,Humans
+BE0001155,Integrin beta-3,Humans
+BE0000439,Integrin alpha-IIb,Humans
+BE0001068,Vitronectin,Humans
+BE0000016,Coagulation factor VIII,Humans
+BE0000041,Coagulation factor V,Humans
+BE0001151,Thrombomodulin,Humans
+BE0000943,Vitamin K-dependent protein S,Humans
+BE0001129,Platelet factor 4,Humans
+BE0002142,Serpin B6,Humans
+BE0001161,Endothelial protein C receptor,Humans
+BE0000674,Myeloid cell surface antigen CD33,Humans
+BE0004842,Tumor-associated glycoprotein 72 (TAG-72),Humans
+BE0000926,Interferon beta,Humans
+BE0004828,Adenosine,Humans
+BE0000917,Growth factor receptor-bound protein 2,Humans
+BE0009576,Nitric oxide,Humans
+BE0009351,Voltage-dependent N-type calcium channel,Humans
+BE0001069,ATP-binding cassette sub-family C member 2,Humans
+BE0000984,Transforming growth factor beta-1 proprotein,Humans
+BE0000530,Albumin,Humans
+BE0000511,Receptor tyrosine-protein kinase erbB-2,Humans
+BE0000066,B-lymphocyte antigen CD20,Humans
+BE0003456,T-cell surface glycoprotein CD3 delta chain,Humans
+BE0000274,T-cell surface glycoprotein CD3 epsilon chain,Humans
+BE0003457,T-cell surface glycoprotein CD3 gamma chain,Humans
+BE0003458,T-cell surface glycoprotein CD3 zeta chain,Humans
+BE0004837,Digoxin,Humans
+BE0010021,Cytoplasmic membrane,Bacteria
+BE0000925,Alpha-1-acid glycoprotein 1,Humans
+BE0000952,Alpha-1-antitrypsin,Humans
+BE0000499,Low-density lipoprotein receptor,Humans
+BE0000685,Sex hormone-binding globulin,Humans
+BE0009909,Hemopexin,Humans
+BE0000549,"Sterol 26-hydroxylase, mitochondrial",Humans
+BE0002240,Glutamine synthetase,Humans
+BE0002180,Cholinesterase,Humans
+BE0000421,Cytochrome P450 4A11,Humans
+BE0000390,Synaptosomal-associated protein 25,Humans
+BE0003572,Rho-related GTP-binding protein RhoB,Humans
+BE0004834,Dietary fat,Humans
+BE0004835,Dietary protein,Humans
+BE0004836,Dietary starch,Humans
+BE0000928,Proteinase-activated receptor 1,Humans
+BE0000083,CAMPATH-1 antigen,Humans
+BE0000568,Glutamate carboxypeptidase 2,Humans
+BE0004822,Iduronic acid,Humans
+BE0000379,Guided entry of tail-anchored proteins factor CAMLG,Humans
+BE0002143,Calcineurin subunit B type 2,Humans
+BE0001014,Peptidyl-prolyl cis-trans isomerase A,Humans
+BE0001399,"Peptidyl-prolyl cis-trans isomerase F, mitochondrial",Humans
+BE0004238,Protein phosphatase 3 catalytic subunit alpha,Humans
+BE0002362,Cytochrome P450 3A5,Humans
+BE0000703,Bile salt export pump,Humans
+BE0003643,Ileal sodium/bile acid cotransporter,Humans
+BE0003644,Hepatic sodium/bile acid cotransporter,Humans
+BE0001066,Solute carrier family 22 member 6,Humans
+BE0003651,ATP-binding cassette sub-family C member 10,Humans
+BE0001067,Broad substrate specificity ATP-binding cassette transporter ABCG2,Humans
+BE0001004,Solute carrier organic anion transporter family member 1B1,Humans
+BE0003659,Solute carrier organic anion transporter family member 1B3,Humans
+BE0000719,T-cell surface antigen CD2,Humans
+BE0010569,Lymphocyte function-associated antigen 3,Humans
+BE0009967,Integrin alpha-X,Humans
+BE0000516,Integrin alpha-L,Humans
+BE0003573,Major histocompatibility complex class I-related protein 1,Humans
+BE0000846,T-lymphocyte activation antigen CD86,Humans
+BE0003576,Integrin alpha-V,Humans
+BE0003575,Integrin beta-1,Humans
+BE0000598,T-cell surface glycoprotein CD1a,Humans
+BE0003488,T-cell surface glycoprotein CD4,Humans
+BE0001021,Coagulation factor XI,Humans
+BE0000333,Coagulation factor VII,Humans
+BE0000403,Vitamin K-dependent gamma-carboxylase,Humans
+BE0000205,Platelet-derived growth factor receptor beta,Humans
+BE0000852,Platelet-derived growth factor receptor alpha,Humans
+BE0000910,Alpha-2-macroglobulin,Humans
+BE0004830,Globotriaosylceramide,Humans
+BE0004494,Cation-dependent mannose-6-phosphate receptor,Humans
+BE0010008,Somatostatin receptor,Humans
+BE0003528,Somatostatin receptor type 2,Humans
+BE0002148,Prolyl endopeptidase,Humans
+BE0010031,Leucyl-cystinyl aminopeptidase,Humans
+BE0000751,Oxytocin-neurophysin 1,Humans
+BE0010032,Advanced glycosylation end product-specific receptor,Humans
+BE0000590,Integrin alpha-4,Humans
+BE0001085,Intercellular adhesion molecule 1,Humans
+BE0000398,Env polyprotein,Human immunodeficiency virus 1
+BE0000686,Fusion glycoprotein F0,Human respiratory syncytial virus B (strain 18537)
+BE0002093,Complement C1r subcomponent,Humans
+BE0010205,Fusion glycoprotein F0,Human respiratory syncytial virus A (strain A2)
+BE0000163,"Vascular endothelial growth factor A, long form",Humans
+BE0000253,"4-aminobutyrate aminotransferase, mitochondrial",Humans
+BE0000102,"Alanine--glyoxylate aminotransferase 2, mitochondrial",Humans
+BE0000378,Glutamate decarboxylase 1,Humans
+BE0000323,Cystathionine beta-synthase,Humans
+BE0000392,Kynureninase,Humans
+BE0000331,"Serine hydroxymethyltransferase, cytosolic",Humans
+BE0000151,Cysteine desulfurase,Humans
+BE0000529,"Aspartate aminotransferase, cytoplasmic",Humans
+BE0000424,"Ornithine aminotransferase, mitochondrial",Humans
+BE0000404,Ornithine decarboxylase,Humans
+BE0000727,"Kynurenine/alpha-aminoadipate aminotransferase, mitochondrial",Humans
+BE0000181,Pyridoxine-5'-phosphate oxidase,Humans
+BE0000778,Sphingosine-1-phosphate lyase 1,Humans
+BE0000692,Tyrosine aminotransferase,Humans
+BE0000273,Kynurenine--oxoglutarate transaminase 1,Humans
+BE0000007,"Glycogen phosphorylase, liver form",Humans
+BE0000660,Serine palmitoyltransferase 2,Humans
+BE0000079,Cysteine sulfinic acid decarboxylase,Humans
+BE0000002,Histidine decarboxylase,Humans
+BE0000448,Antizyme inhibitor 2,Humans
+BE0000164,L-serine dehydratase/L-threonine deaminase,Humans
+BE0000518,"2-amino-3-ketobutyrate coenzyme A ligase, mitochondrial",Humans
+BE0000618,"Glycine dehydrogenase (decarboxylating), mitochondrial",Humans
+BE0000667,Alanine aminotransferase 1,Humans
+BE0000603,Phosphoserine aminotransferase,Humans
+BE0000409,"5-aminolevulinate synthase, non-specific, mitochondrial",Humans
+BE0000316,Alanine--glyoxylate aminotransferase,Humans
+BE0000278,Chronophin,Humans
+BE0000441,Serine palmitoyltransferase 1,Humans
+BE0000791,Cystathionine gamma-lyase,Humans
+BE0000517,"Branched-chain-amino-acid aminotransferase, cytosolic",Humans
+BE0000721,"Branched-chain-amino-acid aminotransferase, mitochondrial",Humans
+BE0002149,Pyridoxal phosphate homeostasis protein,Humans
+BE0000383,"Aspartate aminotransferase, mitochondrial",Humans
+BE0002150,"Glycogen phosphorylase, brain form",Humans
+BE0000916,"Glycogen phosphorylase, muscle form",Humans
+BE0002151,Aromatic-L-amino-acid decarboxylase,Humans
+BE0002154,Serine hydroxymethyltransferase,Humans
+BE0000602,Glutamate decarboxylase 2,Humans
+BE0002162,Kynurenine--oxoglutarate transaminase 3,Humans
+BE0002163,Acidic amino acid decarboxylase GADL1,Humans
+BE0004605,Selenocysteine lyase,Humans
+BE0004612,Immunoglobulin superfamily member 10,Humans
+BE0002164,5-phosphohydroxy-L-lysine phospho-lyase,Humans
+BE0000292,"Serine hydroxymethyltransferase, mitochondrial",Humans
+BE0000898,"5-aminolevulinate synthase, erythroid-specific, mitochondrial",Humans
+BE0002166,Alanine aminotransferase 2,Humans
+BE0002167,Molybdenum cofactor sulfurase,Humans
+BE0002168,Serine dehydratase-like,Humans
+BE0000388,Serine racemase,Humans
+BE0002171,O-phosphoseryl-tRNA(Sec) selenium transferase,Humans
+BE0002172,Serine palmitoyltransferase 3,Humans
+BE0002173,Glutamate decarboxylase 2,Humans
+BE0010222,Aspartate aminotransferase,Humans
+BE0000734,Methionine synthase,Humans
+BE0000777,"Methylmalonyl-CoA mutase, mitochondrial",Humans
+BE0000763,Methionine synthase reductase,Humans
+BE0000320,"Methylmalonic aciduria type A protein, mitochondrial",Humans
+BE0002175,Cyanocobalamin reductase / alkylcobalamin dealkylase,Humans
+BE0002176,Methylenetetrahydrofolate reductase (NADPH),Humans
+BE0000456,Corrinoid adenosyltransferase MMAB,Humans
+BE0002668,Bifunctional adenosylcobalamin biosynthesis protein CobU,Salmonella typhimurium (strain LT2 / SGSC1412 / ATCC 700720)
+BE0009637,Pancreatic proteases,
+BE0000340,Protein amnionless,Humans
+BE0000238,Transcobalamin-1,Humans
+BE0000362,Transcobalamin-2,Humans
+BE0004690,Cobalamin binding intrinsic factor,Humans
+BE0000936,Cubilin,Humans
+BE0000785,Multidrug resistance-associated protein 1,Humans
+BE0000617,"C-1-tetrahydrofolate synthase, cytoplasmic",Humans
+BE0000268,"Bifunctional methylenetetrahydrofolate dehydrogenase/cyclohydrolase, mitochondrial",Humans
+BE0000010,"Aminomethyltransferase, mitochondrial",Humans
+BE0000822,Formimidoyltransferase-cyclodeaminase,Humans
+BE0001240,Bifunctional purine biosynthesis protein ATIC,Humans
+BE0000740,"Histidine--tRNA ligase, cytoplasmic",Humans
+BE0000285,Sodium-coupled neutral amino acid transporter 3,Humans
+BE0000086,Histidine ammonia-lyase,Humans
+BE0003654,Monocarboxylate transporter 10,Humans
+BE0002089,Catechol O-methyltransferase,Humans
+BE0008997,Cap-specific mRNA (nucleoside-2'-O-)-methyltransferase 1,Humans
+BE0005015,Arsenite methyltransferase,Humans
+BE0000372,Glycine N-methyltransferase,Humans
+BE0000101,S-adenosylmethionine decarboxylase proenzyme,Humans
+BE0000304,S-adenosylmethionine synthase isoform type-2,Humans
+BE0000407,S-adenosylmethionine synthase isoform type-1,Humans
+BE0000300,Spermidine synthase,Humans
+BE0000535,Carbonic anhydrase 4,Humans
+BE0000449,Monocarboxylate transporter 4,Humans
+BE0000178,Monocarboxylate transporter 8,Humans
+BE0000386,Monocarboxylate transporter 6,Humans
+BE0000046,Pyruvate kinase PKLR,Humans
+BE0000174,Monocarboxylate transporter 7,Humans
+BE0000440,Monocarboxylate transporter 2,Humans
+BE0000098,"Pyruvate dehydrogenase E1 component subunit beta, mitochondrial",Humans
+BE0000088,Pyruvate kinase PKM,Humans
+BE0000195,Probable monocarboxylate transporter 5,Humans
+BE0000361,Monocarboxylate transporter 3,Humans
+BE0000669,Monocarboxylate transporter 1,Humans
+BE0000698,"Pyruvate carboxylase, mitochondrial",Humans
+BE0003655,Solute carrier organic anion transporter family member 2A1,Humans
+BE0000614,Tyrosine 3-monooxygenase,Humans
+BE0000789,Large neutral amino acids transporter small subunit 2,Humans
+BE0000038,Phenylalanine--tRNA ligase alpha subunit,Humans
+BE0000753,Phenylalanine-4-hydroxylase,Humans
+BE0000028,"Phenylalanine--tRNA ligase, mitochondrial",Humans
+BE0000561,Phenylalanine--tRNA ligase beta subunit,Humans
+BE0000544,"Propionyl-CoA carboxylase beta chain, mitochondrial",Humans
+BE0000159,Biotin--protein ligase,Humans
+BE0000072,"Methylcrotonoyl-CoA carboxylase beta chain, mitochondrial",Humans
+BE0000702,Acetyl-CoA carboxylase 2,Humans
+BE0000445,"Methylcrotonoyl-CoA carboxylase subunit alpha, mitochondrial",Humans
+BE0000492,"Propionyl-CoA carboxylase alpha chain, mitochondrial",Humans
+BE0000626,Acetyl-CoA carboxylase 1,Humans
+BE0001111,Cytochrome P450 1B1,Humans
+BE0000094,Sodium-dependent multivitamin transporter,Humans
+BE0004708,Sodium-coupled monocarboxylate transporter 1,Humans
+BE0000738,Neuronal acetylcholine receptor subunit alpha-2,Humans
+BE0002341,Neuronal acetylcholine receptor subunit alpha-7,Humans
+BE0000494,Choline-phosphate cytidylyltransferase B,Humans
+BE0002190,Choline/ethanolaminephosphotransferase 1,Humans
+BE0000237,Choline/ethanolamine kinase,Humans
+BE0000519,Choline O-acetyltransferase,Humans
+BE0000784,Choline kinase alpha,Humans
+BE0000636,"Choline dehydrogenase, mitochondrial",Humans
+BE0000426,Acetylcholinesterase,Humans
+BE0000615,Choline-phosphate cytidylyltransferase A,Humans
+BE0002181,Phospholipase D1,Humans
+BE0002179,Phospholipase D2,Humans
+BE0002186,Phosphoethanolamine/phosphocholine phosphatase,Humans
+BE0003647,Solute carrier family 22 member 2,Humans
+BE0003648,Solute carrier family 22 member 1,Humans
+BE0003650,Solute carrier family 22 member 3,Humans
+BE0000106,Organic cation/carnitine transporter 2,Humans
+BE0000757,Solute carrier family 22 member 4,Humans
+BE0001059,Choline transporter-like protein 1,Humans
+BE0002182,Choline transporter-like protein 4,Humans
+BE0002183,Choline transporter-like protein 2,Humans
+BE0002184,Choline transporter-like protein 3,Humans
+BE0000696,High affinity choline transporter 1,Humans
+BE0000212,High affinity cationic amino acid transporter 1,Humans
+BE0000052,Cationic amino acid transporter 4,Humans
+BE0000136,Cationic amino acid transporter 3,Humans
+BE0000562,Cationic amino acid transporter 2,Humans
+BE0000198,Lysine--tRNA ligase,Humans
+BE0001260,"Thymidine kinase, cytosolic",Humans
+BE0000520,Argininosuccinate lyase,Humans
+BE0000005,"Nitric oxide synthase, inducible",Humans
+BE0000758,"Arginase-2, mitochondrial",Humans
+BE0000671,Argininosuccinate synthase,Humans
+BE0000263,Nitric oxide synthase 3,Humans
+BE0000168,Solute carrier family 23 member 1,Humans
+BE0009869,Solute carrier family 23 member 2,Humans
+BE0001361,Hyaluronate lyase,Streptococcus pneumoniae serotype 4 (strain ATCC BAA-334 / TIGR4)
+BE0004796,DNA,Humans
+BE0001225,Xylose isomerase,Streptomyces rubiginosus
+BE0002192,"Procollagen-lysine,2-oxoglutarate 5-dioxygenase 2",Humans
+BE0002195,Multifunctional procollagen lysine hydroxylase and glycosyltransferase LH3,Humans
+BE0002197,Gamma-butyrobetaine dioxygenase,Humans
+BE0000138,Dopamine beta-hydroxylase,Humans
+BE0002200,Peptidyl-glycine alpha-amidating monooxygenase,Humans
+BE0002202,Prolyl 3-hydroxylase 1,Humans
+BE0002206,Prolyl 3-hydroxylase 2,Humans
+BE0002208,Prolyl 3-hydroxylase 3,Humans
+BE0000060,Prolyl 4-hydroxylase subunit alpha-1,Humans
+BE0002210,Prolyl 3-hydroxylase OGFOD1,Humans
+BE0002203,2-oxoglutarate and iron-dependent oxygenase domain-containing protein 2,Humans
+BE0002205,DNA oxidative demethylase ALKBH2,Humans
+BE0002213,Alpha-ketoglutarate-dependent dioxygenase alkB homolog 3,Humans
+BE0002215,Lysine-specific demethylase 5D,Humans
+BE0000087,"Procollagen-lysine,2-oxoglutarate 5-dioxygenase 1",Humans
+BE0002221,"Trimethyllysine dioxygenase, mitochondrial",Humans
+BE0002223,Transmembrane prolyl 4-hydroxylase,Humans
+BE0002217,Egl nine homolog 1,Humans
+BE0002211,Prolyl hydroxylase EGLN2,Humans
+BE0002219,Prolyl hydroxylase EGLN3,Humans
+BE0001979,"Thioredoxin reductase 1, cytoplasmic",Humans
+BE0001057,"Solute carrier family 2, facilitated glucose transporter member 1",Humans
+BE0004707,"Solute carrier family 2, facilitated glucose transporter member 3",Humans
+BE0000893,"Solute carrier family 2, facilitated glucose transporter member 4",Humans
+BE0003634,Carbonic anhydrase 14,Humans
+BE0003628,Carbonic anhydrase 6,Humans
+BE0002437,Carbonic anhydrase 9,Humans
+BE0000365,"Glutamate receptor ionotropic, NMDA 1",Humans
+BE0000760,"Glutamate receptor ionotropic, NMDA 2A",Humans
+BE0000509,Extracellular calcium-sensing receptor,Humans
+BE0000172,Beta-1 adrenergic receptor,Humans
+BE0000694,Beta-2 adrenergic receptor,Humans
+BE0000111,Diamine acetyltransferase 1,Humans
+BE0000417,"Glutamate receptor ionotropic, NMDA 2B",Humans
+BE0009692,Adenylosuccinate Synthetases,Humans
+BE0000277,"Electrogenic aspartate/glutamate antiporter SLC25A13, mitochondrial",Humans
+BE0000187,Aspartoacylase,Humans
+BE0000219,Asparagine synthetase [glutamine-hydrolyzing],Humans
+BE0000481,Aminoacylase-1,Humans
+BE0000725,"Aspartate--tRNA ligase, cytoplasmic",Humans
+BE0000235,"Electrogenic aspartate/glutamate antiporter SLC25A12, mitochondrial",Humans
+BE0000528,Aspartyl/asparaginyl beta-hydroxylase,Humans
+BE0002225,Bifunctional phosphoribosylaminoimidazole carboxylase/phosphoribosylaminoimidazole succinocarboxamide synthetase,Humans
+BE0002228,Adenylosuccinate synthetase isozyme 2,Humans
+BE0001054,Excitatory amino acid transporter 3,Humans
+BE0002229,"Aspartate--tRNA ligase, mitochondrial",Humans
+BE0002230,Isoaspartyl peptidase/L-asparaginase,Humans
+BE0003317,Ribonuclease pancreatic,Humans
+BE0003751,Lysozyme C,Humans
+BE0002227,Multifunctional protein CAD,Humans
+BE0000306,"Ornithine transcarbamylase, mitochondrial",Humans
+BE0000286,Arginase-1,Humans
+BE0000371,Ornithine decarboxylase antizyme 1,Humans
+BE0000258,Mitochondrial ornithine transporter 2,Humans
+BE0000201,Mitochondrial ornithine transporter 1,Humans
+BE0000347,"Glycine amidinotransferase, mitochondrial",Humans
+BE0000874,CTP synthase 1,Humans
+BE0000374,Amidophosphoribosyltransferase,Humans
+BE0000004,Coagulation factor XIII A chain,Humans
+BE0000825,"Glutaminase kidney isoform, mitochondrial",Humans
+BE0000003,"Glutaminase liver isoform, mitochondrial",Humans
+BE0001035,Protein-glutamine gamma-glutamyltransferase 2,Humans
+BE0002236,Protein-glutamine gamma-glutamyltransferase 5,Humans
+BE0002239,Protein-glutamine gamma-glutamyltransferase 6,Humans
+BE0002241,Protein-glutamine gamma-glutamyltransferase K,Humans
+BE0002243,Protein-glutamine gamma-glutamyltransferase 4,Humans
+BE0001273,Protein-glutamine gamma-glutamyltransferase E,Humans
+BE0002245,Protein-glutamine gamma-glutamyltransferase Z,Humans
+BE0000321,GMP synthase [glutamine-hydrolyzing],Humans
+BE0002235,Phosphoribosylformylglycinamidine synthase,Humans
+BE0002237,"Glutamyl-tRNA(Gln) amidotransferase subunit B, mitochondrial",Humans
+BE0002238,Glutamine--fructose-6-phosphate aminotransferase [isomerizing] 2,Humans
+BE0002242,Glutamine--tRNA ligase,Humans
+BE0002244,Glutamine-dependent NAD(+) synthetase,Humans
+BE0009870,Sodium-coupled neutral amino acid symporter 1,Humans
+BE0009871,Sodium-coupled neutral amino acid symporter 2,Humans
+BE0000236,Neutral amino acid transporter B(0),Humans
+BE0000423,Sodium- and chloride-dependent neutral and basic amino acid transporter B(0+),Humans
+BE0004769,Y+L amino acid transporter 1,Humans
+BE0009872,Y+L amino acid transporter 2,Humans
+BE0000222,Large neutral amino acids transporter small subunit 1,Humans
+BE0002251,"b(0,+)-type amino acid transporter 1",Humans
+BE0004907,5'-AMP-activated protein kinase,Humans
+BE0003540,Adenosine kinase,Humans
+BE0000254,5'-AMP-activated protein kinase subunit beta-1,Humans
+BE0000350,"Acetyl-coenzyme A synthetase, cytoplasmic",Humans
+BE0000677,5'-AMP-activated protein kinase catalytic subunit alpha-1,Humans
+BE0000269,Adenylate cyclase type 1,Humans
+BE0000639,Long-chain-fatty-acid--CoA ligase 1,Humans
+BE0000958,Cyclic AMP-responsive element-binding protein 1,Humans
+BE0000487,"3',5'-cyclic-AMP phosphodiesterase 4B",Humans
+BE0001473,Adenosine 5'-monophosphoramidase HINT1,Humans
+BE0001287,"3',5'-cyclic-AMP phosphodiesterase 4D",Humans
+BE0002431,"Fructose-1,6-bisphosphatase 1",Humans
+BE0000352,AMP deaminase 1,Humans
+BE0000115,Adenine phosphoribosyltransferase,Humans
+BE0000888,Acyl-CoA (8-3)-desaturase,Humans
+BE0002246,Acyl-CoA 6-desaturase,Humans
+BE0001023,Transient receptor potential cation channel subfamily V member 1,Humans
+BE0000688,Free fatty acid receptor 1,Humans
+BE0000071,Peroxisome proliferator-activated receptor alpha,Humans
+BE0001777,Bile acid receptor,Humans
+BE0001007,Peroxisome proliferator-activated receptor delta,Humans
+BE0000215,Peroxisome proliferator-activated receptor gamma,Humans
+BE0000412,Retinoic acid receptor RXR-alpha,Humans
+BE0009936,Very long chain fatty acid elongase 2,Humans
+BE0009375,Very long chain fatty acid elongase 5,Humans
+BE0000986,Sodium/calcium exchanger 1,Humans
+BE0001821,"Fatty acid-binding protein, brain",Humans
+BE0000063,"Serine--tRNA ligase, cytoplasmic",Humans
+BE0001534,Methionine aminopeptidase 2,Humans
+BE0000845,Betaine--homocysteine S-methyltransferase 1,Humans
+BE0002249,S-methylmethionine--homocysteine S-methyltransferase BHMT2,Humans
+BE0000432,"Methionine-R-sulfoxide reductase B2, mitochondrial",Humans
+BE0000288,Methionine-R-sulfoxide reductase B1,Humans
+BE0000170,Mitochondrial peptide methionine sulfoxide reductase,Humans
+BE0000543,"Methionine--tRNA ligase, cytoplasmic",Humans
+BE0002248,"Methionine--tRNA ligase, mitochondrial",Humans
+BE0002178,Methionine adenosyltransferase 2 subunit beta,Humans
+BE0000363,"Tyrosine--tRNA ligase, mitochondrial",Humans
+BE0000230,"Tyrosine--tRNA ligase, cytoplasmic",Humans
+BE0000779,Vitamin D3 receptor,Humans
+BE0008987,Homeobox protein Hox-A10,Humans
+BE0002250,"1,25-dihydroxyvitamin D(3) 24-hydroxylase, mitochondrial",Humans
+BE0001141,Vitamin D-binding protein,Humans
+BE0000030,Cystine/glutamate transporter,Humans
+BE0000035,Cystinosin,Humans
+BE0001130,Amino acid transporter heavy chain SLC3A1,Humans
+BE0000152,"Succinate-semialdehyde dehydrogenase, mitochondrial",Humans
+BE0002258,Succinate receptor 1,Humans
+BE0002257,"Succinate dehydrogenase cytochrome b560 subunit, mitochondrial",Humans
+BE0000176,"Succinate dehydrogenase [ubiquinone] flavoprotein subunit, mitochondrial",Humans
+BE0000355,"Succinate--CoA ligase [GDP-forming] subunit beta, mitochondrial",Humans
+BE0009980,Prolyl 4-hydroxylase,Humans
+BE0002256,"Succinyl-CoA:3-ketoacid coenzyme A transferase 1, mitochondrial",Humans
+BE0003645,Organic anion transporter 3,Humans
+BE0002261,Mitochondrial dicarboxylate carrier,Humans
+BE0000022,Solute carrier family 13 member 1,Humans
+BE0000447,Solute carrier family 13 member 2,Humans
+BE0000611,Na(+)/dicarboxylate cotransporter 3,Humans
+BE0000370,Riboflavin kinase,Humans
+BE0003327,Riboflavin synthase,Escherichia coli (strain K12)
+BE0000595,Flavin reductase (NADPH),Humans
+BE0002198,Amine oxidase [flavin-containing] A,Humans
+BE0000259,"Beta-1,4-galactosyltransferase 1",Humans
+BE0002263,"Beta-1,4-galactosyltransferase 4",Humans
+BE0002265,N-acetyl-D-glucosamine kinase,Humans
+BE0002266,N-acetylglucosamine-1-phosphodiester alpha-N-acetylglucosaminidase,Humans
+BE0000391,Alpha-N-acetylglucosaminidase,Humans
+BE0000109,N-acylglucosamine 2-epimerase,Humans
+BE0000824,Metabotropic glutamate receptor 1,Humans
+BE0000833,Metabotropic glutamate receptor 4,Humans
+BE0000827,"Glutamate receptor ionotropic, kainate 4",Humans
+BE0000828,"Glutamate receptor ionotropic, kainate 5",Humans
+BE0000834,Metabotropic glutamate receptor 7,Humans
+BE0000835,Metabotropic glutamate receptor 8,Humans
+BE0002267,Excitatory amino acid transporter 5,Humans
+BE0002268,5-oxoprolinase,Humans
+BE0000396,"Glutamate receptor ionotropic, NMDA 2D",Humans
+BE0000188,Bifunctional glutamate/proline--tRNA ligase,Humans
+BE0001115,Excitatory amino acid transporter 1,Humans
+BE0000884,Excitatory amino acid transporter 2,Humans
+BE0000166,Glutamate--cysteine ligase catalytic subunit,Humans
+BE0002270,Excitatory amino acid transporter 4,Humans
+BE0000755,"Glutamate dehydrogenase 2, mitochondrial",Humans
+BE0000700,"Folylpolyglutamate synthase, mitochondrial",Humans
+BE0002271,Glutamyl aminopeptidase,Humans
+BE0000454,"Glutamate receptor ionotropic, NMDA 2C",Humans
+BE0002272,"Nondiscriminating glutamyl-tRNA synthetase EARS2, mitochondrial",Humans
+BE0002274,"N-acetylglutamate synthase, mitochondrial",Humans
+BE0000641,"Glutamate receptor ionotropic, NMDA 3A",Humans
+BE0000073,"Alpha-aminoadipic semialdehyde synthase, mitochondrial",Humans
+BE0002277,Aspartyl aminopeptidase,Humans
+BE0004640,Carboxypeptidase Q,Humans
+BE0000180,"Glutamate dehydrogenase 1, mitochondrial",Humans
+BE0000346,"Glutamate receptor ionotropic, kainate 1",Humans
+BE0000640,Glutamate receptor 1,Humans
+BE0000606,Glutamate--cysteine ligase regulatory subunit,Humans
+BE0000829,Glutamate receptor 2,Humans
+BE0000831,Glutamate receptor 3,Humans
+BE0000830,Glutamate receptor 4,Humans
+BE0000823,Delta-1-pyrroline-5-carboxylate synthase,Humans
+BE0000826,"Glutamate receptor ionotropic, kainate 2",Humans
+BE0000832,"Glutamate receptor ionotropic, kainate 3",Humans
+BE0002275,Mitochondrial glutamate carrier 2,Humans
+BE0002276,Mitochondrial glutamate carrier 1,Humans
+BE0000747,Aldo-keto reductase family 1 member B1,Humans
+BE0000761,Inosine-5'-monophosphate dehydrogenase 1,Humans
+BE0000058,Matrix metalloproteinase-9,Humans
+BE0009997,Glutathione peroxidase,
+BE0000648,"Glutathione reductase, mitochondrial",Humans
+BE0000185,Glutathione synthetase,Humans
+BE0000807,Glutathione S-transferase Mu 1,Humans
+BE0000808,Glutathione S-transferase kappa 1,Humans
+BE0000809,Glutathione S-transferase A3,Humans
+BE0000810,Glutathione S-transferase Mu 3,Humans
+BE0000811,Glutathione S-transferase A4,Humans
+BE0000812,Glutathione S-transferase Mu 4,Humans
+BE0000813,Glutathione S-transferase A5,Humans
+BE0000814,Glutathione S-transferase P,Humans
+BE0000815,Glutathione S-transferase omega-1,Humans
+BE0000816,Glutathione peroxidase 1,Humans
+BE0000817,Glutathione peroxidase 2,Humans
+BE0000818,Glutathione S-transferase theta-1,Humans
+BE0000819,Maleylacetoacetate isomerase,Humans
+BE0000820,Epididymal secretory glutathione peroxidase,Humans
+BE0000821,Glutathione peroxidase 3,Humans
+BE0000962,Lactoylglutathione lyase,Humans
+BE0001117,Leukotriene C4 synthase,Humans
+BE0002279,"Glutathione S-transferase 3, mitochondrial",Humans
+BE0001167,Hematopoietic prostaglandin D synthase,Humans
+BE0002281,Glutathione S-transferase A1,Humans
+BE0002189,Glutathione S-transferase A2,Humans
+BE0002282,Microsomal glutathione S-transferase 1,Humans
+BE0002283,S-formylglutathione hydrolase,Humans
+BE0000889,Glutathione hydrolase 1 proenzyme,Humans
+BE0001189,Glutathione S-transferase Mu 2,Humans
+BE0002284,Glutaredoxin-1,Humans
+BE0001135,Phospholipid hydroperoxide glutathione peroxidase GPX4,Humans
+BE0002285,Glutathione S-transferase Mu 5,Humans
+BE0002286,Glutathione peroxidase 6,Humans
+BE0001825,"Hydroxyacylglutathione hydrolase, mitochondrial",Humans
+BE0002287,Glutathione peroxidase,Humans
+BE0002289,Glutathione peroxidase 7,Humans
+BE0002290,Microsomal glutathione S-transferase 2,Humans
+BE0002291,Glutathione S-transferase omega-2,Humans
+BE0002292,"Glutaredoxin-2, mitochondrial",Humans
+BE0001061,ATP-binding cassette sub-family C member 3,Humans
+BE0001188,ATP-binding cassette sub-family C member 4,Humans
+BE0003639,ATP-binding cassette sub-family C member 5,Humans
+BE0000673,"Phosphatidylserine decarboxylase proenzyme, mitochondrial",Humans
+BE0000189,Scavenger receptor class B member 1,Humans
+BE0001132,Protein kinase C alpha type,Humans
+BE0001099,Phosphatidylserine synthase 1,Humans
+BE0002296,Diacylglycerol kinase gamma,Humans
+BE0002297,Diacylglycerol kinase delta,Humans
+BE0002299,Phosphatidylserine synthase 2,Humans
+BE0002300,Sphingomyelin phosphodiesterase 4,Humans
+BE0002301,Sphingomyelin phosphodiesterase 3,Humans
+BE0001001,Phospholipid-transporting ATPase IA,Humans
+BE0000998,Glycine--tRNA ligase,Humans
+BE0002303,Bile acid-CoA:amino acid N-acyltransferase,Humans
+BE0002304,N-arachidonyl glycine receptor,Humans
+BE0002305,Glycine N-acyltransferase,Humans
+BE0002306,Glycine N-acyltransferase-like protein 2,Humans
+BE0002307,Glycine N-acyltransferase-like protein 1,Humans
+BE0002309,Peroxisomal sarcosine oxidase,Humans
+BE0000534,"Glutamate receptor ionotropic, NMDA 3B",Humans
+BE0000433,Glycine receptor subunit alpha-1,Humans
+BE0000055,Glycine receptor subunit beta,Humans
+BE0000414,Glycine receptor subunit alpha-3,Humans
+BE0000745,Glycine receptor subunit alpha-2,Humans
+BE0000737,"Dihydrolipoyl dehydrogenase, mitochondrial",Humans
+BE0002302,"Glycine cleavage system H protein, mitochondrial",Humans
+BE0000536,Proton-coupled amino acid transporter 1,Humans
+BE0002308,Vesicular inhibitory amino acid transporter,Humans
+BE0002310,Sodium- and chloride-dependent glycine transporter 2,Humans
+BE0000940,Sodium- and chloride-dependent glycine transporter 1,Humans
+BE0000443,"25-hydroxyvitamin D-1 alpha hydroxylase, mitochondrial",Humans
+BE0000042,Pyridoxal kinase,Humans
+BE0000714,Creatine kinase M-type,Humans
+BE0000171,"Creatine kinase U-type, mitochondrial",Humans
+BE0000082,Creatine kinase B-type,Humans
+BE0000410,"Creatine kinase S-type, mitochondrial",Humans
+BE0000567,Guanidinoacetate N-methyltransferase,Humans
+BE0000375,Sodium- and chloride-dependent creatine transporter 1,Humans
+BE0000204,"Leucine--tRNA ligase, mitochondrial",Humans
+BE0000613,tRNA wybutosine-synthesizing protein 4,Humans
+BE0000450,Leucine carboxyl methyltransferase 1,Humans
+BE0000769,"Leucine--tRNA ligase, cytoplasmic",Humans
+BE0000693,"Indoleamine 2,3-dioxygenase 1",Humans
+BE0000228,"Tryptophan--tRNA ligase, cytoplasmic",Humans
+BE0001343,Tryptophan--tRNA ligase,Geobacillus stearothermophilus
+BE0002311,"Tryptophan--tRNA ligase, mitochondrial",Humans
+BE0000121,Tryptophan 5-hydroxylase 1,Humans
+BE0000080,Tryptophan 5-hydroxylase 2,Humans
+BE0003532,"Tryptophan 2,3-dioxygenase",Humans
+BE0000701,"Cysteine--tRNA ligase, cytoplasmic",Humans
+BE0001145,Methylated-DNA--protein-cysteine methyltransferase,Humans
+BE0002312,"Probable cysteine--tRNA ligase, mitochondrial",Humans
+BE0000569,Cysteine dioxygenase type 1,Humans
+BE0000157,Thiamine pyrophosphokinase 1,Humans
+BE0002003,Pyruvate dehydrogenase E1 component,Escherichia coli (strain K12)
+BE0004673,Cytochrome P450 4B1,Humans
+BE0009876,Nucleoside diphosphate phosphatase ENTPD5,Humans
+BE0009877,Thiamine-triphosphatase,Humans
+BE0003530,Thiamine transporter 1,Humans
+BE0000963,Thiamine transporter 2,Humans
+BE0004902,Voltage-dependent calcium channel,Humans
+BE0009671,Ribulose-phosphate 3-epimerase,Humans
+BE0003537,"Cholesterol side-chain cleavage enzyme, mitochondrial",Humans
+BE0000524,Vitamin D 25-hydroxylase,Humans
+BE0000766,"N(G),N(G)-dimethylarginine dimethylaminohydrolase 1",Humans
+BE0000067,Nitric oxide synthase 1,Humans
+BE0001092,Protein-arginine deiminase type-4,Humans
+BE0000234,"Threonine--tRNA ligase 1, cytoplasmic",Humans
+BE0002317,"Threonine--tRNA ligase, mitochondrial",Humans
+BE0001755,Beta-lactamase Toho-1,Escherichia coli
+BE0000196,NADH-ubiquinone oxidoreductase chain 3,Humans
+BE0000645,UDP-glucose 6-dehydrogenase,Humans
+BE0000227,Alcohol dehydrogenase 1A,Humans
+BE0000299,Sorbitol dehydrogenase,Humans
+BE0000360,All-trans-retinol dehydrogenase [NAD(+)] ADH4,Humans
+BE0000465,Alcohol dehydrogenase 1C,Humans
+BE0000400,All-trans-retinol dehydrogenase [NAD(+)] ADH1B,Humans
+BE0000522,All-trans-retinol dehydrogenase [NAD(+)] ADH7,Humans
+BE0000208,"Glycerol-3-phosphate dehydrogenase [NAD(+)], cytoplasmic",Humans
+BE0000297,L-lactate dehydrogenase A-like 6A,Humans
+BE0000009,Alcohol dehydrogenase class-3,Humans
+BE0000317,3-hydroxyacyl-CoA dehydrogenase type-2,Humans
+BE0000780,"Malate dehydrogenase, mitochondrial",Humans
+BE0000425,L-lactate dehydrogenase A chain,Humans
+BE0000148,"NAD-dependent malic enzyme, mitochondrial",Humans
+BE0000408,Peroxisomal multifunctional enzyme type 2,Humans
+BE0000100,L-lactate dehydrogenase A-like 6B,Humans
+BE0000149,L-lactate dehydrogenase C chain,Humans
+BE0000068,L-lactate dehydrogenase B chain,Humans
+BE0000586,Peroxisomal bifunctional enzyme,Humans
+BE0000377,"Hydroxyacyl-coenzyme A dehydrogenase, mitochondrial",Humans
+BE0000328,"NADP-dependent malic enzyme, mitochondrial",Humans
+BE0000175,"D-beta-hydroxybutyrate dehydrogenase, mitochondrial",Humans
+BE0000589,"Malate dehydrogenase, cytoplasmic",Humans
+BE0000128,"3-hydroxyisobutyrate dehydrogenase, mitochondrial",Humans
+BE0000336,17-beta-hydroxysteroid dehydrogenase type 3,Humans
+BE0000574,3-hydroxy-3-methylglutaryl-coenzyme A reductase,Humans
+BE0000604,NADP-dependent malic enzyme,Humans
+BE0000161,D-3-phosphoglycerate dehydrogenase,Humans
+BE0000184,3-keto-steroid reductase/17-beta-hydroxysteroid dehydrogenase 7,Humans
+BE0000771,"Isocitrate dehydrogenase [NAD] subunit gamma, mitochondrial",Humans
+BE0000559,"Isocitrate dehydrogenase [NAD] subunit beta, mitochondrial",Humans
+BE0000011,"Isocitrate dehydrogenase [NAD] subunit alpha, mitochondrial",Humans
+BE0000194,17-beta-hydroxysteroid dehydrogenase type 1,Humans
+BE0000006,17-beta-hydroxysteroid dehydrogenase type 2,Humans
+BE0000570,Retinol dehydrogenase 5,Humans
+BE0000357,GDH/6PGL endoplasmic bifunctional protein,Humans
+BE0000578,(3R)-3-hydroxyacyl-CoA dehydrogenase,Humans
+BE0000438,Aldo-keto reductase family 1 member C4,Humans
+BE0000722,Inosine-5'-monophosphate dehydrogenase 2,Humans
+BE0000592,Aldo-keto reductase family 1 member C3,Humans
+BE0000552,15-hydroxyprostaglandin dehydrogenase [NAD(+)],Humans
+BE0000662,GDP-L-fucose synthase,Humans
+BE0000126,Aldo-keto reductase family 1 member C1,Humans
+BE0000329,11-beta-hydroxysteroid dehydrogenase 1,Humans
+BE0000059,3 beta-hydroxysteroid dehydrogenase/Delta 5-->4-isomerase type 2,Humans
+BE0000051,3 beta-hydroxysteroid dehydrogenase/Delta 5-->4-isomerase type 1,Humans
+BE0000260,"Trifunctional enzyme subunit alpha, mitochondrial",Humans
+BE0000133,"Aldehyde dehydrogenase, mitochondrial",Humans
+BE0000131,11-beta-hydroxysteroid dehydrogenase type 2,Humans
+BE0000622,Aldo-keto reductase family 1 member C2,Humans
+BE0000044,"Sterol-4-alpha-carboxylate 3-dehydrogenase, decarboxylating",Humans
+BE0000193,Aldehyde dehydrogenase family 3 member B2,Humans
+BE0000231,"Methylmalonate-semialdehyde/malonate-semialdehyde dehydrogenase [acylating], mitochondrial",Humans
+BE0000718,"Aldehyde dehydrogenase, dimeric NADP-preferring",Humans
+BE0000554,Aldehyde dehydrogenase 1A1,Humans
+BE0000720,"Glyceraldehyde-3-phosphate dehydrogenase, testis-specific",Humans
+BE0000287,4-trimethylaminobutyraldehyde dehydrogenase,Humans
+BE0000583,Retinaldehyde dehydrogenase 3,Humans
+BE0000479,"Aldehyde dehydrogenase X, mitochondrial",Humans
+BE0000446,Aldehyde dehydrogenase family 3 member B1,Humans
+BE0000542,Glyceraldehyde-3-phosphate dehydrogenase,Humans
+BE0000513,Retinal dehydrogenase 2,Humans
+BE0000600,Aldehyde dehydrogenase family 3 member A2,Humans
+BE0000135,Alpha-aminoadipic semialdehyde dehydrogenase,Humans
+BE0000728,Pyrroline-5-carboxylate reductase 2,Humans
+BE0000225,"Pyrroline-5-carboxylate reductase 1, mitochondrial",Humans
+BE0000609,"Pyruvate dehydrogenase E1 component subunit alpha, testis-specific form, mitochondrial",Humans
+BE0000571,"Pyruvate dehydrogenase E1 component subunit alpha, somatic form, mitochondrial",Humans
+BE0000741,Biliverdin reductase A,Humans
+BE0000762,"Short-chain specific acyl-CoA dehydrogenase, mitochondrial",Humans
+BE0000330,Dihydrofolate reductase,Humans
+BE0000162,2-oxoglutarate dehydrogenase complex component E1,Humans
+BE0000031,7-dehydrocholesterol reductase,Humans
+BE0000220,Ribosyldihydronicotinamide dehydrogenase [quinone],Humans
+BE0000655,NADH-ubiquinone oxidoreductase chain 2,Humans
+BE0000307,"NADH dehydrogenase [ubiquinone] iron-sulfur protein 7, mitochondrial",Humans
+BE0000244,"Delta-1-pyrroline-5-carboxylate dehydrogenase, mitochondrial",Humans
+BE0000160,NADH-cytochrome b5 reductase 3,Humans
+BE0000541,NADH dehydrogenase [ubiquinone] 1 alpha subcomplex subunit 11,Humans
+BE0000551,NADH-ubiquinone oxidoreductase chain 4,Humans
+BE0000540,Dihydropteridine reductase,Humans
+BE0000503,NADH-ubiquinone oxidoreductase chain 1,Humans
+BE0000008,"NAD(P) transhydrogenase, mitochondrial",Humans
+BE0000473,NADH dehydrogenase [ubiquinone] 1 alpha subcomplex subunit 5,Humans
+BE0000305,"NADH dehydrogenase [ubiquinone] 1 alpha subcomplex subunit 9, mitochondrial",Humans
+BE0000272,NADH-ubiquinone oxidoreductase chain 4L,Humans
+BE0000081,"NADH dehydrogenase [ubiquinone] 1 alpha subcomplex subunit 10, mitochondrial",Humans
+BE0000401,NADH dehydrogenase [ubiquinone] 1 alpha subcomplex subunit 7,Humans
+BE0000224,NADH dehydrogenase [ubiquinone] 1 alpha subcomplex subunit 1,Humans
+BE0000348,NADH-ubiquinone oxidoreductase chain 6,Humans
+BE0000580,NADH-ubiquinone oxidoreductase chain 5,Humans
+BE0000169,Cytochrome c oxidase subunit FA4,Humans
+BE0000213,NADH dehydrogenase [ubiquinone] 1 alpha subcomplex subunit 6,Humans
+BE0000545,"Acyl carrier protein, mitochondrial",Humans
+BE0000550,NADH dehydrogenase [ubiquinone] 1 alpha subcomplex subunit 2,Humans
+BE0000367,NADH dehydrogenase [ubiquinone] 1 alpha subcomplex subunit 8,Humans
+BE0000684,NADH dehydrogenase [ubiquinone] 1 alpha subcomplex subunit 3,Humans
+BE0000676,"NADH dehydrogenase [ubiquinone] 1 beta subcomplex subunit 8, mitochondrial",Humans
+BE0000173,NADH dehydrogenase [ubiquinone] 1 subunit C2,Humans
+BE0000338,NADH dehydrogenase [ubiquinone] 1 beta subcomplex subunit 1,Humans
+BE0000493,"NADH-ubiquinone oxidoreductase 75 kDa subunit, mitochondrial",Humans
+BE0000245,NADH dehydrogenase [ubiquinone] 1 beta subcomplex subunit 10,Humans
+BE0000295,NADH dehydrogenase [ubiquinone] 1 beta subcomplex subunit 4,Humans
+BE0000284,NADH dehydrogenase [ubiquinone] 1 beta subcomplex subunit 3,Humans
+BE0000427,"NADH dehydrogenase [ubiquinone] 1 beta subcomplex subunit 2, mitochondrial",Humans
+BE0000512,NADH dehydrogenase [ubiquinone] 1 beta subcomplex subunit 7,Humans
+BE0000596,NADH dehydrogenase [ubiquinone] 1 beta subcomplex subunit 9,Humans
+BE0000729,"NADH dehydrogenase [ubiquinone] iron-sulfur protein 2, mitochondrial",Humans
+BE0000243,"NADH dehydrogenase [ubiquinone] 1 beta subcomplex subunit 5, mitochondrial",Humans
+BE0000313,"NADH dehydrogenase [ubiquinone] 1 subunit C1, mitochondrial",Humans
+BE0000376,NADH dehydrogenase [ubiquinone] 1 beta subcomplex subunit 6,Humans
+BE0000027,"NADH dehydrogenase [ubiquinone] flavoprotein 3, mitochondrial",Humans
+BE0000191,"NADH dehydrogenase [ubiquinone] iron-sulfur protein 3, mitochondrial",Humans
+BE0000754,NADH dehydrogenase [ubiquinone] 1 alpha subcomplex subunit 12,Humans
+BE0000089,NADH dehydrogenase [ubiquinone] iron-sulfur protein 5,Humans
+BE0000500,"NADH dehydrogenase [ubiquinone] iron-sulfur protein 4, mitochondrial",Humans
+BE0000485,"NADH dehydrogenase [ubiquinone] flavoprotein 1, mitochondrial",Humans
+BE0000137,"NADH dehydrogenase [ubiquinone] flavoprotein 2, mitochondrial",Humans
+BE0000525,NADH dehydrogenase [ubiquinone] 1 alpha subcomplex subunit 13,Humans
+BE0000093,"NADH dehydrogenase [ubiquinone] iron-sulfur protein 6, mitochondrial",Humans
+BE0000319,Cytochrome c oxidase hypoxia associated subunit FA4L2,Humans
+BE0000037,"NADH dehydrogenase [ubiquinone] iron-sulfur protein 8, mitochondrial",Humans
+BE0000065,"Dihydrolipoyllysine-residue acetyltransferase component of pyruvate dehydrogenase complex, mitochondrial",Humans
+BE0000096,Methylsterol monooxygenase 1,Humans
+BE0000735,Heme oxygenase 1,Humans
+BE0000587,Heme oxygenase 2,Humans
+BE0000344,"Steroid 17-alpha-hydroxylase/17,20 lyase",Humans
+BE0000252,Tyrosinase,Humans
+BE0004352,Aldo-keto reductase family 1 member A1,Humans
+BE0003539,Aldehyde oxidase,Humans
+BE0003545,Alcohol dehydrogenase 6,Humans
+BE0004711,Reduced folate transporter,Humans
+BE0001048,Proton-coupled folate transporter,Humans
+BE0000652,Folate receptor gamma,Humans
+BE0000271,Folate receptor beta,Humans
+BE0003405,Folate receptor alpha,Humans
+BE0000265,Gamma-glutamyl hydrolase,Humans
+BE0003658,ATP-binding cassette sub-family C member 11,Humans
+BE0000730,Solute carrier family 25 member 32,Humans
+BE0000996,Long-chain-fatty-acid--CoA ligase 4,Humans
+BE0000248,Polyunsaturated fatty acid 5-lipoxygenase,Humans
+BE0000294,"Alanine--tRNA ligase, cytoplasmic",Humans
+BE0000480,Neutral amino acid transporter A,Humans
+BE0002318,"Alanine--tRNA ligase, mitochondrial",Humans
+BE0000223,Valine--tRNA ligase,Humans
+BE0000707,Retinoic acid receptor RXR-gamma,Humans
+BE0005056,Apolipoprotein D,Humans
+BE0009878,Prostaglandin-H2 D-isomerase,Humans
+BE0000726,Retinol dehydrogenase 12,Humans
+BE0000593,Retinol dehydrogenase 13,Humans
+BE0000900,Lecithin retinol acyltransferase,Humans
+BE0002319,Short-chain dehydrogenase/reductase 3,Humans
+BE0002320,"All-trans-retinol 13,14-reductase",Humans
+BE0002321,Retinol dehydrogenase 11,Humans
+BE0000032,Dehydrogenase/reductase SDR family member 4,Humans
+BE0002322,Retinol dehydrogenase 14,Humans
+BE0002323,Retinol dehydrogenase 8,Humans
+BE0003480,Cytochrome P450 26A1,Humans
+BE0000786,Retinaldehyde-binding protein 1,Humans
+BE0000255,Retinol-binding protein 3,Humans
+BE0000301,Retinol-binding protein 1,Humans
+BE0000682,Retinol-binding protein 5,Humans
+BE0000532,Retinoid-binding protein 7,Humans
+BE0000314,Retinol-binding protein 4,Humans
+BE0000505,Retinol-binding protein 2,Humans
+BE0009879,Receptor for retinol uptake STRA6,Humans
+BE0000076,SEC14-like protein 4,Humans
+BE0000339,SEC14-like protein 3,Humans
+BE0000256,SEC14-like protein 2,Humans
+BE0000956,Nuclear receptor subfamily 1 group I member 2,Humans
+BE0000872,Protein kinase C beta type,Humans
+BE0002324,Diacylglycerol kinase alpha,Humans
+BE0002325,Serine/threonine-protein phosphatase 2A catalytic subunit beta isoform,Humans
+BE0002326,Serine/threonine-protein phosphatase 2A catalytic subunit alpha isoform,Humans
+BE0001184,NAD(P)H dehydrogenase [quinone] 1,Humans
+BE0002390,Superoxide dismutase [Cu-Zn],Humans
+BE0009656,Phospholipid transfer protein,Humans
+BE0000643,Alpha-tocopherol transfer protein,Humans
+BE0000119,Phospholipid-transporting ATPase ABCA1,Humans
+BE0000802,NPC1-like intracellular cholesterol transporter 1,Humans
+BE0001168,ATP-binding cassette sub-family G member 1,Humans
+BE0003543,Cytochrome P450 1A1,Humans
+BE0003546,"Alkaline phosphatase, tissue-nonspecific isozyme",Humans
+BE0000040,"Lipoyl amidotransferase LIPT1, mitochondrial",Humans
+BE0002327,"Lipoyl synthase, mitochondrial",Humans
+BE0002364,NADPH--cytochrome P450 reductase,Humans
+BE0000573,"Short/branched chain specific acyl-CoA dehydrogenase, mitochondrial",Humans
+BE0000491,"Isoleucine--tRNA ligase, cytoplasmic",Humans
+BE0002328,"Isoleucine--tRNA ligase, mitochondrial",Humans
+BE0000395,Taste receptor type 1 member 2,Humans
+BE0000879,Solute carrier family 22 member 11,Humans
+BE0003683,Cytochrome P450 2J2,Humans
+BE0002887,Cytochrome P450 2C8,Humans
+BE0000713,Vitamin K epoxide reductase complex subunit 1,Humans
+BE0002329,Vitamin K epoxide reductase complex subunit 1-like protein 1,Humans
+BE0000724,Osteocalcin,Humans
+BE0003336,Cytochrome P450 2A6,Humans
+BE0003549,Cytochrome P450 2B6,Humans
+BE0003612,Cytochrome P450 3A7,Humans
+BE0000014,Tyrosine-protein kinase ABL1,Humans
+BE0003640,ATP-binding cassette sub-family C member 6,Humans
+BE0001195,Cystic fibrosis transmembrane conductance regulator,Humans
+BE0002379,"Phosphatidylinositol 4,5-bisphosphate 3-kinase catalytic subunit alpha isoform",Humans
+BE0001209,Casein kinase II subunit alpha,Humans
+BE0000435,Tyrosine-protein kinase ABL2,Humans
+BE0000359,ALK tyrosine kinase receptor,Humans
+BE0000434,Serine/threonine-protein kinase A-Raf,Humans
+BE0000261,Cytosolic purine 5'-nucleotidase,Humans
+BE0000469,ATP-binding cassette sub-family C member 9,Humans
+BE0000428,RAC-alpha serine/threonine-protein kinase,Humans
+BE0000665,Activin receptor type-1B,Humans
+BE0000264,Activin receptor type-1,Humans
+BE0000437,Cyclin-dependent kinase 15,Humans
+BE0000599,ADP/ATP translocase 1,Humans
+BE0000207,ATP-binding cassette sub-family C member 8,Humans
+BE0000772,Activated CDC42 kinase 1,Humans
+BE0002332,Peptidyl-prolyl cis-trans isomerase B,Humans
+BE0000723,Sodium-dependent proline transporter,Humans
+BE0002253,Prolyl 4-hydroxylase subunit alpha-2,Humans
+BE0002330,"Proline dehydrogenase 1, mitochondrial",Humans
+BE0002331,Peptidyl-prolyl cis-trans isomerase H,Humans
+BE0002333,Peptidyl-prolyl cis-trans isomerase C,Humans
+BE0002334,Peptidyl-prolyl cis-trans isomerase G,Humans
+BE0002335,Pyrroline-5-carboxylate reductase,Humans
+BE0002336,"Probable proline--tRNA ligase, mitochondrial",Humans
+BE0004615,Pyrroline-5-carboxylate reductase 3,Humans
+BE0002337,Trans-3-hydroxy-L-proline dehydratase,Humans
+BE0001128,S-methyl-5'-thioadenosine phosphorylase,Humans
+BE0001229,Nicotinate-nucleotide--dimethylbenzimidazole phosphoribosyltransferase,Salmonella typhimurium (strain LT2 / SGSC1412 / ATCC 700720)
+BE0003786,Low molecular weight phosphotyrosine protein phosphatase,Humans
+BE0002007,5'-methylthioadenosine/S-adenosylhomocysteine nucleosidase,Escherichia coli (strain K12)
+BE0002791,Peroxisomal trans-2-enoyl-CoA reductase,Humans
+BE0002755,Adenine DNA glycosylase,Escherichia coli (strain K12)
+BE0002706,Nucleoside 2-deoxyribosyltransferase,Lactobacillus helveticus
+BE0004323,SRSF protein kinase 2,Humans
+BE0002792,Holliday junction branch migration complex subunit RuvB,Thermus thermophilus (strain HB8 / ATCC 27634 / DSM 579)
+BE0003541,UDP-glucuronosyltransferase 1A1,Humans
+BE0009976,Sodium-coupled neutral amino acid transporters,Humans
+BE0000607,"Asparagine--tRNA ligase, cytoplasmic",Humans
+BE0002338,Asparaginyl-tRNA synthetase,Humans
+BE0002366,Histone deacetylase 2,Humans
+BE0001042,Solute carrier organic anion transporter family member 2B1,Humans
+BE0003642,Solute carrier organic anion transporter family member 1A2,Humans
+BE0003646,Solute carrier family 22 member 7,Humans
+BE0000749,Sodium-dependent serotonin transporter,Humans
+BE0000090,Voltage-gated inwardly rectifying potassium channel KCNH2,Humans
+BE0004866,Cytochrome P450 3A Subfamily,Humans
+BE0000062,Type-1 angiotensin II receptor,Humans
+BE0000221,Angiotensin-converting enzyme,Humans
+BE0005831,B1 bradykinin receptor,Humans
+BE0001018,Solute carrier family 15 member 1,Humans
+BE0001134,Solute carrier family 15 member 2,Humans
+BE0004624,Transient receptor potential cation channel subfamily M member 7,Humans
+BE0000794,Glucocorticoid receptor,Humans
+BE0000209,Corticosteroid-binding globulin,Humans
+BE0002340,Gamma-aminobutyric acid type B receptor subunit 2,Humans
+BE0000217,Gamma-aminobutyric acid type B receptor subunit 1,Humans
+BE0000919,C-X-C chemokine receptor type 4,Humans
+BE0000118,Synaptic vesicular amine transporter,Humans
+BE0000647,Sodium-dependent dopamine transporter,Humans
+BE0000867,Cocaine- and amphetamine-regulated transcript protein,Humans
+BE0001044,Trace amine-associated receptor 1,Humans
+BE0004909,Monoamine oxidase,Humans
+BE0000486,Sodium-dependent noradrenaline transporter,Humans
+BE0004888,Alpha adrenergic receptor,Humans
+BE0004872,Beta adrenergic receptor,Humans
+BE0000756,D(2) dopamine receptor,Humans
+BE0002196,Amine oxidase [flavin-containing] B,Humans
+BE0001158,Gastrin/cholecystokinin type B receptor,Humans
+BE0000849,Neuronal acetylcholine receptor subunit alpha-4,Humans
+BE0000850,Neuronal acetylcholine receptor subunit beta-2,Humans
+BE0003585,Neuronal acetylcholine receptor subunit alpha-3,Humans
+BE0003586,Neuronal acetylcholine receptor subunit alpha-5,Humans
+BE0003587,Neuronal acetylcholine receptor subunit alpha-6,Humans
+BE0002343,Neuronal acetylcholine receptor subunit alpha-9,Humans
+BE0000411,Neuronal acetylcholine receptor subunit alpha-10,Humans
+BE0003588,Neuronal acetylcholine receptor subunit beta-3,Humans
+BE0003584,Neuronal acetylcholine receptor subunit beta-4,Humans
+BE0002090,Aromatase,Humans
+BE0003534,Cytochrome P450 2A13,Humans
+BE0000045,Muscarinic acetylcholine receptor M3,Humans
+BE0000092,Muscarinic acetylcholine receptor M1,Humans
+BE0003609,Flavin-containing monooxygenase 1,Humans
+BE0004797,GABA(A) Receptor,Humans
+BE0008668,GABA(A) Receptor Benzodiazepine Binding Site,Humans
+BE0000736,Translocator protein,Humans
+BE0004696,UDP-glucuronosyltransferase 2B15,Humans
+BE0002348,Proteasome subunit beta type-5,Humans
+BE0002347,Proteasome subunit beta type-1,Humans
+BE0001739,Serine protease 1,Humans
+BE0000795,Gamma-aminobutyric acid receptor subunit alpha-1,Humans
+BE0002346,Gamma-aminobutyric acid receptor subunit beta-2,Humans
+BE0003476,Pro-neuropeptide Y,Humans
+BE0000197,Sodium channel protein type 5 subunit alpha,Humans
+BE0000770,Mu-type opioid receptor,Humans
+BE0002081,Sodium channel protein type 2 subunit alpha,Humans
+BE0000632,Kappa-type opioid receptor,Humans
+BE0000420,Delta-type opioid receptor,Humans
+BE0004956,NMDA receptor,Humans
+BE0000013,Adenosine receptor A1,Humans
+BE0004864,Alpha-2 adrenergic receptors,Humans
+BE0000533,5-hydroxytryptamine receptor 2C,Humans
+BE0000384,Substance-P receptor,Humans
+BE0000308,DNA polymerase catalytic subunit,HHV-1
+BE0004499,Thymidine kinase,
+BE0000458,Thymidine kinase,HHV-1
+BE0000241,Adenosine receptor A2b,Humans
+BE0002214,Adenosine deaminase,Humans
+BE0000233,Lanosterol 14-alpha demethylase,Yeast
+BE0002088,Estrogen-related receptor gamma,Humans
+BE0003722,Steroid hormone receptor ERR1,Humans
+BE0001204,Equilibrative nucleoside transporter 1,Humans
+BE0003677,UDP-glucuronosyltransferase 1A3,Humans
+BE0003544,UDP-glucuronosyltransferase 1A4,Humans
+BE0004694,UDP-glucuronosyltransferase 1A6,Humans
+BE0004695,UDP-glucuronosyltransferase 1A7,Humans
+BE0003682,UDP-glucuronosyltransferase 1A8,Humans
+BE0003538,UDP-glucuronosyltransferase 1A9,Humans
+BE0003678,UDP-glucuronosyltransferase 1A10,Humans
+BE0003679,UDP-glucuronosyltransferase 2B7,Humans
+BE0000584,Neuraminidase,Influenza A virus (strain A/Chile/1/1983 H1N1)
+BE0000914,Sialidase-1,Humans
+BE0003200,Sialidase-2,Humans
+BE0002705,Liver carboxylesterase 1,Humans
+BE0004800,23S ribosomal RNA,Enteric bacteria and other eubacteria
+BE0003521,Motilin receptor,Humans
+BE0000924,Adenosine receptor A2a,Humans
+BE0000354,Adenosine receptor A3,Humans
+BE0009789,Phosphodiesterase enzymes,Humans
+BE0001096,5'-nucleotidase,Humans
+BE0000739,Ryanodine receptor 1,Humans
+BE0004922,Cyclic nucleotide phosphodiesterase,Humans
+BE0002385,DNA-dependent protein kinase catalytic subunit,Humans
+BE0002406,"Phosphatidylinositol 4,5-bisphosphate 3-kinase catalytic subunit delta isoform",Humans
+BE0002407,"Phosphatidylinositol 4,5-bisphosphate 3-kinase catalytic subunit beta isoform",Humans
+BE0004914,"Inositol 1,4,5-trisphosphate receptor",Humans
+BE0004874,Serine-protein kinase ATM,Humans
+BE0009927,Neuronal Acetylcholine (nACh) Receptor Subunits,Humans
+BE0000560,Muscarinic acetylcholine receptor M2,Humans
+BE0000182,"cGMP-specific 3',5'-cyclic phosphodiesterase",Humans
+BE0002458,Plasma protease C1 inhibitor,Humans
+BE0003556,"Retinal rod rhodopsin-sensitive cGMP 3',5'-cyclic phosphodiesterase subunit gamma",Humans
+BE0003557,"Retinal cone rhodopsin-sensitive cGMP 3',5'-cyclic phosphodiesterase subunit gamma",Humans
+BE0003441,Programmed cell death 1 ligand 1,Humans
+BE0000210,Potassium channel subfamily K member 2,Humans
+BE0001131,ATP-sensitive inward rectifier potassium channel 12,Humans
+BE0000563,Bifunctional dihydrofolate reductase-thymidylate synthase,Plasmodium falciparum (isolate K1 / Thailand)
+BE0001153,Beta-hexosaminidase subunit beta,Humans
+BE0003657,Multidrug and toxin extrusion protein 1,Humans
+BE0004752,Multidrug and toxin extrusion protein 2,Humans
+BE0004674,Chromaffin granule amine transporter,Humans
+BE0003408,Baculoviral IAP repeat-containing protein 5,Humans
+BE0000110,P2Y purinoceptor 12,Humans
+BE0005561,Platelet-activating factor receptor,Humans
+BE0000247,Muscarinic acetylcholine receptor M5,Humans
+BE0000206,Retinoic acid receptor beta,Humans
+BE0000144,Retinoic acid receptor gamma,Humans
+BE0000078,Retinoic acid receptor RXR-beta,Humans
+BE0001040,Transcription factor Jun,Humans
+BE0000663,Retinoic acid receptor alpha,Humans
+BE0000501,Alpha-1A adrenergic receptor,Humans
+BE0000575,Alpha-1B adrenergic receptor,Humans
+BE0000715,Alpha-1D adrenergic receptor,Humans
+BE0000270,Renin,Humans
+BE0000349,Potassium-transporting ATPase alpha chain 1,Humans
+BE0000619,Potassium-transporting ATPase subunit beta,Humans
+BE0000281,Solute carrier family 12 member 2,Humans
+BE0000502,Solute carrier family 12 member 1,Humans
+BE0000442,Histamine H1 receptor,Humans
+BE0000797,5-hydroxytryptamine receptor 1B,Humans
+BE0000659,5-hydroxytryptamine receptor 1D,Humans
+BE0000460,5-hydroxytryptamine receptor 1F,Humans
+BE0000291,5-hydroxytryptamine receptor 1A,Humans
+BE0000476,5-hydroxytryptamine receptor 1E,Humans
+BE0000393,5-hydroxytryptamine receptor 2B,Humans
+BE0000650,5-hydroxytryptamine receptor 7,Humans
+BE0000644,ATP-sensitive inward rectifier potassium channel 1,Humans
+BE0000366,DNA gyrase subunit A,Haemophilus influenzae (strain ATCC 51907 / DSM 11121 / KW20 / Rd)
+BE0000429,DNA topoisomerase 4 subunit A,Haemophilus influenzae (strain ATCC 51907 / DSM 11121 / KW20 / Rd)
+BE0002388,DNA gyrase subunit B,Staphylococcus aureus
+BE0008385,DNA gyrase subunit A,Staphylococcus aureus
+BE0000742,DNA topoisomerase 2-alpha,Humans
+BE0000930,Serum paraoxonase/arylesterase 1,Humans
+BE0000787,Gag-Pol polyprotein,HIV-1
+BE0000708,ATP-sensitive inward rectifier potassium channel 11,Humans
+BE0003997,Phospholipase A2,Humans
+BE0004854,Pol polyprotein,Human immunodeficiency virus 1
+BE0002050,Gag-Pol polyprotein,Human immunodeficiency virus type 1 group M subtype B (isolate HXB2)
+BE0003562,Serum paraoxonase/lactonase 3,Humans
+BE0009847,Voltage-gated Potassium Channels,
+BE0000218,Calcium-transporting ATPase type 2C member 1,Humans
+BE0004852,Glutamate (NMDA) receptor,Humans
+BE0003888,Sarcoplasmic/endoplasmic reticulum calcium ATPase 1,Humans
+BE0000576,Penicillin-binding protein 1A,Clostridium perfringens (strain 13 / Type A)
+BE0002393,"Peptidoglycan D,D-transpeptidase FtsI",Escherichia coli (strain K12)
+BE0000691,Voltage-dependent calcium channel subunit alpha-2/delta-1,Humans
+BE0000267,Carbonic anhydrase 1,Humans
+BE0000322,Carbonic anhydrase 2,Humans
+BE0004655,Inhibitor of nuclear factor kappa-B kinase subunit alpha,Humans
+BE0003768,Group IIE secretory phospholipase A2,Humans
+BE0000436,"cGMP-inhibited 3',5'-cyclic phosphodiesterase 3A",Humans
+BE0004136,Reverse transcriptase/RNaseH,Human immunodeficiency virus 1
+BE0004668,Lanosterol synthase,Yeast
+BE0000381,Gamma-aminobutyric acid receptor subunit alpha-2,Humans
+BE0000523,Gamma-aminobutyric acid receptor subunit alpha-3,Humans
+BE0000478,Gamma-aminobutyric acid receptor subunit alpha-4,Humans
+BE0000471,Gamma-aminobutyric acid receptor subunit alpha-5,Humans
+BE0000764,Gamma-aminobutyric acid receptor subunit alpha-6,Humans
+BE0000325,Ribonucleoside-diphosphate reductase large subunit,Humans
+BE0002450,Ribonucleoside-diphosphate reductase subunit M2,Humans
+BE0003613,Ribonucleoside-diphosphate reductase subunit M2 B,Humans
+BE0000546,DNA polymerase alpha catalytic subunit,Humans
+BE0003614,DNA polymerase epsilon catalytic subunit A,Humans
+BE0003615,DNA polymerase epsilon subunit 2,Humans
+BE0003617,DNA polymerase epsilon subunit 3,Humans
+BE0003616,DNA polymerase epsilon subunit 4,Humans
+BE0000250,Purine nucleoside phosphorylase,Humans
+BE0001717,Poly [ADP-ribose] polymerase 1,Humans
+BE0002804,Deoxycytidine kinase,Humans
+BE0003589,"Deoxyguanosine kinase, mitochondrial",Humans
+BE0003672,Solute carrier family 28 member 3,Humans
+BE0004901,Sodium channel protein,Humans
+BE0009631,Inward rectifier potassium channel,Humans
+BE0009739,Voltage gated L-type calcium channel,Humans
+BE0004863,Alpha-1 adrenergic receptors,Humans
+BE0009632,Fatty acid,
+BE0001154,Inhibitor of nuclear factor kappa-B kinase subunit beta,Humans
+BE0003608,Arylamine N-acetyltransferase 1,Humans
+BE0000451,5-hydroxytryptamine receptor 2A,Humans
+BE0000020,D(1A) dopamine receptor,Humans
+BE0000145,D(1B) dopamine receptor,Humans
+BE0000581,D(3) dopamine receptor,Humans
+BE0000389,D(4) dopamine receptor,Humans
+BE0000945,5-hydroxytryptamine receptor 6,Humans
+BE0000289,Alpha-2A adrenergic receptor,Humans
+BE0000572,Alpha-2B adrenergic receptor,Humans
+BE0000342,Alpha-2C adrenergic receptor,Humans
+BE0000405,Muscarinic acetylcholine receptor M4,Humans
+BE0009860,5-hydroxytryptamine 3 receptor,Humans
+BE0004688,5-hydroxytryptamine receptor 5A,Humans
+BE0004889,D(1) dopamine receptor,Humans
+BE0002087,Inactive dihydropteroate synthase 2,Mycobacterium leprae (strain TN)
+BE0002086,Dihydropteroate synthase,Mycobacterium leprae (strain TN)
+BE0003611,Cytochrome P450 2C18,Humans
+BE0003606,Flavin-containing monooxygenase 3,Humans
+BE0003607,Arylamine N-acetyltransferase 2,Humans
+BE0000141,Sodium channel protein type 1 subunit alpha,Humans
+BE0008715,Voltage-dependent L-type calcium channel,Humans
+BE0002084,Sodium channel protein type 8 subunit alpha,Humans
+BE0003635,Sodium channel regulatory subunit beta-1,Humans
+BE0002082,Sodium channel protein type 3 subunit alpha,Humans
+BE0000731,"Cytochrome P450 11B1, mitochondrial",Humans
+BE0009565,Epoxide hydrolase 1,Humans
+BE0003660,Solute carrier organic anion transporter family member 1C1,Humans
+BE0005001,Steroid hormone receptor ERR2,Humans
+BE0009998,30S ribosomal protein,
+BE0002369,ATP-binding cassette sub-family B member 5,Humans
+BE0000792,Estrogen receptor beta,Humans
+BE0000123,Estrogen receptor,Humans
+BE0003740,Nuclear receptor coactivator 2,Humans
+BE0000132,Androgen receptor,Humans
+BE0000337,Transthyretin,Humans
+BE0000019,Small ribosomal subunit protein uS4,Escherichia coli (strain K12)
+BE0000415,Intermediate conductance calcium-activated potassium channel protein 4,Humans
+BE0004803,Ergosterol,Candida albicans
+BE0010516,C-X-C chemokine receptor type 2,Humans
+BE0000635,Hydroxycarboxylic acid receptor 2,Humans
+BE0004815,Phosphate,Humans
+BE0000733,D-alanine--D-alanine ligase A,Escherichia coli (strain K12)
+BE0000806,Alanine racemase,Mycobacterium avium
+BE0004704,Proton-coupled amino acid transporter 2,Humans
+BE0004810,RNA,Humans
+BE0009159,Transient receptor potential cation channel subfamily V member 4,Humans
+BE0001185,Zeta-crystallin,Humans
+BE0009371,Cytochrome P450 2C6,Rat
+BE0009372,Cytochrome P450 2C11,Rat
+BE0000430,Voltage-dependent L-type calcium channel subunit alpha-1C,Humans
+BE0002354,Voltage-dependent L-type calcium channel subunit beta-2,Humans
+BE0000864,Voltage-dependent T-type calcium channel subunit alpha-1H,Humans
+BE0002396,Voltage-dependent calcium channel subunit alpha-2/delta-2,Humans
+BE0002359,Voltage-dependent L-type calcium channel subunit alpha-1D,Humans
+BE0002355,Voltage-dependent L-type calcium channel subunit alpha-1S,Humans
+BE0000112,Histamine H2 receptor,Humans
+BE0009738,Voltage-gated sodium channel alpha subunit,Humans
+BE0009793,Kainate receptors,Humans
+BE0003625,Carbonic anhydrase 3,Humans
+BE0008718,Voltage-dependent R-type calcium channel,Humans
+BE0003577,Penicillin binding protein 2a,Staphylococcus aureus
+BE0000588,Penicillin-binding protein 1A,Escherichia coli (strain K12)
+BE0000488,Penicillin-binding protein 1B,Escherichia coli (strain K12)
+BE0002063,D-alanyl-D-alanine carboxypeptidase DacA,Escherichia coli (strain K12)
+BE0003685,D-alanyl-D-alanine carboxypeptidase DacC,Escherichia coli (strain K12)
+BE0002425,DNA topoisomerase 2-beta,Humans
+BE0001133,"3',5'-cyclic-AMP phosphodiesterase 4A",Humans
+BE0009005,Protein RIC-3,Humans
+BE0009002,Copine-1,Humans
+BE0004879,alpha1-acid glycoprotein,Humans
+BE0000687,Thyroid hormone receptor alpha,Humans
+BE0000315,Thyroid hormone receptor beta,Humans
+BE0009045,DNA sliding clamp PCNA,Humans
+BE0003653,Solute carrier organic anion transporter family member 4C1,Humans
+BE0003656,Solute carrier organic anion transporter family member 4A1,Humans
+BE0003603,A-type voltage-gated potassium channel KCND2,Humans
+BE0003604,A-type voltage-gated potassium channel KCND3,Humans
+BE0003663,Alpha-1-acid glycoprotein 2,Humans
+BE0000177,Sodium channel protein type 10 subunit alpha,Humans
+BE0001143,Sodium channel protein type 9 subunit alpha,Humans
+BE0000192,Sodium channel protein type 11 subunit alpha,Humans
+BE0002083,Sodium channel protein type 4 subunit alpha,Humans
+BE0000776,Farnesyl pyrophosphate synthase,Humans
+BE0004801,Hydroxylapatite,Humans
+BE0003570,Geranylgeranyl pyrophosphate synthase,Humans
+BE0001162,Caspase-3,Humans
+BE0009991,Caspase-9,Humans
+BE0000837,Maltase-glucoamylase,Humans
+BE0001176,"Sucrase-isomaltase, intestinal",Humans
+BE0002639,Pancreatic alpha-amylase,Humans
+BE0000876,Lysosomal alpha-glucosidase,Humans
+BE0003652,Solute carrier family 22 member 10,Humans
+BE0003667,Organic solute transporter subunit alpha,Humans
+BE0003668,Organic solute transporter subunit beta,Humans
+BE0003661,Solute carrier organic anion transporter family member 3A1,Humans
+BE0000610,Prostaglandin F2-alpha receptor,Humans
+BE0000422,Annexin A1,Humans
+BE0001028,G protein-activated inward rectifier potassium channel 1,Humans
+BE0000199,DNA ligase 1,Humans
+BE0000167,DNA ligase 3,Humans
+BE0004697,Bleomycin hydrolase,Humans
+BE0010006,Glutathione S-transferases (Cytosolic),Humans
+BE0003594,Gamma-aminobutyric acid receptor subunit gamma-3,Humans
+BE0003542,"Cytochrome P450 11B2, mitochondrial",Humans
+BE0000324,Thymidylate synthase,Humans
+BE0000021,Thymidylate synthase,Yeast
+BE0000557,Progesterone receptor,Humans
+BE0004024,Lymphocyte antigen 96,Humans
+BE0003681,UDP-glucuronosyltransferase 2B4,Humans
+BE0000064,Prostaglandin E2 receptor EP1 subtype,Humans
+BE0000514,Thymidine kinase,
+BE0000312,Protein P,HBV-D
+BE0004477,"Adenylate kinase 2, mitochondrial",Humans
+BE0004780,"Adenylate kinase 4, mitochondrial",Humans
+BE0009626,Nucleoside diphosphokinase,Humans
+BE0009627,Creatine Kinases,Humans
+BE0000103,"Peptidoglycan D,D-transpeptidase MrdA",Haemophilus influenzae (strain ATCC 51907 / DSM 11121 / KW20 / Rd)
+BE0003579,"Peptidoglycan D,D-transpeptidase MrdA",Escherichia coli (strain K12)
+BE0000001,"Peptidoglycan D,D-transpeptidase FtsI",Haemophilus influenzae (strain ATCC 51907 / DSM 11121 / KW20 / Rd)
+BE0000744,D-alanyl-D-alanine carboxypeptidase DacB,Escherichia coli (strain K12)
+BE0001148,Dipeptidase 1,Humans
+BE0000303,Voltage-dependent L-type calcium channel subunit beta-1,Humans
+BE0000679,Voltage-dependent calcium channel gamma-1 subunit,Humans
+BE0000154,Potassium channel subfamily K member 1,Humans
+BE0000680,Potassium channel subfamily K member 6,Humans
+BE0000462,Voltage-gated inwardly rectifying potassium channel KCNH6,Humans
+BE0000699,Voltage-gated inwardly rectifying potassium channel KCNH7,Humans
+BE0000026,Tubulin beta-1 chain,Humans
+BE0003629,Carbonic anhydrase 7,Humans
+BE0000881,Histone deacetylase 9,Humans
+BE0009446,Glycogen synthase kinase-3 alpha,Humans
+BE0008667,Histone deacetylase,Humans
+BE0009012,Cyclin-dependent kinase inhibitor 1,Humans
+BE0001121,Hepatocyte growth factor,Humans
+BE0009727,16S/23S rRNA (cytidine-2'-O)-methyltransferase TlyA,Mycobacterium tuberculosis (strain ATCC 25618 / H37Rv)
+BE0002480,Prostaglandin E synthase 3,Humans
+BE0000927,Sulfotransferase 1A1,Humans
+BE0004767,Sulfotransferase 1A3,Humans
+BE0002194,Fatty-acid amide hydrolase 1,Humans
+BE0004643,serine-type D-Ala-D-Ala carboxypeptidase,Streptococcus pneumoniae
+BE0003624,Penicillin-binding protein 2B,Streptococcus pneumoniae (strain ATCC BAA-255 / R6)
+BE0004644,Penicillin-binding protein 2a,Streptococcus pneumoniae (strain ATCC BAA-255 / R6)
+BE0004335,Penicillin-binding protein 1b,Streptococcus pneumoniae (strain ATCC BAA-255 / R6)
+BE0000084,5-hydroxytryptamine receptor 4,Humans
+BE0001012,Beta-3 adrenergic receptor,Humans
+BE0001039,High affinity nerve growth factor receptor,Humans
+BE0003605,BDNF/NT-3 growth factors receptor,Humans
+BE0000897,Potassium voltage-gated channel subfamily KQT member 2,Humans
+BE0000781,Potassium voltage-gated channel subfamily A member 1,Humans
+BE0000146,Histamine H4 receptor,Humans
+BE0000156,Sigma non-opioid intracellular receptor 1,Humans
+BE0002398,Potassium voltage-gated channel subfamily KQT member 3,Humans
+BE0004882,5-hydroxytryptamine receptor 2C,Rat
+BE0004890,Muscarinic acetylcholine receptor,Humans
+BE0009629,HERG human cardiac K+ channel,Humans
+BE0009343,UDP-glucuronosyltransferase 2B10,Humans
+BE0002193,Thymidine phosphorylase,Humans
+BE0000556,Atrial natriuretic peptide receptor 1,Humans
+BE0010029,Guanylate cyclase soluble subunit beta-1,Humans
+BE0009594,"Inositol 1,4,5-trisphosphate-gated calcium channel ITPR2",Humans
+BE0009595,"Inositol 1,4,5-trisphosphate-gated calcium channel ITPR3",Humans
+BE0010061,Guanylate cyclase soluble subunit alpha-1,Humans
+BE0004522,"Inositol 1,4,5-trisphosphate-gated calcium channel ITPR1",Humans
+BE0001640,"Phospholipase A2, membrane associated",Humans
+BE0010085,Human Cyclooxygenases,Humans
+BE0009434,"Interferon-induced, double-stranded RNA-activated protein kinase",Humans
+BE0003560,Prostaglandin reductase 2,Humans
+BE0003561,Prostaglandin D2 receptor 2,Humans
+BE0000591,Probable arabinosyltransferase C,Mycobacterium tuberculosis
+BE0000122,Probable arabinosyltransferase B,Mycobacterium tuberculosis
+BE0000034,Probable arabinosyltransferase A,Mycobacterium tuberculosis
+BE0003887,"Electron transfer flavoprotein-ubiquinone oxidoreductase, mitochondrial",Humans
+BE0004775,Equilibrative nucleoside transporter 4,Humans
+BE0000311,5-hydroxytryptamine receptor 3A,Humans
+BE0004958,5-hydroxytryptamine receptor 1,Humans
+BE0000298,Glutathione reductase,Escherichia coli (strain K12)
+BE0002386,Serine/threonine-protein kinase mTOR,Humans
+BE0000695,Peptidyl-prolyl cis-trans isomerase FKBP1A,Humans
+BE0003721,Aryl hydrocarbon receptor,Humans
+BE0009744,Probable fatty acid synthase Fas (Fatty acid synthetase),Mycobacterium tuberculosis (strain ATCC 25618 / H37Rv)
+BE0000332,Enoyl-[acyl-carrier-protein] reductase [NADH],Mycobacterium tuberculosis
+BE0000483,Voltage-dependent T-type calcium channel subunit alpha-1G,Humans
+BE0000455,4-hydroxyphenylpyruvate dioxygenase,Humans
+BE0000077,Hypoxanthine-guanine phosphoribosyltransferase,Humans
+BE0000790,Penicillin-binding protein 3,Bacillus subtilis (strain 168)
+BE0001444,Beta-lactamase,Citrobacter freundii
+BE0000553,Calcium-activated potassium channel subunit alpha-1,Humans
+BE0004805,Fe(II)-protoporphyrin IX,Plasmodium falciparum
+BE0009993,80S ribosomal subunit,Plasmodium falciparum
+BE0002360,dihydropteroate synthase,Plasmodium falciparum
+BE0000143,Tubulin beta chain,Humans
+BE0000923,Mitogen-activated protein kinase 1,Humans
+BE0000246,Apoptosis regulator Bcl-2,Humans
+BE0003475,Microtubule-associated protein 4,Humans
+BE0004669,"1,3-beta-glucan synthase component FKS1",Aspergillus niger (strain CBS 513.88 / FGSC A1513)
+BE0010066,"1,3-beta-glucan synthase component GSC2",Baker's yeast
+BE0000666,Neuron-specific vesicular protein calcyon,Humans
+BE0002344,Gamma-aminobutyric acid receptor subunit beta-1,Humans
+BE0003593,Gamma-aminobutyric acid receptor subunit gamma-1,Humans
+BE0009737,Pepsin A-5,Humans
+BE0001015,Fibroblast growth factor 2,Humans
+BE0000953,Pro-epidermal growth factor,Humans
+BE0009672,Fibrinogen,Humans
+BE0003848,Nuclear receptor subfamily 1 group I member 3,Humans
+BE0001052,Cytochrome P450,Humans
+BE0000539,3-oxo-5-alpha-steroid 4-dehydrogenase 1,Humans
+BE0003665,"POU domain, class 5, transcription factor 1",Humans
+BE0000343,DNA polymerase catalytic subunit,HHV-5
+BE0005582,5HT3 serotonin receptor,Humans
+BE0003431,Protein kinase C epsilon type,Humans
+BE0002201,"Peptide deformylase, mitochondrial",Humans
+BE0000475,Prostacyclin receptor,Humans
+BE0000368,Prostaglandin E2 receptor EP2 subtype,Humans
+BE0000296,Prostaglandin D2 receptor,Humans
+BE0004809,Bile acids,Humans
+BE0000012,Voltage-dependent T-type calcium channel subunit alpha-1I,Humans
+BE0002226,Voltage-dependent N-type calcium channel subunit alpha-1B,Humans
+BE0003563,Voltage-dependent calcium channel subunit alpha-2/delta-3,Humans
+BE0000973,Sphingomyelin phosphodiesterase,Humans
+BE0000497,Epithelial sodium channel subunit gamma,Humans
+BE0000190,Epithelial sodium channel subunit alpha,Humans
+BE0000024,Epithelial sodium channel subunit beta,Humans
+BE0000495,Epithelial sodium channel subunit delta,Humans
+BE0000507,Thyroid peroxidase,Humans
+BE0000732,Sodium/potassium-transporting ATPase subunit alpha-1,Humans
+BE0005026,Sodium/potassium-transporting ATPase subunit beta-3,Humans
+BE0005018,Sodium/potassium-transporting ATPase subunit beta-2,Humans
+BE0004994,Sodium/potassium-transporting ATPase subunit beta-1,Humans
+BE0005047,Sodium/potassium-transporting ATPase subunit alpha-3,Humans
+BE0005034,Sodium/potassium-transporting ATPase subunit alpha-2,Humans
+BE0002357,Voltage-dependent L-type calcium channel subunit alpha-1F,Humans
+BE0002358,Voltage-dependent L-type calcium channel subunit beta-3,Humans
+BE0002356,Voltage-dependent L-type calcium channel subunit beta-4,Humans
+BE0000668,Mineralocorticoid receptor,Humans
+BE0003592,Gamma-aminobutyric acid receptor subunit gamma-2,Humans
+BE0002449,Telomerase reverse transcriptase,Humans
+BE0000634,Serine/threonine-protein kinase B-raf,Humans
+BE0000036,RAF proto-oncogene serine/threonine-protein kinase,Humans
+BE0000023,Vascular endothelial growth factor receptor 3,Humans
+BE0000369,Vascular endothelial growth factor receptor 2,Humans
+BE0000029,Vascular endothelial growth factor receptor 1,Humans
+BE0000147,Receptor-type tyrosine-protein kinase FLT3,Humans
+BE0000453,Mast/stem cell growth factor receptor Kit,Humans
+BE0002411,Proto-oncogene tyrosine-protein kinase receptor Ret,Humans
+BE0004770,RalA-binding protein 1,Humans
+BE0010210,Tubulin beta chain,Trichophyton rubrum
+BE0004660,"Keratin, type I cytoskeletal 12",Humans
+BE0000402,Cholecystokinin receptor type A,Humans
+BE0000280,Antithrombin-III,Humans
+BE0000775,Heparin cofactor 2,Humans
+BE0004764,Cytochrome P450 2B1,Rat
+BE0000804,Isoleucine--tRNA ligase,Staphylococcus aureus
+BE0003074,Carbonyl reductase [NADPH] 1,Humans
+BE0004290,Penicillin-binding protein 1A,Streptococcus pneumoniae (strain ATCC BAA-255 / R6)
+BE0003618,MecA PBP2' (penicillin binding protein 2'),Staphylococcus aureus
+BE0000477,Ceramide glucosyltransferase,Humans
+BE0010245,Estrogen receptor,Humans
+BE0004740,Carboxylesterase,Humans
+BE0004258,O-GlcNAcase BT_4395,Bacteroides thetaiotaomicron (strain ATCC 29148 / DSM 2079 / NCTC 10582 / E50 / VPI-5482)
+BE0001045,"Solute carrier family 2, facilitated glucose transporter member 2",Humans
+BE0005827,Protein O-GlcNAcase,Humans
+BE0003686,Penicillin-binding protein 1A,Pseudomonas aeruginosa (strain ATCC 15692 / PAO1 / 1C / PRS 101 / LMG 12228)
+BE0003687,Penicillin-binding protein 1B,Pseudomonas aeruginosa
+BE0002345,Gamma-aminobutyric acid receptor subunit beta-3,Humans
+BE0000129,Gamma-aminobutyric acid receptor subunit rho-1,Humans
+BE0004705,Sodium/nucleoside cotransporter 1,Humans
+BE0004706,Equilibrative nucleoside transporter 2,Humans
+BE0003578,Guanylate cyclase soluble subunit alpha-2,Humans
+BE0004778,Metallothionein-1A,Humans
+BE0000419,Solute carrier family 12 member 3,Humans
+BE0000987,Thiopurine S-methyltransferase,Humans
+BE0002010,Dihydrofolate reductase,Escherichia coli (strain K12)
+BE0000637,UMP-CMP kinase,Humans
+BE0004639,"Thymidine kinase 2, mitochondrial",Humans
+BE0003106,Nucleoside diphosphate kinase A,Humans
+BE0002443,Cytidine deaminase,Humans
+BE0009677,Reverse transcriptase,HBV
+BE0004650,Large ribosomal subunit protein uL16,Escherichia coli (strain K12)
+BE0001544,Dr hemagglutinin structural subunit,Escherichia coli
+BE0000929,Complement decay-accelerating factor,Humans
+BE0001542,Chloramphenicol acetyltransferase 3,Escherichia coli
+BE0001320,Chloramphenicol acetyltransferase,Pseudomonas aeruginosa (strain ATCC 15692 / PAO1 / 1C / PRS 101 / LMG 12228)
+BE0001493,Chloramphenicol 3-O phosphotransferase,Streptomyces venezuelae (strain ATCC 10712 / CBS 650.69 / DSM 40230 / JCM 4526 / NBRC 13096 / PD 04745)
+BE0003474,Microtubule-associated protein tau,Humans
+BE0004799,16S ribosomal RNA,Enteric bacteria and other eubacteria
+BE0000279,Small ribosomal subunit protein uS12,Escherichia coli (strain K12)
+BE0000127,Small ribosomal subunit protein uS9,Escherichia coli (strain K12)
+BE0001349,D-alanyl-D-alanine carboxypeptidase,Streptomyces sp. (strain R61)
+BE0001358,Beta-lactamase,Escherichia coli (strain K12)
+BE0005191,Voltage-gated delayed rectifier potassium channel KCNH1,Humans
+BE0009978,Retinoic acid receptor RXR,
+BE0003462,Signal transducer and activator of transcription 3,Humans
+BE0010065,Apolipoproteins,Humans
+BE0000866,Platelet glycoprotein IX,Humans
+BE0000061,Cannabinoid receptor 1,Humans
+BE0000095,Cannabinoid receptor 2,Humans
+BE0000705,Cysteinyl leukotriene receptor 1,Humans
+BE0004552,Cyclin-dependent kinases regulatory subunit 1,Humans
+BE0004881,5-hydroxytryptamine 2 receptor,Humans
+BE0027477,Calmodulin,Humans
+BE0000630,Matrix protein 2,Influenza A virus (strain A/Ann Arbor/6/1960 H2N2)
+BE0004755,Protein cereblon,Humans
+BE0003517,Tumor necrosis factor ligand superfamily member 11,Humans
+BE0003403,Cadherin-5,Humans
+BE0008982,Serpin B9,Humans
+BE0008981,Trefoil factor 1,Humans
+BE0010959,Cadherin-11,Humans
+BE0001193,3-phosphoinositide-dependent protein kinase 1,Humans
+BE0004950,DNA topoisomerase 1,Staphylococcus aureus
+BE0004698,Neutral alpha-glucosidase AB,Humans
+BE0004699,Neutral alpha-glucosidase C,Humans
+BE0008388,Beta-lactamase,Acinetobacter baumannii
+BE0003478,Melanin-concentrating hormone receptor 1,Humans
+BE0009758,UDP-glucuronosyltransferases (UGTs),Humans
+BE0002674,Pyruvate:ferredoxin oxidoreductase,Desulfovibrio africanus
+BE0004826,D-Ala-D-Ala moiety of NAM/NAG peptide subunits of peptidoglycan,Gram-positive Bacteria
+BE0009144,Histamine H1 receptor,Mouse
+BE0001088,Tissue-type plasminogen activator,Humans
+BE0001283,Apolipoprotein(a),Humans
+BE0004896,Membrane-associated progesterone receptor component 1,Humans
+BE0004904,NADPH oxidase,Humans
+BE0003680,UDP-glucuronosyltransferase 2B17,Humans
+BE0008954,DNA-3-methyladenine glycosylase,Humans
+BE0000510,Serotransferrin,Humans
+BE0002833,Copper transport protein ATOX1,Humans
+BE0004429,Arylamine N-acetyltransferase,Mycobacterium tuberculosis
+BE0004779,Metallothionein-2,Humans
+BE0003649,High affinity copper uptake protein 1,Humans
+BE0003662,Protein SLC31A2,Humans
+BE0003664,Copper-transporting ATPase 2,Humans
+BE0003666,Copper-transporting ATPase 1,Humans
+BE0004789,Tubulin beta chain,Pig roundworm
+BE0001340,Tubulin alpha-1A chain,Humans
+BE0001367,Tubulin beta-4B chain,Humans
+BE0001487,Fumarate reductase (cytochrome),Shewanella oneidensis (strain MR-1)
+BE0002128,Serine protease hepsin,Humans
+BE0000970,Insulin-like growth factor-binding protein 3,Humans
+BE0008996,Pregnancy-specific beta-1-glycoprotein 5,Humans
+BE0009043,Cytochrome P450 26C1,Humans
+BE0000782,Cellular retinoic acid-binding protein 2,Humans
+BE0000508,Cellular retinoic acid-binding protein 1,Humans
+BE0004670,Squalene epoxidase ERG1,Yeast
+BE0000577,Squalene monooxygenase,Humans
+BE0001046,Elastin,Humans
+BE0003621,"Probable peptidoglycan D,D-transpeptidase PenA",Neisseria gonorrhoeae
+BE0003622,"Peptidoglycan D,D-transpeptidase FtsI",Haemophilus influenzae
+BE0009685,Peptidoglycan transpeptidase,
+BE0004524,Disks large homolog 4,Humans
+BE0001248,Endolysin,Enterobacteria phage T4
+BE0002994,Arginase,Bacillus caldovelox
+BE0008382,DNA gyrase subunit A,Escherichia coli (strain K12)
+BE0008383,DNA topoisomerase 4 subunit A,Staphylococcus aureus
+BE0008386,DNA topoisomerase 4 subunit B,Bacillus subtilis (strain 168)
+BE0008387,DNA gyrase subunit A,Bacillus subtilis (strain 168)
+BE0008392,Multidrug resistance protein MdtK,Escherichia coli
+BE0008384,Gyrase A,Mycobacterium tuberculosis
+BE0004897,Sigma receptor,Humans
+BE0001391,Tubulin alpha-4A chain,Humans
+BE0000960,Dihydropyrimidine dehydrogenase [NADP(+)],Humans
+BE0002456,Uridine phosphorylase 1,Humans
+BE0002457,Uridine phosphorylase 2,Humans
+BE0004473,Uridine 5'-monophosphate synthase,Humans
+BE0000474,Thioredoxin reductase,Staphylococcus aureus (strain Mu50 / ATCC 700699)
+BE0009587,Polyprenal reductase,Humans
+BE0003610,Aldo-keto reductase family 1 member D1,Humans
+BE0000585,3-oxo-5-alpha-steroid 4-dehydrogenase 2,Humans
+BE0000498,DNA polymerase I,Escherichia coli (strain K12)
+BE0009854,Type I iodothyronine deiodinase,Humans
+BE0000334,Urease subunit alpha,Enterobacter aerogenes
+BE0009609,Voltage-dependent R-type calcium channel subunit alpha-1E,Humans
+BE0004661,Acetylcholine receptor subunit alpha,Humans
+BE0000057,Neuraminidase,Influenza A virus (strain A/Bangkok/1/1979 H3N2)
+BE0003527,Neuraminidase,Influenza B virus (strain B/Beijing/1/1987)
+BE0000043,Endothelin receptor type B,Humans
+BE0000521,Endothelin-1 receptor,Humans
+BE0003709,Small ribosomal subunit protein uS13,Escherichia coli (strain K12)
+BE0003708,Small ribosomal subunit protein uS14,Escherichia coli (strain K12)
+BE0003710,Small ribosomal subunit protein uS19,Escherichia coli (strain K12)
+BE0003582,Potassium channel subfamily K member 3,Humans
+BE0003583,Potassium channel subfamily K member 9,Humans
+BE0009965,Carbonic anhydrase,Humans
+BE0001653,Carbonic anhydrase 12,Humans
+BE0003559,"6-phosphogluconate dehydrogenase, decarboxylating",Humans
+BE0010185,Carboxypeptidase G2,Pseudomonas sp. (strain RS-16)
+BE0004808,Lead,Humans
+BE0004814,Mercury,Humans
+BE0004802,Cadmium,Humans
+BE0004813,Arsenic,Humans
+BE0003711,Tubulin delta chain,Humans
+BE0003713,Tubulin gamma-1 chain,Humans
+BE0003712,Tubulin epsilon chain,Humans
+BE0003400,Tubulin beta-2A chain,Humans
+BE0001002,Amine oxidase [copper-containing] 3,Humans
+BE0002351,Guanylate kinase,Humans
+BE0004840,Penicillin-binding protein,Gram positive and gram negative bacteria
+BE0000116,Evolved beta-galactosidase subunit alpha,Escherichia coli (strain K12)
+BE0017721,"Carnitine O-palmitoyltransferase 1, muscle isoform",Humans
+BE0000406,"Carnitine O-palmitoyltransferase 1, liver isoform",Humans
+BE0000496,Carnitine O-acetyltransferase,Humans
+BE0000097,Mitochondrial basic amino acids transporter,Humans
+BE0000579,Mitochondrial carnitine/acylcarnitine carrier protein,Humans
+BE0000373,Peroxisomal carnitine O-octanoyltransferase,Humans
+BE0000179,"Carnitine O-palmitoyltransferase 2, mitochondrial",Humans
+BE0003669,Solute carrier family 22 member 16,Humans
+BE0000353,Acid-sensing ion channel 1,Humans
+BE0001170,Annexin A2,Humans
+BE0003201,Annexin A3,Humans
+BE0008969,Annexin A4,Humans
+BE0004149,Annexin A5,Humans
+BE0000351,Diamine oxidase [copper-containing],Humans
+BE0000678,Acid-sensing ion channel 2,Humans
+BE0000752,Sodium/hydrogen exchanger 1,Humans
+BE0004667,Diamine oxidase [copper-containing],Pig
+BE0027480,Glutamate-gated chloride channel subunit beta,Caenorhabditis elegans
+BE0027481,Glutamate-gated chloride channel alpha,Caenorhabditis elegans
+BE0009555,Glutamate-gated chloride channel,Onchocerca volvulus
+BE0004760,Cytochrome P450 3A1,Rat
+BE0001062,Mitogen-activated protein kinase 3,Humans
+BE0004353,Aldo-keto reductase family 1 member B10,Humans
+BE0000229,Sodium/potassium-transporting ATPase subunit gamma,Humans
+BE0009094,Secreted frizzled-related protein 4,Humans
+BE0015068,Atypical chemokine receptor 1,Humans
+BE0001171,Toll-like receptor 9,Humans
+BE0002659,Glutathione S-transferase,Plasmodium falciparum
+BE0003428,High mobility group protein B1,Humans
+BE0000982,Angiotensin-converting enzyme 2,Humans
+BE0010121,Nuclear factor erythroid 2-related factor 2,Humans
+BE0000466,Catalase-peroxidase,Mycobacterium tuberculosis
+BE0002436,Histamine N-methyltransferase,Humans
+BE0000461,DNA-directed RNA polymerase subunit alpha,Escherichia coli (strain K12)
+BE0000257,DNA-directed RNA polymerase subunit beta,Escherichia coli (strain K12)
+BE0003707,DNA-directed RNA polymerase subunit beta',Escherichia coli (strain K12)
+BE0001120,Heat shock protein HSP 90-alpha,Humans
+BE0001165,Endoplasmin,Humans
+BE0000266,Neprilysin,Humans
+BE0004743,Breakpoint cluster region protein,Humans
+BE0000853,Macrophage colony-stimulating factor 1 receptor,Humans
+BE0001124,Epithelial discoidin domain-containing receptor 1,Humans
+BE0004741,Discoidin domain-containing receptor 2,Humans
+BE0003511,Induced myeloid leukemia cell differentiation protein Mcl-1,Humans
+BE0003671,Phospholipid-transporting ATPase ABCA3,Humans
+BE0003565,"Dual specificity calcium/calmodulin-dependent 3',5'-cyclic nucleotide phosphodiesterase 1A",Humans
+BE0003323,"Dual specificity calcium/calmodulin-dependent 3',5'-cyclic nucleotide phosphodiesterase 1B",Humans
+BE0003550,Cytochrome P450 3A43,Humans
+BE0004829,C55-isoprenyl pyrophosphate,Gram positive and gram negative bacteria
+BE0009705,Bacitracin transport ATP-binding protein BcrA,Bacillus licheniformis
+BE0009706,Bacitracin transport permease protein BCRB,Bacillus licheniformis
+BE0009707,Bacitracin transport permease protein BcrC,Bacillus licheniformis
+BE0000836,Hydroxycarboxylic acid receptor 3,Humans
+BE0000526,Nicotinate-nucleotide pyrophosphorylase [carboxylating],Humans
+BE0000783,Nicotinamide N-methyltransferase,Humans
+BE0008719,Diacylglycerol O-acyltransferase 2,Humans
+BE0000980,Tyrosine-protein phosphatase non-receptor type 4,Humans
+BE0003567,Receptor-type tyrosine-protein phosphatase S,Humans
+BE0003568,Receptor-type tyrosine-protein phosphatase epsilon,Humans
+BE0003569,V-type proton ATPase catalytic subunit A,Humans
+BE0000594,Envelope glycoprotein GP350,HHV-4
+BE0000712,Envelope glycoprotein GP340,HHV-4
+BE0004657,Dihydropteroate synthase type-1,Escherichia coli
+BE0004658,Folic acid synthesis protein FOL1,Baker's yeast
+BE0000239,Lipoprotein lipase,Humans
+BE0002352,beta-fructofuranosidase,Paenibacillus macerans
+BE0001262,Adenylate kinase isoenzyme 1,Humans
+BE0003281,Nucleoside diphosphate kinase B,Humans
+BE0010035,Equilibrative nucleoside transporter 3,Humans
+BE0004781,Sodium/nucleoside cotransporter 2,Humans
+BE0001095,Gap junction alpha-1 protein,Humans
+BE0004712,Cocaine esterase,Humans
+BE0000882,Trifunctional purine biosynthetic protein adenosine-3,Humans
+BE0000472,Putative gonadotropin-releasing hormone II receptor,Humans
+BE0000242,"Adrenodoxin, mitochondrial",Humans
+BE0002353,"3',5'-cyclic-AMP phosphodiesterase 4C",Humans
+BE0009756,Corneal esterases,Humans
+BE0001192,Metabotropic glutamate receptor 5,Humans
+BE0000356,Voltage-dependent P/Q-type calcium channel subunit alpha-1A,Humans
+BE0009591,ATP-sensitive inward rectifier potassium channel 10,Humans
+BE0010000,Muscle nicotinic acetylcholine receptor,Humans
+BE0004895,Protein kinase C,Humans
+BE0004877,"3-beta-hydroxysteroid-Delta(8),Delta(7)-isomerase",Humans
+BE0003790,Mitogen-activated protein kinase 8,Humans
+BE0000886,Sulfotransferase 2A1,Humans
+BE0000951,Sulfotransferase 1E1,Humans
+BE0014016,Hormone-sensitive lipase,Humans
+BE0004782,Solute carrier family 22 member 12,Humans
+BE0004783,"Solute carrier family 2, facilitated glucose transporter member 9",Humans
+BE0004833,Bacterial outer membrane,Bacteria
+BE0000689,Fibroblast growth factor 1,Humans
+BE0000326,Fibroblast growth factor 4,Humans
+BE0004520,6-pyruvoyl tetrahydrobiopterin synthase,Humans
+BE0009693,Carboxylic ester hydrolase,Humans
+BE0003837,Immunoglobulin kappa variable 2-30,Humans
+BE0004771,Carbonyl reductase [NADPH] 3,Humans
+BE0005562,G-protein coupled receptor 35,Humans
+BE0003580,Nischarin,Humans
+BE0002361,Probable pyruvate-flavodoxin oxidoreductase,Escherichia coli (strain K12)
+BE0000621,Oxygen-insensitive NADPH nitroreductase,Escherichia coli (strain K12)
+BE0000158,Small ribosomal subunit protein uS10,Escherichia coli (strain K12)
+BE0000555,Protein P,HBV-F
+BE0004454,Phosphoglycerate kinase 1,Humans
+BE0004773,Ethanolamine-phosphate cytidylyltransferase,Humans
+BE0004774,"5'(3')-deoxyribonucleotidase, cytosolic type",Humans
+BE0008389,Penicillin-binding protein 2,Staphylococcus aureus
+BE0009673,Sulfotransferase 1A2,Humans
+BE0002561,Sulfotransferase 1B1,Humans
+BE0000099,Cysteinyl leukotriene receptor 2,Humans
+BE0000995,N-formyl peptide receptor 1,Humans
+BE0004887,3-oxo-5-alpha-steroid 4-dehydrogenase,Humans
+BE0000709,ADP/ATP translocase 2,Humans
+BE0000624,ADP/ATP translocase 3,Humans
+BE0004906,Calcium-activated potassium channel,Humans
+BE0009743,60 kDa lysophospholipase,Humans
+BE0000892,DNA (cytosine-5)-methyltransferase 1,Humans
+BE0009880,DNA (cytosine-5)-methyltransferase 3A,Humans
+BE0000155,Toll-like receptor 7,Humans
+BE0003518,Toll-like receptor 8,Humans
+BE0000548,Fumarate reductase flavoprotein subunit,Escherichia coli (strain K12)
+BE0003736,Tryptase alpha/beta-1,Humans
+BE0002517,tRNA (cytosine(38)-C(5))-methyltransferase,Humans
+BE0002615,Mannitol dehydrogenase,Pseudomonas fluorescens
+BE0004807,Iron,Humans
+BE0004818,Aluminum,Humans
+BE0003392,Amyloid-beta precursor protein,Humans
+BE0000484,"ATP synthase F(1) complex subunit delta, mitochondrial",Humans
+BE0000653,Retinoic acid receptor responder protein 1,Humans
+BE0000697,Retinoic acid-induced protein 3,Humans
+BE0005828,Lipocalin-1,Humans
+BE0005829,Odorant-binding protein 2a,Humans
+BE0004284,"[Pyruvate dehydrogenase (acetyl-transferring)] kinase isozyme 4, mitochondrial",Humans
+BE0002477,Carcinoembryonic antigen,Humans
+BE0000114,Quinone-dependent D-lactate dehydrogenase,Escherichia coli (strain K12)
+BE0002252,"Succinate dehydrogenase [ubiquinone] cytochrome b small subunit, mitochondrial",Humans
+BE0004653,Small ribosomal subunit protein uS7,Escherichia coli (strain K12)
+BE0004651,Small ribosomal subunit protein uS3,Escherichia coli (strain K12)
+BE0004652,Small ribosomal subunit protein uS8,Escherichia coli (strain K12)
+BE0001105,Major prion protein,Humans
+BE0001274,Beta-lactamase OXA-10,Pseudomonas aeruginosa
+BE0000047,Solute carrier family 12 member 5,Humans
+BE0000140,Solute carrier family 12 member 6,Humans
+BE0000276,Solute carrier family 12 member 7,Humans
+BE0000601,Solute carrier family 12 member 4,Humans
+BE0000091,"DNA topoisomerase I, mitochondrial",Humans
+BE0000971,DNA topoisomerase 1,Humans
+BE0010086,Human Carboxylesterases,Humans
+BE0009711,Bacterial beta-lactamase enzymes,
+BE0000302,Beta-lactamase,Staphylococcus aureus
+BE0004754,Sodium/glucose cotransporter 1,Humans
+BE0000968,Histamine H3 receptor,Humans
+BE0001090,Protein S100-A1,Humans
+BE0001206,Protein S100-A12,Humans
+BE0001177,Protein S100-B,Humans
+BE0000885,Protein S100-A13,Humans
+BE0003602,Protein S100-A2,Humans
+BE0002375,Prostaglandin E2 receptor EP3 subtype,Humans
+BE0003522,Prostaglandin E2 receptor EP4 subtype,Humans
+BE0000759,Thromboxane A2 receptor,Humans
+BE0000743,Large ribosomal subunit protein uL10,Shigella flexneri
+BE0027584,Aerobic bacterial DNA,
+BE0000799,DNA gyrase subunit B,Escherichia coli (strain K12)
+BE0003446,G-protein coupled estrogen receptor 1,Humans
+BE0009014,ATP synthase F(0) complex subunit a,Humans
+BE0009015,Beclin-1,Humans
+BE0003591,"Fatty acid-binding protein, intestinal",Humans
+BE0000642,72 kDa type IV collagenase,Humans
+BE0000966,Collagenase 3,Humans
+BE0009742,Matrix metalloproteinase-25,Humans
+BE0000633,DNA polymerase catalytic subunit,HHV-3
+BE0009686,Pyruvate Kinases,Humans
+BE0009688,Phosphoglycerate Kinases,Humans
+BE0009689,Succinyl-CoA Synthetases,Humans
+BE0009690,Phosphoenolpyruvate Carboxykinases,Humans
+BE0000683,Pancreatic triacylglycerol lipase,Humans
+BE0004038,Peptostreptococcal albumin-binding protein,Peptostreptococcus magnus
+BE0009808,Transient receptor potential cation channel subfamily M member 3,Humans
+BE0000069,"Acetyl-CoA acetyltransferase, mitochondrial",Humans
+BE0010782,Proto-oncogene c-Rel,Humans
+BE0013795,Transcription factor RelB,Humans
+BE0005551,Transcription factor p65,Humans
+BE0001086,Nuclear factor NF-kappa-B p105 subunit,Humans
+BE0002387,Nuclear factor NF-kappa-B p100 subunit,Humans
+BE0001601,NH(3)-dependent NAD(+) synthetase,Bacillus subtilis (strain 168)
+BE0009788,Phosphodiesterase enzymes,Humans
+BE0000672,Potassium voltage-gated channel subfamily KQT member 1,Humans
+BE0010007,Erythrocyte,Humans
+BE0000681,RNA-directed RNA polymerase L,HPIV-2
+BE0001261,Genome polyprotein,DENV-2
+BE0000282,RNA-directed RNA polymerase catalytic subunit,Influenza A virus (strain A/Beijing/11/1956 H1N1)
+BE0000117,Prostacyclin synthase,Humans
+BE0009848,Human vesicular glutamate transporters,Humans
+BE0000798,DNA topoisomerase 4 subunit A,Escherichia coli (strain K12)
+BE0000880,Aquaporin-1,Humans
+BE0003558,"Dual 3',5'-cyclic-AMP and -GMP phosphodiesterase 11A",Humans
+BE0001186,Transient receptor potential cation channel subfamily M member 8,Humans
+BE0001122,Transient receptor potential cation channel subfamily A member 1,Humans
+BE0003416,Transient receptor potential cation channel subfamily V member 3,Humans
+BE0000468,UDP-N-acetylglucosamine 1-carboxyvinyltransferase,Escherichia coli (strain K12)
+BE0008706,Calmodulin-3,Humans
+BE0008705,Calmodulin-2,Humans
+BE0012563,Calmodulin-1,Humans
+BE0001024,"Troponin C, slow skeletal and cardiac muscles",Humans
+BE0004350,Protein S100-A4,Humans
+BE0000947,Pro-opiomelanocortin,Humans
+BE0008670,"Sulfonylurea receptor 1, Kir6.2",Humans
+BE0004952,Tumor necrosis factor-inducible gene 6 protein,Humans
+BE0001051,Interleukin-1 beta,Humans
+BE0004903,Nuclear factor NF-kappa-B,Humans
+BE0004716,Potassium voltage-gated channel subfamily A member 3,Humans
+BE0001070,Somatostatin,Humans
+BE0004827,Cystine,Humans
+BE0002419,Neuropeptide Y receptor type 2,Humans
+BE0000896,"Alkaline phosphatase, germ cell type",Humans
+BE0004925,Acetylcholine receptor subunit alpha-type unc-38,Caenorhabditis elegans
+BE0004926,Acetylcholine receptor subunit alpha-type unc-63,Caenorhabditis elegans
+BE0004927,Acetylcholine receptor subunit beta-type lev-1,Caenorhabditis elegans
+BE0004928,Acetylcholine receptor subunit beta-type unc-29,Caenorhabditis elegans
+BE0000716,DNA polymerase alpha subunit B,Humans
+BE0004878,"Nuclear factor of activated T-cells, cytoplasmic 1",Humans
+BE0004924,activator protein 1,Humans
+BE0000050,Delta-aminolevulinic acid dehydratase,Humans
+BE0013344,Protoporphyrinogen oxidase,Humans
+BE0009791,ABC multidrug transporter MDR2,Trichophyton interdigitale (strain MR816)
+BE0004825,Copper,Humans
+BE0003670,Cholesterol transporter ABCA5,Humans
+BE0004905,ATP-sensitive potassium channel,Humans
+BE0010002,Calcium transporting ATPases,Humans
+BE0009492,"Myosin light chain kinase, smooth muscle",Humans
+BE0009765,Sulfotransferase 1C4,Humans
+BE0009567,Sulfotransferase,Humans
+BE0004761,Cytochrome P450 3A2,Rat
+BE0009583,5-hydroxytryptamine receptor 3B,Humans
+BE0000120,Dihydropteroate synthase type-1,Mycobacterium fortuitum
+BE0000629,Hemoglobin subunit beta,Humans
+BE0000130,Hemoglobin subunit alpha,Humans
+BE0000399,Ferritin heavy chain,Humans
+BE0000085,Ferritin light chain,Humans
+BE0000015,High affinity immunoglobulin epsilon receptor subunit alpha,Humans
+BE0001030,G protein-activated inward rectifier potassium channel 2,Humans
+BE0001114,Vascular cell adhesion protein 1,Humans
+BE0002218,G protein-activated inward rectifier potassium channel 4,Humans
+BE0003595,Gamma-aminobutyric acid receptor subunit epsilon,Humans
+BE0003596,Gamma-aminobutyric acid receptor subunit pi,Humans
+BE0003597,Gamma-aminobutyric acid receptor subunit theta,Humans
+BE0003599,Gamma-aminobutyric acid receptor subunit delta,Humans
+BE0009586,5-hydroxytryptamine receptor 3E,Humans
+BE0009585,5-hydroxytryptamine receptor 3D,Humans
+BE0009584,5-hydroxytryptamine receptor 3C,Humans
+BE0005108,Voltage-dependent calcium channel gamma-2 subunit,Humans
+BE0005190,G protein-activated inward rectifier potassium channel 3,Humans
+BE0008999,Neural cell adhesion molecule L1,Humans
+BE0009011,Lymphoid enhancer-binding factor 1,Humans
+BE0000249,Sodium- and chloride-dependent GABA transporter 1,Humans
+BE0003636,Sodium channel regulatory subunit beta-2,Humans
+BE0003637,Sodium channel regulatory subunit beta-3,Humans
+BE0003638,Sodium channel regulatory subunit beta-4,Humans
+BE0003626,"Carbonic anhydrase 5A, mitochondrial",Humans
+BE0003627,"Carbonic anhydrase 5B, mitochondrial",Humans
+BE0003630,Carbonic anhydrase-related protein,Humans
+BE0003631,Carbonic anhydrase-related protein 10,Humans
+BE0003632,Carbonic anhydrase-related protein 11,Humans
+BE0003633,Carbonic anhydrase 13,Humans
+BE0009988,5'-AMP-activated protein kinase subunit gamma-1,Humans
+BE0002441,ATP-sensitive inward rectifier potassium channel 8,Humans
+BE0004435,Oxygen-insensitive NADPH nitroreductase,Helicobacter pylori (strain ATCC 700392 / 26695)
+BE0009695,Anaerobic bacterial DNA,
+BE0009696,Protozoal DNA,
+BE0002378,Nociceptin receptor,Humans
+BE0003688,Penicillin-binding protein 2,Bacteroides fragilis
+BE0002442,Toll-like receptor 4,Humans
+BE0003380,Cellular tumor antigen p53,Humans
+BE0004876,Ribosomal protein S6 kinase alpha-3,Humans
+BE0003469,NF-kappa-B inhibitor alpha,Humans
+BE0000444,Caspase-1,Humans
+BE0001027,G1/S-specific cyclin-D1,Humans
+BE0004689,Myc proto-oncogene protein,Humans
+BE0009669,Cyclin A,
+BE0001944,Dihydrofolate reductase,Mycobacterium tuberculosis
+BE0009795,20-ketosteroid reductase (20-hydroxysteroid dehydrogenase),Humans and other mammals
+BE0009796,11beta-hydroxysteroid dehydrogenase,Humans and other mammals
+BE0000865,Phenylethanolamine N-methyltransferase,Humans
+BE0004951,DNA topoisomerase 2,Humans
+BE0000105,Sterol O-acyltransferase 1,Humans
+BE0001078,Aminopeptidase N,Humans
+BE0004812,Manganese cation,Humans
+BE0000631,"cAMP and cAMP-inhibited cGMP 3',5'-cyclic phosphodiesterase 10A",Humans
+BE0009008,Calcipressin-1,Humans
+BE0000327,Melatonin receptor type 1B,Humans
+BE0000515,Melatonin receptor type 1A,Humans
+BE0000113,DNA polymerase beta,Humans
+BE0004700,Deoxycytidylate deaminase,Humans
+BE0001033,"Ferrochelatase, mitochondrial",Humans
+BE0001109,Ras-related C3 botulinum toxin substrate 1,Humans
+BE0009809,Nucleotide triphosphate diphosphatase NUDT15,Humans
+BE0004443,Inosine triphosphate pyrophosphatase,Humans
+BE0009810,Equilibrative nucleobase transporter 1,Humans
+BE0000907,"Peroxiredoxin-5, mitochondrial",Humans
+BE0002400,Potassium voltage-gated channel subfamily KQT member 5,Humans
+BE0005819,Nucleolar and coiled-body phosphoprotein 1,Humans
+BE0003673,Mitochondrial potassium channel ATP-binding subunit,Humans
+BE0001191,Protein S100-P,Humans
+BE0004008,Urease subunit alpha,Bacillus pasteurii
+BE0004691,Urea transporter 2,Humans
+BE0004692,Urea transporter 1,Humans
+BE0000875,Lanosterol 14-alpha demethylase,Humans
+BE0003552,C-X-C chemokine receptor type 1,Humans
+BE0001246,Camphor 5-monooxygenase,Pseudomonas putida
+BE0000638,NADPH azoreductase,Bacillus sp. (strain OY1-2)
+BE0004923,Mitochondrial ATP-sensitive potassium channel,Humans
+BE0009748,Transient receptor potential cation channel subfamily M member 4,Humans
+BE0001009,Cytochrome c,Humans
+BE0009853,Mitogen-activated Protein Kinases,Humans
+BE0001570,Outer membrane porin F,Escherichia coli (strain K12)
+BE0009852,Outer membrane porin C,Escherichia coli (strain K12)
+BE0004727,Cytochrome P450 4F2,Humans
+BE0010058,UbiA prenyltransferase domain-containing protein 1,Humans
+BE0003566,"Troponin C, skeletal muscle",Humans
+BE0000125,Interleukin-3,Humans
+BE0000690,Lanosterol 14-alpha demethylase,
+BE0004873,Steroid 21-hydroxylase,Humans
+BE0004729,Cytochrome P450 4F12,Humans
+BE0009016,Taste receptor type 2 member 16,Humans
+BE0003719,Pannexin-1,Humans
+BE0004941,Inosine-5'-monophosphate dehydrogenase,Humans
+BE0000801,3-oxoacyl-[acyl-carrier-protein] synthase 1,Escherichia coli (strain K12)
+BE0000800,3-oxoacyl-[acyl-carrier-protein] synthase 2,Escherichia coli (strain K12)
+BE0000959,Fatty acid synthase,Humans
+BE0004709,Asc-type amino acid transporter 1,Humans
+BE0003724,DNA gyrase subunit A,Streptococcus pneumoniae serotype 4 (strain ATCC BAA-334 / TIGR4)
+BE0003725,DNA gyrase subunit B,Streptococcus pneumoniae serotype 4 (strain ATCC BAA-334 / TIGR4)
+BE0003726,DNA topoisomerase 4 subunit A,Streptococcus pneumoniae serotype 4 (strain ATCC BAA-334 / TIGR4)
+BE0003727,DNA topoisomerase 4 subunit B,Streptococcus pneumoniae serotype 4 (strain ATCC BAA-334 / TIGR4)
+BE0010989,DNA-directed RNA polymerase subunit beta,Mycobacterium tuberculosis (strain ATCC 25618 / H37Rv)
+BE0000765,Chloride channel protein 2,Humans
+BE0004659,Protein smoothened,Humans
+BE0009376,Dopamine receptor,Humans
+BE0004862,Serotonin Receptors,Humans
+BE0000961,Interleukin-8,Humans
+BE0001025,Platelet glycoprotein Ib alpha chain,Humans
+BE0003756,Protein S100-A7,Humans
+BE0009569,Alpha-methylacyl-CoA racemase,Humans
+BE0003723,Penicillin-binding protein 1C,Escherichia coli (strain K12)
+BE0004654,Penicillin-binding protein 3,Staphylococcus aureus (strain USA300)
+BE0003894,Beta-lactamase TEM,Escherichia coli
+BE0001047,C-C motif chemokine 2,Humans
+BE0004851,Schistosome calcium ion (Ca2+) channels,Schistosoma
+BE0009851,Penicillin binding protein,Helicobacter pylori
+BE0001426,Metallo-beta-lactamase type 2,Bacillus cereus
+BE0000981,Interleukin-12 subunit beta,Humans
+BE0003554,Nuclear receptor ROR-beta,Humans
+BE0003555,Eosinophil peroxidase,Humans
+BE0003553,Acetylserotonin O-methyltransferase,Humans
+BE0009827,P2 Purinoceptors,
+BE0000854,Dipeptidyl peptidase 4,Humans
+BE0003620,Gastric triacylglycerol lipase,Humans
+BE0002459,"Keratin, type II cytoskeletal 7",Humans
+BE0003471,Interleukin-5 receptor subunit alpha,Humans
+BE0002439,Mucin-16,Humans
+BE0000232,Microsomal triglyceride transfer protein large subunit,Humans
+BE0000382,"Dihydroorotate dehydrogenase (quinone), mitochondrial",Humans
+BE0000871,Protein-tyrosine kinase 2-beta,Humans
+BE0000612,"Dihydroorotate dehydrogenase (quinone), mitochondrial",Plasmodium falciparum (isolate 3D7)
+BE0000464,Neurotensin receptor type 2,Humans
+BE0001159,P-selectin,Humans
+BE0001203,Fibroblast growth factor receptor 4,Humans
+BE0005820,Fibroblast growth factor 19,Humans
+BE0001064,Heparanase,Humans
+BE0008716,Voltage-dependent T-type calcium channel,Humans
+BE0004428,Cytochrome b,Plasmodium falciparum
+BE0009811,Thyroid hormone receptor,Humans and other mammals
+BE0009812,Peroxisome proliferator-activated receptor gamma coactivator 1-beta,Humans
+BE0010209,Mitochondrial ATP synthase F1 domain,Humans
+BE0003959,HTH-type transcriptional regulator QacR,Staphylococcus aureus
+BE0004319,TetR family transcriptional repressor LfrR,Mycobacterium smegmatis
+BE0009676,Sodium-dependent dopamine transporter,Mouse
+BE0009675,Synaptic vesicular amine transporter,Mouse
+BE0008669,Adenosine triphosphate (ATP),Humans
+BE0009940,Tyrosine-protein phosphatase non-receptor type 12,Humans
+BE0009941,Tyrosine-protein phosphatase non-receptor type 6,Humans
+BE0009961,V-ATPase Subunits,Humans
+BE0000979,Natriuretic peptides B,Humans
+BE0001074,E-selectin,Humans
+BE0002374,Hypoxia-inducible factor 1-alpha,Humans
+BE0005187,Inward rectifier potassium channel 4,Humans
+BE0009710,Inward rectifier potassium channel 2,Humans
+BE0003195,Arylsulfatase A,Humans
+BE0001868,Penicillin-binding protein 2X,Streptococcus pneumoniae (strain ATCC BAA-255 / R6)
+BE0003395,Penicillin-binding protein 1A,Streptococcus pneumoniae serotype 4 (strain ATCC BAA-334 / TIGR4)
+BE0002392,Penicillin-binding protein 2x,Streptococcus pneumoniae serotype 4 (strain ATCC BAA-334 / TIGR4)
+BE0000142,Penicillin-binding protein 2B,Streptococcus pneumoniae serotype 4 (strain ATCC BAA-334 / TIGR4)
+BE0009972,Plasma membrane calcium-transporting ATPase,Humans
+BE0001200,Rhodopsin,Humans
+BE0001080,Guanine nucleotide-binding protein G(I)/G(S)/G(O) subunit gamma-2,Humans
+BE0000948,Neuropeptide S receptor,Humans
+BE0010965,Lanosterol 14-alpha demethylase,Candida tropicalis
+BE0005808,Protein PML,Humans
+BE0002566,Aminoglycoside 2'-N-acetyltransferase,Mycobacterium tuberculosis
+BE0003547,Aminoglycoside nucleotidyltransferase (4'),Staphylococcus aureus
+BE0003548,Aminoglycoside 3'-phosphotransferase,Escherichia coli
+BE0009850,Large ribosomal subunit protein uL1,Staphylococcus aureus (strain NCTC 8325)
+BE0005295,Ryanodine receptor 2,Humans
+BE0001100,Microtubule-associated protein 2,Humans
+BE0001169,Microtubule-associated protein 1A,Humans
+BE0001680,Leukotriene A-4 hydrolase,Humans
+BE0000186,DNA-directed RNA polymerase subunit beta',Mycobacterium tuberculosis
+BE0000993,Synaptic vesicle glycoprotein 2A,Humans
+BE0009712,"POU domain, class 2, transcription factor 1",Humans
+BE0004865,"POU domain, class 2, transcription factor 2",Humans
+BE0004003,Stathmin-4,Humans
+BE0001207,Catalase,Humans
+BE0009674,Solute carrier family 12 member 5,Mouse
+BE0001694,Plasmepsin II,Plasmodium falciparum
+BE0004957,5-hydroxytryptamine receptor 2,Humans
+BE0000074,Nuclear receptor subfamily 0 group B member 1,Humans
+BE0009966,Mitochondrial potassium channel,Humans
+BE0005055,Sodium-dependent phosphate transporter 1,Humans
+BE0010055,Sodium/Potassium Transporting ATPase,Humans
+BE0000838,Proto-oncogene tyrosine-protein kinase Src,Humans
+BE0000841,Ephrin type-A receptor 2,Humans
+BE0000842,Tyrosine-protein kinase Lck,Humans
+BE0000840,Tyrosine-protein kinase Yes,Humans
+BE0000839,Tyrosine-protein kinase Fyn,Humans
+BE0000891,Signal transducer and activator of transcription 5B,Humans
+BE0001284,Tyrosine-protein kinase BTK,Humans
+BE0008998,Nuclear receptor subfamily 4 group A member 3,Humans
+BE0001356,Tyrosine-protein kinase CSK,Humans
+BE0005587,Ephrin type-A receptor 5,Humans
+BE0002453,Ephrin type-B receptor 4,Humans
+BE0005539,Tyrosine-protein kinase Fgr,Humans
+BE0004742,Tyrosine-protein kinase FRK,Humans
+BE0003775,Heat shock cognate 71 kDa protein,Humans
+BE0004315,Tyrosine-protein kinase Lyn,Humans
+BE0005595,Mitogen-activated protein kinase kinase kinase 20,Humans
+BE0001019,Mitogen-activated protein kinase 14,Humans
+BE0000843,Large ribosomal subunit protein uL3,Streptococcus pyogenes serotype M1
+BE0011325,Eukaryotic elongation factor 2 kinase,Humans
+BE0003109,Antigen peptide transporter 1,Humans
+BE0010009,DNA (cytosine-5)-methyltransferase 3B,Humans
+BE0000915,Hepatocyte growth factor receptor,Humans
+BE0004819,Dermatan sulfate,Humans
+BE0004820,Heparan sulfate,Humans
+BE0009328,Iduronate 2-sulfatase,Humans
+BE0003623,Cation-independent mannose-6-phosphate receptor,Humans
+BE0004831,Glycogen,Humans
+BE0010179,Adenylate cyclase,Humans
+BE0003418,Insulin-like growth factor 1,Humans
+BE0009058,Insulin-like growth factor-binding protein complex acid labile subunit,Humans
+BE0009658,Insulin-like growth factor-binding protein 1,Humans
+BE0009659,Insulin-like growth factor-binding protein 2,Humans
+BE0009660,Insulin-like growth factor-binding protein 4,Humans
+BE0009661,Insulin-like growth factor-binding protein 5,Humans
+BE0009662,Insulin-like growth factor-binding protein 6,Humans
+BE0000859,Receptor activity-modifying protein 1,Humans
+BE0000860,Receptor activity-modifying protein 2,Humans
+BE0000861,Receptor activity-modifying protein 3,Humans
+BE0009330,Arylsulfatase B,Humans
+BE0010216,DNA primase small subunit,Humans
+BE0000847,T-lymphocyte activation antigen CD80,Humans
+BE0000848,Adrenocorticotropic hormone receptor,Humans
+BE0001026,Corticoliberin,Humans
+BE0000944,Interferon gamma,Humans
+BE0003486,Interleukin-15,Humans
+BE0004430,D-alanyl-D-alanine endopeptidase,Escherichia coli (strain K12)
+BE0001482,Beta-lactamase,Bacillus licheniformis
+BE0004816,Potassium,Humans
+BE0003426,Type-2 angiotensin II receptor,Humans
+BE0001065,Glycogen synthase kinase-3 beta,Humans
+BE0001152,Inositol monophosphatase 1,Humans
+BE0000983,Inositol monophosphatase 2,Humans
+BE0002464,Large ribosomal subunit protein uL22,Escherichia coli O157:H7
+BE0001091,Kallikrein-1,Humans
+BE0004593,"Spectrin beta chain, non-erythrocytic 1",Humans
+BE0000904,Calpastatin,Humans
+BE0000899,Cartilage oligomeric matrix protein,Humans
+BE0004314,"Alkaline phosphatase, placental type",Humans
+BE0008955,Protein S100-A8,Humans
+BE0008993,Protein S100-A9,Humans
+BE0001140,Ceruloplasmin,Humans
+BE0009000,Bone morphogenetic protein 4,Humans
+BE0005813,Matrix Gla protein,Humans
+BE0005814,Protocadherin-19,Humans
+BE0005812,Programmed cell death protein 6,Humans
+BE0002468,Non-selective voltage-gated ion channel VDAC1,Humans
+BE0004849,Hydrogen ions,
+BE0004675,Electrogenic sodium bicarbonate cotransporter 1,Humans
+BE0004676,Sodium bicarbonate cotransporter 3,Humans
+BE0004680,Electroneutral sodium bicarbonate exchanger 1,Humans
+BE0004677,Electrogenic sodium bicarbonate cotransporter 4,Humans
+BE0004683,Sodium-driven chloride bicarbonate exchanger,Humans
+BE0000918,Interleukin-6,Humans
+BE0001094,Beta-nerve growth factor,Humans
+BE0001208,Interleukin-5,Humans
+BE0000908,Eosinophil cationic protein,Humans
+BE0004647,"Peptidoglycan D,D-transpeptidase FtsI",Pseudomonas aeruginosa
+BE0004648,"Peptidoglycan D,D-transpeptidase MrdA",Pseudomonas aeruginosa
+BE0003676,Small ribosomal subunit protein uS10,Thermus thermophilus (strain HB8 / ATCC 27634 / DSM 579)
+BE0002402,Small ribosomal subunit protein uS2,Humans
+BE0003823,Ribosomal protein uL16-like,Humans
+BE0009963,"cAMP-specific 3',5'-cyclic phosphodiesterase 4 (PDE4)",Humans
+BE0001223,"cGMP-inhibited 3',5'-cyclic phosphodiesterase 3B",Humans
+BE0010059,Alpha globin,Humans
+BE0009708,Group A nerve fibers,Rat
+BE0010194,GABA(B) Receptor,
+BE0004841,"Solute carrier family 52, riboflavin transporter, member 2",Humans
+BE0001222,Primary amine oxidase,Escherichia coli (strain K12)
+BE0010211,Chloride anion exchanger,Humans
+BE0008725,Transferrin receptor protein 1,Humans
+BE0001608,Histone deacetylase 8,Humans
+BE0008990,Alpha-hemoglobin-stabilizing protein,Humans
+BE0008991,"Frataxin, mitochondrial",Humans
+BE0009013,Flap endonuclease 1,Humans
+BE0003175,Endonuclease 8-like 1,Humans
+BE0005817,Endonuclease 8-like 2,Humans
+BE0001683,Fructose-bisphosphate aldolase A,Humans
+BE0004528,Elongation factor 1-alpha 1,Humans
+BE0005807,Alpha-enolase,Humans
+BE0002467,Protein disulfide-isomerase,Humans
+BE0008980,Protein disulfide-isomerase A3,Humans
+BE0005844,Peroxiredoxin-1,Humans
+BE0004590,Phosphoserine phosphatase,Humans
+BE0003844,Triosephosphate isomerase,Humans
+BE0004542,"Elongation factor Tu, mitochondrial",Humans
+BE0005815,Copper chaperone for superoxide dismutase,Humans
+BE0002365,Histone deacetylase 1,Humans
+BE0003523,Histone deacetylase 4,Humans
+BE0005833,Semenogelin-1,Humans
+BE0005834,Apoptosis regulatory protein Siva,Humans
+BE0001003,E3 ubiquitin-protein ligase Mdm2,Humans
+BE0005835,Utrophin,Humans
+BE0008994,Tumor protein p73,Humans
+BE0005770,Metallothionein-3,Humans
+BE0005538,DAN domain family member 5,Humans
+BE0009047,Alpha-1B-glycoprotein,Humans
+BE0001060,Angiotensinogen,Humans
+BE0009048,Alpha-2-HS-glycoprotein,Humans
+BE0001213,Serum amyloid P-component,Humans
+BE0003449,Apolipoprotein A-I,Humans
+BE0000922,Apolipoprotein A-II,Humans
+BE0009049,Apolipoprotein A-IV,Humans
+BE0005852,Apolipoprotein B receptor,Humans
+BE0001119,Apolipoprotein E,Humans
+BE0009069,Apolipoprotein L1,Humans
+BE0001529,Complement C1s subcomponent,Humans
+BE0009050,C4b-binding protein alpha chain,Humans
+BE0009070,C4b-binding protein beta chain,Humans
+BE0009071,Lys-63-specific deubiquitinase BRCC36,Humans
+BE0009072,Complement component C8 alpha chain,Humans
+BE0009051,Complement component C8 beta chain,Humans
+BE0003266,Complement component C8 gamma chain,Humans
+BE0001701,Complement factor B,Humans
+BE0009053,Complement factor H,Humans
+BE0009054,Complement factor I,Humans
+BE0009055,Clusterin,Humans
+BE0003503,Carboxypeptidase N catalytic chain,Humans
+BE0003504,Carboxypeptidase N subunit 2,Humans
+BE0009073,Dermcidin,Humans
+BE0009074,Desmoplakin,Humans
+BE0004672,Coagulation factor XII,Humans
+BE0009075,Coagulation factor XIII B chain,Humans
+BE0009076,Ficolin-3,Humans
+BE0001180,Fibronectin,Humans
+BE0004161,Gelsolin,Humans
+BE0009057,Haptoglobin-related protein,Humans
+BE0009077,Hornerin,Humans
+BE0005097,Immunoglobulin heavy constant alpha 1,Humans
+BE0005098,Immunoglobulin heavy constant mu,Humans
+BE0009078,Immunoglobulin kappa variable 1-17,Humans
+BE0000616,Immunoglobulin kappa variable 3-20,Humans
+BE0009079,Immunoglobulin lambda variable 3-21,Humans
+BE0009080,Inter-alpha-trypsin inhibitor heavy chain H1,Humans
+BE0009060,Inter-alpha-trypsin inhibitor heavy chain H2,Humans
+BE0009081,Inter-alpha-trypsin inhibitor heavy chain H3,Humans
+BE0009082,Inter-alpha-trypsin inhibitor heavy chain H4,Humans
+BE0009083,Immunoglobulin J chain,Humans
+BE0009084,Junction plakoglobin,Humans
+BE0002440,Plasma kallikrein,Humans
+BE0001017,Kininogen-1,Humans
+BE0009061,"Keratin, type II cytoskeletal 1",Humans
+BE0009062,"Keratin, type I cytoskeletal 10",Humans
+BE0009085,"Keratin, type I cytoskeletal 14",Humans
+BE0009086,"Keratin, type I cytoskeletal 16",Humans
+BE0009063,"Keratin, type II cytoskeletal 2 epidermal",Humans
+BE0009087,"Keratin, type II cytoskeletal 5",Humans
+BE0009088,"Keratin, type II cytoskeletal 6A",Humans
+BE0009064,"Keratin, type I cytoskeletal 9",Humans
+BE0004613,N-acetylmuramoyl-L-alanine amidase,Humans
+BE0009089,Pregnancy zone protein,Humans
+BE0005533,Selenoprotein P,Humans
+BE0009090,Alpha-1-antichymotrypsin,Humans
+BE0009067,Kallistatin,Humans
+BE0009092,Amyloid beta precursor like protein 1,Humans
+BE0009093,Amyloid beta precursor like protein 2,Humans
+BE0008485,Penicillin-binding protein 4,Staphylococcus aureus
+BE0003189,Beta-lactamase,Proteus vulgaris
+BE0002015,Beta-lactamase SHV-1,Escherichia coli
+BE0002831,Beta-lactamase CTX-M,Escherichia coli
+BE0009747,Beta-lactamase,Klebsiella pneumoniae
+BE0001568,Beta-lactamase TEM,Salmonella typhi
+BE0009681,Beta-lactamase Ohio-1,Enterobacter cloacae
+BE0000997,Atrial natriuretic peptide receptor 2,Humans
+BE0002815,Immunoglobulin heavy constant gamma 1,Humans
+BE0001516,Hypoxanthine-guanine-xanthine phosphoribosyltransferase,Plasmodium falciparum (isolate FCR-3 / Gambia)
+BE0001533,Orotate phosphoribosyltransferase,Salmonella typhimurium (strain LT2 / SGSC1412 / ATCC 700720)
+BE0004582,Uridine-cytidine kinase-like 1,Humans
+BE0002488,Hypoxanthine phosphoribosyltransferase,Trypanosoma cruzi
+BE0002489,Anthranilate phosphoribosyltransferase,Erwinia carotovora
+BE0002493,Glucose-1-phosphate thymidylyltransferase,Pseudomonas aeruginosa (strain ATCC 15692 / PAO1 / 1C / PRS 101 / LMG 12228)
+BE0009369,Cytochrome P450 1A1,Rat
+BE0001226,Major NAD(P)H-flavin oxidoreductase,Vibrio fischeri
+BE0003531,Chymotrypsinogen B,Humans
+BE0001238,Streptogramin A acetyltransferase,Enterococcus faecium
+BE0000605,"Isobutyryl-CoA dehydrogenase, mitochondrial",Humans
+BE0002499,Pentaerythritol tetranitrate reductase,Enterobacter cloacae
+BE0002001,Fumarate reductase (cytochrome),Shewanella frigidimarina
+BE0002006,Enoyl-[acyl-carrier-protein] reductase [NADH] FabI,Escherichia coli (strain K12)
+BE0004525,V-type proton ATPase subunit C 1,Humans
+BE0001263,Botulinum neurotoxin type B,Clostridium botulinum
+BE0001089,Glucose-6-phosphate 1-dehydrogenase,Humans
+BE0001264,Sulfotransferase 2B1,Humans
+BE0001230,Cholesterol oxidase,Brevibacterium sterolicum
+BE0004467,Myoglobin,Humans
+BE0003738,Cyclopropane mycolic acid synthase 1,Mycobacterium tuberculosis
+BE0002512,Cyclopropane mycolic acid synthase MmaA2,Mycobacterium tuberculosis
+BE0004527,"Isocitrate dehydrogenase [NADP], mitochondrial",Humans
+BE0001251,Isocitrate dehydrogenase [NADP] cytoplasmic,Humans
+BE0000623,Tyrosine-protein phosphatase non-receptor type 1,Humans
+BE0001379,Iron(3+)-hydroxamate-binding protein FhuD,Escherichia coli (strain K12)
+BE0001211,Cyclopropane mycolic acid synthase 2,Mycobacterium tuberculosis
+BE0002521,Cyclopropane mycolic acid synthase 3,Mycobacterium tuberculosis
+BE0001382,NADPH-ferredoxin reductase FprA,Mycobacterium tuberculosis
+BE0001277,Serine/threonine-protein kinase pim-1,Humans
+BE0027486,Bacterial 50S ribosomal protein,Gram positive bacteria
+BE0004584,Serotonin N-acetyltransferase,Humans
+BE0003791,Dual specificity protein kinase TTK,Humans
+BE0001097,Mitogen-activated protein kinase 10,Humans
+BE0003772,Mitogen-activated protein kinase 9,Humans
+BE0003789,C-Jun-amino-terminal kinase-interacting protein 1,Humans
+BE0001294,Pantothenate kinase,Escherichia coli (strain K12)
+BE0001413,Cocaine esterase,Rhodococcus sp. (strain MB1 Bresler)
+BE0001424,Tyrosine-protein kinase HCK,Humans
+BE0001292,Cruzipain,Trypanosoma cruzi
+BE0000994,Lactotransferrin,Humans
+BE0001326,Ferrichrome outer membrane transporter/phage receptor,Escherichia coli (strain K12)
+BE0001353,Galectin-3,Humans
+BE0002565,Glycerol dehydratase,Clostridium butyricum
+BE0004496,Inositol-3-phosphate synthase 1,Humans
+BE0003758,Chymotrypsin-like elastase family member 1,Humans
+BE0000309,Polyunsaturated fatty acid lipoxygenase ALOX15,Humans
+BE0004501,Putative glycosyltransferase 6 domain-containing protein 1,Humans
+BE0001421,Beta-galactosidase,Escherichia coli (strain K12)
+BE0002654,Cytohesin-2,Humans
+BE0004457,Alpha-amylase 2B,Humans
+BE0001408,Tubulin beta-4A chain,Humans
+BE0001415,Tubulin beta-3 chain,Humans
+BE0027478,Tubulin alpha 3C/D chain,Humans
+BE0001072,Cyclin-dependent kinase 2,Humans
+BE0004574,ERO1-like protein beta,Humans
+BE0001409,Flavin-dependent thymidylate synthase,Thermotoga maritima (strain ATCC 43589 / MSB8 / DSM 3109 / JCM 10099)
+BE0001108,Hexokinase-1,Humans
+BE0001056,Hexokinase-4,Humans
+BE0005216,"Solute carrier family 2, facilitated glucose transporter member 5",Humans
+BE0005217,"Solute carrier family 2, facilitated glucose transporter member 6",Humans
+BE0005218,"Solute carrier family 2, facilitated glucose transporter member 7",Humans
+BE0005219,"Solute carrier family 2, facilitated glucose transporter member 8",Humans
+BE0005220,"Solute carrier family 2, facilitated glucose transporter member 10",Humans
+BE0005221,"Solute carrier family 2, facilitated glucose transporter member 11",Humans
+BE0005222,"Solute carrier family 2, facilitated glucose transporter member 12",Humans
+BE0004753,Sodium/glucose cotransporter 2,Humans
+BE0004171,Myelin P2 protein,Humans
+BE0001301,Monomeric sarcosine oxidase,Bacillus sp. (strain B-0618)
+BE0003382,Serine/threonine-protein kinase Chk1,Humans
+BE0003783,Thermolysin,Bacillus thermoproteolyticus
+BE0003761,cAMP-dependent protein kinase catalytic subunit alpha,Humans
+BE0002535,Peptide deformylase,Staphylococcus aureus
+BE0001368,2-oxo-tetronate isomerase,Escherichia coli (strain K12)
+BE0001285,Delta-aminolevulinic acid dehydratase,Pseudomonas aeruginosa (strain ATCC 15692 / PAO1 / 1C / PRS 101 / LMG 12228)
+BE0001381,3-phosphoshikimate 1-carboxyvinyltransferase,Escherichia coli (strain K12)
+BE0001397,Subtilisin Carlsberg,Bacillus licheniformis
+BE0001475,Peptide deformylase,Escherichia coli (strain K12)
+BE0000597,Aminodeoxychorismate synthase component 1,Escherichia coli (strain K12)
+BE0001525,Dihydroorotate dehydrogenase (quinone),Escherichia coli (strain K12)
+BE0001613,(S)-2-haloacid dehalogenase,Xanthobacter autotrophicus
+BE0001778,Beta-lactamase OXA-2,Salmonella typhimurium
+BE0001988,Catalase,Proteus mirabilis
+BE0001792,Signal recognition particle protein,Thermus aquaticus
+BE0001668,Streptavidin,Streptomyces avidinii
+BE0001905,Methylglyoxal synthase,Shigella flexneri
+BE0002624,C-terminal-binding protein 1,Humans
+BE0001966,6-phosphogluconolactonase,Thermotoga maritima (strain ATCC 43589 / MSB8 / DSM 3109 / JCM 10099)
+BE0002640,Citrate lyase subunit beta-like protein,Mycobacterium tuberculosis
+BE0002641,Peripheral plasma membrane protein CASK,Humans
+BE0002642,Guanylate kinase,Mycobacterium tuberculosis
+BE0002643,Probable butyrate kinase 2,Thermotoga maritima (strain ATCC 43589 / MSB8 / DSM 3109 / JCM 10099)
+BE0004623,Gamma-glutamylaminecyclotransferase,Humans
+BE0004470,Parvalbumin alpha,Humans
+BE0004569,Acylphosphatase-2,Humans
+BE0002644,ABM domain-containing protein,Bacillus cereus (strain ATCC 14579 / DSM 31)
+BE0002645,Arginine N-succinyltransferase subunit alpha,Pseudomonas aeruginosa (strain ATCC 15692 / PAO1 / 1C / PRS 101 / LMG 12228)
+BE0002646,Putative mannose-6-phosphate isomerase YvyI,Bacillus subtilis (strain 168)
+BE0002647,"Oligopeptide ABC transporter, periplasmic oligopeptide-binding protein",Thermotoga maritima (strain ATCC 43589 / MSB8 / DSM 3109 / JCM 10099)
+BE0002648,Probable phosphatase YcdX,Escherichia coli (strain K12)
+BE0002650,Oxalate decarboxylase OxdC,Bacillus subtilis (strain 168)
+BE0002651,Putative ketoacyl reductase,Streptomyces coelicolor (strain ATCC BAA-471 / A3(2) / M145)
+BE0002652,Gephyrin,Humans
+BE0002653,Glyoxalase family protein,Bacillus cereus (strain ATCC 14579 / DSM 31)
+BE0002655,Glutaconyl-CoA decarboxylase subunit alpha,Acidaminococcus fermentans (strain ATCC 25085 / DSM 20731 / VR4)
+BE0002656,"Transcriptional regulator, IclR family",Thermotoga maritima (strain ATCC 43589 / MSB8 / DSM 3109 / JCM 10099)
+BE0002657,Catalase,Helicobacter pylori (strain ATCC 700392 / 26695)
+BE0002658,Sensory rhodopsin transducer,Thermotoga maritima (strain ATCC 43589 / MSB8 / DSM 3109 / JCM 10099)
+BE0002660,Glutaminase 1,Bacillus subtilis (strain 168)
+BE0002661,Glutaminase 1,Escherichia coli (strain K12)
+BE0002662,Molybdopterin synthase catalytic subunit,Escherichia coli (strain K12)
+BE0002663,"Aminotransferase, putative",Thermotoga maritima (strain ATCC 43589 / MSB8 / DSM 3109 / JCM 10099)
+BE0002664,Fe(3+) ABC transporter substrate-binding protein,Pasteurella haemolytica
+BE0002665,DNA gyrase subunit B,Thermus thermophilus
+BE0027485,Phenazine biosynthesis protein PhzD,Pseudomonas aeruginosa
+BE0001384,Alpha-ketoglutarate-dependent taurine dioxygenase,Escherichia coli (strain K12)
+BE0001392,Bile salt hydrolase/transferase,Clostridium perfringens (strain 13 / Type A)
+BE0009148,Sodium- and chloride-dependent taurine transporter,Humans
+BE0004459,"Citrate synthase, mitochondrial",Humans
+BE0001531,"Acetolactate synthase, catabolic",Klebsiella pneumoniae
+BE0003274,Indole-3-pyruvate decarboxylase,Enterobacter cloacae
+BE0003275,N(2)-(2-carboxyethyl)arginine synthase,Streptomyces clavuligerus
+BE0003276,Transketolase 1,Escherichia coli (strain K12)
+BE0001286,Benzoylformate decarboxylase,Pseudomonas putida
+BE0001354,Pyruvate oxidase,Lactobacillus plantarum (strain ATCC BAA-793 / NCIMB 8826 / WCFS1)
+BE0004545,Nuclear receptor ROR-alpha,Humans
+BE0002677,Aminoglycoside N(6')-acetyltransferase type 1,Salmonella enteritidis
+BE0002685,Citrate synthase,Thermus thermophilus
+BE0002690,2-methylcitrate synthase,Antarctic bacterium DS2-3R
+BE0001344,Alanine racemase,Geobacillus stearothermophilus
+BE0001199,Glucose-6-phosphate isomerase,Humans
+BE0001341,Tyrosine-protein kinase ITK/TSK,Humans
+BE0001316,Tyrosine-protein kinase SYK,Humans
+BE0001315,"Phosphatidylinositol 4,5-bisphosphate 3-kinase catalytic subunit gamma isoform",Humans
+BE0001385,Protein kinase C theta type,Humans
+BE0001312,Tyrosine-protein kinase ZAP-70,Humans
+BE0001389,Aromatic-amino-acid aminotransferase,Paracoccus denitrificans
+BE0004538,Palmitoyl-protein thioesterase 1,Humans
+BE0003872,Disintegrin and metalloproteinase domain-containing protein 28,Humans
+BE0000991,Aurora kinase A,Humans
+BE0004601,Aurora kinase C,Humans
+BE0003404,Aurora kinase B,Humans
+BE0000890,Cyclin-dependent kinase 5,Humans
+BE0001082,Cyclin-dependent kinase 1,Humans
+BE0003362,"NAD-dependent protein deacylase sirtuin-5, mitochondrial",Humans
+BE0001523,p-hydroxybenzoate hydroxylase,Pseudomonas fluorescens
+BE0004281,Elongation factor 2,Humans
+BE0002011,Purine nucleoside phosphorylase DeoD-type,Escherichia coli (strain K12)
+BE0003998,"Fatty acid-binding protein, liver",Humans
+BE0001594,Gag-Pol polyprotein,Human immunodeficiency virus type 1 group M subtype B (isolate HXB2)
+BE0000939,Cathepsin B,Humans
+BE0001448,L-lactate dehydrogenase,Plasmodium falciparum (isolate CDC / Honduras)
+BE0001430,Beta-lactamase,Enterobacter cloacae
+BE0000870,Dual specificity mitogen-activated protein kinase kinase 1,Humans
+BE0001972,Peroxiredoxin-2,Humans
+BE0001194,"Fatty acid-binding protein, adipocyte",Humans
+BE0001524,Isocitrate dehydrogenase [NADP],Bacillus subtilis (strain 168)
+BE0003766,2-Hydroxyacid oxidase 1,Humans
+BE0001447,Serine/threonine-protein phosphatase PP1-gamma catalytic subunit,Humans
+BE0001220,Xylose isomerase,Arthrobacter sp. (strain NRRL B3728)
+BE0001536,"Glyceraldehyde-3-phosphate dehydrogenase, glycosomal",Trypanosoma cruzi
+BE0001786,Catalase,Micrococcus luteus
+BE0001551,Trypanothione reductase,Trypanosoma cruzi
+BE0001432,Ganglioside GM2 activator,Humans
+BE0002008,Dihydroorotate dehydrogenase A (fumarate),Lactococcus lactis subsp. cremoris
+BE0001411,Tetanus toxin,Clostridium tetani (strain Massachusetts / E88)
+BE0001517,Farnesyl diphosphate synthase,Escherichia coli (strain K12)
+BE0001197,Steryl-sulfatase,Humans
+BE0004502,Potassium voltage-gated channel subfamily A member 4,Humans
+BE0000935,Phosphatidylcholine transfer protein,Humans
+BE0001494,Genome polyprotein,HRV-2
+BE0004631,Potassium/sodium hyperpolarization-activated cyclic nucleotide-gated channel 2,Humans
+BE0001055,GTP cyclohydrolase 1,Humans
+BE0001598,Oxysterols receptor LXR-beta,Humans
+BE0001478,Genome polyprotein,Hepatitis C virus genotype 1b (isolate BK)
+BE0001550,Cholesterol oxidase,Streptomyces sp. (strain SA-COO)
+BE0009962,p-hydroxybenzoate hydroxylase,
+BE0002014,Thioesterase 1/protease 1/lysophospholipase L1,Escherichia coli (strain K12)
+BE0001687,Bis(5'-adenosyl)-triphosphatase,Humans
+BE0004145,Tyrosine-protein kinase JAK1,Humans
+BE0004338,Lactase/phlorizin hydrolase,Humans
+BE0001330,Xylose isomerase,Streptomyces olivochromogenes
+BE0004512,Neurocan core protein,Humans
+BE0002830,Amylosucrase,Neisseria polysaccharea
+BE0003024,N-acetyl-S-alkylcysteine sulfoxide monooxygenase,Bacillus subtilis (strain 168)
+BE0004492,Keratin-associated protein 5-2,Humans
+BE0003212,Maltoporin,Escherichia coli (strain K12)
+BE0003072,Beta-xylanase,Streptomyces olivaceoviridis
+BE0001073,"6-phosphofructo-2-kinase/fructose-2,6-bisphosphatase 1",Humans
+BE0003957,Glycodelin,Humans
+BE0002742,"2-hydroxy-6-oxo-7-methylocta-2,4-dienoate hydrolase",Pseudomonas fluorescens
+BE0004172,Colicin I receptor,Escherichia coli (strain K12)
+BE0001913,Cyclin-dependent kinase 7,Humans
+BE0004475,cAMP-dependent protein kinase catalytic subunit beta,Humans
+BE0001241,ADP-ribosyl cyclase/cyclic ADP-ribose hydrolase 2,Humans
+BE0003828,Large ribosomal subunit protein uL23,Humans
+BE0003833,Large ribosomal subunit protein uL3,Humans
+BE0003753,Carboxypeptidase A1,Humans
+BE0003810,Serine/threonine-protein phosphatase PP1-alpha catalytic subunit,Humans
+BE0001667,Neuraminidase,Influenza A virus (strain A/Tern/Australia/G70C/1975 H11N9)
+BE0004733,Sodium- and chloride-dependent GABA transporter 3,Humans
+BE0002367,Histone deacetylase 3,Humans
+BE0002368,Protein deacetylase HDAC6,Humans
+BE0004500,"Enoyl-CoA hydratase, mitochondrial",Humans
+BE0003732,Adenylate cyclase type 2,Humans
+BE0003733,Adenylate cyclase type 5,Humans
+BE0002101,"Actin, alpha skeletal muscle",Humans
+BE0001156,E3 ubiquitin-protein ligase XIAP,Humans
+BE0000909,Sepiapterin reductase,Humans
+BE0001967,Gastrotropin,Humans
+BE0003986,"Cytochrome c oxidase subunit 4 isoform 1, mitochondrial",Humans
+BE0000335,Cytochrome c oxidase subunit 1,Humans
+BE0003385,Cytochrome c oxidase subunit 2,Humans
+BE0003987,Cytochrome c oxidase subunit 3,Humans
+BE0003988,"Cytochrome c oxidase subunit 5A, mitochondrial",Humans
+BE0003989,"Cytochrome c oxidase subunit 5B, mitochondrial",Humans
+BE0003990,Cytochrome c oxidase subunit 6C,Humans
+BE0003991,"Cytochrome c oxidase subunit 7B, mitochondrial",Humans
+BE0003992,"Cytochrome c oxidase subunit 7C, mitochondrial",Humans
+BE0003993,"Cytochrome c oxidase subunit 8A, mitochondrial",Humans
+BE0003994,"Cytochrome c oxidase subunit 6A2, mitochondrial",Humans
+BE0003995,Cytochrome c oxidase subunit 6B1,Humans
+BE0003996,"Cytochrome c oxidase subunit 7A1, mitochondrial",Humans
+BE0005788,G-protein coupled bile acid receptor 1,Humans
+BE0003094,Bifunctional 3'-phosphoadenosine 5'-phosphosulfate synthase 1,Humans
+BE0001869,Exotoxin A,Pseudomonas aeruginosa (strain ATCC 15692 / PAO1 / 1C / PRS 101 / LMG 12228)
+BE0001796,Elongation factor G,Thermus thermophilus
+BE0001800,Chloramphenicol acetyltransferase,Salmonella typhi
+BE0008988,Integrin alpha-5,Humans
+BE0000878,Alpha-synuclein,Humans
+BE0009095,Far upstream element-binding protein 2,Humans
+BE0001590,Glycine oxidase,Bacillus subtilis (strain 168)
+BE0002216,Cyclin-dependent kinase 4,Humans
+BE0003777,Beta-2-microglobulin,Humans
+BE0004434,U6 snRNA-associated Sm-like protein LSm6,Humans
+BE0002061,Nucleoside-specific channel-forming protein tsx,Escherichia coli (strain K12)
+BE0001914,Fumarate hydratase class II,Escherichia coli (strain K12)
+BE0004053,Elongation factor-like GTPase 1,Humans
+BE0004455,Thiosulfate sulfurtransferase,Humans
+BE0004021,Protein TonB,Escherichia coli (strain K12)
+BE0002718,Beta-lactamase,Escherichia coli
+BE0002832,Heme oxygenase,Corynebacterium diphtheriae (strain ATCC 700971 / NCTC 13129 / Biotype gravis)
+BE0004442,RNA-splicing ligase RTCB,Humans
+BE0002834,Orange carotenoid-binding protein,Arthrospira maxima
+BE0002835,Sucrose porin,Salmonella typhimurium
+BE0002788,Levansucrase,Bacillus subtilis (strain 168)
+BE0003814,ADP-ribosylation factor 1,Humans
+BE0002838,Envelope glycoprotein gp160,HIV-1
+BE0004710,Sodium-dependent organic anion transporter,Humans
+BE0001838,Serine hydroxymethyltransferase,Shigella flexneri
+BE0004461,Phosphoglucomutase-1,Humans
+BE0004141,D-amino-acid oxidase,Humans
+BE0001543,p-hydroxybenzoate hydroxylase,Pseudomonas aeruginosa (strain ATCC 15692 / PAO1 / 1C / PRS 101 / LMG 12228)
+BE0002843,"Transcriptional regulator, HTH_3 family",Vibrio cholerae serotype O1 (strain ATCC 39315 / El Tor Inaba N16961)
+BE0001745,"Medium-chain specific acyl-CoA dehydrogenase, mitochondrial",Humans
+BE0001580,Serine/threonine-protein kinase PknB,Mycobacterium tuberculosis
+BE0001830,Tryptophan--tRNA ligase 2,Deinococcus radiodurans (strain ATCC 13939 / DSM 20539 / JCM 16871 / LMG 4051 / NBRC 15346 / NCIMB 9279 / R1 / VKM B-1422)
+BE0004012,Dual specificity tyrosine-phosphorylation-regulated kinase 1A,Humans
+BE0009166,Elongation factor 1-alpha,Plasmodium falciparum (isolate K1 / Thailand)
+BE0008983,Prostate-specific antigen,Humans
+BE0004017,Genome polyprotein,HRV-16
+BE0004018,Genome polyprotein,HRV-1A
+BE0004019,Hepatocyte nuclear factor 4-alpha,Humans
+BE0004020,Very low-density lipoprotein receptor,Humans
+BE0001854,Glycolipid transfer protein,Humans
+BE0004022,Group IID secretory phospholipase A2,Humans
+BE0004023,Acyl-homoserine lactone acylase PvdQ,Pseudomonas aeruginosa (strain ATCC 15692 / PAO1 / 1C / PRS 101 / LMG 12228)
+BE0001723,Mycobacterial beta-ketoacyl-[acyl-carrier-protein] synthase III,Mycobacterium tuberculosis
+BE0001787,Bifunctional protein PutA,Escherichia coli (strain K12)
+BE0001840,Complement factor D,Humans
+BE0002938,"Acyl-CoA dehydrogenase, short-chain specific",Megasphaera elsdenii
+BE0003512,Casein kinase I isoform epsilon,Humans
+BE0009427,Casein kinase I isoform alpha,Humans
+BE0004465,Immunoglobulin lambda constant 1,Humans
+BE0002939,Immunoglobulin lambda variable 2-8,Humans
+BE0004464,Trefoil factor 2,Humans
+BE0002913,Cytochrome c2,Rhodopseudomonas palustris (strain ATCC BAA-98 / CGA009)
+BE0002940,"Endo-1,4-beta-xylanase",Bacillus agaradhaerens
+BE0002802,Copper-containing nitrite reductase,Alcaligenes xylosoxydans xylosoxydans
+BE0004439,Hypocretin neuropeptide precursor,Humans
+BE0002941,C-C motif chemokine 8,Humans
+BE0002942,Cytochrome c',Alcaligenes xylosoxydans xylosoxydans
+BE0000978,Lysosomal acid glucosylceramidase,Humans
+BE0000397,"Isovaleryl-CoA dehydrogenase, mitochondrial",Humans
+BE0000965,"Apoptosis-inducing factor 1, mitochondrial",Humans
+BE0001720,UDP-galactopyranose mutase,Escherichia coli (strain K12)
+BE0001704,Flavohemoprotein,Cupriavidus necator (strain ATCC 17699 / H16 / DSM 428 / Stanier 337)
+BE0001921,"Glutaryl-CoA dehydrogenase, mitochondrial",Humans
+BE0001969,Deoxyribodipyrimidine photo-lyase,Thermus thermophilus (strain HB8 / ATCC 27634 / DSM 579)
+BE0004566,L-amino-acid oxidase,Humans
+BE0001961,"2,4-dienoyl-CoA reductase [(2E)-enoyl-CoA-producing]",Escherichia coli (strain K12)
+BE0001784,"2-oxopropyl-CoM reductase, carboxylating",Xanthobacter autotrophicus (strain ATCC BAA-1158 / Py2)
+BE0002067,Thioredoxin reductase,Escherichia coli (strain K12)
+BE0002064,"5,10-methylenetetrahydrofolate reductase",Escherichia coli (strain K12)
+BE0002961,Dimethylglycine oxidase,Arthrobacter globiformis
+BE0002597,NADH peroxidase,Enterococcus faecalis (strain ATCC 700802 / V583)
+BE0002962,Ferredoxin--NADP reductase,Anabaena sp. (strain PCC 7119)
+BE0002963,Sulfite reductase [NADPH] flavoprotein alpha-component,Escherichia coli (strain K12)
+BE0002964,Ferredoxin--NADP reductase,Azotobacter vinelandii
+BE0002596,Ferredoxin reductase,Pseudomonas sp. (strain KKS102)
+BE0002965,Dihydrolipoyl dehydrogenase,Azotobacter vinelandii
+BE0002966,Renalase,Pseudomonas syringae pv. tomato (strain DC3000)
+BE0002967,Deoxyribodipyrimidine photo-lyase,Escherichia coli (strain K12)
+BE0002968,Deoxyribodipyrimidine photo-lyase,Synechococcus sp. (strain ATCC 27144 / PCC 6301 / SAUG 1402/1)
+BE0002969,L-aspartate oxidase,Escherichia coli (strain K12)
+BE0002970,Cryptochrome DASH,Synechocystis sp. (strain PCC 6803 / Kazusa)
+BE0002881,Probable fumarate reductase Ifc3,Shewanella frigidimarina (strain NCIMB 400)
+BE0004507,NADH-cytochrome b5 reductase 1,Humans
+BE0002774,Oxidoreductase,Brevibacterium sterolicum
+BE0004480,"NADPH:adrenodoxin oxidoreductase, mitochondrial",Humans
+BE0004135,Peroxisomal acyl-coenzyme A oxidase 1,Humans
+BE0002971,UDP-N-acetylenolpyruvoylglucosamine reductase,Escherichia coli (strain K12)
+BE0004580,FAD-linked sulfhydryl oxidase ALR,Humans
+BE0002972,UDP-N-acetylenolpyruvoylglucosamine reductase,Staphylococcus aureus (strain MW2)
+BE0002917,Flavohemoprotein,Escherichia coli (strain K12)
+BE0002619,Phenol 2-hydroxylase component B,Bacillus thermoglucosidasius
+BE0002973,Methylenetetrahydrofolate reductase,Thermus thermophilus
+BE0002974,Putidaredoxin reductase CamA,Pseudomonas putida
+BE0002975,NAD(P)H dehydrogenase (quinone),Mycobacterium tuberculosis
+BE0002976,UDP-galactopyranose mutase,Mycobacterium tuberculosis
+BE0002977,4-hydroxybutyryl-CoA dehydratase/vinylacetyl-CoA-Delta-isomerase,Clostridium aminobutyricum
+BE0002978,4-cresol dehydrogenase [hydroxylating] flavoprotein subunit,Pseudomonas putida
+BE0002979,Alkyl hydroperoxide reductase subunit F,Salmonella typhimurium (strain LT2 / SGSC1412 / ATCC 700720)
+BE0002980,Dihydrolipoyl dehydrogenase,Neisseria meningitidis
+BE0002981,Glutathione reductase,Plasmodium falciparum (isolate K1 / Thailand)
+BE0002982,Phenylacetone monooxygenase,Thermobifida fusca (strain YX)
+BE0002983,"Benzoate 1,2-dioxygenase electron transfer component",Acinetobacter sp. (strain ADP1)
+BE0002984,Putative acyl-CoA dehydrogenase,Thermus thermophilus (strain HB27 / ATCC BAA-163 / DSM 7039)
+BE0002985,FkbI,Streptomyces hygroscopicus subsp. ascomyceticus
+BE0002616,Dihydrolipoyl dehydrogenase,Pseudomonas putida
+BE0002986,Dihydrolipoyl dehydrogenase,Pseudomonas fluorescens
+BE0002987,Alkyl hydroperoxide reductase subunit F,Escherichia coli (strain K12)
+BE0002988,Ferredoxin--NADP reductase,Nostoc sp. (strain PCC 7120 / UTEX 2576)
+BE0002989,Flavodoxin/ferredoxin--NADP reductase,Escherichia coli (strain K12)
+BE0002990,Mersacidin decarboxylase,Bacillus sp. (strain HIL-Y85/54728)
+BE0001201,"Fatty acid-binding protein, heart",Humans
+BE0001684,Adenosylhomocysteinase,Humans
+BE0001616,Oxygen-insensitive NAD(P)H nitroreductase,Escherichia coli (strain K12)
+BE0001807,Flavodoxin,Clostridium beijerinckii
+BE0001922,Chorismate synthase,Streptococcus pneumoniae (strain ATCC BAA-255 / R6)
+BE0002066,Pyridoxine/pyridoxamine 5'-phosphate oxidase,Escherichia coli (strain K12)
+BE0003018,FMN-dependent NADH:quinone oxidoreductase,Salmonella typhimurium (strain LT2 / SGSC1412 / ATCC 700720)
+BE0003019,Epidermin decarboxylase,Staphylococcus epidermidis
+BE0002577,FMN-dependent NADH:quinone oxidoreductase,Escherichia coli (strain K12)
+BE0003020,Chorismate synthase,Helicobacter pylori (strain ATCC 700392 / 26695)
+BE0003021,Flavodoxin,Nostoc sp. (strain PCC 7120 / UTEX 2576)
+BE0002710,Flavodoxin,Desulfovibrio vulgaris (strain Hildenborough / ATCC 29579 / NCIMB 8303)
+BE0003022,Flavodoxin,Synechococcus elongatus (strain PCC 7942)
+BE0003023,Nitroreductase domain-containing protein,Streptococcus mutans serotype c (strain ATCC 700610 / UA159)
+BE0003025,tRNA-dihydrouridine synthase,Thermotoga maritima (strain ATCC 43589 / MSB8 / DSM 3109 / JCM 10099)
+BE0003026,Protein NrdI,Bacillus subtilis (strain 168)
+BE0003027,Probable UbiX-like flavin prenyltransferase,Escherichia coli O157:H7
+BE0003028,(S)-mandelate dehydrogenase,Pseudomonas putida
+BE0003029,FMN-dependent NADPH-azoreductase,Bacillus subtilis (strain 168)
+BE0003030,Flavodoxin,Helicobacter pylori (strain J99 / ATCC 700824)
+BE0004105,Serine/threonine-protein kinase Sgk1,Humans
+BE0003031,Oxygen-insensitive NAD(P)H nitroreductase,Enterobacter cloacae
+BE0002576,Nitric oxide reductase,Moorella thermoacetica (strain ATCC 39073)
+BE0003032,Isopentenyl-diphosphate delta-isomerase,Thermus thermophilus (strain HB27 / ATCC BAA-163 / DSM 7039)
+BE0003033,Trimethylamine dehydrogenase,Methylophilus methylotrophus
+BE0003034,Rubredoxin-oxygen oxidoreductase,Desulfovibrio gigas
+BE0002551,Riboflavin biosynthesis protein,Thermotoga maritima (strain ATCC 43589 / MSB8 / DSM 3109 / JCM 10099)
+BE0003035,Morphinone reductase,Pseudomonas putida
+BE0002629,NADPH-flavin oxidoreductase,Vibrio harveyi
+BE0004614,Ribosomal protein S6 kinase alpha-4,Humans
+BE0003036,Dihydrophenazinedicarboxylate synthase,Pseudomonas fluorescens
+BE0004577,2-Hydroxyacid oxidase 2,Humans
+BE0003037,NAD(P)H dehydrogenase (quinone),Deinococcus radiodurans (strain ATCC 13939 / DSM 20539 / JCM 16871 / LMG 4051 / NBRC 15346 / NCIMB 9279 / R1 / VKM B-1422)
+BE0003038,Flavodoxin 1,Escherichia coli (strain K12)
+BE0003039,Isopentenyl-diphosphate delta-isomerase,Bacillus subtilis (strain 168)
+BE0003040,NADH dehydrogenase,Thermus thermophilus (strain HB8 / ATCC 27634 / DSM 579)
+BE0003041,FMN-binding protein,Desulfovibrio vulgaris (strain Miyazaki F / DSM 19637)
+BE0003042,Nitroreductase family protein,Bacillus cereus (strain ATCC 14579 / DSM 31)
+BE0003043,Phosphopantothenoylcysteine decarboxylase,Humans
+BE0002996,PhzG,Pseudomonas aeruginosa
+BE0002849,Ferredoxin-dependent glutamate synthase 2,Synechocystis sp. (strain PCC 6803 / Kazusa)
+BE0017310,Bifunctional FAD diphosphatase/FAD synthase,Humans
+BE0004453,"Superoxide dismutase [Mn], mitochondrial",Humans
+BE0009350,DNA polymerase,Human herpesvirus 1
+BE0009977,Thymidine kinase,Feline herpesvirus 1
+BE0000999,Tumor necrosis factor ligand superfamily member 13B,Humans
+BE0004493,Galectin-1,Humans
+BE0002766,"Endo-1,4-beta-xylanase A",Streptomyces lividans
+BE0001102,Prostatic acid phosphatase,Humans
+BE0003121,"9,11-endoperoxide prostaglandin H2 reductase",Trypanosoma brucei brucei
+BE0003795,Prostaglandin reductase 1,Humans
+BE0002029,Beta-lactamase SHV-2,Escherichia coli
+BE0002207,Cyclin-dependent kinase 9,Humans
+BE0002212,Cyclin-dependent kinase 6,Humans
+BE0001139,Tumor necrosis factor receptor superfamily member 1A,Humans
+BE0001236,Steroid Delta-isomerase,Pseudomonas putida
+BE0003133,Dihydropteroate synthase,Bacillus anthracis
+BE0002929,PpcA,Geobacter sulfurreducens
+BE0004054,Lactaldehyde dehydrogenase,Escherichia coli (strain K12)
+BE0004056,Cytochrome c oxidase subunit 2,Rhodobacter sphaeroides
+BE0001817,Multidrug efflux pump subunit AcrB,Escherichia coli (strain K12)
+BE0004055,Cytochrome c oxidase subunit 1,Rhodobacter sphaeroides
+BE0000946,Platelet basic protein,Humans
+BE0002135,Procathepsin L,Humans
+BE0002857,Zinc-alpha-2-glycoprotein,Humans
+BE0005540,Sterol regulatory element-binding protein 1,Humans
+BE0001646,Cathepsin S,Humans
+BE0001016,Rho-associated protein kinase 1,Humans
+BE0003390,Mitogen-activated protein kinase 11,Humans
+BE0009588,Protein kinase C gamma type,Humans
+BE0003889,Protein kinase C iota type,Humans
+BE0003781,Oxysterols receptor LXR-alpha,Humans
+BE0001710,Ras-related protein Rab-9A,Humans
+BE0001976,"Chlorocatechol 1,2-dioxygenase",Rhodococcus opacus
+BE0003176,Non-heme chloroperoxidase,Streptomyces aureofaciens
+BE0003177,"Hydroxyquinol 1,2-dioxygenase",Nocardioides simplex
+BE0003178,Replication protein,Pseudomonas syringae
+BE0001984,Fatty acid-binding protein 5,Humans
+BE0003601,Alpha-lactalbumin,Humans
+BE0003179,Hepatocyte nuclear factor 4-gamma,Humans
+BE0003180,Lipid binding protein,Geobacillus stearothermophilus
+BE0003181,Trafficking protein particle complex subunit 3,Humans
+BE0003182,Fatty acid-binding protein TM_1468,Thermotoga maritima (strain ATCC 43589 / MSB8 / DSM 3109 / JCM 10099)
+BE0001268,HTH-type transcriptional regulator QacR,Staphylococcus haemolyticus
+BE0004641,Peroxiredoxin-6,Humans
+BE0009979,Hematopoietic stem cells,Humans
+BE0003172,Purine nucleoside phosphorylase,Plasmodium falciparum (isolate 3D7)
+BE0009974,Dihydrofolate reductase,Gallus gallus
+BE0000985,Catenin beta-1,Humans
+BE0001990,Protein-methionine-sulfoxide reductase catalytic subunit MsrP,Escherichia coli O157:H7
+BE0003782,TGF-beta receptor type-1,Humans
+BE0004463,Serpin B3,Humans
+BE0003198,Head decoration protein,Bacteriophage 21
+BE0004185,Beta-lactamase SHV-1,Klebsiella pneumoniae
+BE0001946,Sialidase,Micromonospora viridifaciens
+BE0001173,Cytochrome b5,Humans
+BE0001776,Death-associated protein kinase 1,Humans
+BE0004076,Calcium/calmodulin-dependent protein kinase type II subunit alpha,Humans
+BE0004541,Glutathione S-transferase theta-2,Humans
+BE0004174,Cofilin-1,Humans
+BE0004551,Carboxy-terminal domain RNA polymerase II polypeptide A small phosphatase 1,Humans
+BE0005300,Cyclic nucleotide-gated channel alpha-1,Humans
+BE0004427,Small conductance calcium-activated potassium channel protein 3,Humans
+BE0004426,Small conductance calcium-activated potassium channel protein 2,Humans
+BE0004425,Small conductance calcium-activated potassium channel protein 1,Humans
+BE0014924,Cyclic nucleotide-gated channel alpha-2,Humans
+BE0010192,Response regulator RamR,Streptomyces coelicolor (strain ATCC BAA-471 / A3(2) / M145)
+BE0010193,L-cysteine:1D-myo-inositol 2-amino-2-deoxy-alpha-D-glucopyranoside ligase,Mycobacterium tuberculosis (strain ATCC 25177 / H37Ra)
+BE0003840,"ATP synthase F(1) complex subunit alpha, mitochondrial",Humans
+BE0003841,"ATP synthase F(1) complex subunit beta, mitochondrial",Humans
+BE0004328,Serine/threonine-protein kinase 17B,Humans
+BE0009374,Phospholipid membrane,Escherichia coli (strain K12)
+BE0009973,Metallo-beta-lactamase type 2,Klebsiella pneumoniae
+BE0002930,Cytochrome c peroxidase,Marinobacter hydrocarbonoclasticus
+BE0004625,Hepatocyte growth factor-regulated tyrosine kinase substrate,Humans
+BE0003253,Invasin,Yersinia pseudotuberculosis serotype I (strain IP32953)
+BE0002953,Intron-associated endonuclease 1,Enterobacteria phage T4
+BE0003254,Short tail fiber protein gp12,Enterobacteria phage T4
+BE0003255,N5-carboxyaminoimidazole ribonucleotide mutase,Acetobacter aceti
+BE0003256,Large ribosomal subunit protein uL4,Thermotoga maritima (strain ATCC 43589 / MSB8 / DSM 3109 / JCM 10099)
+BE0003257,Carboxypeptidase B,Humans
+BE0003258,Hexon protein,HAdV-2
+BE0003259,Beta-fructosidase,Thermotoga maritima (strain ATCC 43589 / MSB8 / DSM 3109 / JCM 10099)
+BE0003260,Stringent starvation protein A,Yersinia pestis
+BE0003261,RNA 3'-terminal phosphate cyclase,Escherichia coli (strain K12)
+BE0003262,Pleckstrin homology domain-containing family A member 1,Humans
+BE0003263,Fe(3+)-binding periplasmic protein,Serratia marcescens
+BE0003264,Signal recognition particle receptor FtsY,Thermotoga maritima (strain ATCC 43589 / MSB8 / DSM 3109 / JCM 10099)
+BE0002611,Nicotinate-nucleotide adenylyltransferase,Shigella flexneri
+BE0003265,Transcription antitermination protein NusB,Thermotoga maritima (strain ATCC 43589 / MSB8 / DSM 3109 / JCM 10099)
+BE0003267,Ribonucleoside-diphosphate reductase subunit beta,Mycobacterium leprae (strain TN)
+BE0002555,Glutamine synthetase 1,Mycobacterium tuberculosis
+BE0002757,Purine nucleoside phosphorylase YfiH,Escherichia coli (strain K12)
+BE0003268,Ribose-5-phosphate isomerase A,Haemophilus influenzae (strain ATCC 51907 / DSM 11121 / KW20 / Rd)
+BE0002545,GMP synthase [glutamine-hydrolyzing],Escherichia coli (strain K12)
+BE0003269,SAR-endolysin,Enterobacteria phage P1
+BE0003270,Glycerol uptake operon antiterminator-related protein,Thermotoga maritima (strain ATCC 43589 / MSB8 / DSM 3109 / JCM 10099)
+BE0003271,"3-carboxy-cis,cis-muconate cycloisomerase",Pseudomonas putida
+BE0003272,Pyruvate decarboxylase,Zymomonas mobilis subsp. mobilis (strain ATCC 31821 / ZM4 / CP4)
+BE0003346,Calpain-1 catalytic subunit,Humans
+BE0003286,IAG-nucleoside hydrolase,Trypanosoma vivax
+BE0004756,Kelch-like ECH-associated protein 1,Humans
+BE0010046,PI-PLC X domain-containing protein 3,Humans
+BE0004604,"Lactosylceramide alpha-2,3-sialyltransferase",Humans
+BE0004523,Bile salt-activated lipase,Humans
+BE0003381,Serine/threonine-protein kinase Chk2,Humans
+BE0001824,Dual specificity protein kinase CLK1,Humans
+BE0002417,Protein kinase C delta type,Humans
+BE0001774,Enoyl-[acyl-carrier-protein] reductase [NADH] FabI,Helicobacter pylori (strain ATCC 700392 / 26695)
+BE0001565,DNA mismatch repair protein MutL,Escherichia coli (strain K12)
+BE0004549,Ephrin type-B receptor 2,Humans
+BE0004554,T-complex protein 1 subunit gamma,Humans
+BE0003297,NimA-related protein,Deinococcus radiodurans (strain ATCC 13939 / DSM 20539 / JCM 16871 / LMG 4051 / NBRC 15346 / NCIMB 9279 / R1 / VKM B-1422)
+BE0003309,Parathyroid hormone,Humans
+BE0004082,"HLA class I histocompatibility antigen, B alpha chain",Humans
+BE0004083,Protein S100-G,Humans
+BE0002769,"ATP-dependent Clp protease proteolytic subunit, mitochondrial",Humans
+BE0009999,Beta-galactosidase,Humans
+BE0000934,C-X-C motif chemokine 10,Humans
+BE0003407,Carboxypeptidase B2,Humans
+BE0004632,Serine/threonine-protein kinase TAO2,Humans
+BE0004630,Mannan-binding lectin serine protease 2,Humans
+BE0009096,C-type lectin domain family 4 member E,Humans
+BE0001566,14 kDa fatty acid-binding protein,Blood fluke
+BE0003335,Wee1-like protein kinase,Humans
+BE0002422,Alpha-galactosidase A,Humans
+BE0002408,Tyrosine-protein kinase JAK2,Humans
+BE0003493,Tyrosine-protein kinase JAK3,Humans
+BE0004146,Non-receptor tyrosine-protein kinase TYK2,Humans
+BE0003788,Death-associated protein kinase 3,Humans
+BE0010497,Tumor necrosis factor ligand superfamily member 10,Humans
+BE0004274,Ribosomal protein S6 kinase alpha-1,Humans
+BE0012693,Calpain-2 catalytic subunit,Humans
+BE0004946,"Myosin light chain kinase 2, skeletal/cardiac muscle",Humans
+BE0000911,C-C chemokine receptor type 5,Humans
+BE0004717,Potassium voltage-gated channel subfamily A member 5,Humans
+BE0004749,Large ribosomal subunit protein uL2,Haloarcula marismortui (strain ATCC 43049 / DSM 3752 / JCM 8966 / VKM B-1809)
+BE0010249,Platelet-derived growth factor receptor,Humans
+BE0027487,Discoidin domain receptor,Humans
+BE0009009,Calcitonin gene-related peptide type 1 receptor,Humans
+BE0001103,Calcitonin gene-related peptide 1,Humans
+BE0002371,Neuromedin-K receptor,Humans
+BE0003641,Phosphatidylcholine translocator ABCB4,Humans
+BE0002372,Protein farnesyltransferase subunit beta,Humans
+BE0002373,Protein farnesyltransferase/geranylgeranyltransferase type-1 subunit alpha,Humans
+BE0002147,Somatostatin receptor type 5,Humans
+BE0002129,Neuropilin-1,Humans
+BE0002426,Atrial natriuretic peptide receptor 3,Humans
+BE0009912,Peptidoglycan precursors,Gram negative and gram positive bacteria
+BE0009913,Bacterial cell wall peptide bridging segments,Staphylococcus aureus
+BE0009914,Pentaglycyl bridging segment,Staphylococcus aureus
+BE0004728,Sphingosine kinase 1,Humans
+BE0002391,MecA,Staphylococcus aureus
+BE0002091,Fibrinogen beta chain,Humans
+BE0002447,Melanocyte-stimulating hormone receptor,Humans
+BE0009682,Melanocortin receptor 4,Humans
+BE0004746,Anoctamin-1,Humans
+BE0002399,Potassium voltage-gated channel subfamily KQT member 4,Humans
+BE0000183,B-cell receptor CD22,Humans
+BE0002451,Neuropeptide Y receptor type 1,Humans
+BE0002133,Fibroblast growth factor receptor 3,Humans
+BE0009794,Dystrophin,Humans
+BE0003513,B2 bradykinin receptor,Humans
+BE0003394,Neurotrophic factor BDNF precursor form,Humans
+BE0002403,RNA-directed RNA polymerase,Hepatitis C Virus
+BE0004736,Vascular endothelial growth factor B,Humans
+BE0002420,Interleukin-4 receptor subunit alpha,Humans
+BE0003508,Parathyroid hormone/parathyroid hormone-related peptide receptor,Humans
+BE0003376,Leptin receptor,Humans
+BE0004790,HLA-DR,Humans
+BE0003414,Integrin beta-7,Humans
+BE0003402,Tubulin beta-6 chain,Humans
+BE0009715,Uncharacterized MFS-type transporter EfpA,Mycobacterium tuberculosis (strain ATCC 25618 / H37Rv)
+BE0009714,Nucleoid-associated protein Lsr2,Mycobacterium tuberculosis (strain ATCC 25618 / H37Rv)
+BE0009325,Deazaflavin-dependent nitroreductase,Mycobacterium tuberculosis (strain ATCC 25618 / H37Rv)
+BE0003391,Mitogen-activated protein kinase 13,Humans
+BE0010960,Presenilin-1,Humans
+BE0017775,Nicastrin,Humans
+BE0003410,Gamma-secretase subunit PEN-2,Humans
+BE0017533,Gamma-secretase subunit APH-1B,Humans
+BE0003409,Gamma-secretase subunit APH-1A,Humans
+BE0002481,Granulocyte-macrophage colony-stimulating factor,Humans
+BE0010514,RAC-gamma serine/threonine-protein kinase,Humans
+BE0002389,Rhesus blood group D antigen,Humans
+BE0011001,MHC class II protein complex,Humans
+BE0003813,"V-type proton ATPase subunit B, brain isoform",Humans
+BE0002427,HBsAg,HBV
+BE0011014,Presenilin-2,Humans
+BE0004731,Protein-tyrosine kinase 6,Humans
+BE0003379,Angiopoietin-1 receptor,Humans
+BE0002438,Interleukin-13,Humans
+BE0002446,Epithelial cell adhesion molecule,Humans
+BE0003440,Thrombopoietin receptor,Humans
+BE0004747,Protective antigen,Bacillus anthracis
+BE0009346,Sodium/iodide cotransporter,Humans
+BE0009875,Microbial proteins,
+BE0009873,Thyroglobulin,Humans
+BE0009874,Pendrin,Humans
+BE0003374,E3 ubiquitin-protein transferase MAEA,Humans
+BE0003375,Scavenger receptor cysteine-rich type 1 protein M130,Humans
+BE0004386,Mitogen-activated protein kinase kinase kinase 9,Humans
+BE0004772,Receptor tyrosine-protein kinase erbB-4,Humans
+BE0002854,Beta-2-glycoprotein 1,Humans
+BE0003415,Interleukin-23 subunit alpha,Humans
+BE0004701,Genome polyprotein,Hepatitis C Virus
+BE0003427,Genome polyprotein,
+BE0004845,mRNA of ApoB-100,Humans
+BE0009908,Apolipoprotein B-100,Humans
+BE0003399,Free fatty acid receptor 4,Humans
+BE0003479,Tumor necrosis factor receptor superfamily member 8,Humans
+BE0012862,Interleukin-12 subunit alpha,Humans
+BE0009911,Haptoglobin,Humans
+BE0010183,Cytochrome P450 7A1,Humans
+BE0009697,Phosphodiesterase isozyme 4,Humans
+BE0008663,Interleukin-23,Humans
+BE0000070,Group 10 secretory phospholipase A2,Humans
+BE0003422,Far upstream element-binding protein 1,Humans
+BE0004703,Parathyroid hormone 2 receptor,Humans
+BE0004857,Glycine receptor (alpha-1/beta),Humans
+BE0003435,Growth/differentiation factor 8,Humans
+BE0003436,Programmed cell death protein 1,Humans
+BE0001150,Stromal cell-derived factor 1,Humans
+BE0008666,DMD-001 gene (exon 51 target site),Humans
+BE0003430,Mitogen-activated protein kinase kinase kinase 1,Humans
+BE0009802,Aldo-keto reductase family,Humans
+BE0003432,Heat shock protein beta-1,Humans
+BE0004839,NAPQI (N-acetyl-p-benzoquinone imine),Humans
+BE0009339,Free radicals,Humans
+BE0005802,G-protein coupled receptor 55,Humans
+BE0000887,Cytotoxic T-lymphocyte protein 4,Humans
+BE0009857,Hyaluronic acid,Humans and other mammals
+BE0005806,Dihydropyrimidinase-related protein 2,Humans
+BE0003483,"HLA class I histocompatibility antigen, A alpha chain",Humans
+BE0003484,Serine/threonine protein kinase UL97,HHV-5
+BE0002104,Tetranectin,Humans
+BE0002105,"Keratin, type II cytoskeletal 8",Humans
+BE0002859,Interleukin-6 receptor subunit alpha,Humans
+BE0010013,Interleukin-6 receptor subunit beta,Humans
+BE0004004,NS3 protease,Hepatitis C Virus
+BE0009412,Tyrosine-protein kinase receptor UFO,Humans
+BE0003492,SLAM family member 7,Humans
+BE0003496,B-lymphocyte antigen CD19,Humans
+BE0004734,Interleukin-1 alpha,Humans
+BE0004735,Interleukin-1 receptor antagonist protein,Humans
+BE0003501,Mucin-1,Humans
+BE0008658,Corticotropin-releasing factor receptor 1,Humans
+BE0000457,Ectonucleotide pyrophosphatase/phosphodiesterase family member 1,Humans
+BE0003090,Focal adhesion kinase 1,Humans
+BE0000967,Tissue factor pathway inhibitor,Humans
+BE0009757,Sodium/hydrogen exchanger 3,Humans
+BE0001113,CD44 antigen,Humans
+BE0003520,Interleukin-4,Humans
+BE0004714,SH2B adapter protein 3,Humans
+BE0009560,"Ferredoxin--NADP reductase, apicoplast",Plasmodium falciparum (isolate 3D7)
+BE0004744,Dual specificity mitogen-activated protein kinase kinase 2,Humans
+BE0004745,Mitogen-activated protein kinase kinase kinase 2,Humans
+BE0004384,Calcium/calmodulin-dependent protein kinase type II subunit gamma,Humans
+BE0009385,Tyrosine-protein kinase Tec,Humans
+BE0004041,STE20-like serine/threonine-protein kinase,Humans
+BE0004715,Potassium voltage-gated channel subfamily A member 2,Humans
+BE0004718,Potassium voltage-gated channel subfamily A member 6,Humans
+BE0004719,Potassium voltage-gated channel subfamily A member 7,Humans
+BE0004720,Potassium voltage-gated channel subfamily A member 10,Humans
+BE0004721,Potassium voltage-gated channel subfamily B member 1,Humans
+BE0004722,Potassium voltage-gated channel subfamily B member 2,Humans
+BE0004723,Voltage-gated potassium channel KCNC1,Humans
+BE0004724,Voltage-gated potassium channel KCNC2,Humans
+BE0004725,Voltage-gated potassium channel KCNC3,Humans
+BE0004726,A-type voltage-gated potassium channel KCND1,Humans
+BE0003383,Growth hormone secretagogue receptor type 1,Humans
+BE0008956,"60 kDa heat shock protein, mitochondrial",Humans
+BE0003529,Somatostatin receptor type 3,Humans
+BE0000452,Somatostatin receptor type 1,Humans
+BE0005864,Orexin/Hypocretin receptor type 1,Humans
+BE0010325,T-cell-specific surface glycoprotein CD28,Humans
+BE0004817,Calcium ions,Humans
+BE0004824,Tyrosine,Humans
+BE0009719,Glucocorticoid binding proteins,Humans
+BE0002114,Bone marrow proteoglycan,Humans
+BE0009340,"Beta,beta-carotene 15,15'-dioxygenase",Humans
+BE0004777,Sodium- and chloride-dependent betaine transporter,Humans
+BE0005824,TGF-beta-activated kinase 1 and MAP3K7-binding protein 1,Humans
+BE0005210,Cytoplasmic aconitate hydratase,Humans
+BE0009903,Metal cation symporter ZIP14,Humans
+BE0008685,Natural resistance-associated macrophage protein 2,Humans
+BE0009899,Calcium/manganese antiporter SLC30A10,Humans
+BE0009326,30 kDa immediate-early protein 2,Human cytomegalovirus (strain Towne)
+BE0009327,45 kDa immediate-early protein 2,Human cytomegalovirus (strain Towne)
+BE0010226,Glycosylphosphatidylinositol-anchored high density lipoprotein-binding protein 1,Humans
+BE0008968,Alpha-actinin-1,Humans
+BE0009007,Prohibitin-2,Humans
+BE0004671,"Carbamoyl-phosphate synthase [ammonia], mitochondrial",Humans
+BE0008684,Protein-lysine 6-oxidase,Humans
+BE0004855,Gag-Pol polyprotein,Human immunodeficiency virus 1
+BE0004687,A disintegrin and metalloproteinase with thrombospondin motifs 4,Humans
+BE0009513,Phosphatidylinositol 4-kinase beta,Humans
+BE0003745,Serine/threonine-protein kinase PLK1,Humans
+BE0003785,Arylsulfate sulfotransferase AssT,Escherichia coli O1:K1 / APEC
+BE0003792,Calcium/calmodulin-dependent protein kinase type II subunit beta,Humans
+BE0003796,Serine/threonine-protein kinase Nek2,Humans
+BE0003798,Poly [ADP-ribose] polymerase 2,Humans
+BE0003801,Replicase polyprotein 1ab,SARS-CoV
+BE0003839,Serine/threonine-protein kinase/endoribonuclease IRE1,Humans
+BE0003862,"[Pyruvate dehydrogenase (acetyl-transferring)] kinase isozyme 1, mitochondrial",Humans
+BE0003984,Casein kinase II subunit alpha',Humans
+BE0009579,Polyamine deacetylase HDAC10,Humans
+BE0004043,Dual specificity protein kinase CLK3,Humans
+BE0004049,Protein mono-ADP-ribosyltransferase PARP3,Humans
+BE0004077,Cyclin-dependent kinase 16,Humans
+BE0004071,GTPase KRas,Humans
+BE0004080,Neocarzinostatin,Streptomyces carzinostaticus
+BE0001172,RAC-beta serine/threonine-protein kinase,Humans
+BE0004102,Bontoxilysin-A,Clostridium botulinum
+BE0004108,Calcium/calmodulin-dependent protein kinase type II subunit delta,Humans
+BE0004109,Serine/threonine-protein kinase 26,Humans
+BE0004118,Profilin-1,Humans
+BE0004122,Enolase-phosphatase E1,Humans
+BE0004140,Ephrin type-A receptor 7,Humans
+BE0004147,Calcium/calmodulin-dependent protein kinase type 1G,Humans
+BE0004191,Rho-associated protein kinase 2,Humans
+BE0000358,Calcineurin subunit B type 1,Humans
+BE0004271,Tyrosine-protein kinase Mer,Humans
+BE0009478,MAP kinase-activated protein kinase 5,Humans
+BE0004294,Myosin-7,Humans
+BE0004324,Calcium/calmodulin-dependent protein kinase type 1D,Humans
+BE0002349,Proteasome subunit beta type-2,Humans
+BE0004344,Interleukin-1 receptor-associated kinase 4,Humans
+BE0009125,Enoyl-[acyl-carrier-protein] reductase [NADH],Bacillus anthracis
+BE0004347,Enoyl-[acyl-carrier-protein] reductase [NADPH] FabI,Staphylococcus aureus (strain MRSA252)
+BE0001126,Protein c-Fos,Humans
+BE0004702,Hyaluronan mediated motility receptor,Humans
+BE0010044,Lymphatic vessel endothelial hyaluronic acid receptor 1,Humans
+BE0004606,Versican core protein,Humans
+BE0004930,"Complement component 1 Q subcomponent-binding protein, mitochondrial",Humans
+BE0004933,Hyaluronan and proteoglycan link protein 1,Humans
+BE0004935,Hyaluronan and proteoglycan link protein 3,Humans
+BE0004940,Factor VII-activating protease,Humans
+BE0004944,Layilin,Humans
+BE0004948,Stabilin-2,Humans
+BE0004942,Interphotoreceptor matrix proteoglycan 2,Humans
+BE0004943,Intracellular hyaluronan-binding protein 4,Humans
+BE0010043,Hyaluronidase enzymes,Humans
+BE0004750,ATP-binding cassette sub-family G member 5,Humans
+BE0004751,ATP-binding cassette sub-family G member 8,Humans
+BE0004785,Solute carrier family 22 member 21,Mouse
+BE0009534,Proto-oncogene tyrosine-protein kinase ROS,Humans
+BE0009490,Macrophage-stimulating protein receptor,Humans
+BE0002432,Sphingosine 1-phosphate receptor 5,Humans
+BE0008652,Sphingosine 1-phosphate receptor 1,Humans
+BE0009881,Sphingosine 1-phosphate receptor 3,Humans
+BE0009882,Sphingosine 1-phosphate receptor 4,Humans
+BE0004732,RNA polymerase sigma factor SigA,Clostridium difficile (strain 630)
+BE0009404,Tyrosine-protein kinase receptor TYRO3,Humans
+BE0003148,Placenta growth factor,Humans
+BE0001125,Alpha-2-antiplasmin,Humans
+BE0004739,Proteasome subunit beta type-8,Humans
+BE0004737,Proteasome subunit beta type-9,Humans
+BE0004738,Proteasome subunit beta type-10,Humans
+BE0003502,Guanylyl cyclase C,Humans
+BE0004748,ATP synthase subunit c,Mycobacterium tuberculosis
+BE0004757,Serine/threonine-protein kinase SIK1,Humans
+BE0004758,Serine/threonine-protein kinase Nek11,Humans
+BE0004759,LIM domain kinase 1,Humans
+BE0013774,Retinal guanylyl cyclase 1,Humans
+BE0008657,Lysosomal protective protein,Humans
+BE0010283,Tubulin,Humans
+BE0009920,Transmembrane protease serine 2,Humans
+BE0009664,Aquaporin-3,Humans
+BE0008651,Nonstructural protein 5A,Hepatitis C Virus
+BE0005863,Interleukin-17A,Humans
+BE0005865,Orexin receptor type 2,Humans
+BE0010215,leucine--tRNA ligase,Trichophyton rubrum
+BE0027701,Delta(14)-sterol reductase ERG24,Baker's yeast
+BE0027702,C-8 sterol isomerase ERG2,Baker's yeast
+BE0009590,Sodium channel protein type 7 subunit alpha,Humans
+BE0008648,OXA-48 carbapenemase,Klebsiella pneumoniae
+BE0008649,Carbapenem-hydrolyzing beta-lactamase KPC-2,Klebsiella pneumoniae
+BE0008650,Beta-lactamase,Escherichia coli
+BE0008647,Extended-spectrum beta-lactamase PER-1,Pseudomonas aeruginosa
+BE0009153,G-protein coupled receptor 12,Humans
+BE0009158,Transient receptor potential cation channel subfamily V member 2,Humans
+BE0009156,N-acylethanolamine-hydrolyzing acid amidase,Humans
+BE0014244,Corticotropin-releasing factor receptor 2,Humans
+BE0010052,"3-ketoacyl-CoA thiolase, mitochondrial",Humans
+BE0008675,"Hydroxyacid-oxoacid transhydrogenase, mitochondrial",Humans
+BE0008624,GD2 disialoganglioside,Humans
+BE0009441,Ephrin type-B receptor 1,Humans
+BE0010057,Superoxide Dismutases,Humans
+BE0009273,Somatostatin receptor type 4,Humans
+BE0009855,Type II iodothyronine deiodinase,Humans
+BE0009333,Thyroxine 5-deiodinase,Humans
+BE0009763,Sulfotransferase 1C2,Humans
+BE0008653,Pyrophosphate,
+BE0005793,P2X purinoceptor 4,Humans
+BE0005156,Histone H2B type 1-C/E/F/G/I,Humans
+BE0005131,Histone H1.4,Humans
+BE0005013,"Actin, cytoplasmic 2",Humans
+BE0008957,Heat shock 70 kDa protein 13,Humans
+BE0008958,Cell growth-regulating nucleolar protein,Mouse
+BE0008959,Small ribosomal subunit protein uS5,Humans
+BE0009139,Serine/arginine-rich splicing factor 1,Humans
+BE0008960,Heterogeneous nuclear ribonucleoproteins A2/B1,Humans
+BE0008961,Heterogeneous nuclear ribonucleoprotein H,Humans
+BE0008962,Heterogeneous nuclear ribonucleoprotein H3,Humans
+BE0008963,Cobalt-precorrin-5B C(1)-methyltransferase,Treponema denticola (strain ATCC 35405 / CIP 103919 / DSM 14222)
+BE0008964,Heterogeneous nuclear ribonucleoprotein L,Humans
+BE0008965,"Splicing factor, proline- and glutamine-rich",Humans
+BE0008966,Splicing factor 3A subunit 2,Humans
+BE0008967,Small ribosomal subunit protein RACK1,Humans
+BE0000039,Transketolase,Humans
+BE0008970,Stress-induced-phosphoprotein 1,Humans
+BE0008972,Eukaryotic translation initiation factor 6,Humans
+BE0008973,Eukaryotic initiation factor 4A-I,Humans
+BE0008974,14-3-3 protein beta/alpha,Humans
+BE0008975,Hepatoma-derived growth factor,Humans
+BE0005284,Chloride intracellular channel protein 1,Humans
+BE0008976,Proteasome activator complex subunit 1,Humans
+BE0001179,Phosphatidylethanolamine-binding protein 1,Humans
+BE0008977,Phosphoglycerate mutase 1,Humans
+BE0008978,Ran-specific GTPase-activating protein,Humans
+BE0005818,Cytochrome c oxidase assembly factor SCO1,Humans
+BE0008989,Alternative prion protein,Humans
+BE0008995,Huntingtin,Humans
+BE0005816,Ferroxidase HEPHL1,Humans
+BE0000992,Parkinson disease protein 7,Humans
+BE0000921,Islet amyloid polypeptide,Humans
+BE0009046,Tachykinin-3,Humans
+BE0008979,Afamin,Humans
+BE0008879,Apolipoprotein C-II,Humans
+BE0008880,Apolipoprotein C-III,Humans
+BE0009052,Complement component C9,Humans
+BE0009056,Chromobox protein homolog 5,Humans
+BE0005089,Immunoglobulin heavy constant gamma 4,Humans
+BE0009059,Immunoglobulin lambda-like polypeptide 1,Humans
+BE0009065,Leucine-rich alpha-2-glycoprotein,Humans
+BE0009066,Lumican,Humans
+BE0009068,Pigment epithelium-derived factor,Humans
+BE0001181,Angiogenin,Humans
+BE0008686,Cytochrome c oxidase copper chaperone,Humans
+BE0008687,Hephaestin,Humans
+BE0008688,Metallothionein,Humans
+BE0008992,Cystatin-B,Humans
+BE0005803,NADPH oxidase 1,Humans
+BE0011000,Beta amyloid plaque,Humans
+BE0008678,Mitochondrial 2-oxodicarboxylate carrier,Humans
+BE0008677,Na(+)/citrate cotransporter,Humans
+BE0008676,"Tricarboxylate transport protein, mitochondrial",Humans
+BE0004961,Hydroxyapatite,Humans
+BE0008720,Amorphous calcium phosphate,Humans
+BE0008655,Nonstructural protein 5b,
+BE0009334,Macrophage mannose receptor 1,Humans
+BE0008642,Malaria protein EXP-1,Plasmodium falciparum
+BE0003089,ATP-dependent Clp protease ATP-binding subunit ClpX,Helicobacter pylori (strain ATCC 700392 / 26695)
+BE0009678,DNA polymerase,Human herpesvirus 2 (strain 186)
+BE0002486,Glial cell line-derived neurotrophic factor,Humans
+BE0000972,Beta-glucuronidase,Humans
+BE0000883,N-acetylgalactosamine-6-sulfatase,Humans
+BE0009329,Alpha-L-iduronidase,Humans
+BE0008643,Proprotein convertase subtilisin/kexin type 9,Humans
+BE0009702,Enolase,Lactobacillus casei (strain BL23)
+BE0009703,Enolase,Streptococcus sanguinis (strain SK36)
+BE0027492,Enolase,Streptococcus mutans serotype c (strain ATCC 700610 / UA159)
+BE0003949,Ammonium transporter Rh type C,Humans
+BE0002247,Very long chain fatty acid elongase 4,Humans
+BE0005459,ADP-ribosyl cyclase/cyclic ADP-ribose hydrolase 1,Humans
+BE0010064,Guanylate cyclase,Humans
+BE0008659,Thyrotropin-releasing hormone receptor,Humans
+BE0008680,Sodium-dependent phosphate transporter 2,Humans
+BE0008681,Sodium-dependent phosphate transport protein 2A,Humans
+BE0008682,Sodium-dependent phosphate transport protein 2B,Humans
+BE0008683,Sodium-dependent phosphate transport protein 2C,Humans
+BE0004619,Alpha-N-acetylgalactosaminidase,Humans
+BE0003206,Ribonucleoside-diphosphate reductase 1 subunit beta,Escherichia coli (strain K12)
+BE0010003,Aquaporin-7,Humans
+BE0010004,Aquaporin-9,Humans
+BE0002037,Glycerol uptake facilitator protein,Escherichia coli (strain K12)
+BE0005031,Sodium/potassium-transporting ATPase subunit alpha-4,Humans
+BE0005126,Transient receptor potential cation channel subfamily M member 6,Humans
+BE0008673,Solute carrier family 41 member 3,Humans
+BE0008674,Metal transporter CNNM2,Humans
+BE0010200,Thiosulfate:glutathione sulfurtransferase,Humans
+BE0010199,Solute carrier family 13 member 4,Humans
+BE0000318,Secretin receptor,Humans
+BE0010366,Secretin,Humans
+BE0009001,Macrophage receptor MARCO,Humans
+BE0001861,TGF-beta receptor type-2,Humans
+BE0009883,B-lymphocytes,
+BE0002476,Protein HTATIP2,Humans
+BE0008691,Calcium and integrin-binding protein 1,Humans
+BE0008692,Sorcin,Humans
+BE0008693,Calcineurin B homologous protein 1,Humans
+BE0002145,SPARC,Humans
+BE0008694,Fibrillin-2,Humans
+BE0008695,Calsequestrin-2,Humans
+BE0005259,Regucalcin,Humans
+BE0008696,Peflin,Humans
+BE0002950,Protein S100-A6,Humans
+BE0008697,Translationally-controlled tumor protein,Humans
+BE0008698,Calcium and integrin-binding family member 2,Humans
+BE0008699,Calsequestrin-1,Humans
+BE0008700,Nucleobindin-1,Humans
+BE0008701,Nucleobindin-2,Humans
+BE0008702,Fibrillin-3,Humans
+BE0008703,Grancalcin,Humans
+BE0008704,Calcium-dependent secretion activator 1,Humans
+BE0008707,Protein S100-A16,Humans
+BE0008708,Calretinin,Humans
+BE0008709,Calcyphosin,Humans
+BE0008710,Calcium-dependent secretion activator 2,Humans
+BE0008711,Calreticulin-3,Humans
+BE0005274,Neurexin-1,Humans
+BE0004557,Neuronal calcium sensor 1,Humans
+BE0008690,Calbindin,Humans
+BE0005102,Transient receptor potential cation channel subfamily V member 6,Humans
+BE0005112,Transient receptor potential cation channel subfamily V member 5,Humans
+BE0008712,Polycystin-2-like protein 1,Humans
+BE0005296,Ryanodine receptor 3,Humans
+BE0008713,Polycystin-1-like protein 3,Humans
+BE0008714,Cation channel sperm-associated protein 1,Humans
+BE0008717,Voltage-dependent P/Q-type calcium channel,Humans
+BE0009373,Skin epithelial cells,Humans
+BE0001214,Xylose isomerase,Actinoplanes missouriensis (strain ATCC 14538 / DSM 43046 / CBS 188.64 / JCM 3121 / NCIMB 12654 / NBRC 102363 / 431)
+BE0009546,Sweat ducts,Humans
+BE0009358,Alpha-fetoprotein,Rat
+BE0008986,Proteinase-activated receptor 4,Humans
+BE0009352,Lung epithelial cells,Humans
+BE0009556,GABA-A gated chloride channel,Onchocerca volvulus
+BE0009557,ABC transporters,Onchocerca volvulus
+BE0009755,Rabies Virus Proteins,Rabies virus (strain Pasteur vaccins / PV)
+BE0010182,IgG receptor FcRn large subunit p51,Humans
+BE0000949,Tumor necrosis factor receptor superfamily member 1B,Humans
+BE0009022,"ATP synthase F(0) complex subunit g, mitochondrial",Humans
+BE0009097,"ATP synthase peripheral stalk subunit OSCP, mitochondrial",Humans
+BE0009098,Cysteine and glycine-rich protein 1,Humans
+BE0009099,Filamin-A,Humans
+BE0005795,Alpha-ketoglutarate-dependent dioxygenase FTO,Humans
+BE0009100,Heterogeneous nuclear ribonucleoprotein D0,Humans
+BE0009026,Heterogeneous nuclear ribonucleoprotein K,Humans
+BE0009101,Heterochromatin protein 1-binding protein 3,Humans
+BE0009102,Ras GTPase-activating-like protein IQGAP1,Humans
+BE0003419,Puromycin-sensitive aminopeptidase,Humans
+BE0009104,Large ribosomal subunit protein uL16,Humans
+BE0009105,Large ribosomal subunit protein eL14,Humans
+BE0009106,Large ribosomal subunit protein eL18,Humans
+BE0009107,Large ribosomal subunit protein uL29,Humans
+BE0009108,Large ribosomal subunit protein uL4,Humans
+BE0009109,Small ribosomal subunit protein uS15,Humans
+BE0009110,Small ribosomal subunit protein eS17,Humans
+BE0009111,Small ribosomal subunit protein uS13,Humans
+BE0009112,Small ribosomal subunit protein eS19,Humans
+BE0009113,Small ribosomal subunit protein eS28,Humans
+BE0009114,Small ribosomal subunit protein uS7,Humans
+BE0009115,Small ribosomal subunit protein eS6,Humans
+BE0009116,Small ribosomal subunit protein eS8,Humans
+BE0009117,Small ribosomal subunit protein uS4,Humans
+BE0009118,Splicing factor 1,Humans
+BE0009119,Small nuclear ribonucleoprotein Sm D2,Humans
+BE0004503,Signal recognition particle 14 kDa protein,Humans
+BE0009120,Serine/arginine-rich splicing factor 4,Humans
+BE0009160,Transgelin,Humans
+BE0009122,Transgelin-2,Humans
+BE0009037,Tropomyosin alpha-1 chain,Humans
+BE0004469,Vimentin,Humans
+BE0009123,Zyxin,Humans
+BE0009161,Myosin-9,Humans
+BE0009162,Probable ATP-dependent RNA helicase DDX5,Humans
+BE0004598,Spliceosome RNA helicase DDX39B,Humans
+BE0009103,Nucleophosmin,Humans
+BE0009163,Translationally-controlled tumor protein homolog,Plasmodium falciparum (isolate 3D7)
+BE0009164,P-type Ca(2+) transporter,Plasmodium falciparum
+BE0009165,Ornithine aminotransferase,Plasmodium falciparum (isolate 3D7)
+BE0009167,Multidrug resistance protein 1,Plasmodium falciparum (isolate FC27 / Papua New Guinea)
+BE0009168,Elongation factor 2,Plasmodium falciparum (isolate 3D7)
+BE0009170,Actin-1,Plasmodium falciparum (isolate HB3)
+BE0009171,Glyceraldehyde-3-phosphate dehydrogenase,Plasmodium falciparum (isolate 3D7)
+BE0009172,Fructose-bisphosphate aldolase,Plasmodium falciparum
+BE0009173,"Cell division cycle protein 48 homologue, putative",Plasmodium falciparum (isolate 3D7)
+BE0009174,Heat shock protein 90,Plasmodium falciparum (isolate 3D7)
+BE0009175,RNA helicase,Plasmodium falciparum (isolate 3D7)
+BE0009176,Pyruvate kinase,Plasmodium falciparum (isolate 3D7)
+BE0009177,Protein disulfide-isomerase,Plasmodium falciparum (isolate 3D7)
+BE0009178,"Thioredoxin-related protein, putative",Plasmodium falciparum (isolate 3D7)
+BE0009179,Spermidine synthase,Plasmodium falciparum (isolate 3D7)
+BE0009180,Probable ATP-dependent 6-phosphofructokinase,Plasmodium falciparum (isolate 3D7)
+BE0009181,Glutamate dehydrogenase,Plasmodium falciparum (isolate 3D7)
+BE0009182,"Endoplasmin, putative",Plasmodium falciparum (isolate 3D7)
+BE0009183,Enolase,Plasmodium falciparum (isolate 3D7)
+BE0009184,40S ribosomal protein S3,Plasmodium falciparum (isolate 3D7)
+BE0009185,P-type sodium-transporting ATPase4,Plasmodium falciparum (isolate 3D7)
+BE0009186,Tubulin alpha chain,Plasmodium falciparum (isolate K1 / Thailand)
+BE0009187,Knob-associated histidine-rich protein,Plasmodium falciparum
+BE0009188,S-adenosylmethionine synthase,Plasmodium falciparum (isolate 3D7)
+BE0009189,H(+)-exporting diphosphatase,Plasmodium falciparum (isolate 3D7)
+BE0009190,Large ribosomal subunit protein uL4,Plasmodium falciparum (isolate 3D7)
+BE0009191,Phosphoethanolamine N-methyltransferase,Plasmodium falciparum (isolate 3D7)
+BE0009192,Small ribosomal subunit protein eS1,Plasmodium falciparum (isolate 3D7)
+BE0009193,Protein ARV,Plasmodium falciparum (isolate 3D7)
+BE0009194,60S ribosomal protein L3,Plasmodium falciparum (isolate 3D7)
+BE0009195,High molecular weight rhoptry protein 2,Plasmodium falciparum (isolate 3D7)
+BE0009196,Serine repeat antigen 5,Plasmodium falciparum
+BE0009197,40S ribosomal protein S19,Plasmodium falciparum (isolate 3D7)
+BE0009198,Glycophorin-binding protein 130,Plasmodium falciparum (isolate 3D7)
+BE0009199,Calcium-transporting ATPase,Plasmodium falciparum (isolate K1 / Thailand)
+BE0009200,V-type proton ATPase catalytic subunit A,Plasmodium falciparum (isolate 3D7)
+BE0009201,60S ribosomal protein L2,Plasmodium falciparum (isolate 3D7)
+BE0009202,Acyl-CoA synthetase,Plasmodium falciparum (isolate 3D7)
+BE0009203,Plasmepsin IV,Plasmodium falciparum (isolate 3D7)
+BE0009204,Plasmepsin I,Plasmodium falciparum (isolate 3D7)
+BE0009205,Chloroquine resistance transporter,Plasmodium falciparum
+BE0009206,14-3-3 protein I,Plasmodium falciparum (isolate 3D7)
+BE0009207,"Isoleucine--tRNA ligase, putative",Plasmodium falciparum (isolate 3D7)
+BE0009208,Plasmodium RESA N-terminal domain-containing protein,Plasmodium falciparum (isolate 3D7)
+BE0009209,Tubulin beta chain,Plasmodium falciparum (isolate 3D7)
+BE0009210,60S ribosomal protein L27,Plasmodium falciparum (isolate 3D7)
+BE0009211,Translocation protein SEC62,Plasmodium falciparum (isolate 3D7)
+BE0009212,Autophagy-related protein 18,Plasmodium falciparum (isolate 3D7)
+BE0009213,Mature parasite-infected erythrocyte surface antigen,Plasmodium falciparum (isolate 3D7)
+BE0009214,"Importin-7, putative",Plasmodium falciparum (isolate 3D7)
+BE0009740,Importin subunit alpha,Plasmodium falciparum (isolate 3D7)
+BE0009216,Peptidyl-prolyl cis-trans isomerase,Plasmodium falciparum (isolate 3D7)
+BE0009217,"DnaJ protein, putative",Plasmodium falciparum (isolate 3D7)
+BE0009218,Merozoite surface protein 1,Plasmodium falciparum (isolate CDC / Honduras)
+BE0009219,Glutamate--tRNA ligase,Plasmodium falciparum (isolate 3D7)
+BE0009220,T-complex protein 1 subunit eta,Plasmodium falciparum (isolate 3D7)
+BE0009221,"Chaperone, putative",Plasmodium falciparum (isolate 3D7)
+BE0009222,Rhoptry neck protein 3,Plasmodium falciparum (isolate 3D7)
+BE0009223,"40S ribosomal protein S5, putative",Plasmodium falciparum (isolate 3D7)
+BE0009224,Skeleton-binding protein 1,Plasmodium falciparum (isolate 3D7)
+BE0009225,Adenosylhomocysteinase,Plasmodium falciparum (isolate 3D7)
+BE0009226,Adenosine deaminase,Plasmodium falciparum (isolate 3D7)
+BE0009227,Methionine--tRNA ligase,Plasmodium falciparum (isolate 3D7)
+BE0009228,carbamoyl-phosphate synthase (ammonia),Plasmodium falciparum (isolate 3D7)
+BE0009230,Signal recognition particle receptor subunit beta,Plasmodium falciparum (isolate 3D7)
+BE0009231,"N-acetylgalactosaminide beta-1,3-galactosyltransferase",Plasmodium falciparum (isolate 3D7)
+BE0009232,"Coatomer alpha subunit, putative",Plasmodium falciparum (isolate 3D7)
+BE0009233,Hexokinase,Plasmodium falciparum
+BE0009234,Proteasome subunit alpha type,Plasmodium falciparum (isolate 3D7)
+BE0009235,Haloacid dehalogenase-like hydrolase,Plasmodium falciparum (isolate 3D7)
+BE0009236,"Insulinase, putative",Plasmodium falciparum (isolate 3D7)
+BE0009237,40S ribosomal protein S21,Plasmodium falciparum (isolate 3D7)
+BE0009238,Ubiquitin-conjugating enzyme E2,Plasmodium falciparum (isolate 3D7)
+BE0009239,Eukaryotic translation initiation factor 3 subunit C,Plasmodium falciparum (isolate 3D7)
+BE0009240,"60S ribosomal protein L24, putative",Plasmodium falciparum (isolate 3D7)
+BE0009241,60S ribosomal protein L23,Plasmodium falciparum (isolate 3D7)
+BE0009242,Large ribosomal subunit protein uL22,Plasmodium falciparum (isolate 3D7)
+BE0009244,Plasmepsin III,Plasmodium falciparum (isolate 3D7)
+BE0009245,Endoplasmic reticulum chaperone GRP170,Plasmodium falciparum (isolate 3D7)
+BE0009246,"60S ribosomal protein L10, putative",Plasmodium falciparum (isolate 3D7)
+BE0009247,"Esterase, putative",Plasmodium falciparum (isolate 3D7)
+BE0009248,Polyadenylate-binding protein,Plasmodium falciparum (isolate 3D7)
+BE0009249,Ubiquitin-60S ribosomal protein L40,Plasmodium falciparum (isolate 3D7)
+BE0009741,ribose-phosphate diphosphokinase,Plasmodium falciparum (isolate 3D7)
+BE0009251,2-Cys peroxiredoxin,Plasmodium falciparum (isolate 3D7)
+BE0009252,Protein transport protein SEC31,Plasmodium falciparum (isolate 3D7)
+BE0009253,Dipeptidyl aminopeptidase 1,Plasmodium falciparum (isolate 3D7)
+BE0009254,Ring-infected erythrocyte surface antigen,Plasmodium falciparum (isolate FC27 / Papua New Guinea)
+BE0009255,RNA helicase,Plasmodium falciparum (isolate 3D7)
+BE0009256,Calcium-dependent protein kinase 4,Plasmodium falciparum (isolate 3D7)
+BE0009257,GTP-binding nuclear protein Ran,Plasmodium falciparum
+BE0009258,Nucleoside transporter 2,Plasmodium falciparum (isolate 3D7)
+BE0009259,Anamorsin homolog,Plasmodium falciparum (isolate 3D7)
+BE0009260,"Glutamine synthetase, putative",Plasmodium falciparum (isolate 3D7)
+BE0009261,"60S ribosomal protein L30e, putative",Plasmodium falciparum (isolate 3D7)
+BE0009262,non-specific serine/threonine protein kinase,Plasmodium falciparum (isolate 3D7)
+BE0009263,Threonine--tRNA ligase,Plasmodium falciparum (isolate 3D7)
+BE0009264,cAMP-dependent protein kinase regulatory subunit,Plasmodium falciparum (isolate 3D7)
+BE0009266,Thioredoxin-like protein,Plasmodium falciparum (isolate 3D7)
+BE0009267,60S ribosomal protein L21,Plasmodium falciparum (isolate 3D7)
+BE0009268,"60S ribosomal protein L14, putative",Plasmodium falciparum (isolate 3D7)
+BE0009269,Inner membrane complex sub-compartment protein 3,Plasmodium falciparum (isolate 3D7)
+BE0009270,"HSP40, subfamily A",Plasmodium falciparum (isolate 3D7)
+BE0009271,Pyridoxal 5'-phosphate synthase subunit Pdx1,Plasmodium falciparum (isolate 3D7)
+BE0009324,Bone morphogenetic protein receptor type-2,Humans
+BE0009272,Bone morphogenetic protein receptor type-1A,Humans
+BE0009917,Receptor tyrosine-protein kinase erbB-3,Humans
+BE0009683,Melanocortin receptor 3,Humans
+BE0009684,Melanocortin receptor 5,Humans
+BE0009862,RNA-directed RNA polymerase L,Zaire ebolavirus (strain Mayinga-76)
+BE0009456,LIM domain kinase 2,Humans
+BE0010122,Dual specificity mitogen-activated protein kinase kinase 4,Humans
+BE0009388,Serine/threonine-protein kinase 36,Humans
+BE0009378,Hydrogen potassium ATPase,Humans
+BE0009525,Serine/threonine-protein kinase D1,Humans
+BE0009508,Serine/threonine-protein kinase PAK 4,Humans
+BE0018249,Interleukin-17 receptor A,Humans
+BE0020027,Interleukin-17 receptor B,Humans
+BE0017016,Interleukin-17 receptor C,Humans
+BE0017358,Interleukin-17 receptor D,Humans
+BE0017393,Interleukin-17 receptor E,Humans
+BE0014590,"Myosin-binding protein C, cardiac-type",Humans
+BE0010011,Nitroreductases,Trypanosoma cruzi
+BE0009665,Sclerostin,Humans
+BE0009867,ATP-citrate synthase,Humans
+BE0009868,Long-chain fatty acid transport protein 2,Humans
+BE0009503,NUAK family SNF1-like kinase 2,Humans
+BE0009694,Exportin-1,Humans
+BE0027699,Cardiolipin,Humans and other mammals
+BE0009501,NT-3 growth factor receptor,Humans
+BE0008672,Arylamine N-acetyltransferase,Helicobacter pylori
+BE0010747,Bromodomain-containing protein 4,Humans
+BE0009379,Calcium-dependent protein kinase 1,Plasmodium falciparum (isolate 3D7)
+BE0009380,Ribosomal protein S6 kinase alpha-6,Humans
+BE0009381,"Atypical kinase COQ8A, mitochondrial",Humans
+BE0009382,Serine/threonine-protein kinase NIM1,Humans
+BE0009383,Serine/threonine-protein kinase 24,Humans
+BE0009384,Serine/threonine-protein kinase 3,Humans
+BE0009386,Serine/threonine-protein kinase 33,Humans
+BE0009387,Serine/threonine-protein kinase 35,Humans
+BE0009389,Serine/threonine-protein kinase 38,Humans
+BE0009390,Serine/threonine-protein kinase 38-like,Humans
+BE0009391,STE20/SPS1-related proline-alanine-rich protein kinase,Humans
+BE0009392,Serine/threonine-protein kinase TAO1,Humans
+BE0009393,Serine/threonine-protein kinase TAO3,Humans
+BE0009394,Serine/threonine-protein kinase TBK1,Humans
+BE0009395,Dual specificity testis-specific protein kinase 1,Humans
+BE0009396,Tyrosine-protein kinase receptor Tie-1,Humans
+BE0009397,Serine/threonine-protein kinase tousled-like 1,Humans
+BE0009398,Serine/threonine-protein kinase tousled-like 2,Humans
+BE0009399,TRAF2 and NCK-interacting protein kinase,Humans
+BE0009400,Non-receptor tyrosine-protein kinase TNK1,Humans
+BE0009401,Serine/threonine-protein kinase TNNI3K,Humans
+BE0009402,Testis-specific serine/threonine-protein kinase 1,Humans
+BE0009403,Tyrosine-protein kinase TXK,Humans
+BE0009405,Serine/threonine-protein kinase ULK1,Humans
+BE0009406,Serine/threonine-protein kinase ULK2,Humans
+BE0009407,Serine/threonine-protein kinase ULK3,Humans
+BE0009408,Mitogen-activated protein kinase kinase kinase 19,Humans
+BE0009409,AP2-associated protein kinase 1,Humans
+BE0009410,"Atypical kinase COQ8B, mitochondrial",Humans
+BE0009411,Ankyrin repeat and protein kinase domain-containing protein 1,Humans
+BE0009413,Tyrosine-protein kinase Blk,Humans
+BE0009414,BMP-2-inducible protein kinase,Humans
+BE0009415,Bone morphogenetic protein receptor type-1B,Humans
+BE0009416,Cytoplasmic tyrosine-protein kinase BMX,Humans
+BE0009417,Calcium/calmodulin-dependent protein kinase type 1,Humans
+BE0009418,Calcium/calmodulin-dependent protein kinase kinase 1,Humans
+BE0009419,Calcium/calmodulin-dependent protein kinase kinase 2,Humans
+BE0009420,Kappa-casein,Humans
+BE0009421,Serine/threonine-protein kinase MRCK gamma,Humans
+BE0009422,Cyclin-dependent kinase-like 1,Humans
+BE0009423,Cyclin-dependent kinase-like 2,Humans
+BE0009424,Citron Rho-interacting kinase,Humans
+BE0009425,Dual specificity protein kinase CLK2,Humans
+BE0009426,Dual specificity protein kinase CLK4,Humans
+BE0009428,Death-associated protein kinase 2,Humans
+BE0009429,Serine/threonine-protein kinase DCLK1,Humans
+BE0009430,Serine/threonine-protein kinase DCLK2,Humans
+BE0009431,Serine/threonine-protein kinase DCLK3,Humans
+BE0009432,Dual specificity tyrosine-phosphorylation-regulated kinase 1B,Humans
+BE0009433,Eukaryotic translation initiation factor 2-alpha kinase 1,Humans
+BE0009435,eIF-2-alpha kinase GCN2,Humans
+BE0009436,Ephrin type-A receptor 1,Humans
+BE0009437,Ephrin type-A receptor 3,Humans
+BE0009438,Ephrin type-A receptor 4,Humans
+BE0009439,Ephrin type-A receptor 6,Humans
+BE0009440,Ephrin type-A receptor 8,Humans
+BE0009442,Ephrin type-B receptor 6,Humans
+BE0009443,Tyrosine-protein kinase Fer,Humans
+BE0009444,Tyrosine-protein kinase Fes/Fps,Humans
+BE0009445,Cyclin-G-associated kinase,Humans
+BE0009447,Homeodomain-interacting protein kinase 2,Humans
+BE0009448,Homeodomain-interacting protein kinase 3,Humans
+BE0009449,Serine/threonine-protein kinase ICK,Humans
+BE0009450,Inhibitor of nuclear factor kappa-B kinase subunit epsilon,Humans
+BE0009451,Insulin receptor-related protein,Humans
+BE0009452,Interleukin-1 receptor-associated kinase 1,Humans
+BE0009453,Interleukin-1 receptor-associated kinase 3,Humans
+BE0009454,Serine/threonine-protein kinase SIK3,Humans
+BE0009455,Serine/threonine-protein kinase LATS1,Humans
+BE0009457,Leucine-rich repeat serine/threonine-protein kinase 2,Humans
+BE0009458,Leukocyte tyrosine kinase receptor,Humans
+BE0009459,Dual specificity mitogen-activated protein kinase kinase 3,Humans
+BE0009460,Dual specificity mitogen-activated protein kinase kinase 5,Humans
+BE0009461,Dual specificity mitogen-activated protein kinase kinase 6,Humans
+BE0009462,Mitogen-activated protein kinase kinase kinase 10,Humans
+BE0009463,Mitogen-activated protein kinase kinase kinase 11,Humans
+BE0009464,Mitogen-activated protein kinase kinase kinase 12,Humans
+BE0009465,Mitogen-activated protein kinase kinase kinase 13,Humans
+BE0009466,Mitogen-activated protein kinase kinase kinase 15,Humans
+BE0009467,Mitogen-activated protein kinase kinase kinase 3,Humans
+BE0009468,Mitogen-activated protein kinase kinase kinase 4,Humans
+BE0009469,Mitogen-activated protein kinase kinase kinase 6,Humans
+BE0009470,Mitogen-activated protein kinase kinase kinase kinase 1,Humans
+BE0009471,Mitogen-activated protein kinase kinase kinase kinase 2,Humans
+BE0009472,Mitogen-activated protein kinase kinase kinase kinase 3,Humans
+BE0009473,Mitogen-activated protein kinase kinase kinase kinase 4,Humans
+BE0009474,Mitogen-activated protein kinase kinase kinase kinase 5,Humans
+BE0009475,Mitogen-activated protein kinase 15,Humans
+BE0009476,Mitogen-activated protein kinase 4,Humans
+BE0009477,Mitogen-activated protein kinase 7,Humans
+BE0009479,Serine/threonine-protein kinase MARK1,Humans
+BE0009480,Serine/threonine-protein kinase MARK2,Humans
+BE0009481,MAP/microtubule affinity-regulating kinase 3,Humans
+BE0009482,MAP/microtubule affinity-regulating kinase 4,Humans
+BE0009483,CLIP-associating protein 1,Humans
+BE0009484,Microtubule-associated serine/threonine-protein kinase 1,Humans
+BE0009485,Megakaryocyte-associated tyrosine-protein kinase,Humans
+BE0009486,Maternal embryonic leucine zipper kinase,Humans
+BE0009487,Misshapen-like kinase 1,Humans
+BE0009488,MAP kinase-interacting serine/threonine-protein kinase 1,Humans
+BE0009489,MAP kinase-interacting serine/threonine-protein kinase 2,Humans
+BE0009491,"Muscle, skeletal receptor tyrosine-protein kinase",Humans
+BE0009493,Myosin light chain kinase 3,Humans
+BE0009494,Myosin light chain kinase family member 4,Humans
+BE0009495,Myosin-IIIa,Humans
+BE0009496,Serine/threonine-protein kinase Nek1,Humans
+BE0009497,Serine/threonine-protein kinase Nek3,Humans
+BE0009498,Serine/threonine-protein kinase Nek4,Humans
+BE0009499,Serine/threonine-protein kinase Nek5,Humans
+BE0009500,Serine/threonine-protein kinase Nek9,Humans
+BE0009502,NUAK family SNF1-like kinase 1,Humans
+BE0009504,Serine/threonine-protein kinase OSR1,Humans
+BE0009505,Serine/threonine-protein kinase PAK 1,Humans
+BE0009506,Serine/threonine-protein kinase PAK 2,Humans
+BE0009507,Serine/threonine-protein kinase PAK 3,Humans
+BE0009509,Serine/threonine-protein kinase PAK 6,Humans
+BE0009510,Serine/threonine-protein kinase PAK 5,Humans
+BE0009511,Cyclin-dependent kinase 17,Humans
+BE0009512,"Phosphorylase b kinase gamma catalytic chain, skeletal muscle/heart isoform",Humans
+BE0009514,Phosphatidylinositol 4-phosphate 3-kinase C2 domain-containing subunit beta,Humans
+BE0009515,Phosphatidylinositol 3-kinase C2 domain-containing subunit gamma,Humans
+BE0009516,Serine/threonine-protein kinase pim-3,Humans
+BE0009517,Phosphatidylinositol 5-phosphate 4-kinase type-2 beta,Humans
+BE0009518,Phosphatidylinositol 5-phosphate 4-kinase type-2 gamma,Humans
+BE0009519,Membrane-associated tyrosine- and threonine-specific cdc2-inhibitory kinase,Humans
+BE0009520,Serine/threonine-protein kinase N1,Humans
+BE0009521,Serine/threonine-protein kinase N2,Humans
+BE0009522,Serine/threonine-protein kinase PLK2,Humans
+BE0009523,Serine/threonine-protein kinase PLK3,Humans
+BE0009524,Serine/threonine-protein kinase PLK4,Humans
+BE0009526,cGMP-dependent protein kinase 2,Humans
+BE0009527,Serine/threonine-protein kinase PRP4 homolog,Humans
+BE0009528,Serine/threonine-protein kinase RIO1,Humans
+BE0009529,Serine/threonine-protein kinase RIO2,Humans
+BE0009530,Serine/threonine-protein kinase RIO3,Humans
+BE0009531,Receptor-interacting serine/threonine-protein kinase 1,Humans
+BE0009532,Receptor-interacting serine/threonine-protein kinase 2,Humans
+BE0009533,Receptor-interacting serine/threonine-protein kinase 4,Humans
+BE0009535,Serine/threonine-protein kinase SBK1,Humans
+BE0009536,Uncharacterized serine/threonine-protein kinase SBK3,Humans
+BE0009537,Serine/threonine-protein kinase Sgk3,Humans
+BE0009538,Serine/threonine-protein kinase SIK2,Humans
+BE0009539,SNF-related serine/threonine-protein kinase,Humans
+BE0009540,Tyrosine-protein kinase Srms,Humans
+BE0009541,Serine/threonine-protein kinase 10,Humans
+BE0009542,Serine/threonine-protein kinase 16,Humans
+BE0009543,Serine/threonine-protein kinase 17A,Humans
+BE0009544,Serine/threonine-protein kinase 32A,Humans
+BE0010298,Phosphatidylinositol 3-kinase,Humans
+BE0010048,Cytochrome P450 4F3,Humans
+BE0009559,Envelope phospholipase OPG057,Variola virus (isolate Human/India/Ind3/1967)
+BE0010028,Angiopoietin-2,Humans
+BE0010221,CMV DNA Terminase Complex,Human Cytomegalovirus
+BE0009746,Beta-lactamase SHV,Escherichia coli
+BE0009745,Beta-lactamase,Klebsiella pneumoniae
+BE0009360,Beta-lactamase,Klebsiella pneumoniae
+BE0003472,Activin receptor type-2A,Humans
+BE0010786,Growth/differentiation factor 11,Humans
+BE0015530,Tyrosine-protein kinase STYK1,Humans
+BE0010068,DNA polymerase,Variola virus
+BE0010070,Variola virus DNA,Variola virus
+BE0013106,DNA polymerase delta catalytic subunit,Humans
+BE0020436,DNA polymerase delta subunit 4,Humans
+BE0010884,DNA polymerase subunit gamma-1,Humans
+BE0010885,DNA polymerase subunit gamma-2,Humans
+BE0016315,DNA polymerase nu,Humans
+BE0010760,DNA polymerase theta,Humans
+BE0003273,LicC protein,Streptococcus pneumoniae serotype 4 (strain ATCC BAA-334 / TIGR4)
+BE0002370,Calcitonin gene-related peptide 2,Humans
+BE0009680,B-cell antigen receptor complex-associated protein beta chain,Humans
+BE0009630,Excretory Secretory (ES) proteins,Fasciola hepatica
+BE0009679,Endothelial PAS domain-containing protein 1,Humans
+BE0010022,Spike glycoprotein,SARS-CoV-2
+BE0009866,RNA-directed RNA polymerase catalytic subunit,Influenza A virus (strain A/Silky Chicken/Hong Kong/SF189/2001 H5N1 genotype A)
+BE0010067,GTP-binding protein RHO1,Baker's yeast
+BE0009787,C-C chemokine receptor type 4,Humans
+BE0009548,Gastrin,Humans
+BE0009149,Retinoid isomerohydrolase,Humans
+BE0020789,"rRNA methyltransferase 2, mitochondrial",Humans
+BE0027700,DNA gyrase subunit B,Neisseria gonorrhoeae (strain ATCC 700825 / FA 1090)
+BE0009718,Large ribosomal subunit protein uL22,Streptococcus pneumoniae serotype 4 (strain ATCC BAA-334 / TIGR4)
+BE0009336,A disintegrin and metalloproteinase with thrombospondin motifs 13,Humans
+BE0009562,Histone-lysine N-methyltransferase EZH2,Humans
+BE0009849,Histone-lysine N-methyltransferase EZH1,Humans
+BE0009918,Tumor-associated calcium signal transducer 2,Humans
+BE0010184,Interleukin-17F,Humans
+BE0009798,Nectin-4,Humans
+BE0010784,Delta-like protein 3,Humans
+BE0010188,Asialoglycoprotein receptor 1,Humans
+BE0008671,Toxin B,Peptoclostridium difficile
+BE0005577,Glutathione,Humans
+BE0009143,"Survival of motor neuron 1, telomeric",Humans
+BE0011158,Tripeptidyl-peptidase 1,Humans
+BE0009368,Sodium/myo-inositol cotransporter,Humans
+BE0003675,Large ribosomal subunit protein bL32,Deinococcus radiodurans (strain ATCC 13939 / DSM 20539 / JCM 16871 / LMG 4051 / NBRC 15346 / NCIMB 9279 / R1 / VKM B-1422)
+BE0003674,Large ribosomal subunit protein uL4,Escherichia coli (strain K12)
+BE0004850,Transferrin receptor,Humans
+BE0009858,Hepcidin,Humans
+BE0009859,Plasma membrane ascorbate-dependent reductase CYBRD1,Humans
+BE0009856,Ferroportin,Humans
+BE0013264,Microtubule-associated protein 1B,Humans
+BE0009323,Nucleotide-binding oligomerization domain-containing protein 2,Humans
+BE0009367,Sodium channel protein,Pediculus humanus
+BE0004762,Cytochrome P450 2A1,Rat
+BE0009344,Lactose,Humans
+BE0009355,Botulinum neurotoxin type E,Clostridium botulinum
+BE0009353,Botulinum neurotoxin type C,Clostridium botulinum
+BE0009357,Botulinum neurotoxin type G,Clostridium botulinum
+BE0009356,Botulinum neurotoxin type F,Clostridium botulinum
+BE0009354,Botulinum neurotoxin type D,Clostridium botulinum
+BE0010540,Tumor necrosis factor receptor superfamily member 16,Humans
+BE0009370,Thiol groups,Humans
+BE0009736,Polymerase acidic protein,Influenza A virus (strain A/Puerto Rico/8/1934 H1N1)
+BE0009935,Diacylglycerol kinase,Humans
+BE0020499,Interleukin-37,Humans
+BE0009341,Transuranium elements,Humans
+BE0010448,Fibroblast growth factor 23,Humans
+BE0010284,Adenosine receptor,Humans
+BE0009861,Claudin-16,Humans
+BE0009863,Solute carrier family 41 member 1,Humans
+BE0009864,"Magnesium transporter MRS2 homolog, mitochondrial",Humans
+BE0009910,Histidine-rich glycoprotein,Humans
+BE0009915,C->U-editing enzyme APOBEC-1,Humans
+BE0009916,Semenogelin-2,Humans
+BE0009891,Proton-coupled zinc antiporter SLC30A1,Humans
+BE0009892,Proton-coupled zinc antiporter SLC30A2,Humans
+BE0009895,Probable proton-coupled zinc antiporter SLC30A3,Humans
+BE0009886,Probable proton-coupled zinc antiporter SLC30A4,Humans
+BE0009907,Zinc transporter 6,Humans
+BE0009898,Proton-coupled zinc antiporter SLC30A5,Humans
+BE0009885,Zinc transporter 7,Humans
+BE0009896,Proton-coupled zinc antiporter SLC30A8,Humans
+BE0009890,"Proton-coupled zinc antiporter SLC30A9, mitochondrial",Humans
+BE0009902,Zinc transporter ZIP1,Humans
+BE0009889,Zinc transporter ZIP2,Humans
+BE0009904,Zinc transporter ZIP3,Humans
+BE0009894,Zinc transporter ZIP4,Humans
+BE0009888,Zinc transporter ZIP5,Humans
+BE0009887,Zinc transporter ZIP6,Humans
+BE0009893,Zinc transporter SLC39A7,Humans
+BE0009901,Metal cation symporter ZIP8,Humans
+BE0009905,Zinc transporter ZIP9,Humans
+BE0009884,Zinc transporter ZIP10,Humans
+BE0009906,Zinc transporter ZIP11,Humans
+BE0009897,Zinc transporter ZIP12,Humans
+BE0009900,Zinc transporter ZIP13,Humans
+BE0009563,Transthyretin mRNA,Humans
+BE0010016,Replicase polyprotein 1ab,SARS-CoV-2
+BE0010019,Replicase polyprotein 1ab,Middle East respiratory syndrome-related coronavirus (isolate United Kingdom/H123990006/2012)
+BE0027919,Arginine,
+BE0010218,Superoxide dismutase 1 (SOD1),Humans
+BE0010189,Lymphocyte activation gene 3 protein,Humans
+BE0009805,MexAB-OprM efflux system,Pseudomonas aeruginosa (strain ATCC 15692 / PAO1 / 1C / PRS 101 / LMG 12228)
+BE0009806,Catecholate siderophore receptor Fiu,Escherichia coli (strain K12)
+BE0009807,Putative outer membrane ferric siderophore receptor,Pseudomonas aeruginosa (strain UCBPP-PA14)
+BE0011002,Human telomerase RNA component,Humans
+BE0002478,Telomerase-binding protein EST1A,Humans
+BE0002479,N-terminal kinase-like protein,Humans
+BE0010036,DMD gene (exon 45 casimersen target site),Humans
+BE0011004,Phosphodiesterase 4,Humans
+BE0010012,DMD gene (exon 53 viltolarsen target site),Humans
+BE0010095,C5a anaphylatoxin chemotactic receptor 1,Humans
+BE0009790,ALAS1 mRNA,Humans
+BE0010181,Thymic stromal lymphopoietin,Humans
+BE0010015,"Cytochrome P450 2C12, female-specific",Rat
+BE0009818,P2X purinoceptor 3,Humans
+BE0009820,P2X purinoceptor 2,Humans
+BE0010573,Claudin-18,Humans
+BE0010136,Interferon alpha/beta receptor (IFNAR),Humans
+BE0011012,Gastric inhibitory polypeptide receptor,Humans
+BE0011013,Interleukin-31 receptor subunit alpha,Humans
+BE0010027,IgG heavy chain,
+BE0010187,Melanocyte protein PMEL,Humans
+BE0010034,Angiopoietin-related protein 3,Humans
+BE0010010,Tumor necrosis factor receptor superfamily member 17,Humans
+BE0010202,T-cell surface glycoprotein CD3,Humans
+BE0010225,Coagulation factor VIII (F8),Humans
+BE0009797,Internal limiting membrane (ILM),Humans
+BE0010198,Interleukin-1 receptor-like 2,Humans
+BE0013736,Dipeptidyl peptidase 1,Humans
+BE0010023,Envelope glycoprotein,Zaire ebolavirus (strain Mayinga-76)
+BE0027491,Hydroxyacid oxidase 1 mRNA,Humans
+BE0011003,Phosphodiesterase 3,Humans
+BE0010206,Fusion glycoprotein F0,Human respiratory syncytial virus A (strain RSS-2)
+BE0027652,Tetrahydrobiopterin,Humans
+BE0011005,Molybdenum cofactor biosynthesis protein 1,Humans
+BE0010290,G-protein coupled receptor family C group 5 member D,Humans
+BE0010964,Coagulation factor IX (F9),Humans
+BE0010442,Menin,Humans
+BE0010214,Human Arylsulfatase A mRNA,Humans
+BE0010256,"Gaba-gated chloride channel, putative",Pediculus humanus subsp. corporis
+BE0010962,Hemoglobin subunit beta,Humans
+BE0010308,Granulocyte colony-stimulating factor,Humans
+BE0027561,Fusion glycoprotein F0,Human respiratory syncytial virus
+BE0010394,Tumor necrosis factor ligand superfamily member 13,Humans
+BE0004821,Hyaluronan,Humans

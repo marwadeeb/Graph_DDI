@@ -1,0 +1,3870 @@
+category_id,category_name,mesh_id
+1,"Amino Acids, Peptides, and Proteins",D000602
+2,Anticoagulants,D000925
+3,Antithrombin Proteins,D058833
+4,Antithrombins,D000991
+5,Blood and Blood Forming Organs,
+6,Cardiovascular Agents,D002317
+7,Enzyme Inhibitors,D004791
+8,Fibrin Modulating Agents,D050299
+9,Hematologic Agents,D006401
+10,Peptides,D010455
+11,Protease Inhibitors,D011480
+12,Proteins,D011506
+13,Serine Protease Inhibitors,D015842
+14,Serpins,D015843
+15,Thrombin Inhibitors,
+16,Antibodies,D000906
+17,"Antibodies, Monoclonal",D000911
+18,"Antibodies, Monoclonal, Humanized",D061067
+19,Antineoplastic Agents,D000970
+20,"Antineoplastic Agents, Immunological",D000074322
+21,Antineoplastic and Immunomodulating Agents,
+22,Blood Proteins,D001798
+23,Cancer immunotherapy,
+24,EGFR (Epidermal Growth Factor Receptor) inhibitors,
+25,Epidermal Growth Factor Receptor Antagonist,
+26,Globulins,D005916
+27,HER1 Antagonists,
+28,Immunoglobulins,D007136
+29,Immunoproteins,D007162
+30,Immunotherapy,D007167
+31,Monoclonal antibodies and antibody drug conjugates,
+32,Narrow Therapeutic Index Drugs,
+33,Serum Globulins,D012712
+34,Cough and Cold Preparations,
+35,Decreased Respiratory Secretion Viscosity,
+36,Deoxyribonucleases,D003851
+37,Endodeoxyribonucleases,D004706
+38,Endonucleases,D004720
+39,Enzymes,D004798
+40,Enzymes and Coenzymes,D045762
+41,Esterases,D004950
+42,Expectorants,D005100
+43,Hydrolases,D006867
+44,Recombinant Human Deoxyribonuclease 1,
+45,ADP Ribose Transferases,D036002
+46,Bacterial Toxins,D001427
+47,Biological Factors,D001685
+48,CD25-directed Cytotoxin,
+49,Cytotoxins,D003603
+50,Intercellular Signaling Peptides and Proteins,D036341
+51,Interleukins,D007378
+52,Recombinant Fusion Proteins,D011993
+53,Recombinant Proteins,D011994
+54,"Toxins, Biological",D014118
+55,Agents reducing cytokine levels,
+56,Anti-Inflammatory Agents,D000893
+57,Antirheumatic Agents,D018501
+58,Biological Products,D001688
+59,Biologics for Rheumatoid Arthritis Treatment,
+60,Dermatologicals,D003879
+61,Disease-modifying Antirheumatic Agents,
+62,Immunoglobulin Constant Regions,D007127
+63,Immunoglobulin Fc Fragments,D007141
+64,Immunoglobulin Fragments,D007128
+65,Immunoglobulin Isotypes,D007132
+66,Immunologic Factors,D007155
+67,Immunosuppressive Agents,D007166
+68,Membrane Proteins,D008565
+69,Tumor necrosis factor alpha (TNF-alpha) inhibitors,
+70,Tumor Necrosis Factor Blockers,D000079424
+71,Adrenal Cortex Hormones,D000305
+72,Agents Causing Muscle Toxicity,
+73,"Antineoplastic Agents, Hormonal",D018931
+74,Drugs causing inadvertant photosensitivity,
+75,Drugs that are Mainly Renally Excreted,
+76,Endocrine Therapy,
+77,Fertility Agents,D005299
+78,"Fertility Agents, Female",D005300
+79,Gonadotropin Releasing Hormone Receptor Agonist,
+80,Gonadotropin Releasing Hormone Receptor Agonists,
+81,Gonadotropin-releasing hormone agonist,D007987
+82,Gonadotropins,D006062
+83,Hormones and Related Agents,
+84,Hyperglycemia-Associated Agents,
+85,Hypothalamic Hormones,D007028
+86,Moderate Risk QTc-Prolonging Agents,
+87,Nerve Tissue Proteins,D009419
+88,Neuropeptides,D009479
+89,Oligopeptides,D009842
+90,Photosensitizing Agents,D017319
+91,Pituitary Hormone-Releasing Hormones,D010906
+92,QTc Prolonging Agents,
+93,Reproductive Control Agents,D012102
+94,"Adjuvants, Immunologic",D000276
+95,Alcohols,D000438
+96,Alfa Interferons,
+97,Anti-Infective Agents,D000890
+98,Antiviral Agents,D000998
+99,Cardiotoxic antineoplastic agents,
+100,"Compounds used in a research, industrial, or household setting",D020313
+101,Cytochrome P-450 CYP1A2 Inhibitors,D065609
+102,Cytochrome P-450 CYP1A2 Inhibitors (strength unknown),
+103,Cytochrome P-450 Enzyme Inhibitors,D065607
+104,Cytokines,D016207
+105,Drug Carriers,D004337
+106,Ethylene Glycols,D005026
+107,Glycols,D006018
+108,Hepatotoxic Agents,
+109,Interferon alpha,
+110,Interferon Type I,D007370
+111,Interferons,D007372
+112,Macromolecular Substances,D046911
+113,Myelosuppressive Agents,
+114,Pegylated agents,
+115,Polymers,D011108
+116,Treatments for Hepatitis C,
+117,Agents causing angioedema,
+118,Endopeptidases,D010450
+119,Fibrinolytic Agents,D005343
+120,Ophthalmologicals,
+121,Peptide Hydrolases,D010447
+122,Plasminogen Activators,D010960
+123,Sensory Organs,
+124,Serine Endopeptidases,D012697
+125,Serine Proteases,D057057
+126,Tissue Plasminogen Activator,D010959
+127,"Tissue Plasminogen Activator, antagonists & inhibitors",
+128,Anterior Pituitary Lobe Hormones and Analogues,
+129,Diagnostic Agents,
+130,Growth Hormone-Releasing Hormone,D013007
+131,Hormones,D006728
+132,"Hormones, Hormone Substitutes, and Hormone Antagonists",D006730
+133,Peptide Hormones,D036361
+134,Pituitary and Hypothalamic Hormones and Analogues,
+135,Somatropin and Somatropin Agonists,
+136,"Systemic Hormonal Preparations, Excl. Sex Hormones and Insulins",
+137,Tests for Pituitary Function,
+138,Antianemic Preparations,
+139,Carbohydrates,D002241
+140,Colony-Stimulating Factors,D003115
+141,Erythropoiesis-Stimulating Agents,
+142,Glycoconjugates,D006001
+143,Glycoproteins,D006023
+144,Hematinics,D006397
+145,Hematopoietic Cell Growth Factors,D016298
+146,Increased Erythroid Cell Production,
+147,Increased Thrombolysis,
+148,"Urokinase-Type Plasminogen Activator, antagonists & inhibitors",
+149,Gonadotropins and Antigonadotropins,
+150,Miscellaneous Therapeutic Agents,
+151,"Erythropoietin, genetics",
+152,Bone Density Conservation Agents,D050071
+153,"Bone Density, drug effects",
+154,Calcitonin Preparations,D002116
+155,Calcium Homeostasis,
+156,Calcium-Regulating Hormones and Agents,D000077264
+157,Parathyroid and Antiparathyroid Agents,
+158,Parathyroid Hormones and Analogues,
+159,Thyroid Products,D013972
+160,Interferon-alpha,D016898
+161,Complex Mixtures,D045424
+162,Granulocyte Colony-Stimulating Factors,D016179
+163,Increased Myeloid Cell Production,
+164,Leukocyte Growth Factor,
+165,Granulocyte-Macrophage Colony-Stimulating Factor,D016178
+166,Cytochrome P-450 CYP2C9 Inducers,D065698
+167,Cytochrome P-450 CYP2C9 Inducers (weak),
+168,Cytochrome P-450 CYP2D6 Inhibitors,D065690
+169,Cytochrome P-450 CYP2D6 Inhibitors (weak),
+170,Cytochrome P-450 Enzyme Inducers,D065693
+171,Hepatitis C,D006526
+172,Amidohydrolases,D000581
+173,Asparaginase,D001215
+174,Asparagine-specific Enzyme,
+175,Thyroxine-binding globulin inhibitors,
+176,Agents used to treat hypothyroidism,
+177,Pituitary Hormones,D010907
+178,"Pituitary Hormones, Anterior",D010908
+179,Blood Coagulation Factors,D001779
+180,Disaccharides,D004187
+181,Hemophilia A,D006467
+182,Hemostatics,D006490
+183,Human Antihemophilic Factors,
+184,Increased Coagulation Activity,
+185,Oligosaccharides,D009844
+186,Polysaccharides,D011134
+187,Protein Precursors,D011498
+188,Interleukin Inhibitors,D000088902
+189,Interleukin-1 Receptor Antagonist,
+190,Anti-Bacterial Agents,D000900
+191,"Anti-Infective Agents, Local",D000891
+192,P-glycoprotein inhibitors,
+193,P-glycoprotein substrates,
+194,"Peptides, Cyclic",D010456
+195,Pore Forming Cytotoxic Proteins,D052899
+196,Throat Preparations,
+197,Antigen Neutralization,
+198,Human Immunoglobulin G,
+199,Immunoglobulin G,D007074
+200,"Immunoglobulins, Intravenous",D016756
+201,Passively Acquired Immunity,
+202,Serum,D044967
+203,Alimentary Tract and Metabolism,
+204,Blood Glucose Lowering Agents,D007004
+205,Cytochrome P-450 CYP1A2 Inducers,D065694
+206,Cytochrome P-450 CYP1A2 Inducers (strength unknown),
+207,Drugs Used in Diabetes,
+208,Hypoglycemia-Associated Agents,
+209,Insulin,D007328
+210,"Insulin, metabolism",
+211,"Insulin, Short-Acting",D061266
+212,"Insulins and Analogues for Injection, Fast-Acting",
+213,Pancreatic Hormones,D010187
+214,Genito Urinary System and Sex Hormones,
+215,"Gonadotropins, Pituitary",D006065
+216,Sex Hormones and Modulators of the Genital System,
+217,Interferon gamma,
+218,Lymphokines,D008222
+219,Macrophage-Activating Factors,D016215
+220,Agents that produce hypertension,
+221,Antidiuretic Agents,D050034
+222,Arginine Vasopressin,D001127
+223,Coagulants,D003029
+224,Factor VIII Activator,
+225,Increased Coagulation Factor VIII Activity,
+226,Increased Coagulation Factor VIII Concentration,
+227,Natriuretic Agents,D045283
+228,Pituitary,
+229,"Pituitary Hormones, Posterior",D010909
+230,Posterior Pituitary Lobe Hormones,
+231,Vasopressin Analog,
+232,Vasopressin and Analogues,
+233,Vasopressins,D014667
+234,Factor VII,D005167
+235,"Factor VIIa, antagonists & inhibitors",
+236,Increased Coagulation Factor IX Activity,
+237,Increased Coagulation Factor X Activity,
+238,Megakaryocyte Growth Factor,
+239,Detoxifying Agents for Antineoplastic Treatment,
+240,Fibroblast Growth Factors,D005346
+241,Increased Epithelial Proliferation,
+242,Mucocutaneous Epithelial Cell Growth Factor,
+243,Antihypoglycemic Agent,
+244,Decreased GI Motility,
+245,Decreased GI Smooth Muscle Tone,
+246,Decreased Glycolysis,
+247,Gastrointestinal Agents,D005765
+248,Gastrointestinal Hormones,D005768
+249,Gastrointestinal Motility Inhibitor,
+250,"Glucagon, antagonists & inhibitors",
+251,Glycogenolytic Agents,
+252,Glycogenolytic Hormones,
+253,Increased Gluconeogenesis,
+254,Increased Glycogenolysis,
+255,Proglucagon,D052336
+256,Anti-HIV Agents,D019380
+257,Cytochrome P-450 CYP2E1 Inhibitors,D065691
+258,Cytochrome P-450 CYP2E1 Inhibitors (strength unknown),
+259,Cytochrome P-450 CYP3A Inhibitors,D065692
+260,Cytochrome P-450 CYP3A4 Inhibitors,D065692
+261,Cytochrome P-450 CYP3A4 Inhibitors (strength unknown),
+262,Hypotensive Agents,
+263,Increased Lymphocyte Activation,
+264,Increased Lymphocyte Cell Production,
+265,Lymphocyte Growth Factor,
+266,Acetylcholine Release Inhibitors,D065087
+267,Agents that produce neuromuscular block (indirect),
+268,Amphibian Venoms,D000664
+269,Anti-Dyskinesia Agents,D018726
+270,Bacterial Proteins,D001426
+271,Botulinum Toxins,D001905
+272,Central Nervous System Agents,D002491
+273,Central Nervous System Depressants,D002492
+274,Cholinergic Agents,D018678
+275,Ganglion Blockers,D005730
+276,Membrane Transport Modulators,D049990
+277,Metalloendopeptidases,D008666
+278,Metalloproteases,D045726
+279,Muscle Relaxants,
+280,"Muscle Relaxants, Peripherally Acting Agents",
+281,Musculo-Skeletal System,
+282,Neurotoxins,D009498
+283,Neurotransmitter Agents,D018377
+284,Other Miscellaneous Therapeutic Agents,
+285,Venoms,D014688
+286,Agents to Treat Airway Disease,
+287,Anti-Allergic Agents,D018926
+288,Anti-Asthmatic Agents,D018927
+289,Anti-IgE,
+290,Antigens,D000941
+291,Decreased IgE Activity,
+292,IgE-directed Antibody Interactions,
+293,"Respiratory Agents, Miscellaneous",
+294,Respiratory System Agents,D019141
+295,Insulin Analog,
+296,Antimetabolites,D000963
+297,Hypolipidemic Agents,D000960
+298,"Insulin, Long-Acting",D049528
+299,Lipid Regulating Agents,D057847
+300,Collagen-specific Enzyme,
+301,Collagenases,D017364
+302,"Microbial Collagenase, antagonists & inhibitors",
+303,Misc. Skin and Mucous Membrane Agents,
+304,Preparations for Treatment of Wounds and Ulcers,
+305,Antigout Preparations,D006074
+306,Methemoglobinemia Associated Agents,
+307,Oxidoreductases,D010088
+308,Urate Oxidase,D014503
+309,Uric Acid-specific Enzyme,
+310,Anti-Gonadotropin-Releasing Hormones,
+311,Decreased GnRH Secretion,
+312,Gonadotropin Releasing Hormone Receptor Antagonists,
+313,Gonadotropin-releasing Hormone Antagonists,
+314,Hormone Antagonists,D006727
+315,Miscellaneous GI Drugs,
+316,Tumor Necrosis Factor Receptor Blocking Activity,
+317,Cytochrome P-450 CYP2C19 Inhibitors,D065689
+318,Cytochrome P-450 CYP2C19 inhibitors (strength unknown),
+319,Cytochrome P-450 CYP2C19 Inhibitors (weak),
+320,Growth Hormone,D013006
+321,"Growth Hormone, antagonists & inhibitors",
+322,"Human Growth Hormone, antagonists & inhibitors",
+323,Recombinant Human Growth Hormone,
+324,Somatotropin Agonists,
+325,Enzyme Replacement Therapy,D056947
+326,Gaucher Disease,D005776
+327,Glucosidases,D005959
+328,Glycoside Hydrolases,D006026
+329,Hydrolytic Lysosomal Glucocerebroside-specific Enzyme,
+330,Antiplatelet agents,D010975
+331,Glycoprotein IIb/IIIa Receptor-directed Monoclonal Antibodies,
+332,Immunoglobulin Fab Fragments,D007140
+333,Peptide Fragments,D010446
+334,Platelet Aggregation Inhibitors Excl. Heparin,
+335,Blood Coagulation Factor Inhibitors,D019774
+336,Enzyme Precursors,D004792
+337,Recombinant Activated Protein C,
+338,Antibody-drug Conjugates,D018796
+339,Calicheamicins,D000080084
+340,CD33-directed Antibody Interactions,
+341,CD33-directed Cytotoxin,
+342,Glycosides,D006027
+343,Immunoconjugates,D018796
+344,Immunotoxins,D000922
+345,Noxae,D009676
+346,Toxic Actions,D004786
+347,Acetates,D000085
+348,"Acids, Acyclic",D000144
+349,Amines,D000588
+350,Diagnostic Radiopharmaceuticals,
+351,Indium (111In) Compounds,
+352,Indium Radioisotopes,D007205
+353,Polyamines,D011073
+354,Tumour Detection,
+355,Acute-Phase Proteins,D000209
+356,Alpha-Globulins,D000510
+357,Antifibrinolytic Agents,D000933
+358,Human alpha-1 Proteinase Inhibitor,
+359,Proteinase Inhibitors,
+360,"Proteinase Inhibitory Proteins, Secretory",D053491
+361,Trypsin Inhibitors,D014361
+362,Delayed-Action Preparations,D003692
+363,Immunomodulatory Agents,D000091369
+364,Interferon-beta,D016899
+365,Recombinant Human Interferon beta,
+366,Aminohydrolases,D000619
+367,Bovine Intestinal Adenosine Deaminase,
+368,Nucleoside Deaminases,D009700
+369,Severe Combined Immunodeficiency,D016511
+370,Albumins,D000418
+371,Blood and Related Products,
+372,Blood Derivatives,
+373,Blood Substitutes and Perfusion Solutions,
+374,Blood Substitutes and Plasma Protein Fractions,
+375,Cardiac Function,
+376,Diluents,
+377,Human Serum Albumin,D000075462
+378,Increased Intravascular Volume,
+379,Increased Oncotic Pressure,
+380,Osmotic Activity,
+381,Serum Albumin,D012709
+382,Decreased Platelet Aggregation,
+383,Follicle Stimulating Hormone,D005640
+384,"Arginine Vasopressin, analogs & derivatives",
+385,Decreased Diuresis,
+386,Vasoconstriction,D014661
+387,Vasoconstrictor Agents,D014662
+388,HER2 (Human Epidermal Growth Factor Receptor 2) inhibitors,
+389,HER2 Receptor Antagonists,
+390,HER2/Neu/cerbB2 Antagonists,
+391,"Antibodies, Monoclonal, Murine-Derived",D058846
+392,CD20 (Clusters of Differentiation 20) inhibitors,
+393,CD20-directed Antibody Interactions,
+394,CD20-directed Cytolytic Antibody,
+395,Interleukin 2 Receptor-directed Antibody Interactions,
+396,Interleukin-2 Receptor Antagonist,
+397,Interleukin-2 Receptor Blocking Antibody,
+398,CD3 Blocker Immunosuppressant,
+399,CD3 Receptor Antagonists,
+400,CD3-directed Antibody Interactions,
+401,Decreased Immunologic Activity,
+402,Selective Immunosuppressants,
+403,Antidotes,D000931
+404,Digoxin Binding Activity,
+405,"Antigens, CD20",D018951
+406,CD20-directed Radiotherapeutic Antibody,
+407,"Lymphoma, B-Cell",D016393
+408,Radiopharmaceutical Activity,
+409,Therapeutic Radiopharmaceuticals,
+410,Various Therapeutic Radiopharmaceuticals,
+411,Yttrium Radioisotopes,D015021
+412,Antibacterials for Systemic Use,
+413,Antiinfectives for Systemic Use,
+414,Cyclic Lipopeptides,
+415,Lipids,D008055
+416,Lipopeptide Antibacterial,
+417,Lipopeptides,D055666
+418,Iodine (131I) Compounds,
+419,Radioimmunotherapy,D016499
+420,Acromegaly,D000172
+421,Cholinesterase Inhibitors,D002800
+422,Cytochrome P-450 CYP3A Inducers,D065701
+423,Cytochrome P-450 CYP3A4 Inducers,D065701
+424,Cytochrome P-450 CYP3A4 Inducers (strength unknown),
+425,Growth Hormone Receptor Antagonist,
+426,Growth Hormone Receptor Antagonists,
+427,"Botulinum Toxins, Type A",D019274
+428,Neuromuscular Agents,D009465
+429,Neuromuscular Blocking Agents,D009466
+430,Peripheral Nervous System Agents,D018373
+431,Carboxylic Ester Hydrolases,D002265
+432,"Digestives, Incl. Enzymes",
+433,Enzyme Preparations,
+434,Lipase,D008049
+435,Pancreatic Extracts,D010184
+436,Tissue Extracts,D014020
+437,"Streptokinase, antagonists & inhibitors",
+438,CD52-directed Antibody Interactions,
+439,CD52-directed Cytolytic Antibody,
+440,Indicators and Reagents,D007202
+441,Laboratory Chemicals,D019995
+442,Prostatic Neoplasms,D011471
+443,Hydrolytic Lysosomal Glycosaminoglycan-specific Enzyme,
+444,"Iduronidase, antagonists & inhibitors",
+445,Agents causing hyperkalemia,
+446,Agents that reduce seizure threshold,
+447,BCRP/ABCG2 Inhibitors,
+448,BSEP/ABCB11 Inhibitors,
+449,BSEP/ABCB11 Substrates,
+450,BSEP/ABCB11 Substrates with a Narrow Therapeutic Index,
+451,Calcineurin Inhibitor Immunosuppressant,
+452,Calcineurin Inhibitors,D065095
+453,Cyclosporins,D003524
+454,Cytochrome P-450 CYP2D6 Inhibitors (moderate),
+455,Cytochrome P-450 CYP3A Substrates,
+456,Cytochrome P-450 CYP3A4 Inhibitors (moderate),
+457,Cytochrome P-450 CYP3A4 Substrates,
+458,Cytochrome P-450 CYP3A4 Substrates with a Narrow Therapeutic Index,
+459,Cytochrome P-450 CYP3A5 Substrates,
+460,Cytochrome P-450 CYP3A5 Substrates with a Narrow Therapeutic Index,
+461,Cytochrome P-450 Substrates,
+462,Nephrotoxic agents,
+463,Neurotoxic agents,
+464,NTCP Inhibitors,
+465,OAT1/SLC22A6 inhibitors,
+466,OAT1/SLC22A6 Substrates,
+467,OATP1B1/SLCO1B1 Inhibitors,
+468,OATP1B1/SLCO1B1 Substrates,
+469,OATP1B3 inhibitors,
+470,P-glycoprotein substrates with a Narrow Therapeutic Index,
+471,CD2-directed Antibody Interactions,
+472,CD2-directed LFA-3/Fc Fusion Protein,
+473,CD58 Antigens,D018968
+474,Membrane Glycoproteins,D008562
+475,"Antigens, CD11",D018845
+476,CD11a-directed Antibody Interactions,
+477,CD11a-directed Humanized IgG1 Antibody,
+478,Antibody-Surface Protein Interactions,
+479,Blood,D001769
+480,Body Fluids,D001826
+481,Fluids and Secretions,D005441
+482,Immune Sera,D007106
+483,Increased T Lymphocyte Destruction,
+484,Lymphocyte Function Alteration,
+485,Acids,D000143
+486,"Acids, Noncarboxylic",D000148
+487,Angiogenesis Inducing Agents,D043925
+488,Angiogenesis Modulating Agents,D043924
+489,Cicatrizants,
+490,DNA-Binding Proteins,D004268
+491,Growth Substances,D006133
+492,Human Platelet-derived Growth Factor,
+493,Neoplasm Proteins,D009363
+494,Oncogene Proteins,D015513
+495,Phosphoric Acids,D010756
+496,Phosphorus Acids,D017976
+497,Phosphorus Compounds,D017553
+498,Platelet-Derived Growth Factor,D010982
+499,Proto-Oncogene Proteins,D011518
+500,Proto-Oncogene Proteins c-sis,D020574
+501,Stomatological Preparations,
+502,Galactosidases,D005696
+503,Hydrolytic Lysosomal Neutral Glycosphingolipid-specific Enzyme,
+504,Protein Isoforms,D020033
+505,Bradycardia-Causing Agents,
+506,Potential QTc-Prolonging Agents,
+507,Somatostatin and Analogues,
+508,Somatostatin Receptor Agonists,
+509,Hormone Antagonists and Related Agents,
+510,Increased Uterine Smooth Muscle Contraction or Tone,
+511,Oxytocin and Analogues,
+512,"Oxytocin, analogs & derivatives",
+513,Uterotonic agents,D010120
+514,Integrin Receptor Antagonist,
+515,Multiple Sclerosis,D009103
+516,Anti-Retroviral Agents,D044966
+517,"Antigens, Viral",D000956
+518,Antivirals for Systemic Use,
+519,Cytochrome P-450 CYP2C19 Substrates,
+520,Cytochrome P-450 CYP2E1 Substrates,
+521,Direct Acting Antivirals,
+522,"env Gene Products, Human Immunodeficiency Virus",D054299
+523,Fusion Protein Inhibitors,
+524,"Gene Products, env",D015686
+525,HIV Antigens,D015488
+526,HIV Envelope Protein gp41,D015700
+527,HIV Fusion Inhibitors,D023581
+528,Human Immunodeficiency Virus 1 Fusion Inhibitor,
+529,Human Immunodeficiency Virus Proteins,D054298
+530,Membrane Fusion Proteins,D050576
+531,Polyproteins,D020815
+532,Retroviridae Proteins,D012191
+533,Viral Envelope Proteins,D014759
+534,Viral Fusion Protein Inhibitors,D065147
+535,Viral Fusion Proteins,D014760
+536,Viral Proteins,D014764
+537,Viral Structural Proteins,D015678
+538,Antiviral monoclonal antibodies,
+539,Immune Sera and Immunoglobulins,
+540,Respiratory Syncytial Virus Anti-F Protein Monoclonal Antibody,
+541,Specific Immunoglobulins,
+542,Angiogenesis Inhibitors,D020533
+543,Antineovascularisation Agents,
+544,Experimental Unapproved Treatments for COVID-19,
+545,Growth Inhibitors,D006131
+546,Ocular Vascular Disorder Agents,
+547,Vascular Endothelial Growth Factor Inhibitor,
+548,Vascular Endothelial Growth Factor Inhibitors,
+549,Vascular Endothelial Growth Factor-directed Antibody Interactions,
+550,VEGF/VEGFR (Vascular Endothelial Growth Factor / -Receptor) inhibitors,
+551,VEGF/VEGFR (Vascular Endothelial Growth Factor) inhibitors,
+552,Organometallic Compounds,D009942
+553,Technetium (99Mtc) Compounds,
+554,Coenzymes,D003067
+555,Dietary Supplements,D019587
+556,Food,D005502
+557,Micronutrients,D018977
+558,Physiological Phenomena,D010829
+559,Picolines,D010847
+560,Pyridines,D011725
+561,Supplements,
+562,Vitamin B Complex,D014803
+563,Vitamins,D014815
+564,Corrinoids,D045728
+565,"Diet, Food, and Nutrition",D000066888
+566,"Heterocyclic Compounds, Fused-Ring",D000072471
+567,"Vitamin B 12, biosynthesis",
+568,Vitamin B12 and Folic Acid,
+569,Folic Acid and Derivatives,
+570,Pteridines,D011621
+571,Pterins,D011622
+572,Amino Acids,D000596
+573,"Amino Acids, Cyclic",D000598
+574,"Amino Acids, Essential",D000601
+575,Proteinogenic Amino Acids,
+576,Amino Acids and Derivatives,
+577,"Amino Acids, Sulfur",D000603
+578,Cytochrome P-450 CYP2E1 Inhibitors (weak),
+579,"Nucleic Acids, Nucleotides, and Nucleosides",D009706
+580,Nucleosides,D009705
+581,Purine Nucleosides,D011684
+582,Purines,D011687
+583,Ribonucleosides,D012263
+584,Sulfur Compounds,D013457
+585,Keto Acids,D007651
+586,Pyruvates,D011773
+587,"Amino Acids, Aromatic",D024322
+588,Imidazoles,D007093
+589,Amino Alcohols,D000605
+590,Analgesics,D000700
+591,Ethanolamines,D004983
+592,Lipotropic Agents,D008082
+593,Nervous System,D009420
+594,Nootropic Agents,D018697
+595,OCT1 inhibitors,
+596,OCT1 substrates,
+597,OCT2 Inhibitors,
+598,OCT2 Substrates,
+599,Onium Compounds,D009861
+600,Other Nutritional Agents,
+601,Quaternary Ammonium Compounds,D000644
+602,Salicylic Acid and Derivatives,
+603,Trimethyl Ammonium Compounds,D050337
+604,"Amino Acids, Basic",D024361
+605,"Amino Acids, Diamino",D000599
+606,I.V. Solution Additives,
+607,Lysine,D008239
+608,Arginine,D001120
+609,Fatty Acids,D005227
+610,"Fatty Acids, Volatile",D005232
+611,Pituitary Function,
+612,Antioxidants,D000975
+613,Gastrointestinal Acidifying Agents,
+614,Gynecological Antiinfectives and Antiseptics,
+615,Hydroxy Acids,D006880
+616,Organic Acids,
+617,Protective Agents,D020011
+618,Sugar Acids,D013400
+619,Urinary Acidifying Agents,
+620,Vitamin C and analogues,D001205
+621,Biogenic Amines,D001679
+623,"Amino Acids, Acidic",D024342
+624,"Amino Acids, Dicarboxylic",D000600
+625,Excitatory Amino Acids,D018846
+626,Bile and Liver Therapy,
+627,Liver Therapy,
+628,"Liver Therapy, Lipotropics",
+629,"Amino Acids, Neutral",D021542
+630,Glutamine,D005973
+631,Adenine Nucleotides,D000227
+632,Nucleotides,D009711
+633,Purine Nucleotides,D011685
+634,Ribonucleotides,D012265
+635,Dietary Fats,D004041
+636,"Dietary Fats, Unsaturated",D004042
+637,Fats,D005223
+638,"Fatty Acids, Essential",D005228
+639,"Fatty Acids, Omega-3",D015525
+640,"Fatty Acids, Unsaturated",D005231
+641,Linolenic Acids,D008042
+642,Antipsoriatics,
+643,Antipsoriatics for Topical Use,
+644,Cholestanes,D002776
+645,Cholestenes,D002782
+646,Fused-Ring Compounds,D000072473
+647,Membrane Lipids,D008563
+648,Secosteroids,D012632
+649,Steroids,D013256
+650,Sterols,D013261
+651,Vitamin D and Analogues,D004100
+652,Vitamins (Fat Soluble),
+653,Alkenes,D000475
+654,Carotenoids,D002338
+655,Cyclohexanes,D003510
+656,Cyclohexenes,D053138
+657,Cycloparaffins,D003516
+658,"Hydrocarbons, Acyclic",D006839
+659,"Pigments, Biological",D010860
+660,Polyenes,D011090
+661,Terpenes,D013729
+662,Xanthophylls,D024341
+663,Anions,D000838
+664,Cysteine,D003545
+665,Disulfides,D004220
+666,Electrolytes,D004573
+667,Hydrogen Sulfide,D006862
+668,Ions,D007477
+669,Sulfides,D013440
+670,Dicarboxylic Acids,D003998
+671,OAT3/SLC22A8 Substrates,
+672,Succinates,D013386
+673,Flavins,D005415
+674,Radiation-Sensitizing Agents,D011838
+675,Amino Sugars,D000606
+676,Hexosamines,D006595
+677,Acid Preparations,
+678,Glutamates,D005971
+679,"Glutathione, antagonists & inhibitors",
+680,Glycerophosphates,D005994
+681,Glycerophospholipids,D020404
+682,Phosphatidic Acids,D010712
+683,Phosphatidylserines,D010718
+684,Phospholipids,D010743
+685,Glycine Agents,D018684
+686,Irrigating Solutions,
+687,Anti-Parathyroid Agents,
+688,Amidines,D000578
+689,Guanidines,D006146
+690,"Amino Acids, Branched-Chain",D000597
+691,Antidepressive Agents,D000928
+692,"Antidepressive Agents, Second-Generation",D018687
+693,Miscellaneous Antidepressants,
+694,Psychoanaleptics,
+695,Psychotropic Drugs,D011619
+696,Serotonergic Drugs Shown to Increase Risk of Serotonin Syndrome,D020230
+697,Caloric Agents,
+698,Nutritional Support,D018529
+699,Sulfhydryl Compounds,D013438
+700,Pyrimidines,D011743
+701,Thiazoles,D013844
+702,Eicosanoids,D015777
+703,"Threonine, antagonists & inhibitors",
+704,Autacoids,D012898
+705,BCRP/ABCG2 Substrates,
+706,"Anti-Inflammatory Agents, Non-Steroidal",D000894
+707,"Anti-Inflammatory Agents, Non-Steroidal (Non-Selective)",
+708,Fish Oils,D005395
+709,Non COX-2 selective NSAIDS,
+710,Oils,D009821
+711,Alanine,D000409
+712,Anti-Acne Preparations,
+713,Anti-Acne Preparations for Topical Use,
+714,Anticarcinogenic Agents,D016588
+715,Diterpenes,D004224
+716,Esters,D004952
+717,Nasal Preparations,
+718,Retinoids,D012176
+719,Retinoids for Topical Use in Acne,
+720,Tests for Fat Absorption,
+721,Vitamin A,D014801
+722,Basic Ointments and Protectants,
+723,Benzopyrans,D001578
+724,Pyrans,D011714
+725,Vitamin E,D014810
+726,"Vitamin E, analogs & derivatives",
+727,Analogs/Derivatives,
+728,Antimycobacterials,
+729,Drugs for Treatment of Tuberculosis,D000995
+730,Thiophenes,D013876
+731,Various Alimentary Tract and Metabolism Products,
+732,Dipeptides,D004151
+733,Flavoring Agents,D005421
+734,Food Additives,D005503
+735,Food Ingredients,D000074385
+736,OAT3/SLC22A8 Inhibitors,
+737,Sweetening Agents,D013549
+738,"Cholecalciferol, antagonists & inhibitors",
+739,Cytochrome P-450 CYP2C8 Inhibitors,D065687
+740,Cytochrome P-450 CYP2C8 Inhibitors (strength unknown),
+741,Drugs Affecting Bone Structure and Mineralization,
+742,Drugs for Treatment of Bone Diseases,
+743,Cytochrome P-450 CYP2A6 Inhibitors,
+744,Cytochrome P-450 CYP2A6 Inhibitors (strength unknown),
+745,Cytochrome P-450 CYP2B6 Inhibitors,D065686
+746,Cytochrome P-450 CYP2B6 Inhibitors (strength unknown),
+747,Cytochrome P-450 CYP2C9 Inhibitors,D065688
+748,Cytochrome P-450 CYP2C9 Inhibitors (strength unknown),
+749,Cytochrome P-450 CYP2D6 Inhibitors (strength unknown),
+750,Cytochrome P-450 CYP3A5 Inhibitors,D065692
+751,Cytochrome P-450 CYP3A5 Inhibitors (strength unknown),
+752,Cytochrome P-450 CYP3A7 Inhibitors,D065692
+753,Cytochrome P-450 CYP3A7 Inhibitors (strength unknown),
+754,Naphthalenes,D009281
+755,Naphthoquinones,D009285
+756,Phytol,D010836
+757,Quinones,D011809
+758,Vitamin K,D014812
+760,Imino Acids,D007098
+761,UGT1A1 Inhibitors,
+762,Anticholesteremic Agents,D000924
+763,Hydroxymethylglutaryl-CoA Reductase Inhibitors,D019161
+764,Hypolipidemic Agents Indicated for Hyperlipidemia,
+765,Lipid Modifying Agents,
+766,"Lipid Modifying Agents, Plain",
+767,OATP1B3 substrates,
+768,OATP2B1/SLCO2B1 substrates,
+769,Anti-Anxiety Agents,D014151
+770,Antidepressive Agents Indicated for Depression,
+771,Cytochrome P-450 CYP1A2 Inhibitors (strong),
+772,Cytochrome P-450 CYP1A2 Substrates,
+773,Cytochrome P-450 CYP2C19 Inhibitors (strong),
+774,Cytochrome P-450 CYP2C9 Inhibitors (moderate),
+775,Cytochrome P-450 CYP2D6 Substrates,
+776,Cytochrome P-450 CYP3A7 Inhibitors (moderate),
+777,Hydroxylamines,D006898
+778,Neurotransmitter Uptake Inhibitors,D014179
+779,Oximes,D010091
+780,Selective Serotonin Reuptake Inhibitors,D017367
+781,Serotonin Agents,D018490
+782,Serotonin Modulators,
+783,Tranquilizing Agents,D014149
+784,Agents Acting on the Renin-Angiotensin System,
+785,Angiotensin 2 Receptor Blocker,
+786,Angiotensin II Antagonists and Calcium Channel Blockers,
+787,Angiotensin II Antagonists and Diuretics,
+788,Angiotensin II receptor antagonists,D057911
+789,Angiotensin II receptor blockers (ARBs) and calcium channel blockers,
+790,Angiotensin II receptor blockers (ARBs) and diuretics,
+791,"Angiotensin II receptor blockers (ARBs), plain",
+792,Angiotensin II Type 1 Receptor Blockers,D047228
+793,Angiotensin II Type 2 Receptor Blockers,D057912
+794,Angiotensin Receptor Antagonists,D057911
+795,Antihypertensive Agents,D000959
+796,Antihypertensive Agents Indicated for Hypertension,
+797,Cytochrome P-450 CYP2C9 Substrates,
+798,ACE Inhibitors and Calcium Channel Blockers,
+799,ACE Inhibitors and Diuretics,
+800,Angiotensin-Converting Enzyme Inhibitors,D000806
+801,"Analgesics, Non-Narcotic",D018712
+802,Benzene Derivatives,D001555
+803,Benzyl Compounds,D001593
+804,Catechols,D002396
+805,Cyclooxygenase Inhibitors,D016861
+806,Lignans,D017705
+807,Lipoxygenase Inhibitors,D016859
+808,Phenols,D010636
+809,Sensory System Agents,D018689
+810,Adrenals,
+811,Corticosteroid Hormone Receptor Agonists,
+812,Corticosteroids,D000305
+813,Corticosteroids for Systemic Use,
+814,Drugs for Obstructive Airway Diseases,
+815,Pregnadienes,D011245
+816,Pregnanes,D011278
+817,"Steroids, Fluorinated",D013259
+818,Aminobutyrates,D000613
+819,Butyrates,D002087
+820,GABA Agents,D018682
+821,GABA Agonists,D018755
+822,GABA-B Receptor Agonists,D058786
+823,Gaba-derivative Skeletal Muscle Relaxants,
+824,gamma-Aminobutyric Acid-ergic Agonist,
+825,"Muscle Relaxants, Centrally Acting Agents",D009125
+826,Adrenergic Agents,D018663
+827,Agents producing tachycardia,
+828,Amphetamines,D000662
+829,Autonomic Agents,D001337
+830,Biogenic Monoamines,D015306
+831,Central Nervous System Stimulants,D000697
+832,Central Nervous System Stimulation,
+833,Centrally Acting Sympathomimetics,
+834,Cytochrome P-450 CYP2A6 Inhibitors (weak),
+835,Dopamine Agents,D015259
+836,Dopamine Uptake Inhibitors,D018765
+837,Phenethylamines,D010627
+838,"Psychostimulants, Agents Used for ADHD and Nootropics",
+839,Sympathomimetics,D013566
+840,Gastrins,D005755
+841,"Pentagastrin, antagonists & inhibitors",
+842,Tests for Gastric Secretion,
+843,Alkaloids,D000470
+844,Cholinergic Agonists,D018679
+845,Cholinergic Nicotinic Agonist,
+846,Cytochrome P-450 CYP1A1 Substrates,
+847,Cytochrome P-450 CYP2A6 Substrates,
+848,Cytochrome P-450 CYP2B6 Substrates,
+849,Cytochrome P-450 CYP2C8 Substrates,
+850,Cytochrome P-450 CYP2E1 Inducers,D065700
+851,Cytochrome P-450 CYP2E1 Inducers (strength unknown),
+852,Drugs Used in Addictive Disorders,
+853,Drugs Used in Nicotine Dependence,
+854,Ganglionic Stimulants,D005731
+855,Miscellaneous Autonomic Drugs,
+856,Monoamine Oxidase A Inhibitors  for interaction with Monoamine Oxidase A substrates,
+857,"Nicotine, antagonists & inhibitors",
+858,Nicotinic Agonists,D018722
+859,Smoking Cessation Agents,D000077444
+860,Solanaceous Alkaloids,D012991
+861,Cholinergic Receptor Agonist,
+862,Muscarinic Agonists,D018721
+863,Parasympathomimetics,D010277
+864,Anticonvulsants,D000927
+865,Antiemetics,D000932
+866,Benzazepines,D001552
+867,Benzodiazepine hypnotics and sedatives,
+868,Benzodiazepines and benzodiazepine derivatives,D001569
+869,Benzodiazepinones,D001570
+870,GABA Modulators,D018757
+871,Hypnotics and Sedatives,D006993
+872,Psycholeptics,
+873,Adrenergic Antagonists,D018674
+874,Adrenergic beta-1 Receptor Antagonists,D058671
+875,Adrenergic beta-Antagonists,D000319
+876,Antiarrhythmic agents,D000889
+877,"Beta Blocking Agents, Selective",
+878,Beta-Blockers (Beta1 Selective),
+879,Propanols,D020005
+880,Boron Compounds,D001896
+881,Boronic Acids,D001897
+882,Cytochrome P-450 CYP1A2 Inhibitors (moderate),
+883,Cytochrome P-450 CYP1A2 Substrates with a Narrow Therapeutic Index,
+884,Cytochrome P-450 CYP2C19 Substrates with a Narrow Therapeutic Index,
+885,Cytochrome P-450 CYP2C9 Substrates with a Narrow Therapeutic Index,
+886,Cytochrome P-450 CYP2D6 Substrates with a Narrow Therapeutic Index,
+887,Proteasome Inhibitors,D061988
+888,Pyrazines,D011719
+889,Chlorohydrins,D002728
+890,Anti-Parkinson Drugs,D000978
+891,Aromatic Amino Acid Decarboxylase Inhibitors,D065105
+892,Aromatic L-amino Acid Decarboxylase Inhibitors,
+893,Catecholamines,D002395
+894,Hydrazines,D006834
+895,Anti-Obesity Agents,D019440
+896,"Antiobesity Preparations, Excl. Diet Products",
+897,Appetite Depressants,D001067
+898,Appetite Suppression,
+899,Centrally Acting Antiobesity Products,
+900,Cytochrome P-450 CYP3A4 Substrates (strength unknown),
+901,Increased Sympathetic Activity,
+902,Sympathomimetic Amine Anorectic,
+903,Anticholinergic Agents,D018680
+904,Combined Inhibitors of Serotonin/Norepinephrine Reuptake,
+905,Cyclohexanols,D003511
+906,Dimethylamines,D004123
+907,Muscarinic Antagonists,D018727
+908,Narcotics,D009294
+909,NMDA Receptor Antagonists,
+910,Opiate Agonists,
+911,Opioid Agonist,
+912,Opioids,D000701
+913,Serotonin 5-HT2 Receptor Antagonists,D058830
+914,Serotonin 5-HT2C Receptor Antagonists,D058830
+915,Serotonin Receptor Antagonists,D012702
+916,UGT1A1 Substrates,
+917,Arabinonucleosides,D001087
+918,Nucleosides and Nucleotides Excl. Reverse Transcriptase Inhibitors,
+919,Antiglaucoma Preparations and Miotics,
+920,Beta-adrenergic Agents,
+921,Phenoxypropanolamines,D050198
+922,Propanolamines,D011412
+923,Sympatholytics,D013565
+924,14-alpha Demethylase Inhibitors,D058888
+925,Antifungal Agents,D000935
+926,Antifungals for Dermatological Use,
+927,Antifungals for Topical Use,
+928,Antimycotics for Systemic Use,
+929,Azole Antifungals,
+930,Cytochrome P-450 CYP2C9 Inhibitors (strong),
+931,Cytochrome P-450 CYP3A5 Inhibitors (weak),
+932,Imidazole and Triazole Derivatives,
+933,Steroid Synthesis Inhibitors,D065088
+934,Triazole and tetrazole derivatives,
+935,Triazole Derivatives,
+936,Triazoles,D014230
+937,Chromans,D002839
+938,Cytochrome P-450 CYP2B6 Inducers,D065695
+939,Cytochrome P-450 CYP2B6 Inducers (strength unknown),
+940,Cytochrome P-450 CYP2C8 Inhibitors (moderate),
+941,Oral Hypoglycemics,
+942,Thiazolidinediones,D045162
+943,UGT1A3 substrates,
+944,UGT1A4 substrates,
+945,UGT1A6 Inhibitors,
+946,UGT1A6 substrate,
+947,UGT1A9 Substrates,
+948,UGT2B7 substrates,
+949,Acetamides,D000081
+950,Amides,D000577
+951,Neuraminidase Inhibitors,
+952,Antiinfectives for Treatment of Acne,
+953,Cytochrome P-450 CYP3A5 Inhibitors (moderate),
+954,Cytochrome P-450 CYP3A7 Substrates,
+955,Erythromycin and similars,D004917
+956,Erythromycins,
+957,Lactones,D007783
+958,Macrolide Antimicrobial,
+959,Macrolides,D018942
+960,"Macrolides, Lincosamides and Streptogramins",
+961,Protein Synthesis Inhibitors,D011500
+962,Anorexigenic Agents & Respiratory and CNS Stimulants,
+963,Caffeine and Caffeine Containing Products,
+964,Phosphodiesterase Inhibitors,D010726
+965,Purinergic Agents,D058905
+966,Purinergic Antagonists,D058914
+967,Purinones,D011688
+968,Respiratory and CNS Stimulants,
+969,Tricarboxylic Acids,D014233
+970,Xanthine derivatives,D013806
+971,Ammonium Compounds,D064751
+972,Choline Derivatives,
+973,Cholinesterase substrates,
+974,Neuromuscular Depolarizing Agents,D009467
+975,Neuromuscular Depolarizing Blockade,
+976,Nitrogen Compounds,D017672
+977,Cytochrome P-450 CYP2C9 Inhibitors (weak),
+978,Drugs Used in Erectile Dysfunction,
+979,Genitourinary Agents,D000089162
+980,Phosphodiesterase 5 Inhibitors,D058986
+981,Piperazines,D010879
+982,Sulfonamides,D013449
+983,Sulfones,D013450
+984,Urological Agents,D064804
+985,Urologicals,
+986,Vasodilating Agents,D014665
+987,"Antiarrhythmics, Class III",
+988,Cardiac Therapy,
+989,Ethylamines,D005021
+990,Highest Risk QTc-Prolonging Agents,
+991,OCT2 Substrates with a Narrow Therapeutic Index,
+992,Potassium Channel Blockers,D026902
+993,Antibiotics for Pneumocystis Pneumonia,
+994,Antimalarial diaminopyrimidines,
+995,Antimalarials,D000962
+996,Antiparasitic Agents,D000977
+997,"Antiparasitic Products, Insecticides and Repellents",
+998,Antiprotozoals,D000981
+999,Cytochrome P-450 CYP2C8 Inhibitors (weak),
+1000,Folic Acid Antagonists,D005493
+1001,MATE 1 Inhibitors,
+1002,MATE 2 Inhibitors,
+1003,MATE inhibitors,
+1004,Adrenergic Uptake Inhibitors,D018759
+1005,"Antiadrenergic Agents, Centrally Acting",
+1006,Antipsychotic Agents,D014150
+1007,Catecholamine-depleting Sympatholytic,
+1008,Cytochrome P-450 CYP3A5 Inducers,D065701
+1009,Cytochrome P-450 CYP3A5 Inducers (strength unknown),
+1010,Decreased Sympathetic Activity,
+1011,Indole Alkaloids,D026121
+1012,Indoles,D007211
+1013,Indolizidines,D054836
+1014,Indolizines,D007212
+1015,Organic Anion Transporting Polypeptide 2B1 Inhibitors,
+1016,P-glycoprotein inducers,
+1017,Secologanin Tryptamine Alkaloids,D046948
+1018,Polyketides,D061065
+1019,Cytochrome P-450 CYP2B6 Inhibitors (moderate),
+1020,Cytochrome P-450 CYP2B6 Inhibitors (strong),
+1021,Cytochrome P-450 CYP2C19 Inhibitors (moderate),
+1022,Purinergic P2 Receptor Antagonists,D058919
+1023,Purinergic P2Y Receptor Antagonists,D058921
+1024,Thienopyridines,D058924
+1025,"Acids, Carbocyclic",D000146
+1026,Aza Compounds,D001372
+1027,Azabicyclo Compounds,D053961
+1028,Diphenylacetic Acids,D004158
+1029,Drugs for Functional Gastrointestinal Disorders,
+1030,Drugs for Urinary Frequency and Incontinence,
+1031,Parasympatholytics,D010276
+1032,Phenylacetates,D010648
+1033,Tropanes,D014326
+1034,Adrenergic Agonists,D000322
+1035,Adrenergic alpha-1 Receptor Agonists,D058646
+1036,Adrenergic alpha-Agonists,D000316
+1037,Adrenergic and Dopaminergic Agents,
+1038,Cardiac Stimulants Excl. Cardiac Glycosides,
+1039,Renin Inhibitors,D000092502
+1040,2-Pyridinylmethylsulfinylbenzimidazoles,D053799
+1041,Acid Reducers,
+1042,Anti-Ulcer Agents,D000897
+1043,Benzimidazoles,D001562
+1044,Drugs for Acid Related Disorders,
+1045,Drugs for Peptic Ulcer and Gastro-Oesophageal Reflux Disease (Gord),
+1046,Gastric Acid Lowering Agents,
+1047,Proton Pump Inhibitors,D054328
+1048,Proton-pump Inhibitors,
+1049,Sulfoxides,D013454
+1050,Diuretics,D004232
+1051,High-Ceiling Diuretics,
+1052,Increased Diuresis at Loop of Henle,
+1053,Non Potassium Sparing Diuretics,
+1054,Ototoxic agents,
+1055,Sodium Potassium Chloride Symporter Inhibitors,D049994
+1056,Benzofurans,D001572
+1057,Cytochrome P-450 CYP1A2 Inhibitors (weak),
+1058,Cytochrome P-450 CYP3A4 Inhibitors (weak),
+1059,Monoamine Oxidase A Substrates,
+1060,Nitriles,D009570
+1061,Propylamines,D011437
+1062,Antimigraine Preparations,
+1063,Cytochrome P-450 CYP2A6 Inducers,
+1064,Selective Serotonin 5-HT1 Receptor Agonists,
+1065,Selective Serotonin Agonists,
+1066,Serotonin 1b Receptor Agonists,
+1067,Serotonin 1d Receptor Agonists,
+1068,Serotonin 5-HT1 Receptor Agonists,D058825
+1069,Serotonin Receptor Agonists,D017366
+1070,Serotonin-1b and Serotonin-1d Receptor Agonist,
+1071,Triptans,D014363
+1072,Adrenergic alpha-2 Receptor Agonists,D058647
+1073,"Antiadrenergic Agents, Peripherally Acting",
+1074,Guanidine Derivatives,
+1075,4-Quinolones,D042462
+1076,Fluoroquinolone Antibacterial,
+1077,Fluoroquinolones,D024841
+1078,Quinolines,D011804
+1079,Quinolone Antimicrobial,
+1080,Quinolones,D015363
+1081,Topoisomerase II Inhibitors,D059005
+1082,Topoisomerase Inhibitors,D059003
+1083,Mydriatics,D009184
+1084,"Synthetic Anticholinergics, Quaternary Ammonium Compounds",
+1085,Cytochrome P-450 CYP2C19 Inducers,D065697
+1086,Cytochrome P-450 CYP2C19 Inducers (strength unknown),
+1087,Cytochrome P-450 CYP2C9 Inducers (strength unknown),
+1088,Cytochrome P-450 CYP3A4 Inhibitors (strong),
+1089,Cytochrome P-450 CYP3A5 Inhibitors (strong),
+1090,Cytochrome P-450 CYP3A7 Inhibitors (strong),
+1091,HIV Protease Inhibitors,D017320
+1092,Isoquinolines,D007546
+1093,UGT1A1 Inducers,
+1094,Viral Protease Inhibitors,D000084762
+1095,Adrenergic beta-2 Receptor Agonists,D058666
+1096,Adrenergic beta-Agonists,D000318
+1097,Adrenergics for Systemic Use,
+1098,"Adrenergics, Inhalants",
+1099,Bronchodilator Agents,D001993
+1100,Selective Beta 2-adrenergic Agonists,
+1101,Insulin Secretagogues,D000092005
+1102,Sulfonylureas,D013453
+1103,"Corticosteroids, Dermatological Preparations",
+1104,"Corticosteroids, Potent (Group III)",
+1105,Pregnadienetriols,D011246
+1106,Cytochrome P-450 CYP3A7 Inhibitors (weak),
+1107,Contrast Media,D003287
+1108,Coordination Complexes,D056831
+1109,Diagnostic Uses of Chemicals,D064907
+1110,"Injections, Intravenous",D007275
+1111,Magnetic Resonance Contrast Activity,
+1112,Magnetic Resonance Imaging Contrast Media,
+1113,Other Diagnostics,
+1114,Paramagnetic Contrast Agent,
+1115,Paramagnetic Contrast Media,
+1116,Anesthetics,D000777
+1117,"Anesthetics, General",D018681
+1118,"Anesthetics, Inhalation",D018685
+1119,Ethers,D004987
+1120,Methyl Ethers,D008738
+1121,beta-Lactams,D047090
+1122,Cephalosporins,D002511
+1123,Lactams,D007769
+1124,Second-Generation Cephalosporins,D000097909
+1125,Thiazines,D013843
+1126,Gabapentinoids,
+1127,Miscellaneous Anticonvulsants,
+1128,Benzothiadiazines,D001581
+1129,Increased Diuresis,
+1130,Sodium Chloride Symporter Inhibitors,D049993
+1131,Thiazides,D049971
+1132,Aminobenzoates,D062365
+1133,Aminosalicylic Acid and Derivatives,
+1134,Aminosalicylic Acids,D000636
+1135,Benzoates,D001565
+1136,Hydroxybenzoates,D062385
+1137,para-Aminobenzoates,D062366
+1138,Salicylates,D012459
+1139,Morpholines,D009025
+1140,Oxazines,D010078
+1141,Aminopyridines,D000631
+1142,Cardiotonic Agents,D002316
+1143,Phosphodiesterase 3 Inhibitors,D058987
+1144,Alkylating Drugs,D000477
+1145,"Antineoplastic Agents, Alkylating",D018906
+1146,Barbiturates,D001463
+1147,Nicotinic Antagonists,D018733
+1148,Pyrimidinones,D011744
+1149,Antivirals used in combination for the treatment of HIV infections,
+1150,Cytochrome P-450 CYP2B6 Inducers (strong),
+1151,Cytochrome P-450 CYP3A4 Inducers (weak),
+1152,Human Immunodeficiency Virus 1 Non-Nucleoside Analog Reverse Transcriptase Inhibitor,
+1153,Inducers of Drug Clearance,
+1154,Non-Nucleoside Reverse Transcriptase Inhibitors,
+1155,Nonnucleoside Reverse Transcriptase Inhibitors,
+1156,Nucleic Acid Synthesis Inhibitors,D019384
+1157,Reverse Transcriptase Inhibitors,D018894
+1158,Imidazole Derivatives,
+1159,"Corticosteroids, Moderately Potent (Group II)",
+1160,2-Chloroadenosine,D015762
+1161,Deoxyadenosines,D003839
+1162,Deoxyribonucleosides,D003853
+1163,Purine Analogues,
+1164,Purine Antimetabolite,
+1165,Antianginal Agents,
+1166,Miscellaneous Cardiac Drugs,
+1167,Sodium Channel Blockers,D026941
+1168,Aminosalicylate,
+1169,Intestinal Antiinflammatory Agents,
+1170,Ethers of Tropine or Tropine Derivatives,
+1171,Histamine Antagonists,D006633
+1172,Histamine H1 Antagonists,D006634
+1173,Histamine Receptor Antagonists,
+1174,Adrenergic alpha-1 Receptor Antagonists,D058668
+1175,Adrenergic alpha-Antagonists,D000317
+1176,Antipsychotic Agents (Second Generation [Atypical]),
+1177,Dopamine Antagonists,D018492
+1178,Dopamine D2 Receptor Antagonists,D065127
+1179,Indole Derivatives,
+1180,Serotonin 5-HT1 Receptor Antagonists,D058829
+1181,Serotonin 5-HT1D Receptor Antagonists,D058829
+1182,Serotonin 5-HT2A Receptor Antagonists,D058830
+1183,Ergolines,D004873
+1184,Ergot Alkaloids and Derivatives,D004876
+1185,Lysergic Acid,D008237
+1186,Dopamine Agonists,D018491
+1187,Ergot-derivative Dopamine Receptor Agonists,
+1188,Prolactine Inhibitors,
+1189,Serotonin 5-HT2 Receptor Agonists,D058826
+1190,Deoxyuridine,D003857
+1191,Nucleoside Analog Antiviral,
+1192,Pyrimidine Nucleosides,D011741
+1193,Cytochrome P-450 CYP2C18 Substrates,
+1194,Drugs for Treatment of Lepra,
+1195,Leprostatic Agents,D007917
+1196,Miscellaneous Antimycobacterials,
+1197,Miscellaneous Local Anti-infectives,
+1198,Antifungal Agents (Vaginal),
+1199,Anti-epileptic Agent,
+1200,COMT Substrates,
+1201,Cytochrome P-450 CYP2A6 Substrates with a Narrow Therapeutic Index,
+1202,Cytochrome P-450 CYP2B6 Substrates with a Narrow Therapeutic Index,
+1203,Cytochrome P-450 CYP2C18 Substrates with a Narrow Therapeutic Index,
+1204,Cytochrome P-450 CYP2C19 Inducers (moderate),
+1205,Cytochrome P-450 CYP2C8 Inducers,D065696
+1206,Cytochrome P-450 CYP2C8 Inducers (strong),
+1207,Cytochrome P-450 CYP2C8 Substrates with a Narrow Therapeutic Index,
+1208,Cytochrome P-450 CYP2E1 Substrates with a Narrow Therapeutic Index,
+1209,Cytochrome P-450 CYP3A Inducers (strong),
+1210,Cytochrome P-450 CYP3A4 Inducers (strong),
+1211,Cytochrome P-450 CYP3A7 Inducers,D065701
+1212,Cytochrome P-450 CYP3A7 Inducers (weak),
+1213,Cytochrome P-450 CYP3A7 Substrates with a Narrow Therapeutic Index,
+1214,Decreased Central Nervous System Disorganized Electrical Activity,
+1215,Enzyme Inducing Antiepileptic Drugs,
+1216,Hydantoins,D006827
+1217,Imidazolidines,D048289
+1218,Phenytoin and Prodrugs,
+1219,Thyroxine-binding globulin substrates,
+1220,UGT1A1 Substrates with a Narrow Therapeutic Index,
+1221,UGT1A6 Substrates with a Narrow Therapeutic Index,
+1222,UGT1A9 Inhibitors,
+1223,UGT1A9 Substrates with a Narrow Therapeutic Index,
+1224,Voltage-Gated Sodium Channel Blockers,D061567
+1225,Glucocorticoids,D005938
+1226,Pregnenes,D011283
+1227,Antiinfectives and Antiseptics for Local Oral Treatment,
+1228,Naphthacenes,D009279
+1229,Tetracyclines,D013754
+1230,Benzylidene Compounds,D001597
+1231,Carcinogens,D002273
+1232,"Contraceptive Agents, Female",D003271
+1233,"Contraceptive Agents, Male",D003272
+1234,"Contraceptives, Postcoital",D003281
+1235,Cytochrome P-450 CYP2E1 Inhibitors (strong),
+1236,Estrogen Contraceptives,
+1237,Estrogens,D004967
+1238,"Estrogens, Non-Steroidal",D004968
+1239,Hormonal Contraceptives for Systemic Use,D003270
+1240,Stilbenes,D013267
+1241,Stilbestrols,D000081225
+1242,"Synthetic Estrogens, Plain",
+1243,Thyroxine-binding globulin inducers,
+1244,Cytochrome P-450 CYP2A6 Inhibitors (strong),
+1245,Cytochrome P-450 CYP2C8 Inhibitors (strong),
+1246,Cytochrome P-450 CYP2E1 Inhibitors (moderate),
+1247,Cytochrome P-450 CYP3A7 Inducers (strong),
+1248,OATP1B3 inducers,
+1249,Arylsulfonates,D001190
+1250,Arylsulfonic Acids,D017739
+1251,Calcium Salts,D002118
+1252,Chelating Agents,D002614
+1253,Drugs for Treatment of Hyperkalemia and Hyperphosphatemia,
+1254,Minerals,D008903
+1255,Phosphate Binder,
+1256,Phosphate-removing Agents,
+1257,Sequestering Agents,D064449
+1258,Sulfonic Acids,D013451
+1259,Sulfur Acids,D013456
+1260,Aniline Compounds,D000814
+1261,Benzenesulfonamides,D000096926
+1262,Short-Acting Antibacterial Sulfonamides,
+1263,Sulfanilamides,D013424
+1264,Sulfonamide Antibacterial,
+1265,Sulfonamides and trimethoprim,
+1266,"Anti-Infective Agents, Urinary",D000892
+1267,"Antibiotics, Antitubercular",D000904
+1268,Isoxazoles,D007555
+1269,Oxazoles,D010080
+1270,Oxazolidinones,D023303
+1271,Decreased Platelet Production,
+1272,Platelet-reducing Agents,
+1273,Thrombocytosis,D013922
+1274,Alkylating Activity,
+1275,Nitroso Compounds,D009603
+1276,Nitrosourea Compounds,D009607
+1277,Nitrosoureas,
+1278,Beta blocking agents and calcium channel blockers,
+1279,Beta Blocking Agents and Thiazides,
+1280,"Beta Blocking Agents, Selective, and Thiazides",
+1281,Agrochemicals,D016573
+1282,Antipruritics,D000982
+1283,Pesticides,D010575
+1284,Scabicides and Pediculicides,
+1285,4-Hydroxycoumarins,D015110
+1286,Coumarins,D003374
+1287,Uncoupling Agents,D014475
+1288,Vitamin K Antagonists,
+1289,Otologicals,
+1290,Third-Generation Cephalosporins,D000097911
+1291,Anti-Parkinson Agents (Dopamine Agonist),
+1292,Nonergot-derivative Dopamine Receptor Agonists,
+1293,"Natural and Semisynthetic Estrogens, Plain",
+1294,Calcium Channel Blockers,D002121
+1295,Calcium Channel Blockers (Dihydropyridine),
+1296,Dihydropyridine Derivatives,
+1297,Dihydropyridines,D004095
+1298,Selective Calcium Channel Blockers With Mainly Vascular Effects,
+1299,Iodinated Contrast Agents,
+1300,Iodobenzoates,D007463
+1301,Radiographic Contrast Agent,
+1302,Roentgenography,D011859
+1303,Sugar Alcohols,D013402
+1304,Triiodobenzoic Acids,D014283
+1305,"Watersoluble, Nephrotropic, High Osmolar X-Ray Contrast Media",
+1306,X-Ray Contrast Activity,
+1307,"X-Ray Contrast Media, Iodinated",
+1308,Histamine Agents,D018494
+1309,Histamine Agonists,D017442
+1310,Pyrazoles,D011720
+1311,Hexoses,D006601
+1312,Ketoses,D007661
+1313,Monosaccharides,D009005
+1314,Neuroprotective Agents,D018696
+1315,Cephamycins,D002513
+1316,Tetrazoles,D013777
+1317,Acridines,D000166
+1318,Aminoacridines,D000609
+1319,Intercalating Agents,D007364
+1320,Purinergic P1 Receptor Antagonists,D058915
+1321,Respiratory Smooth Muscle Relaxants,
+1322,Xanthines and Adrenergics,
+1323,Piperidines,D010880
+1324,l-Triiodothyronine,
+1325,Thyronines,D013970
+1326,Triiodothyronine,D014284
+1327,"Antiarrhythmics, Class I",
+1328,"Antiarrhythmics, Class Ia",
+1329,Negative Inotrope,
+1330,Agents for Treatment of Hemorrhoids and Anal Fissures for Topical Use,
+1331,Analgesics and Anesthetics,
+1332,Anesthetics for Topical Use,
+1333,"Anesthetics, Local",D000779
+1334,Anilides,D000813
+1335,"Antiarrhythmics, Class Ib",
+1336,Antipruritics and Local Anesthetics,
+1337,"Antipruritics, Incl. Antihistamines, Anesthetics, Etc.",
+1338,Local Anesthesia,D000772
+1339,Local Anesthetics (Amide),
+1340,Neuraxial Anesthetics,
+1341,Vasoprotectives,
+1342,Bisphosphonates,D004164
+1343,Organophosphonates,D063065
+1344,Organophosphorus Compounds,D009943
+1345,Aminoalkyl Ethers,
+1346,Antihistamines for Systemic Use,
+1347,Antihistamines for Topical Use,
+1348,Pyrrolidines,D011759
+1349,Glycoside Hydrolase Inhibitors,D065089
+1350,Trisaccharides,D014312
+1351,BCRP/ABCG2 Inducers,
+1352,Hexanols,D000441
+1353,Norepinephrine Uptake Inhibitors,
+1354,Serotonin and Noradrenaline Reuptake Inhibitors,D000068760
+1355,Estradiol Congeners,D045166
+1356,"Estrogens, Conjugated (USP)",D004966
+1357,Gonadal Hormones,D042341
+1358,Gonadal Steroid Hormones,D012739
+1359,Inflammation Mediators,D018836
+1360,Ophthalmics,
+1361,Prostaglandin analogs reducing intraocular pressure (IOP),
+1362,Prostaglandins,D011453
+1363,"Prostaglandins F, Synthetic",D011461
+1364,"Prostaglandins, Synthetic",D011465
+1365,Miscellaneous Central Nervous System Agents,
+1366,Norepinephrine Reuptake Inhibitor,
+1367,"Antibiotics, Antineoplastic",D000903
+1368,Cytoprotective Agent,
+1369,Cytotoxic Antibiotics and Related Substances,
+1370,Glycopeptides,D006020
+1371,"Hydrocarbons, Halogenated",D006846
+1372,Mustard Compounds,D009150
+1373,Nitrogen Mustard Analogues,
+1374,Nitrogen Mustard Compounds,D009588
+1375,"Anesthetics, Intravenous",D018686
+1376,Folic Acid Analogues,
+1377,"Thymidylate Synthase, antagonists & inhibitors",
+1378,Combination Contraceptives (with Estrogen and derivatives),
+1379,"Contraceptive Agents, Hormonal",D000080066
+1380,Intravaginal Contraceptives,C516519
+1381,Norpregnanes,D009650
+1382,Norpregnenes,D009652
+1383,Norsteroids,D009654
+1384,Progesterone Congeners,D045167
+1385,Progestins,D011372
+1386,High-risk opioids,
+1387,Natural Opium Alkaloids,
+1388,Opiate Alkaloids,D053610
+1389,Phenanthrenes,D010616
+1390,Herpesvirus Nucleoside Analog DNA Polymerase Inhibitor,
+1391,Hepatitis B Virus Nucleoside Analog Reverse Transcriptase Inhibitor,
+1392,Human Immunodeficiency Virus Nucleoside Analog Reverse Transcriptase Inhibitor,
+1393,Nucleoside and Nucleotide Reverse Transcriptase Inhibitors,
+1394,Tenofovir and prodrugs,
+1395,Beta-Lactam Antibacterials,
+1396,Beta-Lactamase Resistant Penicillins,
+1397,Penicillins,D010406
+1398,Cyclohexanecarboxylic Acids,D003509
+1399,Decreased Fibrinolysis,
+1400,Carbapenems,D015780
+1401,Penem Antibacterial,
+1402,"Contraceptives, Oral",D003276
+1403,"Contraceptives, Oral, Hormonal",D003278
+1404,"Contraceptives, Oral, Synthetic",D003280
+1405,Progestin Contraceptives,
+1406,"Progestogens and Estrogens, Sequential Preparations",
+1407,Azirines,D001389
+1408,Cross-Linking Reagents,D003432
+1409,Indolequinones,D045563
+1410,Mitomycins,D008937
+1411,"Barbiturates, Plain",
+1412,Cytochrome P-450 CYP3A4 Inducers (moderate),
+1413,Retinoids for cancer treatment,
+1414,Tetrahydronaphthalenes,D013764
+1415,Antimitotic Agents,D050256
+1416,"Antineoplastic Agents, Phytogenic",D000972
+1417,Mitosis Modulators,D050258
+1418,Tubulin Modulators,D050257
+1419,Vinca Alkaloids,D014748
+1420,Benzophenones,D001577
+1421,Imides,D007094
+1422,Isoindoles,D054833
+1423,Ketones,D007659
+1424,Low-Ceiling Diuretics and Potassium-Sparing Agents,
+1425,"Low-Ceiling Diuretics, Excl. Thiazides",
+1426,Phthalimides,D010797
+1427,Thiazide-like Diuretic,
+1428,Benzothiazoles,D052160
+1429,Carbonic Anhydrase Inhibitors,D002257
+1430,"Adjuvants, Anesthesia",D000759
+1431,Cytochrome P-450 CYP2A6 Inducers (strong),
+1432,Antimanic Agents,D018692
+1433,Fatty Acid Derivatives,
+1434,Histone Deacetylase Inhibitors,D056572
+1435,Mood Stabilizer,
+1436,OAT3/SLC22A8 Substrates with a Narrow Therapeutic Index,
+1437,Pentanoic Acids,D010421
+1438,UGT1A3 Substrates with a Narrow Therapeutic Index,
+1439,UGT2B7 Substrates with a Narrow Therapeutic Index,
+1440,Valerates,D014631
+1441,Aminoglycoside Antibacterials,D000617
+1442,Drugs that are Mainly Renally Excreted with a Narrow Therapeutic Index,
+1443,Acetaminophen and Prodrugs,
+1444,Antipyretics,D058633
+1445,Miscellaneous Analgesics and Antipyretics,
+1446,Epidermal growth factor receptor (EGFR) tyrosine kinase inhibitors,
+1447,Kinase Inhibitor,
+1448,Protein Kinase Inhibitors,D047428
+1449,Quinazolines,D011799
+1450,Tyrosine Kinase Inhibitors,D000092004
+1451,Antitussive Agents,D000996
+1452,Morphinans,D009019
+1453,Morphine Derivatives,D009022
+1454,Opium Alkaloids and Derivatives,
+1455,Extended-spectrum Penicillins,
+1456,Penicillin G,D010400
+1457,Penicillins With Extended Spectrum,
+1458,Ergotamine Derivative,
+1459,Ergotamines,D004879
+1460,Sympatholytic (Adrenergic Blocking) Agents,
+1461,"Antidepressive Agents, Tricyclic",D000929
+1462,Non-Selective Monoamine Reuptake Inhibitors,
+1463,Tertiary amine tricyclic antidepressants,
+1464,Tricyclics and Other Norepinephrine-reuptake Inhibitors,
+1465,Pyrimidine Analogues,
+1466,COMT Inhibitors,D065098
+1467,Nitro Compounds,D009574
+1468,Nitrophenols,D009596
+1469,Pregnadienediols,D011244
+1470,"Arteriolar Smooth Muscle, Agents Acting On",
+1471,Cyanides,D003486
+1472,Direct Vasodilators,
+1473,Ferric Compounds,D005290
+1474,Ferricyanides,D005292
+1475,Iron Compounds,D058085
+1476,Nitrates and Nitrites,
+1477,Nitric Oxide Donors,D020030
+1478,Nitroferricyanide Derivatives,
+1479,Vasodilation,D014664
+1480,Mineral Supplements,
+1481,Semi-synthetic Opioids,
+1482,Acetic Acid Derivatives and Related Substances,
+1483,Antiinflammatory and Antirheumatic Products,
+1484,"Antiinflammatory and Antirheumatic Products, Non-Steroids",
+1485,"Antiinflammatory Preparations, Non-Steroids for Topical Use",
+1486,Other Nonsteroidal Anti-inflammatory Agents,
+1487,Tocolytic Agents,D015149
+1488,Topical Products for Joint and Muscular Pain,
+1489,UGT2B7 Inhibitors,
+1490,Diamines,D003959
+1491,Ethylenediamines,D005029
+1492,Biguanides,D001645
+1493,MATE 1 Substrates,
+1494,MATE 2 Substrates,
+1495,MATE substrates,
+1496,Antimuscarinics Antispasmodics,
+1497,Atropine Derivatives,D001286
+1498,Belladonna Alkaloids,D001533
+1499,Diphenylpropylamine Derivatives,
+1500,Drugs Used in Opioid Dependence,
+1501,"Diazepines, Oxazepines, Thiazepines and Oxepines",
+1502,Histamine H2 Antagonists,D006635
+1503,QTc shortening agents,
+1504,Agents Against Leishmaniasis and Trypanosomiasis,
+1505,Antiseptics and Disinfectants,
+1506,Furans,D005663
+1507,Medicated Dressings,
+1508,Medicated Dressings With Antiinfectives,
+1509,Nitrofuran Derivatives,
+1510,Nitrofurans,D009581
+1511,"Agents for Dermatitis, Excluding Corticosteroids",
+1512,mTOR Inhibitors,D000091203
+1513,"Peptidylprolyl Isomerase, antagonists & inhibitors",
+1514,Tertiary Amines,
+1515,Xanthenes,D014966
+1516,Decongestants and Antiallergics,
+1517,"Histamine H1 Antagonists, Non-Sedating",D039563
+1518,Piperazine Derivatives,
+1519,Benzhydryl Compounds,D001559
+1520,Benzothiazepine Derivatives,
+1521,Calcium Channel Blockers (Nondihydropyridine),
+1522,Miscellaneous Calcium-channel Blocking Agents,
+1523,Selective Calcium Channel Blockers With Direct Cardiac Effects,
+1524,Benzocycloheptenes,D001567
+1525,Dibenzocycloheptenes,D003986
+1526,Aminohippuric Acids,D000618
+1527,Benzamides and benzamide derivatives,D001549
+1528,Hippurates,D006626
+1529,Tests for Renal Function and Ureteral Injuries,
+1530,Drugs Used in Benign Prostatic Hypertrophy,
+1531,Peripheral alpha-1 blockers,
+1532,Prostatic Hyperplasia,D011470
+1533,Selective Alfa-1-adrenergic Blocking Agents,
+1534,Oxazolidine Derivatives,
+1535,4-Hydroxyphenyl-Pyruvate Dioxygenase Inhibitor,
+1536,"4-Hydroxyphenylpyruvate Dioxygenase, antagonists & inhibitors",
+1537,Hydroxyphenylpyruvate Dioxygenase Inhibitors,
+1538,GABA-A Receptor Agonists,D058785
+1539,UGT1A4 Inhibitors,
+1540,Arteriolar Vasodilation,
+1541,Arteriolar Vasodilator,
+1542,Potassium Channel Opener,
+1543,Pyrimidine Derivatives,
+1544,Appetite Stimulants,D019167
+1545,Megestrol,D008535
+1546,Pregnadien Derivatives,
+1547,Thiopurine Analogs,
+1548,Ergonovine,D004874
+1549,Monobactam Antibacterial,
+1550,Monobactams,D008997
+1551,Benzoxazoles and derivatives,D001583
+1552,Centrally-mediated Muscle Relaxation,
+1553,"Oxazol, Thiazine, and Triazine Derivatives",
+1554,Aromatase Inhibitors,D047072
+1555,Estrogen Antagonists,D004965
+1556,Piperidones,D010881
+1557,Aminoquinolines,D000634
+1558,Antimalarial methanolquinolines,
+1559,Coccidiostats,D003049
+1560,Intermediate-Acting Antibacterial Sulfonamides,
+1561,Nitric Oxide Synthase,D019001
+1562,Phenylalanine Hydroxylase Activator,
+1563,Phenylalanine Hydroxylase Activators,
+1564,Echinocandin Antifungal,
+1565,Echinocandins,D054714
+1566,Dibenzazepines,D003984
+1567,GABA Antagonists,D018756
+1568,Serotonin 5-HT1A Receptor Antagonists,D058829
+1569,Aluminium Compounds,D017607
+1570,Aluminum Complex,
+1571,Gastric Cytoprotectants,
+1572,Metal cations,D002412
+1573,Metal divalent cations,
+1574,Protectants,
+1575,Thioglycosides,D013865
+1576,Ethanolamine Derivatives,
+1577,Inhibit Ovum Fertilization,
+1578,Progestin-containing Intrauterine Device,
+1579,Adrenergic beta-1 Receptor Agonists,D058665
+1580,Adrenergic beta-3 Receptor Agonists,D058667
+1581,Alpha-and Beta-adrenergic Agonists,
+1582,Epinephrine and similars,D004837
+1583,"Norepinephrine, antagonists & inhibitors",
+1584,Cytomegalovirus Nucleoside Analog DNA Polymerase Inhibitor,
+1585,Cytosine,D003596
+1586,Nucleosides and Nucleotides,
+1587,Adrenergic alpha-2 Receptor Antagonists,D058669
+1588,"Antidepressive Agents, Tetracyclic",
+1589,Serotonin 5-HT3 Receptor Antagonists,D058831
+1590,Carbamates,D002219
+1591,Phenothiazine Derivatives,
+1592,Phenothiazines,D010640
+1593,"Beta Blocking Agents, Non-Selective",
+1594,"Beta Blocking Agents, Non-Selective, and Thiazides",
+1595,"EENT Drugs, Miscellaneous",
+1596,Thiadiazoles,D013830
+1597,Prostacyclin Analogues,
+1598,Prostacycline Vasodilator,
+1599,Prostaglandins I,D044062
+1600,Anion Exchange Resins,D000837
+1601,Bile Acid Sequestrants,
+1602,Bile-acid Binding Activity,
+1603,Non-statin Hypolipidemic Agents Indicated for Hyperlipidemia,
+1604,Antiemetic Serotonin 5-HT3 Receptor Antagonists,
+1605,Antiemetics and Antinauseants,
+1606,Quinuclidines,D011812
+1607,Serotonin 3 Receptor Antagonists,
+1608,Phenyl Ethers,D010647
+1609,Diketopiperazines,D054659
+1610,Calcium Channel Blockers and Diuretics,
+1611,Anti-Dementia Drugs,
+1612,"Synthetic Anticholinergics, Esters With Tertiary Amino Group",
+1613,Decreased Renal K+ Excretion,
+1614,Epithelial Sodium Channel Blockers,D062686
+1615,Potassium-Sparing Diuretics,D062865
+1616,Anthracycline Topoisomerase Inhibitor,
+1617,Anthracyclines,D018943
+1618,Anthracyclines and Related Substances,
+1619,Mydriatics and Cycloplegics,
+1620,Nasal Decongestants,D014663
+1621,Nasal Decongestants for Systemic Use,
+1622,Sympathomimetic (Adrenergic) Agents,
+1623,Sympathomimetics Excl. Antiglaucoma Preparations,
+1624,Sympathomimetics Used as Decongestants,
+1625,"Sympathomimetics, Plain",
+1626,Antithyroid agents,D013956
+1627,Sulfur-Containing Imidazole Derivatives,
+1628,Cardanolides,D002297
+1629,Cardenolides,D002298
+1630,Cardiac Glycosides,D002301
+1631,Digitalis Glycosides,D004071
+1632,Digoxin and derivatives,D004077
+1633,"Digoxin, antagonists & inhibitors",
+1634,"Digoxin, immunology",
+1635,Nicotinic Acids,D009539
+1636,"Antidiarrheals, Intestinal Antiinflammatory/antiinfective Agents",
+1637,Corticosteroids Acting Locally,
+1638,"Steroids, Chlorinated",D013258
+1639,Carbamic Acid Esters,
+1640,Corpus Luteum Hormones,D003339
+1641,Pregnenediones,D011282
+1642,Progesterone and Derivatives,D011374
+1643,"Progesterone, antagonists & inhibitors",
+1644,Phenylurea Compounds,D010671
+1645,Antifungals for Systemic Use,
+1646,Decreased Mitosis,
+1647,Microtubule Inhibition,
+1648,Tubulin Inhibiting Agent,
+1649,Decreased Blood Pressure,
+1650,Hypnotics (Nonbenzodiazepine),
+1651,Miscellaneous Anxiolytics Sedatives and Hypnotics,
+1652,Zopiclone and prodrugs,
+1653,Tests for Bile Duct Patency,
+1654,Triazolobenzodiazepines,
+1655,Substituted Alkylamines,
+1656,Miscellaneous Antifungals,
+1657,Glycosaminoglycans,D006025
+1658,Heparin (Low Molecular Weight),D006495
+1659,Heparin and similars,D006493
+1660,Antipsychotic Agents (First Generation [Typical]),
+1661,Dibenzoxazepines,D003989
+1662,Miscellaneous Antipsychotics,
+1663,Bromobenzoates,D001970
+1664,Antibiotics for Topical Use,
+1665,Epoxy Compounds,D004852
+1666,"Ethers, Cyclic",D004988
+1667,RNA Synthetase Inhibitor Antibacterial,
+1668,RNA Synthetase Inhibitors,
+1669,Choline Esters,
+1670,Miotics,D008916
+1671,Parasympathomemetic (Cholinergic) Agents,
+1672,Peroxisome Proliferator Receptor gamma Agonist,
+1673,Peroxisome Proliferator-activated Receptor Activity,
+1674,Restless Legs Syndrome,D012148
+1675,Aminopenicillins,
+1676,Benzylisoquinolines,D044182
+1677,Neuromuscular-Blocking Agents (Nondepolarizing),D003473
+1678,Tetrahydroisoquinolines,D044005
+1679,Beta-Lactamase Sensitive Penicillins,
+1680,Natural Penicillins,
+1681,Adjuvants,
+1682,Enzyme Stabilizer,
+1683,Glucosylceramide Synthase Inhibitor,
+1684,Glucosylceramide Synthase Inhibitors,
+1685,Imines,D007097
+1686,Imino Pyranoses,D050112
+1687,Imino Sugars,D050111
+1688,Phenothiazines With Aliphatic Side-Chain,
+1689,Mineralocorticoid (Aldosterone) Receptor Antagonists,
+1690,Mineralocorticoid Receptor Antagonists,D000451
+1691,Methylphenidate and isomer,
+1692,Phenylcarbamates,D048448
+1693,"Belladonna Alkaloids, Tertiary Amines",
+1694,"Belladonna and Derivatives, Plain",
+1695,Central Nervous System Depression,
+1696,gamma-Aminobutyric Acid A Receptor Positive Modulator,
+1697,"Sleep Aids, Pharmaceutical",D000068776
+1698,Herpes Simplex Virus Nucleoside Analog DNA Polymerase Inhibitor,
+1699,Abortifacient Agents,D000019
+1700,"Abortifacient Agents, Nonsteroidal",D000020
+1701,Pharmaceutical Preparations,D004364
+1702,Propylene Glycols,D011409
+1703,Chlorine Containing Products,
+1704,"Ectoparasiticides, Incl. Scabicides",
+1705,"Ectoparasiticides, Incl. Scabicides, Insecticides and Repellents",
+1706,"Hydrocarbons, Chlorinated",D006843
+1707,Insecticides,D007306
+1708,Nucleoside Metabolic Inhibitor,
+1709,Phenothiazines With Piperazine Structure,
+1710,Schizophrenia,D012559
+1711,Miscellaneous Derivatives,
+1712,Endothelium-Dependent Relaxing Factors,D045462
+1713,Free Radical Scavengers,D016166
+1714,Free Radicals,D005609
+1715,Gases,D005740
+1716,Gasotransmitters,D064426
+1717,Nitrogen Oxides,D009589
+1718,Oxides,D010087
+1719,Oxygen Compounds,D017601
+1720,Reactive Nitrogen Species,D026361
+1721,Preparations Inhibiting Uric Acid Production,
+1722,Uricosuric Agents,D014528
+1723,Xanthine Oxidase Inhibitors,
+1724,beta Lactam Antibiotics,D000097902
+1725,Renal Agents,D012076
+1726,Trimethoprim and Derivatives,
+1727,Cytidine Deaminase Substrates,
+1728,Deoxycytidine,D003841
+1729,"Ribonucleotide Reductases, antagonists & inhibitors",
+1730,Hepatitis B virus,D006515
+1731,Nucleoside Reverse Transcriptase Inhibitors,
+1732,"Corticosteroids for Systemic Use, Plain",
+1733,Cytochrome P-450 CYP2C8 Inducers (strength unknown),
+1734,Cytochrome P-450 CYP3A5 Inducers (weak),
+1735,Ophthalmological and Otological Preparations,
+1736,Glucosides,D005960
+1737,Podophyllotoxin Derivatives,
+1738,Amphenicols,D002701
+1739,Nitrobenzenes,D009578
+1740,Inhibition Gastric Acid Secretion,
+1741,Sympathomimetics in Glaucoma Therapy,
+1742,Butyrophenone Derivatives,
+1743,Butyrophenones,D002090
+1744,Isonipecotic Acids,D007540
+1745,Phenylpiperidine opioids,
+1746,Loratadine and derivatives,
+1747,First-Generation Cephalosporins,D000097904
+1748,Alpha-Adrenoreceptor Antagonists and Diuretics,
+1749,Antipsoriatics for Systemic Use,
+1750,Keratolytic Agents,D007641
+1751,Retinoids for Treatment of Psoriasis,
+1752,Photoabsorption,
+1753,Photoenhancer,
+1754,Photosensitizing Activity,
+1755,Porphyrins,D011166
+1756,Butanones,D002074
+1757,COX-2 Inhibitors,D052246
+1758,Selective Cyclooxygenase 2 Inhibitors (NSAIDs),
+1759,Scopolamine Derivatives,D012602
+1760,Barbiturates and Derivatives,
+1761,Alkanesulfonates,D000476
+1762,Alkanesulfonic Acids,D017738
+1763,Antivaricose Therapy,
+1764,Fatty Alcohols,D005233
+1765,Pharmaceutical Solutions,D019999
+1766,Sclerosing Agents for Local Injection,
+1767,Sclerosing Solutions,D012597
+1768,Solutions,D012996
+1769,Surface-Active Agents,D013501
+1770,Convulsants,D003292
+1772,Plant Extracts,D010936
+1773,Plant Preparations,D028321
+1774,Sesquiterpenes,D012717
+1775,Stimulants,
+1776,Cinchona Alkaloids,D002930
+1777,Herbs (Hypotensive Properties),
+1778,Oxicams,
+1779,Cannabinoid Receptor Agonists,D063386
+1780,Cannabinoids and similars,D063385
+1781,Hallucinogens,D006213
+1782,Miscellaneous Antiemetics,
+1783,Leukotriene Antagonists,D020024
+1784,Leukotriene Modifiers,
+1785,Cytochrome P-450 CYP2D6 Inhibitors (strong),
+1786,Cytosine Nucleotides,D003597
+1787,Pyrimidine Nucleotides,D011742
+1788,Adamantanes,
+1789,Bridged-Ring Compounds,D001952
+1790,Cyclic Amines,
+1791,Influenza A M2 Protein Inhibitor,
+1792,M2 Protein Inhibitors,
+1793,Phthalic Acids,D010795
+1794,Thalidomide Analog,
+1795,Estrogen Agonist-antagonists,
+1796,Estrogen Agonist/Antagonist,
+1797,Estrogen Receptor Modulators,D020847
+1798,Selective Estrogen Receptor Modulators,D020845
+1799,Cyclooxygenase-2 (COX-2) Inhibitors,
+1800,Quinoxalines,D011810
+1801,Triazines,D014227
+1802,Cardiac Rhythm Alteration,
+1803,Azaspirodecanedione Derivatives,
+1804,Spiro Compounds,D013141
+1805,Phosphinic Acids,D010721
+1806,Dideoxynucleosides,D015224
+1807,Indans,D007189
+1808,Indenes,D007192
+1809,Androgen Receptor Antagonists,D059002
+1810,Androgen Receptor Inhibitors,
+1811,Antiandrogens,D000726
+1812,"Antiandrogens, non-steroidal",
+1813,Chemically-Induced Disorders,D064419
+1814,Antivirals for treatment of HCV infections,
+1815,Cytochrome P-450 CYP2B6 Inducers (weak),
+1816,UDP Glucuronosyltransferases Inducers,
+1817,Opioid Antagonists,D009292
+1818,Glycopeptide Antibacterials,
+1819,Intestinal Antiinfectives,
+1820,Aminocaproates,D000614
+1821,Caproates,D002208
+1822,Excitatory Amino Acid Agents,D018683
+1823,Excitatory Amino Acid Antagonists,D018691
+1824,Sigma-1 Agonist,
+1825,Sigma-1 Receptor Agonists,
+1826,UGT2B17 substrates,
+1827,Uncompetitive N-methyl-D-aspartate Receptor Antagonist,
+1828,Uncompetitive NMDA Receptor Antagonists,
+1829,Chlorine Compounds,D017606
+1830,Platinum Compounds,D017671
+1831,Aluminum Silicates,D000538
+1832,Silicates,D017640
+1833,Silicon Compounds,D017655
+1834,Anthelmintics,D000871
+1835,Anticestodal Agents,D000923
+1836,Antihelminthic,
+1837,Antinematodal Agents,D000969
+1838,Antiplatyhelmintic Agents,D000980
+1839,Benzimidazole Derivatives,
+1840,Cytochrome P-450 CYP1A2 Inducers (strong),
+1841,Pancreatic Function Tests,D010186
+1842,Tests for Pancreatic Function,
+1843,Quinazolinones,D052999
+1844,Thiocarbamates,D013859
+1845,Cell-mediated Immunity,D007111
+1846,Increased Histamine Release,
+1847,Standardized Chemical Allergen,
+1848,Chelating Activity,
+1849,Phosphonic Acid Derivatives,
+1850,Pyrophosphate Analog DNA Polymerase Inhibitor,
+1851,Mutagens,D009153
+1852,Myeloablative Agonists,D019653
+1853,Phosphoramide Mustards,D010752
+1854,Phosphoramides,D063088
+1855,Alkylmercury Compounds,D000479
+1856,Organomercury Compounds,D009941
+1857,Acetylcholine Releasing Agent,
+1858,Increased Acetylcholine Activity,
+1859,Gadolinium-based Contrast Agent,
+1860,Anti-Estrogens,
+1861,Fluoropyrimidines,
+1862,Fluorouracil and prodrugs,D005472
+1863,Pyridinium Compounds,D011726
+1864,Decreased Protein Synthesis,
+1865,Decreased Sebaceous Gland Activity,
+1866,Thiouracil,D013889
+1867,Thiouracils,
+1868,Thyroid Hormone Synthesis Inhibitor,
+1869,Thyroid Hormone Synthesis Inhibitors,
+1870,Urease Inhibitor,
+1871,Urease Inhibitors,
+1872,Adenosine Deaminase Inhibitors,D058892
+1873,Coformycin,D003070
+1874,Formycins,D005573
+1875,Coloring Agents,D004396
+1876,Furocoumarins,D011564
+1877,Photoactivated Radical Generator,
+1878,Photosensitizing Agents for Phototherapy,
+1879,Psoralens for Systemic Use,
+1880,Psoralens for Topical Use,
+1881,"Hydrocarbons, Fluorinated",D006845
+1882,Microspheres,D008863
+1883,Ultrasound Contrast Activity,
+1884,Ultrasound Contrast Media,
+1885,Diphenylmethane Derivatives,
+1886,Neuraminic Acids,D009438
+1887,Sialic Acids,D012794
+1888,Antihypertensives for Pulmonary Arterial Hypertension,
+1889,Cytochrome P-450 CYP2C9 Inducers (moderate),
+1890,Endothelin Receptor Antagonists,D065128
+1891,Glycylcyclines,
+1892,Increased Medullary Respiratory Drive,
+1893,Pyrrolidinones,D011760
+1894,Carboxamide Derivatives,
+1895,Cytochrome P-450 CYP3A5 Inducers (strong),
+1896,UGT1A6 inducer,
+1897,Neuromuscular Nondepolarizing Blockade,
+1898,Lead Chelating Activity,
+1899,Lead Chelator,
+1900,Antivertigo Preparations,
+1901,Factor Xa Inhibitors,D065427
+1902,Indirect factor Xa inhibitors,
+1903,Miscellaneous Anticoagulants,
+1904,Arylpropionic acid NSAIDS,
+1905,Phenylpropionates,D010666
+1906,Propionates,D011422
+1907,Central alpha-2 Adrenergic Agonist,
+1908,Central Alpha-agonists,
+1909,Imidazoline Receptor Agonists,
+1910,Imidazolines,D048288
+1911,Sulfathiazoles,D013432
+1912,Acyclovir and prodrug,
+1913,Herpes Zoster Virus Nucleoside Analog DNA Polymerase Inhibitor,
+1914,Prodrugs,D011355
+1915,"Anorexigenic Agents & Respiratory and Cerebral Stimulants, Miscellaneous",
+1916,Acidifying Activity,
+1917,Ammonia Detoxicants,
+1918,Drugs for Constipation,
+1919,Laxatives,D054368
+1920,Osmotic Laxatives,
+1921,Stimulation Large Intestine Fluid/Electrolyte Secretion,
+1922,Carnitine Analog,
+1923,"Antimigraine Agents, Miscellaneous",
+1924,Decreased Prostaglandin Production,
+1925,UDP Glucuronosyltransferases Inhibitors,
+1926,UGT2B17 Inhibitors,
+1927,Androstadienes,D000730
+1928,Androstanes,D000731
+1929,Androstenes,D000736
+1930,Piperazine and Derivatives,
+1931,Succinimide Derivatives,
+1932,Succinimides,D013388
+1933,Acid Sensing Ion Channel Blockers,D062646
+1934,Elements,D004602
+1935,Lanthanoid Series Elements,D028581
+1936,Metals,D008670
+1937,"Metals, Rare Earth",D008674
+1938,Alpha and Beta Blocking Agents,
+1939,Alpha and Beta Blocking Agents and Thiazides,
+1940,Salicylamides,D012457
+1941,Thiobarbiturates,D013858
+1942,"alpha-Galactosidase, antagonists & inhibitors",
+1943,Depigmenting Agents,D062327
+1944,Melanin Synthesis Inhibitors,
+1945,Monoamine Oxidase Inhibitors,D008996
+1946,Oxazolidinone Antibacterial,
+1947,Avermectines,
+1948,Pediculicides,
+1949,Hydroxyprogesterones,D006908
+1950,Pregnen (4) Derivatives,
+1951,Chlorobenzoates,D002723
+1952,Propulsives,
+1953,"Receptors, AMPA",D018091
+1954,Amebicides,D000563
+1955,Filaricides,D005369
+1956,Fatty Acid Synthesis Inhibitors,D054872
+1957,Isonicotinic Acids,D007539
+1958,Thiocarbamide Derivatives,
+1959,Mixed Agonist / Antagonist Opioids,
+1960,Morphinan Derivatives,
+1961,Opiate Partial Agonists,
+1962,Opioid Agonist/Antagonist,
+1963,Antitrichomonal Agents,D000994
+1964,Nitroimidazole Derivatives,
+1965,Cytochrome P-450 CYP2C8 Inducers (weak),
+1966,"Lactams, Macrocyclic",D047029
+1967,Rifamycin Antimycobacterial,
+1968,Rifamycins,D012294
+1969,"Neprilysin, antagonists & inhibitors",
+1970,Bcr-Abl Tyrosine Kinase Inhibitors,
+1971,Corticosteroids for Local Oral Treatment,
+1972,Cytochrome P-450 CYP3A7 Inducers (strength unknown),
+1973,"Protein-Lysine 6-Oxidase, antagonists & inhibitors",
+1974,Anabolic Agents,D045930
+1975,Anabolic Agents for Systemic Use,
+1976,Anabolic Steroids,D000094343
+1977,Androgens,D000728
+1978,Androstan Derivatives,
+1979,Androstanols,D000732
+1980,3-Oxoandrosten (4) Derivatives,
+1981,Androgens and Estrogens,
+1982,Androstenols,D000737
+1983,OAT3/SLC22A8 Inducers,
+1984,Testosterone and derivatives,
+1985,Testosterone Congeners,D045165
+1986,Cytochrome P-450 CYP3A5 Inducers (moderate),
+1987,Cytochrome P-450 CYP3A7 Inducers (moderate),
+1988,Bacitracins,
+1989,Decreased Cell Wall Synthesis & Repair,
+1990,Miscellaneous Antilipemic Agents,
+1991,Nicotinic Acid and Derivatives,
+1992,Peripheral Vasodilators,
+1993,Prednisolone and Prodrugs,
+1994,Clofibric Acid,D002995
+1995,Fibric Acids,D058607
+1996,Isobutyrates,D058610
+1997,Biopolymers,D001704
+1998,Dietary Carbohydrates,D004040
+1999,Fructans,D005630
+2000,Glucans,D005936
+2001,Starch,D013213
+2002,"Adenosine, antagonists & inhibitors",
+2003,"Antiarrhythmics, Class V",
+2004,Purinergic Agonists,D058913
+2005,Purinergic P1 Receptor Agonists,D058906
+2006,Cytochrome P-450 CYP2B6 Inhibitors (weak),
+2007,"Gonadotropin-Releasing Hormone, agonists",
+2008,"Gonadotropin-Releasing Hormone, antagonists & inhibitors",
+2009,Tests for Fertility Disturbances,
+2010,Ionophores,D007476
+2011,Polyene Antifungal,
+2012,Adrenal Cytotoxic Agents,
+2013,Folate Analog,
+2014,Formyltetrahydrofolates,D005575
+2015,Tetrahydrofolates,D013763
+2016,Benzomorphan Derivatives,
+2017,Benzomorphans,D001575
+2018,Partial Opioid Agonist/Antagonist,
+2019,Electrolyte Solutions,
+2020,"Laxatives, magnesium containing",
+2021,Magnesium Compounds,D017616
+2022,Magnesium Salts,
+2023,Replacement Preparations,
+2024,Sulfates,D013431
+2025,Sulfuric Acids,D013464
+2026,Ophthalmic Solutions,D009883
+2027,17-Ketosteroids,D015068
+2028,Estranes,D004962
+2029,Estrenes,D004963
+2030,Ketosteroids,D007664
+2031,"Antidepressive Agents, Triazolopyridine",
+2032,Pyridones,D011728
+2033,Serotonin antagonist and reuptake inhibitors (SARIs),
+2034,"Antiadrenergic Agents, Ganglion-Blocking",
+2035,Autonomic Ganglionic Blocker,
+2036,Decreased Autonomic Ganglionic Activity,
+2037,Norbornanes,D009636
+2038,Secondary and Tertiary Amines,
+2039,Phosphate Chelating Activity,
+2040,Polystyrene Sulfonates,
+2041,Alcohol Deterrents,D000427
+2042,Drugs Used in Alcohol Dependence,
+2043,Phenylalkylamine Derivatives,
+2044,Verapamil and analogues,
+2045,Emesis Suppression,
+2046,Long-Acting Antibacterial Sulfonamides,
+2047,Dental Agents,
+2048,Local Hemostatics,
+2049,Tryptamines,D014363
+2050,Aprepitant and Prodrugs,
+2051,Neurokinin 1 Antagonists,
+2052,Neurokinin-1 Receptor Antagonists,D064729
+2053,Substance P/Neurokinin-1 Receptor Antagonist,
+2054,Amaryllidaceae Alkaloids,D047151
+2055,Acaricides,D056810
+2056,Organofluorophosphonates,D063066
+2057,Biphenyl Compounds,D001713
+2058,Phenothiazines With Piperidine Structure,
+2059,"Antiarrhythmics, Class Ic",
+2060,Biomimetic Materials,D040761
+2061,Lipid-based Polyene Antifungal,
+2062,Liposomes,D008081
+2063,"Membranes, Artificial",D008567
+2064,Rodenticides,D012378
+2065,Vitamin K Inhibitors,
+2066,Nebramycin,D009328
+2067,Heparinoids,D006496
+2068,11-Hydroxycorticosteroids,D015062
+2069,17-Hydroxycorticosteroids,D015065
+2070,Hydroxycorticosteroids,D006889
+2071,Mineralocorticoids,D008901
+2072,Antimetabolite Immunosuppressant,
+2073,"IMP Dehydrogenase, antagonists & inhibitors",
+2074,Mycophenolic Acid and Prodrugs,
+2075,Imidazoline Derivatives,
+2076,Non-selective Alfa-adrenergic Blocking Agents,
+2077,Colouring Agents,
+2078,Diagnostic Dye,
+2079,Fluoresceins,D005452
+2080,Fluorescent Dyes,D005456
+2081,Luminescent Agents,D049408
+2082,Ocular Disorders,
+2083,High-Ceiling Diuretics and Potassium-Sparing Agents,
+2084,Nitrofuran Antibacterial,
+2085,Amprenavir and Prodrugs,C095108
+2086,Dialysis Solutions,D015314
+2087,Opiate Antagonists,
+2088,Hematoporphyrin Derivative,D017324
+2089,Hematoporphyrins,D006415
+2090,Sensitizers Used in Photodynamic/radiation Therapy,
+2091,Fentanyl and fentanyl analogues,D005283
+2092,Opioid Anesthetics,
+2093,"Opioids, Anilidopiperidine",
+2094,Aporphines,D001060
+2095,Emetics,D004639
+2096,"Antiallergic Agents, Excl. Corticosteroids",
+2097,Decreased Histamine Release,
+2098,Mast Cell Stabilizers,D000082142
+2099,Estren Derivatives,
+2100,Esters of Aminobenzoic Acid,
+2101,Local Anesthetics (Ester),
+2102,Immune Response Modifiers,
+2103,Increased Cytokine Activity,
+2104,Increased Cytokine Production,
+2105,Interferon Inducers,D007369
+2106,Toll-Like Receptor Agonists,D000097912
+2107,"Belladonna Alkaloids, Semisynthetic, Quaternary Ammonium Compounds",
+2108,Explosive Agents,D053834
+2109,Nitrate Vasodilator,
+2110,Organic Nitrates,
+2111,Vasodilators Used in Cardiac Diseases,
+2112,Glinide,
+2113,Miscellaneous Skeletal Muscle Relaxants,
+2114,Cholinesterase Reactivators,D002801
+2115,Enzyme Reactivators,D004793
+2116,Allyl Compounds,D000498
+2117,Allylamine Antifungal,
+2118,Benzamidines,D001550
+2119,Miscellaneous Antiprotozoals,
+2120,Trypanocidal Agents,D014344
+2121,"Corticosteroids, Weak (Group I)",
+2122,Hydrocortisone and derivatives,D006854
+2123,"Diuretics, Osmotic",D004234
+2124,i.v. Solutions,
+2125,Kidney Function,
+2126,Solutions Producing Osmotic Diuresis,
+2127,Decreased Leukotriene Production,
+2128,Sympathomimetic-like Agent,
+2129,Wakefulness-Promoting Agents,D064690
+2130,Heavy Metal Antagonists,
+2131,Hydroxamic Acids,D006877
+2132,Iron Chelating Activity,
+2133,Iron Chelating Agents,D007502
+2134,Siderophores,D017262
+2135,Indoleacetic Acids,D007210
+2136,Histamine H1 Inhibitors,
+2137,"Monoamine Oxidase Inhibitors, Non-Selective",
+2138,Cell Stimulants and Proliferants,
+2139,Chlorobenzenes,D002722
+2140,Chlorophenols,D002733
+2141,Phenol and Derivatives,
+2142,P2Y12 Platelet Inhibitor,
+2143,"Tetracycline, antagonists & inhibitors",
+2144,Thienamycins,D013845
+2145,Chlorides,D002712
+2146,Hemodialysis Solution,
+2147,Potassium Compounds,D017680
+2148,Potassium Salt,
+2149,Topoisomerase 1 (TOP1) inhibitors,
+2150,Topoisomerase I Inhibitors,D059004
+2151,Catecholamine Synthesis Inhibitor,
+2152,Methyltyrosines,D008781
+2153,Tyrosine Hydroxylase Inhibitors,
+2154,beta-Lactamase Inhibitors,D065093
+2155,Antihistamine Drugs,
+2156,Dibenzoxepins,D003990
+2157,"Fatty Acids, Monounsaturated",D005229
+2158,Genitourinary Arterial Vasodilation,
+2159,Miscellaneous Vasodilatating Agents,
+2160,Prostaglandin E1 Agonist,
+2161,Prostaglandin Receptor Agonists,
+2162,Prostaglandins E,D011458
+2163,Venous Vasodilation,
+2164,Benzilates,D001561
+2165,Decreased Parasympathetic Acetylcholine Activity,
+2166,Digestive/GI System Activity Alteration,
+2167,GI Motility Alteration,
+2168,Organophosphates,D010755
+2169,Organothiophosphates,D063086
+2170,Organothiophosphorus Compounds,D009946
+2171,Podophyllotoxin,D011034
+2172,Naphthyridines,D009287
+2173,Antiandrogens and Estrogens,
+2174,"Estradiol, agonists",
+2175,"Estrogens, agonists",
+2176,Fenamates,D054361
+2177,ortho-Aminobenzoates,D062367
+2178,Cevanes,D002595
+2179,Veratrum Alkaloids,D014704
+2181,Antiinflammatory Products for Vaginal Administration,
+2182,Naphthaleneacetic Acids,D009280
+2183,Alkanes,D000473
+2184,Butanes,D002073
+2185,Ethylenediamine Derivatives,
+2186,Substituted Ethylene Diamines,
+2187,Phenobarbital and similars,D010634
+2188,Gentamicins,D005839
+2189,Teratogens,D013723
+2190,Dopamine D1 Receptor Agonists,
+2191,Antimicrobial Cationic Peptides,D023181
+2192,Antimicrobial Peptides,D000089882
+2193,Polymyxins,D011113
+2194,Blood Viscosity Reducer,
+2195,Hematologic Activity Alteration,
+2196,Hemorrheologic Agents,
+2197,Purine Derivatives,
+2198,Radiation-Protective Agents,D011837
+2199,Hydroxybenzoate Ethers,D062425
+2200,Isomerism,D007536
+2201,Butylpyrazolidines,
+2202,Pyrazolones,D047069
+2203,Dodecanol,D007851
+2204,Non-selective Beta-adrenergic Agonists,
+2205,Miscellaneous General Anesthetics,
+2206,Antiglaucoma Agents,D000089502
+2207,5-alpha Reductase Inhibitors,D058891
+2208,Carbolines,D002243
+2209,Acetyl Aldehyde Dehydrogenase Inhibitors,
+2210,Aldehyde Dehydrogenase Inhibitor,
+2211,Sulfur Containing Products,
+2212,Adenosine A2 Receptor Antagonists,D058917
+2213,Basic Lotions and Liniments,
+2214,Herbs and Natural Products,
+2215,Other Analgesics,
+2216,Other Cold and Cough Preparations,
+2217,Polyene Antimicrobial,
+2218,"Abortifacient Agents, Steroidal",D000021
+2219,Luteolytic Agents,D008186
+2220,Menstruation-Inducing Agents,D008600
+2221,Progestational Hormone Receptor Antagonists,
+2222,Progesterone Receptor Modulators,
+2223,Progestin Antagonist,
+2224,Propylamine Derivatives,
+2225,Antidiarrheals,D000930
+2226,Antipropulsives,
+2227,Artificial Tears,D065346
+2228,Demulcent,
+2229,Demulcent Activity,
+2230,Selective Beta 1-adrenergic Agonists,
+2231,Phenazines,D010619
+2232,Cystine Depleting Agents,D065104
+2233,Cystine Disulfide Reduction,
+2234,Mercaptoethylamines,D008624
+2235,Imidazothiazole Derivatives,
+2236,"Levamisole, analogs & derivatives",
+2237,Triazenes,D014226
+2238,Norepinephrine Releasing Agents,
+2239,Enkephalins,D004745
+2240,Levulinic Acids,D007982
+2241,Opioid Peptides,D018847
+2242,Optical Imaging Agent,
+2243,Porphyrin Precursor,
+2244,Allylamines,
+2245,Penicillamine and Similar Agents,
+2246,Specific Antirheumatic Agents,
+2247,"Sympathomimetics, Labour Repressants",
+2248,Decreased Tracheobronchial Stretch Receptor Activity,
+2249,Non-narcotic Antitussive,
+2250,"Intraocular Pressure, drug effects",
+2251,Antidiuretic Hormone Receptor Antagonists,D065092
+2252,Thioxanthene Derivatives,
+2253,Thioxanthenes,D013892
+2254,Mammalian target of rapamycin (mTOR) kinase inhibitors,
+2255,mTOR Inhibitor Immunosuppressant,
+2256,Sirolimus and Prodrugs,
+2257,Biguanides and Amidines,
+2258,Decreased Cell Wall Integrity,
+2259,Disinfectants,D004202
+2260,Household Products,D006795
+2261,Miscellaneous Anti-infectives,
+2262,Mouthwashes,D009067
+2263,Mouthwashes and Gargles,
+2264,Clomiphene,D002996
+2265,"Ovulation Stimulants, Synthetic",
+2266,Azepines,D001381
+2267,Thiepins,D013846
+2269,meta-Aminobenzoates,D062368
+2270,Irritants,D007509
+2271,Poisons,D011042
+2272,Indazoles,D007191
+2273,Bibenzyls,D001632
+2274,Dihydrostilbenoids,D000081014
+2275,Dextrans,D003911
+2276,Iron Preparations,
+2277,Parenteral Iron Replacement,
+2278,Homosteroids,D006718
+2279,Drug Hypersensitivity,D004342
+2280,Cytochrome P-450 CYP2E1 Inducers (moderate),
+2281,Nerve Depressants,
+2282,Solvents,D012997
+2283,Aryloxyacetic Acid Derivatives,
+2284,Glycolates,D006016
+2285,Phenoxyacetates,D010642
+2286,Carbazoles,D002227
+2287,GABA Uptake Inhibitors,D058805
+2288,Nipecotic Acid and Derivatives,D009557
+2289,"Cocaine, antagonists & inhibitors",
+2290,Esters of Benzoic Acid,
+2291,Nitroimidazole Antimicrobial,
+2292,Nitroimidazoles,D009593
+2293,Meglitinides,
+2294,Stereoisomerism,D013237
+2295,Adamantane Derivatives,
+2296,"Dinoprostone, antagonists & inhibitors",
+2297,Migraine Disorders,D008881
+2298,Dioxanes,D004146
+2299,Other Antihistamines,
+2300,Oripavine Derivatives,
+2301,Hydrazones,D006835
+2302,Pyridazines,D011724
+2303,Prostaglandin E1 Analog,
+2304,"Prostaglandins E, Synthetic",D011459
+2305,Allylamine,D000499
+2306,Anthracenes,D000873
+2307,Long-acting beta-adrenoceptor agonists,
+2308,Bis-Trimethylammonium Compounds,D008725
+2309,Estrogen Receptor Antagonists,D065171
+2310,Hydrazides,
+2311,gamma-Aminobutyric Acid A Receptor Agonist,
+2312,"Hydrocarbons, Brominated",D006842
+2313,Iodized Oil,D007459
+2314,Non-Watersoluble X-Ray Contrast Media,
+2315,Plant Oils,D010938
+2316,Dihydroxyphenylalanine,D004295
+2317,Actinomycin,D003609
+2318,Actinomycines,
+2319,Selenium Compounds,D018036
+2320,Azetines,D001385
+2321,Decreased Cholesterol Absorption,
+2322,Dietary Cholesterol Absorption Inhibitor,
+2323,Calcium Chelating Activity,
+2324,Calcium Chelating Agents,D065096
+2325,Decreased Coagulation Factor Activity,
+2326,Ketolide Antibacterial,
+2327,Ketolides,D048628
+2328,BSEP/ABCB11 inducers,
+2329,"Estrogenic Steroids, Alkylated",D042782
+2330,Norpregnatrienes,D009651
+2331,Melatonin Receptor Agonists,
+2332,Anti-Acne Preparations for Systemic Use,
+2333,Retinoids for Treatment of Acne,
+2334,Nandrolone and esters,D009277
+2335,Antihidrotics,
+2336,"Dopamine, metabolism",
+2337,Photochemotherapy,D010778
+2338,Thionucleosides,D013872
+2339,Gold Compounds,D017612
+2340,Gold Preparations,
+2341,Organogold Compounds,D050607
+2342,Gabapentin and Prodrugs,D000077206
+2343,Chromones,D002867
+2344,Cromolyn Sodium,D004205
+2345,Mast-cell Stabilizers,
+2346,Ganciclovir and prodrug,
+2347,Antisickling Agents,D000986
+2348,Butylene Glycols,D002072
+2349,Mesylates,D008698
+2350,Phenylammonium Compounds,D050338
+2351,Calcimimetic Agents,D057966
+2352,Calcium-sensing Receptor Agonist,
+2353,Increased Calcium-sensing Receptor Sensitivity,
+2354,"Colitis, Ulcerative",D003093
+2355,Inflammatory Bowel Diseases,D015212
+2356,Bethanechol Compounds,D001626
+2357,Increased Prothrombin Activity,
+2358,Reversed Anticoagulation Activity,
+2359,Warfarin Reversal Agent,
+2360,Antiadrenal Preparations,
+2361,Anticorticosteroids,
+2362,Cytochrome P-450 CYP2A6 Inhibitors (moderate),
+2363,Ethyl Ethers,D005019
+2364,MATE 1 Substrates with a Narrow Therapeutic Index,
+2365,MATE 2 Substrates with a Narrow Therapeutic Index,
+2366,"Adjuvants, Pharmaceutic",D000277
+2367,Pharmaceutic Aids,D010592
+2368,Preparations Increasing Uric Acid Excretion,
+2369,Preparations With No Effect on Uric Acid Metabolism,
+2370,Cresols,D003408
+2371,Genitourinary Smooth Muscle Relaxants,
+2372,Monoamine Oxidase B Inhibitors,
+2373,Fibric Acid Derivatives,D058607
+2374,Peroxisome Proliferator Receptor alpha Agonist,
+2375,Peroxisome Proliferator-activated Receptor alpha Agonists,
+2376,N-methyl-D-aspartate Receptor Antagonist,
+2377,Cytochrome P-450 CYP1A2 Inducers (moderate),
+2378,Cytochrome P-450 CYP2A6 Inducers (moderate),
+2379,Cytochrome P-450 CYP2B6 Inducers (moderate),
+2380,Cytochrome P-450 CYP2C19 Inducers (strong),
+2381,Rifamycin Antibacterial,
+2382,UGT1A9 Inducers,
+2383,Chloride Channel Agonists,D065101
+2384,Dihydroergotoxine,D004088
+2385,COX-1 Inhibitors,
+2386,Aminocoumarins,D049933
+2387,Antitrematodals,
+2388,Quinoline Derivatives and Related Substances,
+2389,"Melatonin, agonists",
+2390,Arabinonucleotides,D001088
+2391,"DNA (Cytosine-5-)-Methyltransferases, antagonists & inhibitors",
+2392,Non-Selective Calcium Channel Blockers,
+2393,First Generation Antihistamines,
+2394,Heptanoic Acids,D006538
+2395,Lanatosides,D007799
+2396,Serotonin 4 Receptor Agonists,
+2397,Serotonin-4 Receptor Agonist,
+2398,Streptomycins,
+2399,Intestinal Lipase Inhibitor,
+2400,Lipase Inhibitors,
+2401,Peripherally Acting Antiobesity Products,
+2402,Benzylamine Antifungal,
+2403,Benzylamines,D001596
+2404,Strophanthins,D013328
+2405,Strophanthus Glycosides,
+2406,Cryoprotective Agents,D003451
+2407,Flavanones,D044950
+2408,Flavonoids,D005419
+2409,Hydroxyquinolines,D006912
+2410,Nitroquinolines,D009600
+2411,Schistosomicides,D012556
+2412,Dihydroorotate dehydrogenase (DHODH) inhibitors,
+2413,Fluorobenzenes,D005464
+2414,Nucleoside Analog Antifungal,
+2415,Diphenylbutylpiperidine Derivatives,
+2416,"Norepinephrine, Serotonin, and Dopamine Reuptake Inhibitor Anorectic",
+2417,Piperidinedione Derivatives,
+2418,Oxidative Phosphorylation Coupling Factors,D010086
+2419,Heparin Group,
+2420,Heparins or Heparinoids for Topical Use,
+2421,"Vaginal Creams, Foams, and Jellies",D014622
+2422,Polymyxin-class Antibacterial,
+2423,Papaverine and Derivatives,
+2424,Sulfonium Derivatives,
+2425,Hypoglycemia-Treating Agents,
+2426,Thiazide Derivatives,
+2427,Benzylammonium Compounds,D050339
+2428,Tests for Diabetes,
+2429,Azasteroids,D001378
+2430,"Phospholipases A, antagonists & inhibitors",
+2431,Adrenergic beta2-Antagonists,D058672
+2432,Free Radical Scavenging Activity,
+2433,Penicillinase-resistant Penicillins,
+2434,Flavones,D047309
+2435,Aminoketone Antidepressants,
+2436,Dopamine And Norepinephrine Reuptake Inhibitors,
+2437,Increased Dopamine Activity,
+2438,Increased Norepinephrine Activity,
+2439,"Acids, Aldehydic",D000145
+2440,Uronic Acids,D014574
+2441,Bretylium Compounds,D001949
+2442,Angiography,D000792
+2443,Prostaglandins F,D011460
+2444,Acidifying Agents,
+2445,Calcium Compounds,D017610
+2446,Methylhydrazines,D008763
+2447,Arsenicals,D001152
+2448,Guanidine Derivatives and Diuretics,
+2449,Monoamine Oxidase A Inhibitors,
+2450,"Ethers, Chemically Close to Antihistamines",
+2451,Cytochrome P-450 CYP2E1 Inducers (weak),
+2452,UGT2B7 inducers,
+2453,Propiophenones,D011427
+2454,Peripheral Opioid Receptor Antagonists,
+2455,Prokinetic Agents,
+2456,Androstenediols,D000734
+2457,Ergot-derived Dopamine Receptor Agonist,
+2458,"Hydrocarbons, Iodinated",D006847
+2459,Iodobenzenes,D007462
+2460,Decreased DNA Replication,
+2461,Decreased RNA Replication,
+2462,Hydroxypyridones,
+2463,Lincomycins,
+2464,Lincosamide Antibacterial,
+2465,Lincosamides,D055231
+2466,Neuromuscular Blockade,D019148
+2467,Sleep Initiation and Maintenance Disorders,D007319
+2468,Curare Alkaloids,
+2469,Anthraquinones,D000880
+2470,Benzodiazepine Antagonist,
+2472,Bunolol,D064805
+2473,Other Macrolides,
+2474,Dantrolene and Derivatives,
+2475,Decreased Striated Muscle Contraction,
+2476,Decreased Striated Muscle Tone,
+2477,Direct-acting Skeletal Muscle Relaxants,
+2478,"Anesthetics, Dissociative",D000778
+2479,Excitatory Amino Acid Agonists,D018690
+2480,"N-Methylaspartate, agonists",
+2481,"N-Methylaspartate, antagonists & inhibitors",
+2482,Dibenzothiazepines,D003987
+2483,Thiazepines,D013841
+2484,Cyclodecanes,D043822
+2485,Microtubule Inhibitors,
+2486,Taxane Derivatives,
+2487,Taxoids,D043823
+2488,Dopa and Dopa Derivatives,
+2489,"Levodopa, antagonists & inhibitors",
+2490,Aripiprazole and prodrugs,
+2491,UGT1A3 Inhibitors,
+2492,"Watersoluble, Nephrotropic, Low Osmolar X-Ray Contrast Media",
+2493,Pleuromutilin Antibacterial,
+2494,Complement C5 inhibitors,
+2495,Complement Inactivating Agents,D051056
+2496,Human epidermal growth factor receptor 2 (HER2) tyrosine kinase inhibitors,
+2497,DPP-IV Inhibitors,D054873
+2498,Incretins,D054795
+2499,Sulfatases,D013429
+2500,Glycogen Storage Disease Type II,D006009
+2501,Hydrolytic Lysosomal Glycogen-specific Enzyme,
+2502,Partial Cholinergic Nicotinic Agonist,
+2503,Partial Cholinergic Nicotinic Agonists,
+2504,Hydrazinophthalazine Derivatives,
+2505,Hydrazinophthalazine Derivatives and Diuretics,
+2506,Phthalazines,D010793
+2507,Bodily Secretions,D012634
+2508,GLP-1 Agonists,D000097789
+2509,Glucagon-Like Peptide 1,D052216
+2510,Glucagon-like peptide-1 (GLP-1) analogues,
+2511,Incretin Mimetics,D000097789
+2512,Human Insulin-like Growth Factor Analogs,
+2513,Insulin-like growth factor,D000096764
+2514,Recombinant Human Insulin-like Growth Factor-1,
+2515,Somatomedins,D013002
+2516,Amylin Agonists,D065091
+2517,Amylin Analog,
+2518,Amyloid,D000682
+2519,Amyloidogenic Proteins,D058227
+2520,Arylsulfatases,D001192
+2521,Chondroitinases and Chondroitin Lyases,D002810
+2522,Chondroitinsulfatases,D002811
+2523,CD80-directed Antibody Interactions,
+2524,CD86-directed Antibody Interactions,
+2525,Decreased Cytokine Activity,
+2526,Immune Checkpoint Inhibitors,D000082082
+2527,Selective T Cell Costimulation Modulator,
+2528,Drug Delivery Systems,D016503
+2529,Adrenocortical Insufficiency,
+2530,Adrenocorticotropic Hormone,D000324
+2531,Melanocortins,D053486
+2532,Pro-Opiomelanocortin,D011333
+2533,Metaproterenol,D009921
+2534,Antacids and Adsorbents,
+2535,Bismuth containing drugs,
+2536,"Elements, Radioactive",D004603
+2537,Helicobacter Infections,D016481
+2538,Isotopes,D007554
+2539,"Metals, Heavy",D019216
+2540,Radioisotopes,D011868
+2541,Acetanilides,D000083
+2542,Angiosperms,D019684
+2543,Clusiaceae,D028084
+2544,Embryophyta,D019669
+2545,Eukaryota,D056890
+2546,Rosanae,D000074424
+2547,Streptophyta,D057949
+2548,Tracheophyta,D064028
+2549,Viridiplantae,D057948
+2550,Cation Exchange Resins,D002411
+2551,Ion Exchange Resins,D007475
+2552,Plastics,D010969
+2553,Potassium Binder,
+2554,Potassium Ion Exchange Activity,
+2555,Potassium-removing Agents,
+2556,Styrene,D020058
+2557,Styrenes,D013343
+2558,Increased Large Intestinal Motility,
+2559,Inhibition Large Intestine Fluid/Electrolyte Absorption,
+2560,Lithium Compounds,D018020
+2561,Ethinyl Estradiol,D004997
+2562,Cycadopsida,D032462
+2563,"Drugs, Chinese Herbal",D004365
+2564,Ephedra,D029789
+2565,Gnetophyta,D035682
+2566,Streptogramin Antibacterial,
+2567,Streptogramins,D025361
+2568,Aluminum and magnesium containing antacids,
+2569,Antacids,D000863
+2570,"Metals, Light",D019565
+2571,"Metals, Alkaline Earth",D008673
+2572,Calculi Dissolution Agent,
+2573,Inhibition Small Intestine Fluid/Electrolyte Absorption,
+2574,Magnesium Ion Exchange Activity,
+2575,"Polyvalent cation containing laxatives, antacids, oral supplements",
+2576,Blood Circulation,D001775
+2577,Ginkgolides,D046934
+2578,Bicarbonates,D001639
+2579,"Carbon Compounds, Inorganic",D017554
+2580,Carbonates,D002254
+2581,Carbonic Acid,D002255
+2582,Salt Solutions,
+2583,Sodium Compounds,D017670
+2584,Urinary Alkalinisers,
+2585,Araliaceae,D027481
+2586,Ginseng & Ginseng Extracts,
+2587,Antigonadotropins and Similar Agents,
+2588,Fourth-Generation Cephalosporins,
+2589,Cefpodoxime,D000097623
+2590,Ajmaline and derivatives,
+2591,Cosmetics,D003358
+2592,Sunscreen Agents,D013473
+2593,Polystyrenes,D011137
+2594,Decreased Central Nervous System Organized Electrical Activity,
+2595,Hydroxybutyrates,D006885
+2599,"Heroin, agonists",
+2600,Insect Repellents,D007302
+2601,Aldehydes,D000447
+2602,Carbon Radioisotopes,D002250
+2604,Intestinal Adsorbents,
+2605,Amphetamine Anorectic,
+2606,Iodoproteins,D007467
+2607,Bile Acid Preparations,
+2608,Bile acids and derivatives,
+2609,Bile Acids and Salts,D001647
+2610,Bile Therapy,
+2611,Cholagogues and Choleretics,D002756
+2612,Cholanes,D002757
+2613,Cholelitholytic Agents,
+2614,Cholic Acids,D002793
+2615,Antianemia Drugs,
+2616,Trace Elements,D014131
+2617,Transition Elements,D028561
+2618,Zinc Compounds,D017967
+2619,Cyclopropanes,D003521
+2620,Dipeptidase Inhibitors,
+2621,Renal Dehydropeptidase Inhibitor,
+2622,Prostaglandin Antagonists,D011448
+2623,Organic Anion Transporting Polypeptide 1B1 Inhibitors,
+2624,Nitrites,D009573
+2625,Nitrates,D009566
+2626,Histamine H1 Inverse Agonists,
+2627,MAO Inhibitors and Diuretics,
+2628,Pentosephosphates,D010428
+2629,Sugar Phosphates,D013403
+2630,Enemas,
+2634,Isoflavones,D007529
+2637,Phosphodiesterase 4 Inhibitors,D058988
+2638,Benzoquinones,D016227
+2643,"Nitric Oxide Synthase, antagonists & inhibitors",
+2645,Capillary Stabilizing Agents,
+2646,Flavonols,D044948
+2647,Cetrimonium Compounds,D002593
+2648,Medicated Shampoos,
+2649,Citrates,D002951
+2650,Bicyclic Monoterpenes,D000081008
+2651,Bornanes,D001892
+2652,Monoterpenes,D039821
+2653,Mycotoxins,D009183
+2656,Triose Sugar Alcohols,D000073999
+2658,Oligonucleotides,D009841
+2659,Polynucleotides,D011119
+2663,Pharmaceutical Vehicles,D014677
+2668,"Photoreceptors, Microbial",D020283
+2670,Uracil Nucleotides,D014500
+2678,Cinnamates,D002934
+2679,Glucose,D005947
+2682,"Protein Kinase C, antagonists & inhibitors",
+2683,Ligands,D008024
+2685,"Glycogen Synthase Kinase 3, antagonists & inhibitors",
+2686,Acrylates,D000179
+2688,"Aldehyde Reductase, antagonists & inhibitors",
+2689,Palmitic Acids,D010169
+2694,Cellulose,D002482
+2696,N-substituted Glycines,D034442
+2697,"Cyclin-Dependent Kinases, antagonists & inhibitors",
+2698,Cytokinins,D003583
+2699,Detergents,D003902
+2701,Chlorophyll,D002734
+2702,Butanols,D000440
+2703,Vanadates,D014638
+2706,"Oils, Volatile",D009822
+2707,"Preservatives, Pharmaceutical",D011310
+2709,Thiourea,D013890
+2710,Matrix Metalloproteinase Inhibitors,D061965
+2713,"Platelet Activating Factor, antagonists & inhibitors",
+2717,Pentacyclic Triterpenes,D053978
+2718,Triterpenes,D014315
+2720,Organoselenium Compounds,D016566
+2721,"Receptors, AMPA, antagonists & inhibitors",
+2722,Cariostatic Agents,D002327
+2723,Fluorine Compounds,D017611
+2724,Toothpastes,D014100
+2725,4-Aminobenzoic Acid,D010129
+2726,Emollients and Protectives,
+2727,Protectives Against UV-Radiation,
+2728,Protectives Against UV-Radiation for Topical Use,
+2729,Phosphate salts,D010710
+2730,Aldose Reductase Inhibitors,
+2735,Polyphosphates,D011122
+2739,Haptens,D006241
+2741,Pentoses,D010429
+2744,Histone deacetylase (HDAC) inhibitors,
+2747,Equipment and Supplies,D004864
+2748,Surgical Equipment,D013523
+2749,Surgical Fixation Devices,D053831
+2750,Tissue Adhesives,D014014
+2756,Vasopressin Receptor Agonist,
+2757,"Phosphatidylinositol 3-Kinases, antagonists & inhibitors",
+2760,OATP1B1/SLCO1B1 Inducers,
+2761,Carbodiimides,D002234
+2762,Cholestadienes,D002774
+2763,Cholestadienols,D002775
+2764,Other Miscellaneous Antibacterial Agents,
+2765,Steroid Antibacterials,
+2767,Pyrimidine Analog,
+2771,Dietary Sugars,D000073417
+2772,Nutritive Sweeteners,D064427
+2773,Metalloporphyrins,D008665
+2780,"Fats, Unsaturated",D005224
+2781,Oleic Acids,D009829
+2782,Deoxy Sugars,D003837
+2784,Herbicides,D006540
+2785,Oxadiazoles,D010069
+2788,Lactates,D007773
+2789,Poly(ADP-ribose) Polymerase Inhibitors,D000067856
+2792,Stearic Acids,D013229
+2795,Fluorine Radioisotopes,D005462
+2796,Fixatives,D005404
+2798,Buffers,D002021
+2803,Heme,D006418
+2804,Heme products,
+2806,Gallium,D005708
+2813,Nucleic Acids,D009696
+2816,Cytolytic Agent,
+2817,Decreased Cell Membrane Integrity,
+2821,Excipients,D005079
+2822,Solutions Affecting the Electrolyte Balance,
+2825,Ammonium Ion Binding Activity,
+2826,Food Preservatives,D005520
+2827,Nitrogen Binding Agent,
+2828,Urea Cycle Disorder Agents,
+2830,Alkynes,D000480
+2831,Peroxides,D010545
+2833,Reactive Oxygen Species,D017382
+2834,"Fungicides, Industrial",D005659
+2838,Carbamide products,
+2841,Glyoxylates,D006038
+2843,"Neuraminidase, antagonists & inhibitors",
+2844,Sclerosing Activity,
+2845,Vascular Sclerosing Activity,
+2846,Cyclodextrins,D003505
+2847,Dextrins,D003912
+2849,Provitamins,D000072664
+2851,Berberine Alkaloids,D001600
+2852,Methylamines,D008744
+2853,General Nutrients,
+2856,Quinoline Derivatives,
+2857,Quinolinium Compounds,D011806
+2862,Disinfectants (For Agents Used on Object),
+2863,"Acid Etching, Dental",D000134
+2867,"Cytidine Deaminase, antagonists & inhibitors",
+2869,Iodine Compounds,D017613
+2870,Mercurial Products,
+2873,Naphthalenesulfonates,D009282
+2878,Arachidonic Acids,D001095
+2879,Irrigation,
+2881,Aziridines,D001388
+2882,Ethylene Imines,
+2883,Triethylenephosphoramide,D013721
+2888,Oxathiins,D010075
+2890,Phosphatidylcholines,D010713
+2892,Antifoaming Agents,D000934
+2893,Antispermatogenic Agents,D000988
+2894,Polyethylene Glycols,D011092
+2895,Spermatocidal Agents,D013089
+2898,"Watersoluble, Hepatotropic X-Ray Contrast Media",
+2907,Preparations Containing Sulfur,
+2908,Hydroxyquinoline Derivatives,
+2909,Contact Laxatives,
+2910,Aminopyrine,D000632
+2911,Phenolphthaleins,D010635
+2912,"Calmodulin, antagonists & inhibitors",
+2913,CCR5 Co-receptor Antagonist,
+2914,CCR5 Receptor Antagonists,D065100
+2915,Mandelic Acids,D008333
+2916,Quinolizines,D011807
+2917,Vesicular Monoamine Transporter 2 Inhibitor,
+2918,Vesicular Monoamine Transporter 2 Inhibitors,
+2919,"Hypoxia-Inducible Factor-Proline Dioxygenases, antagonists & inhibitors",
+2920,Vascular endothelial growth factor receptor (VEGFR) tyrosine kinase inhibitors,
+2922,Harringtonines,D006248
+2923,Calcitonin Gene-Related Peptide Receptor Antagonists,D000077221
+2925,"Receptors, Calcitonin Gene-Related Peptide, antagonists & inhibitors",
+2926,Serotonin 2c Receptor Agonists,
+2927,Serotonin 5-HT2C Receptor Agonists,D058826
+2930,Dioxoles,D004149
+2931,Pituitary Hormone Release Inhibiting Hormones,D010905
+2932,Vascular Endothelial Growth Factor A,D042461
+2933,Pulmonary Surfactants,D011663
+2934,"Natriuretic Peptide, Brain",D020097
+2935,Natriuretic Peptides,D045265
+2937,Nucleic Acid-Based Vaccines,D000087504
+2938,Vaccines,D014612
+2939,"Vaccines, Synthetic",D014614
+2940,Antineoplastic cell and gene therapy,
+2941,Genetic Therapy,D015316
+2942,Phosphotransferases,D010770
+2943,Phosphotransferases (Alcohol Group Acceptor),D017853
+2944,Transferases,D014166
+2945,Lipoglycopeptide Antibacterial,
+2946,Immunization,D007114
+2947,Serotonin 5-HT4 Receptor Agonists,D058828
+2949,Cyclopentane Monoterpenes,D000081004
+2950,"Pyrethrines, Incl. Synthetic Compounds",
+2951,Pyrethrins,D011722
+2952,Melanocortin 1 Receptor (MC1-R) Agonists,
+2953,Melanocortin Receptor Agonists,
+2954,Melanocyte-Stimulating Hormones,D009074
+2955,Protectives Against UV-Radiation for Systemic Use,
+2956,"Aptamers, Nucleotide",D052157
+2957,"Antigens, Bacterial",D000942
+2963,Tannins,D013634
+2964,Globins,D005914
+2965,Hemeproteins,D006420
+2966,Hemoglobins,D006454
+2967,Iodine Radioisotopes,D007457
+2968,Immunoglobulin Variable Region,D007135
+2971,Antifibrotic Agents,D000088962
+2976,Seminal Proteins,D000094664
+2978,"Antigens, Surface",D000954
+2979,Adenosine A receptor agonists,
+2980,Adenosine A2 Receptor Agonists,D058908
+2981,Cell Death Inducer,
+2982,Increased Cellular Death,
+2983,Cytochrome P-450 CYP1A2 Inducers (weak),
+2984,Alpha-Galactosidase A (alpha-Gal A) Pharmacological Chaperones,
+2985,Bradykinin Receptor Antagonists,D065168
+2987,Lamiaceae,D019686
+2988,Lamiales,D000068378
+2991,Cannabinoid Receptor Antagonists,D063387
+2992,"Receptor, Cannabinoid, CB1, antagonists & inhibitors",
+2993,Parathyroid Hormone-Related Protein,D044162
+2994,Neuroactive Steroid Gamma-Aminobutyric Acid A Receptor Positive Modulator,
+2997,Adipokines,D054392
+2998,Crotalid Venoms,D003435
+2999,Snake Venoms,D012910
+3000,Venombin A,D020791
+3001,Viper Venoms,D014757
+3006,Gamma Secretase Inhibitors and Modulators,D000091062
+3007,Peroxisome Proliferator-activated Receptor Agonist,
+3008,"PPAR alpha, agonists",
+3009,"PPAR delta, agonists",
+3012,Marine Toxins,D008387
+3013,"MAP Kinase Kinase 1, antagonists & inhibitors",
+3014,Mitogen-activated protein kinase (MEK) inhibitors,
+3016,Bone Resorption Inhibition,
+3017,Calcium Resorption Inhibitor,
+3018,"Pepsin A, antagonists & inhibitors",
+3019,Pain Palliation (Bone Seeking Agents),
+3020,Radioactive Therapeutic Agent,
+3021,Various Pain Palliation Radiopharmaceuticals,
+3022,Human Immunoglobulin,
+3023,"Immunization, Passive",D007116
+3024,Virus Neutralization,
+3025,Arthropod Proteins,D060829
+3026,Metalloproteins,D008667
+3027,Mollusca,D008974
+3028,Drugs Used in Hereditary Angioedema,
+3029,Kallikrein Inhibitors,
+3030,"Kallikreins, antagonists & inhibitors",
+3031,Plasma Kallikrein Inhibitor,
+3036,Increased Megakaryocyte Maturation,
+3037,Increased Platelet Production,
+3038,"Receptors, Thrombopoietin, agonists",
+3039,Thrombopoietin Receptor Agonist,
+3040,Thrombopoietin Receptor Agonists,
+3041,Anthrax Protective Antigen-directed Antibody,
+3042,Anthrax Protective Antigen-directed Antibody Interactions,
+3043,Antibacterial monoclonal antibodies,
+3044,Glycosyltransferases,D016695
+3045,Pentosyltransferases,D010430
+3046,Nerve Growth Factors,D009414
+3047,Endothelin A Receptor Antagonists,D065130
+3048,Endothelin B Receptor Antagonists,D065131
+3049,Gastric Function,
+3050,Halogens,D006219
+3051,Iodine Products,
+3052,"Resins, Synthetic",D012117
+3057,"Animal Proteins, Dietary",D000080224
+3059,Dietary Proteins,D004044
+3062,Milk Proteins,D008894
+3065,Glucagon-Like Peptides,D004763
+3068,Arthropod Venoms,D001180
+3069,Antisense Oligonucleotides,D016376
+3071,CXC Chemokine Receptor 4 Antagonist,
+3072,"Receptors, CXCR4, antagonists & inhibitors",
+3074,HCV NS3/4A Protease Inhibitors,
+3075,NS3/4A Protease Inhibitors,
+3076,"ErbB Receptors, antagonists & inhibitors",
+3077,Antisense Elements (Genetics),D016375
+3078,Apolipoprotein B-100 Synthesis Inhibitor,
+3079,"DNA, Antisense",D016373
+3080,Molecular Probes,D015335
+3081,Nucleic Acid Probes,D015341
+3082,"Oligodeoxyribonucleotides, Antisense",D020319
+3083,Epoxide Hydrolase Inhibitors,
+3087,Vascular Endothelial Growth Factor Receptor 2 Antagonist,
+3088,VEGFR2 Inhibitors,
+3090,Antimony Compounds,
+3091,Gluconates,D005942
+3092,Adeno-associated Viral Vector Therapies,
+3093,Cortisol Synthesis Inhibitors,
+3094,Biologics for psoriasis treatment,
+3095,Interleukin-12 Antagonist,
+3096,Interleukin-23 Antagonist,
+3097,Mollusk Venoms,D008978
+3102,Phosphoric Monoester Hydrolases,D010744
+3103,HER2-targeted Antibodies,
+3104,Maytansine,D008453
+3105,Trastuzumab,D000068878
+3106,Platelet Membrane Glycoproteins,D010980
+3107,"Receptors, Peptide",D018000
+3108,"Receptors, Thrombin",D018179
+3114,Cytochrome P450 17A1 Inhibitors,
+3115,Poly (ADP-ribose) polymerase (PARP) inhibitors,
+3117,Kinins,D007705
+3118,"Receptors, Neurokinin-3, antagonists & inhibitors",
+3120,CD22 (Clusters of Differentiation 22) inhibitors,
+3121,CD22-directed Antibody Interactions,
+3122,CD22-directed Immunoconjugate,
+3123,Decreased DNA Integrity,
+3125,Extracellular Matrix Proteins,D016326
+3126,Scleroproteins,D012596
+3136,Nanoparticles,D053758
+3137,Nanostructures,D049329
+3138,Farnesoid X Receptor Agonist,
+3139,Farnesoid X Receptor Agonists,
+3141,Dopamine D2/D3 receptor modulators,
+3144,"Receptor, ErbB-2, antagonists & inhibitors",
+3145,Platelet-derived Growth Factor Receptor alpha Antagonist,
+3146,UGT2B15 Inhibitors,
+3147,"RNA, Antisense",D016372
+3148,"RNA, Small Untranslated",D058727
+3149,"RNA, Untranslated",D022661
+3151,Dopamine D2 Receptor Agonists,
+3152,"Receptor Protein-Tyrosine Kinases, antagonists & inhibitors",
+3153,"Antithrombotic Agents, Misc.",
+3154,von Willebrand Factor (vWF)-directed Antibodies,
+3155,"von Willebrand Factor, antagonists & inhibitors",
+3156,Aryl Hydrocarbon Receptor Agonist,
+3161,Diarylheptanoids,D036381
+3162,Heptanes,D006536
+3163,"Keratosis, Actinic, drug therapy",
+3164,Leucomycins,D007933
+3165,Lipoglycopeptides,D000077427
+3166,Antidote for Acetaminophen Overdose,
+3167,Increased Glutathione Concentration,
+3168,Reduction Activity,
+3169,2-Amino-1-Phenylethanol Derivatives,
+3172,Interleukin-1 Blockers,
+3173,"Interleukin-1beta, antagonists & inhibitors",
+3174,Interleukin-1β Blockers,
+3175,Bile Salt Export Pump Inhibitors,
+3176,Depsipeptides,D047630
+3177,Organic Anion Transporter 1 Inhibitors,
+3178,Organic Anion Transporting Polypeptide 1B3 Inhibitors,
+3180,CTLA-4-directed Antibody Interactions,
+3181,CTLA-4-directed Blocking Antibody,
+3182,Increased T Lymphocyte Activation,
+3183,Bradykinin B2 Receptor Antagonists,D065094
+3184,Benzodioxoles,D052117
+3185,Carbon-Oxygen Lyases,D019757
+3186,"Hyaluronoglucosaminidase, antagonists & inhibitors",
+3187,Lyases,D008190
+3188,Polysaccharide-Lyases,D011133
+3189,gamma-Cyclodextrins,D047408
+3190,Vasopressin V2 Receptor Antagonist,
+3191,Vasopressin V2 Receptor Antagonists,
+3192,Pharmacologic Cardiac Stress Test Agent,
+3193,Ferrous Compounds,D005296
+3194,Parenteral Nutrition Solutions,D057947
+3195,Cancer Vaccines,D019496
+3197,Intracellular Signaling Peptides and Proteins,D047908
+3200,Protein Kinases,D011494
+3204,"Receptors, Growth Factor",D017978
+3205,Direct factor Xa inhibitors,D065427
+3206,Cytomegalovirus pUL97 Kinase Inhibitor,
+3209,Decarboxylase Inhibitor,
+3210,Decarboxylase Inhibitors,
+3211,Ornithine Decarboxylase Inhibitors,D065108
+3214,Increased Blood Pressure,
+3215,Interleukin-6 Receptor Antagonist,
+3216,"Receptors, Opioid, mu, antagonists & inhibitors",
+3220,"Calcium Channels, N-Type",D020864
+3221,Conotoxins,D020916
+3222,N-Calcium Channel Receptor Antagonists,
+3223,Bone Anabolic Agents,
+3224,Parathyroid Agents,
+3225,HCV Protease Inhibitors,
+3226,Sodium-glucose Cotransporter 2 (SGLT2) Inhibitors,D000077203
+3227,"Sodium-Glucose Transport Proteins, antagonists & inhibitors",
+3228,Sodium-Glucose Transporter 2 Inhibitors,D000077203
+3230,SLAMF7-directed Antibody Interactions,
+3231,SLAMF7-directed Immunostimulatory Antibody,
+3235,Insulin-like Growth Factor-1 Receptor Inhibitor,
+3236,Insulin-like Growth Factor-1 Receptor Inhibitors,
+3238,"Asthma, drug therapy",
+3241,"Multiple Myeloma, drug therapy",
+3242,Breast Neoplasms,D001943
+3243,Interleukin-1 Receptor Accessory Protein,D053577
+3244,"Receptors, Interleukin-1 Type I",D053573
+3245,Selective Estrogen Receptor Degraders,
+3247,"Hypertension, Pulmonary",D006976
+3248,C1 inhibitors,
+3249,Complement C1 Inactivator Proteins,D003174
+3250,Complement Inactivator Proteins,D003169
+3251,Complement System Proteins,D003165
+3252,Decreased Vascular Permeability,
+3253,Alveolar Surface Tension Reduction,
+3254,Surfactant Activity,
+3263,Farnesyltransferase Inhibitor,
+3264,Farnesyltransferase Inhibitors,
+3275,"Receptors, Vascular Endothelial Growth Factor, antagonists & inhibitors",
+3276,Receptor Tyrosine Kinase Inhibitors,
+3278,Interleukin Antagonists,
+3279,Interleukin-5 Antagonist,
+3280,CD3-directed Antibody,
+3281,Bispecific Monoclonal Antibodies,D018033
+3284,Isavuconazole and Prodrugs,
+3285,RANK Ligand Blocking Activity,
+3286,RANK Ligand Inhibitor,
+3293,Somatostatin Agonists,
+3296,Selective T Cell Costimulation Blocker,
+3297,T Lymphocyte Costimulation Activity Blockade,
+3298,Autologous Cellular Immunotherapy,
+3299,Intercellular Adhesion Molecule-1,D018799
+3300,Artemisinin and derivatives,
+3301,Artemisinins,D037621
+3302,Radioactive Diagnostic Agent,
+3303,Radiopharmaceuticals,D019275
+3304,Magnetic Resonance Angiography,D018810
+3305,Fluorenes,D005449
+3306,Bronchoconstrictor Agents,D016085
+3307,Methacholine Compounds,D008688
+3308,Iodides,D007454
+3309,Alkalies,D000468
+3310,Hydroxides,D006878
+3311,Quinolizidine Alkaloids,D000093843
+3312,Quinolizidines,D054837
+3315,Cyclohexylamines,D003514
+3317,Cysteine Endopeptidases,D003546
+3318,Cysteine Proteases,D057056
+3319,Chondroitin,D002807
+3320,Methylating Activity,
+3321,Methylating Agent,
+3322,Sucrose-specific Enzyme,
+3323,Angiotensins,D000809
+3324,alpha-Hydroxy Acid,
+3325,Benzyl Alcohols,D001592
+3326,Capsaicin and Similar Agents,
+3327,Polyunsaturated Alkamides,D053284
+3328,TRPV1 Channel Agonists,
+3329,Carbamoyl Phosphate Synthetase 1 Activator,
+3330,Carbamoyl Phosphate Synthetase 1 Activators,
+3331,Calcium Binder,
+3332,Drugs for Treatment of Hypercalcemia,
+3333,Desoxycorticosterone,D003900
+3334,Metal Chelating Activity,
+3335,Metal Chelator,
+3336,Decorporation Agent,
+3337,Ion Exchange Activity,
+3338,Gallium Radioisotopes,D005710
+3339,Inflammation and Infection Detection,
+3340,"Corticosteroids, Very Potent (Group IV)",
+3341,"Kidney Failure, Chronic",D007676
+3342,Anticestodals,
+3343,Molluscacides,D008975
+3344,Salicylanilide and Derivatives,D012458
+3345,Salicylic Acid Derivatives,
+3346,Hematopoietic Stem Cell Mobilizer,
+3347,Increased Hematopoietic Stem Cell Mobilization,
+3348,Iodophors,D007466
+3349,Polyvinyls,D011145
+3350,Vinyl Compounds,D014753
+3351,HIV Integrase Inhibitors,D019428
+3352,Human Immunodeficiency Virus Integrase Strand Transfer Inhibitor,
+3353,Integrase Inhibitors,D019429
+3354,Reducing and Complexing Thiol,
+3355,Copper Chelator,
+3359,Bisphenols,D000098704
+3360,Environmental Pollutants,D004785
+3372,Diterpene Alkaloids,D000077743
+3375,Plant Growth Regulators,D010937
+3377,Resorcinols,D012118
+3382,Oxidation-Reduction Agent,
+3384,Myristic Acids,D009227
+3387,"Diabetes Mellitus, Type 2, drug therapy",
+3392,Electron Transport Chain Complex Proteins,D045222
+3395,Dichloroacetamide Derivatives,
+3396,Chloroacetates,D062845
+3397,Biocompatible Materials,D001672
+3398,Lubricants,D054327
+3399,Surgical Aids,
+3400,Viscoelastic Substances,D055682
+3401,Viscosupplements,D055675
+3402,Increased Prostaglandin Activity,
+3403,Chloride Channel Activation Potentiators,
+3404,Cystic Fibrosis Transmembrane Conductance Regulator Potentiators,
+3405,Central Nervous System,D002490
+3406,Iodine (123I) Compounds,
+3407,Microsomal Triglyceride Transfer Protein Inhibitor,
+3408,Microsomal Triglyceride Transfer Protein Inhibitors,
+3409,Hedgehog Pathway Inhibitor,
+3410,Hedgehog pathway inhibitors,
+3411,Smoothened Receptor Antagonists,
+3412,Taurodeoxycholic Acid,D013657
+3419,"Cholecystokinin, agonists",
+3420,"Cholecystokinin, antagonists & inhibitors",
+3421,Anaplastic lymphoma kinase (ALK) inhibitors,
+3422,Organic Cation Transporter 1 Inhibitors,
+3423,ROS1 tyrosine kinase inhibitors,
+3424,Progesterone Agonist/Antagonist,
+3425,Selective Progesterone Receptor Modulators,
+3426,Sphingosine 1 Phosphate Receptor Modulators,D000081243
+3427,Sphingosine 1-phosphate Receptor Modulator,
+3428,Sphingosine-1-phosphate (S1P) receptor modulators,
+3429,Growth Hormone Releasing Factor Analog,
+3430,Increased GHRH Activity,
+3431,Lipodystrophy,D008060
+3432,CD30-directed Antibody Interactions,
+3433,CD30-directed Immunoconjugate,
+3434,Macrolide Antibacterial,
+3435,Janus Kinase Inhibitor,D000075242
+3436,"Janus Kinases, antagonists & inhibitors",
+3437,B Lymphocyte Stimulator-directed Antibody Interactions,
+3438,B Lymphocyte Stimulator-specific Inhibitor,
+3439,Decreased B Lymphocyte Activation,
+3440,Dihydroorotate Dehydrogenase Inhibitors,
+3441,Pyrimidine Synthesis Inhibitor,
+3442,B-Raf serine-threonine kinase (BRAF) inhibitors,
+3443,AMPA Receptor Antagonists,
+3444,Noncompetitive AMPA Glutamate Receptor Antagonist,
+3445,Enzyme Activators,D020536
+3446,Guanylate Cyclase Activators,
+3447,Guanylate Cyclase-C Agonist,
+3448,Guanylyl Cyclase C Agonists,D000074268
+3449,Selective Beta 3-adrenergic Agonists,
+3450,Janus Kinase Inhibitors,D000075242
+3451,Carboxypeptidases,D002268
+3452,Exopeptidases,D020689
+3453,"gamma-Glutamyl Hydrolase, antagonists & inhibitors",
+3454,GLP-2 Analog,
+3455,Glucagon-Like Peptide 2,D053767
+3456,Glucagon-like Peptide-2 (GLP-2) Agonists,
+3457,Diarylquinoline Antimycobacterial,
+3458,Fumarates,D005650
+3459,"MAP Kinase Kinase 2, antagonists & inhibitors",
+3460,Cytochrome P-450 CYP2C9 Inducers (strong),
+3461,"Proto-Oncogene Proteins B-raf, antagonists & inhibitors",
+3462,Radioactive alpha-Particle Emitting Therapeutic Agent,
+3463,Cyclohexane Monoterpenes,D000081005
+3464,Guanylate Cyclase,D006162
+3465,Guanylate Cyclase Stimulators,
+3466,Soluble Guanylate Cyclase Stimulator,
+3467,Hepatitis C Virus Nucleotide Analog NS5B Polymerase Inhibitor,
+3468,RNA Replicase Inhibitors,
+3469,Antacids With Antiflatulents,
+3470,Ointments,D009824
+3473,Hepatitis C Virus NS5A Inhibitor,
+3474,"Interleukin-17, antagonists & inhibitors",
+3475,Interleukin-17A Antagonist,
+3476,Protease-activated Receptor-1 Antagonist,
+3477,Protease-activated Receptor-1 Antagonists,D010975
+3478,"Receptor, PAR-1, antagonists & inhibitors",
+3479,"Receptors, Thrombin, antagonists & inhibitors",
+3480,Antileishmanial,
+3481,Orexin Receptor Antagonists,D000068796
+3482,PD-1/PD-L1 (Programmed cell death protein 1/death ligand 1) inhibitors,
+3483,PD-1/PDL-1 (Programmed cell death protein 1/death ligand 1) inhibitors,
+3484,Programmed Death Receptor-1 Blocking Antibody,
+3485,Programmed Death Receptor-1-directed Antibody Interactions,
+3486,Interleukin-6 Antagonist,
+3487,Oxaborole Antifungal,
+3488,Leptin Analog,
+3489,"Obesity, drug therapy",
+3490,Netupitant and prodrug,
+3491,Bispecific CD19-directed CD3-directed T Cell Engager,
+3492,CD19-directed Antibody Interactions,
+3493,Bruton's tyrosine kinase (BTK) inhibitors,
+3494,"Class Ia Phosphatidylinositol 3-Kinase, antagonists & inhibitors",
+3495,Phosphatidylinositol-3-kinase (Pi3K) inhibitors,
+3496,Peroxisome Proliferators,D020025
+3497,"Estrogens, Antiestrogens, and Estrogen Agonist-Antagonists",
+3498,"Receptors, Melatonin, agonists",
+3499,Cyclin-dependent kinase (CDK) inhibitors,
+3500,MATE 2-K Inhibitors,
+3501,"Pulmonary Disease, Chronic Obstructive, drug therapy",
+3502,Glycolipid Disialoganglioside-directed Antibody,
+3503,Glycolipid Disialoganglioside-directed Antibody Interactions,
+3504,Hyperpolarization-activated Cyclic Nucleotide-gated Channel Antagonists,
+3505,Hyperpolarization-activated Cyclic Nucleotide-gated Channel Blocker,
+3506,Allylbenzene Derivatives,D000081248
+3507,Caffeic Acids,D002109
+3508,Caustics,D002424
+3509,"Somatostatin, agonists",
+3510,HIV Integrase,D019427
+3511,HCV Replication Complex Inhibitors,
+3512,Emollients Demulcents and Protectants,
+3513,"Hypophosphatasia, drug therapy",
+3514,Tissue-nonspecific Alkaline Phosphatase,
+3515,Blood Substitutes,D001802
+3516,Plasma Substitutes,D010952
+3517,Mesna,D015080
+3518,Lung Surfactants,
+3519,Acetaldehyde,D000079
+3520,Eslicarbazepine and prodrugs,
+3521,Alkalinizing Activity,
+3522,Citric Acid Derivatives,
+3523,Metabolic Alkalinizer,
+3524,Chorionic Gonadotropin,D006063
+3525,Placental Hormones,D010926
+3526,Pregnancy Proteins,D011257
+3527,Copper-containing Intrauterine Device,
+3528,Decreased Embryonic Implantation,
+3529,Decreased Sperm Motility,
+3530,Hepatic and Reticulo Endothelial System,
+3531,Organotechnetium Compounds,D015609
+3532,Skeleton,D012863
+3533,Chalcogens,D018011
+3534,Medical Gases,
+3535,Antiheparin Agents,
+3536,Heparin Antagonists,D006494
+3537,Heparin Reversal Agent,
+3538,Nuclear Proteins,D009687
+3539,Nucleoproteins,D009698
+3540,Cholecystokinin Analog,
+3541,Gallbladder Function,
+3542,"Iron Trivalent, Oral Preparations",
+3543,Positron Emitting Activity,
+3544,Sodium,D012964
+3545,Noble Gases,D005741
+3546,Azo Compounds,D001391
+3547,Diphosphates,D011756
+3548,Technetium Compounds,D017556
+3549,Dibenzothiepins,D003988
+3550,Hepatitis C Virus Non-Nucleoside NS5B Palm Polymerase Inhibitor,
+3551,Histamine H3 Antagonists,D054828
+3552,"Migraine Disorders, drug therapy",
+3553,Fibrinogen,D005340
+3554,"Angioedemas, Hereditary, drug therapy",
+3556,Potassium Ion Binding Activity,
+3557,Humanized Monoclonal Antibody Fragment,
+3558,Glucagon-Like Peptide Receptors,D000067756
+3559,"Receptors, G-Protein-Coupled",D043562
+3560,"Receptors, Gastrointestinal Hormone",D011964
+3561,Strontium,D013324
+3562,Ubiquinone,D014451
+3563,mu-Opioid Receptor Agonist,
+3564,"Receptors, Opioid, delta, antagonists & inhibitors",
+3565,Malates,D008293
+3566,Thiomalates,D013870
+3567,Adsorption,D000327
+3568,Carbon,D002244
+3569,Charcoal Preparations,D002606
+3570,Sydnones,D013558
+3571,Neprilysin Inhibitor,
+3572,Thyroid Diagnostic Radiopharmaceuticals,D013961
+3574,"Hypercholesterolemia, drug therapy",
+3575,PCSK9 Inhibitor,D000091362
+3576,Proprotein Convertase Subtilisin Kexin Type 9 (PCSK9) Inhibitors,
+3577,Bulk-Forming Laxatives,
+3578,Inhalation Diagnostic Agent,
+3579,Xenon Isotopes,D014979
+3580,Basic Powders and Demulcents,
+3581,Astringents,D001252
+3582,Caries Prophylactic Agents,
+3583,Fluorides,D005459
+3584,CD38 (Clusters of Differentiation 38) inhibitors,
+3585,CD38-directed Antibody Interactions,
+3586,CD38-directed Cytolytic Antibody,
+3588,Diabetes Mellitus,D003920
+3589,Thymidine Phosphorylase Inhibitor,
+3591,Intrinsic Factor,D007437
+3592,Mucoproteins,D009088
+3593,Pesticide Synergists,D010574
+3594,Protein Hydrolysates,D011492
+3595,Wound Healing,D014945
+3596,Iodopyridones,D007469
+3597,Liver Function,
+3598,Renal System,
+3600,Solutions for Parenteral Nutrition,
+3601,Dental Materials,D003764
+3602,"Technetium (99Mtc), Particles and Colloids",
+3603,Perchlorates,D010472
+3604,Iodine Isotopes,D007456
+3605,Tests for Thyreoidea Function,
+3606,Thyrotropin-Releasing Hormone,D013973
+3607,Lipid Emulsion,
+3608,Increased IgG Production,
+3609,Non-Standardized Chemical Allergen,
+3610,Bleaching Agents,D057886
+3611,Hygroscopic Agents,D058427
+3612,Oxidants,D016877
+3613,Strontium Radioisotopes,D013326
+3614,Deoxyglucose,D003847
+3615,Colloids,D003102
+3616,Magnetic Iron Oxide Nanoparticles,D000082662
+3617,Metal Nanoparticles,D053768
+3618,Organosilicon Compounds,D017646
+3619,Superparamagnetic Contrast Media,
+3620,Suspensions,D013535
+3621,Helicobacter pylori Diagnostic,
+3622,Antiperspirants,D051520
+3623,Dimethylpolysiloxanes,D004129
+3624,Emollients,D004643
+3625,Silicones,D012828
+3626,Siloxanes,D012833
+3627,Lentigo,D007911
+3628,Skin Lightening Agent,
+3629,Melanin Synthesis Inhibitor,
+3630,Secretin,D012633
+3631,Secretin-class Hormone,
+3632,Astringents and Deodorants,
+3633,"Water Pollutants, Chemical",D014874
+3634,Betula,D029662
+3635,Gaultheria,D031282
+3636,Long-acting Insulins,
+3637,Inactivated Clostridium Tetani Vaccine,
+3638,Inactivated Corynebacterium Diphtheriae Vaccine,
+3639,Diphtheria Vaccines,
+3640,Meningococcal Vaccines,D022401
+3641,Actively Acquired Immunity,
+3642,Inactivated Rabies Virus Vaccine,
+3643,Rabies Vaccines,D011819
+3644,Haemophilus Vaccines,D018073
+3645,Inactivated Haemophilus Influenzae B Vaccine,
+3646,Live Attenuated Rotavirus Vaccine,
+3647,Live Rotavirus Vaccine,
+3648,Rota Virus Diarrhea Vaccines,
+3649,Viral Vaccines,D014765
+3650,Inactivated Pneumococcal Vaccine,
+3651,Inactivated Human Papillomavirus Vaccine,
+3652,Human papillomavirus 16,D052162
+3653,Nucleocapsid Proteins,D019590
+3654,Live Attenuated Measles Virus Vaccine,
+3655,Live Mumps Virus Vaccine,
+3656,Live Attenuated Rubella Virus Vaccine,
+3657,Live vaccines,
+3658,Measles vaccines,
+3659,Rubella Vaccines,
+3660,Herpesvirus Vaccines,D022283
+3661,Live Attenuated Herpes Zoster Virus Vaccine,
+3662,Live Attenuated Varicella Zoster Virus Vaccine,
+3663,Varicella Zoster Vaccines,D019433
+3664,Increased Immunologically Active Molecule Activity,
+3665,Increased Macrophage Proliferation,
+3666,Live Attenuated Bacillus Calmette-Guerin Immunotherapy,
+3667,Live Attenuated Bacillus Calmette-Guerin Vaccine,
+3668,Non-Standardized Food Allergenic Extract,
+3669,Non-Standardized Plant Allergenic Extract,
+3670,Non-Standardized House Dust Allergenic Extract,
+3671,Particulate Matter,D052638
+3672,Non-Standardized Pollen Allergenic Extract,
+3673,Grass Pollen Allergen Extracts,
+3674,Allergenic Extracts,
+3675,Standardized Pollen Allergenic Extract,
+3676,Standardized Animal Skin Allergenic Extract,
+3677,Allergens,D000485
+3678,Standardized Insect Allergenic Extract,
+3679,Non-Standardized Animal Skin Allergenic Extract,
+3680,Non-Standardized Plant Fiber Allergenic Extract,
+3681,Non-Standardized Insect Allergenic Extract,
+3682,Insect Proteins,D019476
+3683,Non-Standardized Insect Venom Allergenic Extract,
+3684,Non-Standardized Feather Allergenic Extract,
+3685,Non-Standardized Fungal Allergenic Extract,
+3686,Fungal Proteins,D005656
+3687,Plant Exudates,D053147
+3688,Plant Gums,D053149
+3689,Standardized Animal Hair Allergenic Extract,
+3690,Beverages,D001628
+3691,Caseins,D002364
+3692,Dairy Products,D003611
+3693,Milk components,D008892
+3694,Phosphoproteins,D010750
+3695,Bacterial Vaccines,D001428
+3696,Tetanus Vaccines,
+3697,Toxoids,D014121
+3698,Diphtheria,D004165
+3699,Inactivated Influenza A Virus Vaccine,
+3700,Influenza Vaccines,D007252
+3701,Myrtaceae,D027822
+3702,Dietary Fiber,D004043
+3703,Inactivated Japanese Encephalitis Virus Vaccine,
+3704,Allogeneic Cultured Cell Scaffold,
+3705,Inactivated Bordetella Pertussis Vaccine,
+3706,Bordetella bronchiseptica,D016950
+3707,Bordetella pertussis,D001886
+3708,Virulence Factors,D037521
+3709,Inactivated Influenza B Virus Vaccine,
+3710,Inactivated Poliovirus Vaccine,
+3711,Inactivated Meningococcal Vaccine,
+3712,Inactivated Salmonella Typhi Vaccine,
+3713,Typhoid vaccines,
+3714,Live Attenuated Yellow Fever Virus Vaccine,
+3715,Yellow Fever Vaccines,
+3716,Non-Standardized Bacterial Allergenic Extract,
+3717,Non-Standardized Animal Hair Allergenic Extract,
+3718,Bee and Wasp Venom,D001514
+3719,Standardized Insect Venom Allergenic Extract,
+3720,Inactivated Hepatitis A Virus Vaccine,
+3721,Viral Hepatitis Vaccines,D014761
+3722,"Vaccines, Inactivated",D015164
+3723,Autologous Cultured Cell,
+3724,Anthrax Vaccines,D022122
+3725,Live Attenuated Bacillus Anthracis Vaccine,
+3726,"Vaccines, Attenuated",D014613
+3727,Antidiarrheal microorganisms,
+3728,Non-Standardized Animal Dander Allergenic Extract,
+3729,Live Attenuated Salmonella Typhi Vaccine,
+3730,Allogeneic Cord Blood Hematopoietic Progenitor Cell Therapy,
+3731,Softener and Emollient Laxatives,
+3732,"Softeners, Emollients",
+3733,Ointment Bases,D009823
+3734,Carboxymethylcellulose Sodium,D002266
+3735,Amylases,D000681
+3736,"Amylases, antagonists & inhibitors",
+3737,Skin Barrier Activity,
+3738,Silver Compounds,D018030
+3739,Keratoplastic Agents,
+3740,Tars,D013638
+3741,Root Canal Filling Materials,D012387
+3742,Tin Compounds,D017971
+3743,Benzalkonium Compounds,D001548
+3744,Waxes,D014885
+3745,"Resins, Plant",D012116
+3746,Tooth Bleaching Agents,D058205
+3747,Chromium Isotopes,D002859
+3748,Barium Compounds,D017609
+3749,Barium Sulfate Containing X-Ray Contrast Media,
+3750,"X-Ray Contrast Media, Non-Iodinated",
+3751,Trichloroacetic Acid,D014238
+3752,Water Pollutants,D014873
+3753,Tetrahydropyrimidine Derivatives,
+3754,Antracen Derivatives,
+3755,Recombinant Antithrombin,
+3756,"Papain, antagonists & inhibitors",
+3757,Mentha,D027541
+3758,Metalloids,D058955
+3759,Ericales,D020448
+3760,Styracaceae,D029644
+3761,Chitin,D002686
+3762,Chitosan,D048271
+3763,"Fatty Acids, Omega-6",D043371
+3764,Insecticides and Repellents,
+3765,Perfume,D010476
+3766,Skin Test Antigen,
+3767,Thioredoxins,D013879
+3768,"Thioredoxins, antagonists & inhibitors",
+3769,Increased Coagulation Factor Activity,
+3770,"Prothrombin, agonists",
+3771,Phytochemicals,D064209
+3772,Boric Acids,D001888
+3773,Factor IX,D005164
+3774,Aluminum Oxides,
+3775,"Metals, Alkali",D008672
+3776,Apatites,D001031
+3777,Calcium Phosphates,D002130
+3778,Ceramics,D002516
+3779,Hydroxyapatites,D006882
+3780,Propolis,D011429
+3781,Oenothera,D031664
+3782,Onagraceae,D029594
+3783,Prostacyclin Receptor Agonist,
+3784,Prostacyclin Receptor Agonists,
+3785,"Receptors, Prostaglandin, agonists",
+3786,Trihalomethanes,D022882
+3792,"Janus Kinase 1, antagonists & inhibitors",
+3800,Urate Transporter 1 Inhibitor,
+3801,Urate Transporter 1 Inhibitors,
+3803,"Cholesterol Ester Storage Disease, drug therapy",
+3804,Hydrolytic Lysosomal Cholesteryl Ester-specific Enzyme,
+3805,Hydrolytic Lysosomal Triacylglycerol-specific Enzyme,
+3806,"Wolman Disease, drug therapy",
+3807,Interleukin-17,D020381
+3808,Hemorrhage,D006470
+3809,BCL-2 Inhibitor,
+3810,Ethylmercury Compounds,D005035
+3811,Endogenous Antigen Neutralization,
+3812,Antithrombin III,D000990
+3813,"Antithrombin III, agonists",
+3814,Bees,D001516
+3815,Tuberculin,D014373
+3816,Tuberculosis,D014376
+3817,Tuberculosis Skin Test,
+3818,"Saliva, Artificial",D012464
+3819,Human Rabies Immune Globulins,
+3820,Human Tetanus Immune Globulins,
+3821,Burseraceae,D029403
+3822,Commiphora,D029744
+3823,"Anti-inflammatory Agents, Miscellaneous",
+3824,Lymphocyte Function-Associated Antigen-1,D016169
+3825,Lymphocyte Function-Associated Antigen-1 Antagonist,
+3826,Lymphocyte Function-Associated Antigen-1 Antagonists,
+3827,Human Varicella Zoster Immune Globulins,
+3828,"Bacterial and viral vaccines, combined",
+3829,Hepatitis Antigens,D018963
+3830,Hepatitis B Antigens,D006511
+3831,Hepatitis B Surface Antigens,D006514
+3832,"Hepatitis B Surface Antigens, drug effects",
+3833,Hepatitis B Vaccines,D017325
+3834,Inactivated Hepatitis B Virus Vaccine,
+3835,Bone Morphogenetic Proteins,D019485
+3836,TGF-beta Superfamily Proteins,D055411
+3837,Artemisia,D019306
+3838,Histamine-3 (H3) Receptor Antagonists/Inverse Agonists,
+3839,Histamine-3 Receptor Antagonist/Inverse Agonist,
+3840,"Receptors, Histamine H3",D018100
+3841,Cholera Toxin,D002772
+3842,Enterotoxins,D004768
+3843,Transthyretin Stabilizers,
+3845,"Receptor, Melanocortin, Type 3, agonists",
+3846,"Receptor, Melanocortin, Type 4, agonists",
+3848,Glycerides,D005989
+3849,Medium-chain Triglycerides,
+3850,Nuclear Export Inhibitors,
+3851,Triglycerides,D014280
+3852,Hypoxia-inducible Factor Prolyl Hydroxylase Inhibitor,
+3853,Mitogen-Activated Protein Kinase Kinase 1 Inhibitors,
+3854,Mitogen-Activated Protein Kinase Kinase 2 Inhibitors,
+3855,"fms-Like Tyrosine Kinase 3, antagonists & inhibitors",
+3856,"Janus Kinase 2, antagonists & inhibitors",
+3857,Melanocortin 4 Receptor Agonist,
+3858,Melanocortin 4 Receptor Agonists,
+3862,Programmed Death Ligand-1 Antagonists,
+3863,Programmed Death Ligand-1 Blocker,
+3864,Programmed Death Ligand-1-directed Antibody Interactions,
+3866,Alzheimer Disease,D000544
+3867,Serotonin (5-HT) 1F Receptor Agonists,
+3868,Tests for Liver Functional Capacity,
+3870,Potassium-competitive Acid Blockers,
+3871,"Proto-Oncogene Proteins c-akt, antagonists & inhibitors",
+3876,Sodium-Hydrogen Exchanger 3 Inhibitor,
+3877,Sodium/Hydrogen Exchanger 3 (NHE3) Inhibitors,
+3880,Interleukin 17 Receptor A Antagonists,
+3881,Interleukin-17 Receptor A Antagonist,
+3882,"Receptors, Interleukin-17",D053722
+3883,"Neuropeptide Y, drug effects",
+3884,Mesenchymal Epithelial Transition Inhibitors,
+3885,Human Immunodeficiency Virus Type 1 (HIV-1) gp120-directed Attachment Inhibitors,
+3887,Nitrofuran Antiprotozoals,
+3888,Non-Competitive N-Methyl D-Aspartate (NMDA) Receptor Antagonists,
+3892,Interleukin-23 Subunit p19,D053760
+3893,"Cytochrome P-450 CYP11B2, antagonists & inhibitors",
+3894,Cytochrome P450 11B1 Inhibitors,
+3895,"Angiotensin II, antagonists & inhibitors",
+3896,"Leukemia, Lymphocytic, Chronic, B-Cell, drug therapy",
+3897,"Prostatic Neoplasms, drug therapy",
+3898,"Receptors, LHRH, antagonists & inhibitors",
+3899,Neuroactive Steroid Gamma-Aminobutyric Acid (GABA) A Receptor Positive Modulators,
+3900,Sclerostin Inhibitors,
+3902,"Amyloid Precursor Protein Secretases, antagonists & inhibitors",
+3903,Condiments,D003212
+3905,"Fibroblast Growth Factor 2, antagonists & inhibitors",
+3906,Fibroblast growth factor receptor (FGFR) tyrosine kinase inhibitors,
+3907,"Receptor, Fibroblast Growth Factor, Type 1, antagonists & inhibitors",
+3908,"Receptors, Fibroblast Growth Factor, antagonists & inhibitors",
+3913,Interleukin-13 Antagonist,
+3914,C-type Natriuretic Peptide Analog,
+3915,Adenosine Triphosphate-Citrate Lyase Inhibitor,
+3916,Adenosine Triphosphate-Citrate Lyase Inhibitors,
+3917,Kappa Opioid Receptor Agonist,
+3921,"Alzheimer Disease, drug therapy",
+3923,Tumor Suppressor Proteins,D025521
+3924,Type I Interferon Receptor Antagonist,
+3928,Gamma Secretase Inhibitor,
+3929,"Class I Phosphatidylinositol 3-Kinases, antagonists & inhibitors",
+3930,"Receptors, Lysosphingolipid, antagonists & inhibitors",
+3931,Orthopoxvirus VP37 Envelope Wrapping Protein Inhibitor,
+3932,Interleukin 5 Receptor alpha-directed Antibody Interactions,
+3933,Interleukin-5 Receptor alpha-directed Cytolytic Antibody,
+3935,Catechin,D002392
+3938,Cytomegalovirus DNA Terminase Complex Inhibitor,
+3939,DNA Terminase Complex Inhibitors,
+3941,"Antibodies, Neutralizing",D057134
+3942,Tryptophan Hydroxylase Inhibitor,
+3945,Antimutagenic Agents,D016587
+3946,Activin Signaling Inhibitor,
+3948,Triazaacenaphthylene Bacterial Type II Topoisomerase Inhibitor,
+3950,Cytidine Diphosphate,D003565
+3951,Interleukin 4 Receptor alpha Antagonists,
+3952,Interleukin-4 Receptor alpha Antagonist,
+3953,"Interleukin-4 Receptor alpha Subunit, antagonists & inhibitors",
+3955,"Proto-Oncogene Proteins c-met, antagonists & inhibitors",
+3957,Lutetium,D008187
+3961,CD79b-directed Antibody–Drug Conjugates,
+3962,Cytochrome P450 2A6 Inhibitors,
+3967,Amyloid Beta-directed Antibodies,
+3968,Activin Receptors,D029404
+3969,Erythroid Maturation Agents,
+3970,Protein-Serine-Threonine Kinases,D017346
+3971,"Receptors, Transforming Growth Factor beta",D018125
+3972,"Focal Adhesion Kinase 1, antagonists & inhibitors",
+3974,Azocines,D001392
+3975,Oxazocines,D010079
+3984,Lysosomal beta Glucuronidase,
+3985,Recombinant Human Lysosomal alpha-Mannosidase,
+3991,Stevia,D036625
+3996,Dental Disinfectants,D019551
+3997,Calcitonin Gene-Related Peptide (CGRP) Antagonists,
+3999,Triterpenoid Antifungal,
+4000,Triterpenoid Antifungals,
+4001,Lupanes,D000094042
+4003,Chemokine Receptor Type 4 Interaction,
+4004,Chemokine Receptor Type 4 Interactions,
+4006,"Receptors, Corticotropin-Releasing Hormone, antagonists & inhibitors",
+4007,CD19 Directed Cytolytic Antibodies,
+4008,CD19-directed Cytolytic Antibody,
+4009,"Benzodiazepines, antagonists & inhibitors",
+4011,Dual Endothelin Type A Receptor/Ang II Subtype 1 Receptor Antagonist (DEARA),
+4015,Terbium,D013725
+4016,"Receptors, Prostaglandin E, EP2 Subtype, agonists",
+4027,CD22-Directed Cytotoxins,
+4030,CD4-directed Antibody Interactions,
+4031,CD4-directed Blocking Antibody,
+4032,HIV 1 Post-attachment Fusion Inhibitors,
+4033,Human Immunodeficiency Virus 1 Post-attachment Fusion Inhibitor,
+4036,"Sodium-Glucose Transporter 1, antagonists & inhibitors",
+4039,Tuberculosis Vaccines,D032581
+4041,Tissue Factor Pathway Inhibitor Antagonist,
+4044,Phosphoric Diester Hydrolases,D010727
+4045,Ammonia-Lyases,D000642
+4046,Carbon-Nitrogen Lyases,D019759
+4047,Phenylalanine Metabolizing Enzyme,
+4048,"Receptors, Guanylate Cyclase-Coupled, agonists",
+4052,von Willebrand Factor,D014841
+4055,Methyltransferase Inhibitor,
+4056,Methyltransferase Inhibitors,
+4057,"Muscular Dystrophy, Duchenne",D020388
+4058,Trop-2-Directed Monoclonal Antibodies,
+4059,Acyltransferases,D000217
+4060,Aminoacyltransferases,D019881
+4061,"Factor XIIIa, antagonists & inhibitors",
+4062,Increased Fibrin Polymerization Activity,
+4063,Transglutaminases,D011503
+4065,Thyroid Hormone Receptor beta Agonist,
+4066,Thyroid hormone receptor-beta (THR-beta) agonist,
+4067,Stimulation Small Intestine Fluid/Electrolyte Secretion,
+4075,Nectin-4-directed Antibodies,
+4082,Asteraceae,D019659
+4083,Growth Hormone Secretagogue Receptor Agonist,
+4084,Growth Hormone Secretagogue Receptor Agonists,
+4085,Yttrium,D015019
+4086,Yttrium (90Y) Compounds,
+4087,Yttrium Isotopes,D015020
+4092,Aerosol Propellants,D000335
+4093,Aerosols,D000336
+4098,Increased Platelet Aggregation,
+4099,Factor X,D005170
+4100,"Factor X, agonists",
+4101,"Factor X, antagonists & inhibitors",
+4102,Increased Protein Synthesis,
+4103,Survival Motor Neuron-2-directed RNA Interaction,
+4105,Hydrolytic Lysosomal N-terminal Tripeptidyl Peptidase,
+4107,Factor VIII,D005169
+4111,Dipsacales,D000074766
+4112,Valerianaceae,D028161
+4115,Aspartic Acid Endopeptidases,D016282
+4116,Aspartic Acid Proteases,D057055
+4117,"Iron Bivalent, Oral Preparations",
+4118,Quinolone Vasodilators,
+4120,Tooth Bleaching,D014073
+4121,Dimethyldithiocarbamate,D004125
+4122,"Anemia, Iron-Deficiency",D018798
+4124,Aminophenols,D000627
+4125,Chloroquinolinols,D002739
+4128,Colchicine Derivatives,
+4130,Polycyclic Sesquiterpenes,D000081223
+4131,"Sesquiterpenes, Eudesmane",D045787
+4134,Benzeneacetamides,D044482
+4138,Alginates,D000464
+4139,Glucuronates,D005965
+4140,Hexuronic Acids,D006603
+4146,Androgens for Topical Use,
+4150,Muramic Acids,D009112
+4153,Heparin Binding Activity,
+4154,beta-Galactosidase,D001616
+4155,Pyrazolone Derivatives,
+4158,Anisoles,D000840
+4159,Sialogogues,
+4160,Thiones,D013871
+4163,Isocitrate dehydrogenase (IDH) inhibitors,
+4164,Isocitrate Dehydrogenase 2 Inhibitor,
+4165,Isocitrate dehydrogenase-2 (IDH2) Inhibitors,
+4166,CD19 Receptor Interactions,
+4167,CD19-directed Chimeric Antigen Receptor,
+4168,Genetically-modified Autologous T Cells,
+4169,"Receptors, Antigen",D011946
+4170,Erythema,D004890
+4171,Inflammation,D007249
+4172,Antivenins,D000997
+4173,Neisseria meningitidis,D009345
+4174,Venom Neutralization,
+4175,Alphaherpesvirinae,D018138
+4176,DNA Viruses,D004267
+4177,Herpesviridae,D006564
+4178,Simplexvirus,D018139
+4179,Viruses,D014780
+4180,"Antigens, CD",D015703
+4181,"Antigens, Differentiation",D000943
+4182,"Antigens, Differentiation, B-Lymphocyte",D000944
+4183,Immunomodulation,D056747
+4184,"Antihemorrhagic Agents, Miscellaneous",
+4185,Recombinant Human Nerve Growth Factor,
+4186,Rho Kinase Inhibitor,
+4187,Rho Kinase Inhibitors,
+4188,Cells,D002477
+4189,Connective Tissue Cells,D003239
+4190,Multipotent Stem Cells,D039902
+4191,Stem Cells,D013234
+4192,Stromal Cells,D017154
+4193,Ranunculaceae,D029626
+4194,Ranunculales,D000076664
+4196,Radiolabeled Somatostatin Analogs,
+4197,Baloxavir and prodrugs,
+4198,Polymerase Acidic Endonuclease Inhibitors,
+4199,Tocopherols,D024505
+4200,Fibroblast Growth Factor-23 Blocking Antibodies,
+4201,Cholates,D020355
+4202,Acetophenones,D000098
+4203,Salmonella Vaccines,D022562
+4204,"Vaccines, Typhoid",D014436
+4206,Calcitonin Gene-related Peptide Antagonist,
+4213,Linoleic Acids,D008041
+4214,Bacterial Neurotoxin Neutralization,
+4215,Zingiberaceae,D030521
+4218,Chromates,D002840
+4219,Chromium Compounds,D017608
+4220,Latex Hypersensitivity,D020315
+4221,Lewis X Antigen,D016256
+4223,Probiotics,D019936
+4224,Ericaceae,D029791
+4225,Vaccinium,D029796
+4227,Apiaceae,D019661
+4228,Lilianae,D000075063
+4229,Zingiberales,D019862
+4233,Fabaceae,D007887
+4241,Arecaceae,D028023
+4242,Live Attenuated Influenza A Virus Vaccine,
+4243,Adenovirus Vaccines,D062705
+4244,Live Human Adenovirus Type 4 Vaccine,
+4245,Live Attenuated Cholera Vaccine,
+4248,"Skin Ulcer, drug therapy",
+4249,"Administration, Topical",D000287
+4251,Isocitrate Dehydrogenase 1 Inhibitor,
+4252,Isocitrate dehydrogenase-1 (IDH1) inhibitors,
+4253,Isocitrate Dehydrogenase-1 Inhibitors,
+4255,Decreased RNA Integrity,
+4256,Increased Protein Breakdown,
+4257,Small Interfering RNA,D034741
+4258,Transthyretin-directed RNA Interaction,
+4259,"Contraceptive Devices, Female",D003274
+4260,Drug Implants,D004343
+4261,Plantaginaceae,D000068377
+4263,Live Human Adenovirus Type 7 Vaccine,
+4266,Malpighiales,D000076622
+4267,Salicaceae,D031308
+4268,Vanadium Compounds,D017968
+4269,Live Vaccinia Virus Vaccine,
+4270,Recombinant Adenosine Deaminases,
+4272,Tropomyosin Receptor Kinases Inhibitors,
+4273,Interferon gamma Antagonists,
+4274,Interferon gamma Blocker,
+4275,Interferon-gamma,D007371
+4276,"Lymphohistiocytosis, Hemophagocytic",D051359
+4277,CD123 Interaction,
+4278,CD123 Interactions,
+4280,Polygalaceae,D029608
+4281,Approved Treatments for COVID-19,
+4282,SARS-CoV-2 Nucleotide Analog RNA Polymerase Inhibitor,
+4288,Platelet-derived Growth Factor alpha Receptor Inhibitors,
+4289,Stem Cell Factor (KIT) Receptor Inhibitors,
+4290,"Arthritis, Rheumatoid, drug therapy",
+4291,Lymphocyte Activation Gene-3 Blocker,
+4296,Oligonucleotide Telomerase Inhibitor,
+4297,"Telomerase, antagonists & inhibitors",
+4298,Neonatal Fc Receptor Blocker,
+4299,Cardiac Myosin Inhibitor,
+4300,"Janus Kinase 3, antagonists & inhibitors",
+4302,Hemoglobin S Polymerization Inhibitors,
+4304,Fabry Disease,D000795
+4305,Classical Complement Pathway Inhibitor,
+4306,Antithrombin-directed RNA Interaction,
+4307,Complement 5a Receptor Antagonist,
+4308,Bruton's Tyrosine Kinase Inhibitors,
+4309,Dental Implants,D015921
+4311,Cytochrome P-450 CYP2C18 Inhibitors,
+4312,Cytochrome P-450 CYP2C18 Inhibitors (strength unknown),
+4313,Aminolevulinate Synthase 1-directed RNA Interaction,
+4314,Aminolevulinate Synthase 1-Directed Small Interfering RNAs,
+4315,Galactosamine,D005688
+4316,"Porphyrias, Hepatic",D017094
+4317,Thymic Stromal Lymphopoietin Blocker,
+4318,Human Growth Hormone Analogs,
+4320,"Receptor, Fibroblast Growth Factor, Type 2, antagonists & inhibitors",
+4321,Claudin 18.2-directed Cytolytic Antibody,
+4324,ADAM Proteins,D051722
+4325,ADAMTS Proteins,D000071096
+4326,Glucose-dependent Insulinotropic Polypeptide Receptor Agonist,
+4337,Glucagon Receptor Agonists,
+4341,Interleukin-31 Receptor alpha Antagonist,
+4342,Selectin Blocker,
+4344,Phosphoinositide-3 Kinase Inhibitors,D000081082
+4345,Bispecific gp100 Peptide-HLA-directed CD3 T Cell Engager,
+4346,"Melanoma, therapy",
+4348,Survival of Motor Neuron 2 Splicing Modifier,
+4354,Angiopoietin-like 3 Inhibitor,
+4355,Angiopoietin-like 3 Inhibitors,
+4360,Bispecific B-cell maturation antigen (BCMA)-directed CD3 T-cell engager,
+4361,Complement Factor D Inhibitor,
+4367,Cyclin-dependent Kinase 4 Inhibitors,
+4368,Cyclin-dependent Kinase 6 Inhibitors,
+4369,Cystic Fibrosis Transmembrane Conductance Regulator Correctors,
+4371,Hypoxia-inducible Factor Inhibitor,
+4372,Bispecific HER2-directed Antibody,
+4373,Cascara,D004642
+4374,Monkeypox Vaccines,
+4375,Smallpox Vaccines,D012900
+4376,"Depression, Postpartum",D019052
+4377,Cellular and Gene Therapy,
+4379,"Antibodies, Bispecific",D018033
+4381,RAS GTPase Inhibitors,
+4382,Palladium,D010165
+4384,Disclosing Agent,
+4385,Interleukin-36 Receptor Antagonist,
+4390,COVID-19 Vaccines,D000086663
+4391,mRNA Vaccines,D000087503
+4392,"Vaccines, DNA",D019444
+4393,Neurokinin 3 Receptor Antagonist,
+4394,Human Immunodeficiency Virus 1 Capsid Inhibitor,
+4395,Rearranged during Transfection (RET) Inhibitors,
+4396,CD19-Directed Genetically Modified Autologous T-cell Immunotherapies,
+4397,Immunologic Techniques,D007158
+4398,Investigative Techniques,D008919
+4399,"Receptors, Antigen, T-Cell",D011948
+4400,"Receptors, Artificial",D062165
+4401,"Receptors, Cytoplasmic and Nuclear",D018160
+4402,Recombinant influenza vaccines,
+4412,"Vaccines, Acellular",D022282
+4413,"Vaccines, Subunit",D022223
+4414,Copper Radioisotopes,D003301
+4415,Treatments for Ebola Virus Disease,
+4417,HAO1-directed Small Interfering Ribonucleic Acid (siRNA),
+4422,Gallium Isotopes,D005709
+4431,Nonsteroidal Mineralocorticoid-Receptor Antagonist,
+4432,Complement Factor B Inhibitor,
+4435,CD19-Directed Monoclonal Antibodies,
+4436,Ileal bile acid transport inhibitor,
+4437,Ileal Bile Acid Transporter Inhibitor,
+4438,"Anemia, Hemolytic, Congenital, drug therapy",
+4439,Pyruvate Kinase Activator,
+4446,Bispecific CD20-directed CD3 T Cell Engager,
+4447,Zaire Ebolavirus Glycoprotein-directed Antibody,
+4448,Colony Stimulating Factor-1 Receptor Blocker,
+4456,Interleukin-15,D019409
+4457,"Receptors, Interleukin-15",D053647
+4477,Cyclic Pyranopterin Monophosphate,
+4481,Tyrosine Kinase 2 Inhibitor,
+4482,Beta-Globulins,D001609
+4483,Fibroblasts,D005347
+4484,Keratinocytes,D015603
+4485,Diphtheria Toxin,D004167
+4491,Radioligand Therapeutic Agent,
+4492,Theranostic Nanomedicine,D000068936
+4500,Autologous Hematopoietic Stem Cell-Based Gene Therapy,
+4501,Live Attenuated Influenza B Virus Vaccine,
+4525,"Cells, Allogeneic",
+4526,"Cells, Cultured, Allogeneic",
+4527,Hematopoietic Stem Cells,D006412
+4531,Menin Inhibitor,
+4549,Hyperpolarized Contrast Agent,
+4560,Respiratory syncytial virus (RSV) vaccines,D022261
+4563,Semifluorinated Alkane,
+4567,Ectoparasiticide,
+4568,"Amyloidosis, prevention & control",
+4577,Corticotropin-releasing Factor Type 1 Receptor Antagonist,
+4590,Chikungunya Fever,D065632
+4591,Nitric Oxide Releasing Agent,
+4592,Extended-spectrum beta-lactamase inhibitors,
+4593,Graphite,D006108
+4594,APOC-III-directed RNA Interaction,
+4596,Interleukin-15 Receptor Agonist,
+4599,Proliferation Inducing Ligand (APRIL) blockers,
+4628,Chlorofluorocarbons,D017402
