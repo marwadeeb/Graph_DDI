@@ -12,14 +12,18 @@
 | 1 — Parse & Validate | `parser/run_all.py` | `data/step1_full/` — 27 CSVs, all drugs | 707 MB · gitignored |
 | 2 — Dedup Interactions | `pipeline/step2_dedup_interactions.py` | `data/step2_dedup/` — 1 CSV, undirected DDI | 171 MB · gitignored |
 | 3 — FDA-Approved Subset | `pipeline/step3_fda_approved.py` | `data/step3_approved/` — 27 CSVs, 4,795 drugs | 351 MB · **on GitHub** |
-| 4 — Build Graph | `pipeline/step4_build_graph.py` | `data/step4_graph/` — node/edge CSVs for GNN | 19 MB · **on GitHub** |
+| 4a — Build Graph | `pipeline/step4_build_graph.py` | `data/step4_graph/` — 191 structural features + edge index | 19 MB · **on GitHub** |
+| 4b — Text Embeddings | `pipeline/step4_embed.py` | `data/step4_graph/` — 768-dim PubMedBERT + combined 959-dim | 94 MB · **on GitHub** |
+| 5 — PyG Data Object | `pipeline/step5_pyg_data.py` | `data/step4_graph/ddi_graph.pt` — PyTorch Geometric `Data` | 58 MB · **on GitHub** |
 
 ```bash
 pip install -r requirements.txt
 python parser/run_all.py                       # Step 1: parse + validate (~2 min)
 python pipeline/step2_dedup_interactions.py    # Step 2: dedup DDI pairs (~3.5 min)
 python pipeline/step3_fda_approved.py          # Step 3: FDA-approved subset (~20 s)
-python pipeline/step4_build_graph.py           # Step 4: build graph tensors (~15 s)
+python pipeline/step4_build_graph.py           # Step 4a: structural node features (~15 s)
+python pipeline/step4_embed.py                 # Step 4b: PubMedBERT text embeddings (~25 min, CPU)
+python pipeline/step5_pyg_data.py              # Step 5:  assemble PyG Data object (~2 s)
 ```
 
 ---
@@ -46,7 +50,9 @@ python pipeline/step4_build_graph.py           # Step 4: build graph tensors (~1
 ├── pipeline/                        Steps 2–4 — post-processing
 │   ├── step2_dedup_interactions.py  directed → undirected DDI pairs + interaction_id PK
 │   ├── step3_fda_approved.py        filter all tables to FDA-approved drugs
-│   └── step4_build_graph.py         build node feature matrix + edge index for GNN
+│   ├── step4_build_graph.py         build 191 structural node features + edge index (step 4a)
+│   ├── step4_embed.py               PubMedBERT text embeddings → 959-dim combined features (step 4b)
+│   └── step5_pyg_data.py            assemble PyTorch Geometric Data object → ddi_graph.pt (step 5)
 └── data/
     ├── step1_full/                  full parse output             [gitignored]
     ├── step2_dedup/                 undirected DDI pairs          [gitignored]
@@ -421,38 +427,82 @@ drugs ─────────────────────── drug
 
 Built from `data/step3_approved/`. All 4,795 FDA-approved drugs become nodes; all 824,249 undirected DDI pairs become edges.
 
-| File | Rows | Description |
+### Step 4a — Structural features (`step4_build_graph.py`)
+
+| File | Shape | Description |
 |---|---|---|
-| `node_mapping.csv` | 4,795 | `node_idx`, `drugbank_id`, `name` — integer index ↔ drug |
-| `node_features.csv` | 4,795 | `node_idx` + 70 standardized features (mean=0, std=1) |
-| `node_features_raw.csv` | 4,795 | Same 70 features, unscaled original values |
-| `edge_index.csv` | 824,249 | `src_idx`, `dst_idx`, `interaction_id` |
+| `node_mapping.csv` | 4,795 × 3 | `node_idx`, `drugbank_id`, `name` — integer index ↔ drug |
+| `node_features.csv` | 4,795 × 192 | `node_idx` + 191 standardized structural features (mean=0, std=1) |
+| `node_features_raw.csv` | 4,795 × 192 | Same 191 features, unscaled |
+| `edge_index.csv` | 824,249 × 3 | `src_idx`, `dst_idx`, `interaction_id` |
 | `feature_names.json` | — | Feature name list + group labels |
 
-**Feature groups (70 total):**
+**Structural feature groups (191 total):**
 
-| Group | Features | Source |
+| Group | Count | Features | Source |
+|---|---|---|---|
+| A — Masses | 2 | `average_mass`, `monoisotopic_mass` | `drugs.csv` |
+| B — Type & state | 4 | `is_biotech`, `state_solid/liquid/gas` | `drugs.csv` |
+| C — Calculated props | 17 | logP, logS, MW, HBD, HBA, RotB, PSA, charge, rings, bioavailability, Rule of Five, Ghose filter, MDDR-like rule, refractivity, polarizability, pKa acid/basic | `drug_properties.csv` (ChemAxon/ALOGPS) |
+| D — Experimental props | 6 | logP, logS, melting point, boiling point, water solubility, pKa | `drug_properties.csv` (lab-measured) |
+| E — Group flags | 5 | `is_withdrawn`, `is_investigational`, `is_vet_approved`, `is_nutraceutical`, `is_illicit` | `drug_attributes.csv` (`attr_type='group'`) |
+| F — Counts | 11 | n_targets, n_enzymes, n_carriers, n_transporters, n_categories, n_atc_codes, n_patents, n_products, n_food_interactions, n_synonyms, n_pathways | Counted from interaction/classification tables |
+| G — ATC anatomical | 14 | `atc_A` … `atc_V` one-hot | `atc_codes.csv` (`l4_code`) |
+| H — ClassyFire | 12 | `kingdom_organic/inorganic`; top-10 superclass one-hot | `drugs.csv` |
+| I — MeSH categories | 50 | Top-50 therapeutic categories multi-hot (e.g. cytochrome P-450 substrates, anti-infectives, antineoplastics, …) | `drug_categories.csv` + `categories.csv` |
+| J — Pathways | 49 | Top-50 SMPDB pathways multi-hot (e.g. purine metabolism, tyrosine metabolism, …) | `pathway_members.csv` + `pathways.csv` |
+| K — Sequence | 21 | `seq_length` + 20 amino acid percentages (A, C, D, … Y) | `drug_attributes.csv` (`attr_type='sequence'`) |
+
+Missing continuous values → median imputation + standardization. Binary/count/one-hot → filled with 0.
+
+### Step 4b — Text embeddings (`step4_embed.py`)
+
+Encodes rich drug text (name + description + indication + mechanism of action + pharmacodynamics + toxicity + metabolism + absorption + food interactions + MeSH categories + ATC subgroups) using **PubMedBERT** (`pritamdeka/S-PubMedBert-MS-MARCO`, 768-dim), a biomedical sentence transformer. Embeddings are L2-normalized.
+
+| File | Shape | Description |
 |---|---|---|
-| A — Masses (2) | `average_mass`, `monoisotopic_mass` | `drugs.csv` |
-| B — Type & state (4) | `is_biotech`, `state_solid/liquid/gas` | `drugs.csv` |
-| C — Calculated props (17) | logP, logS, MW, HBD, HBA, RotB, PSA, charge, rings, bioavailability, Rule of Five, Ghose filter, MDDR-like rule, refractivity, polarizability, pKa acid/basic | `drug_properties.csv` (`property_class='calculated'`, ChemAxon/ALOGPS) |
-| D — Experimental props (6) | logP, logS, melting point, boiling point, water solubility, pKa | `drug_properties.csv` (`property_class='experimental'`, lab-measured) |
-| E — Group flags (5) | `is_withdrawn`, `is_investigational`, `is_vet_approved`, `is_nutraceutical`, `is_illicit` | `drug_attributes.csv` (`attr_type='group'`) |
-| F — Counts (10) | n_targets, n_enzymes, n_carriers, n_transporters, n_categories, n_atc_codes, n_patents, n_products, n_food_interactions, n_synonyms | Counted from `drug_interactants`, `drug_categories`, `atc_codes`, `patents`, `products`, `drug_attributes` |
-| G — ATC anatomical (14) | `atc_A` … `atc_V` one-hot (A=Alimentary, B=Blood, C=Cardiovascular, J=Anti-infectives, N=Nervous system, …) | `atc_codes.csv` (`l4_code`) |
-| H — Classification (12) | `kingdom_organic`, `kingdom_inorganic`; top-10 superclass one-hot | `drugs.csv` (`classification_kingdom`, `classification_superclass` — ClassyFire) |
+| `node_embeddings.csv` | 4,795 × 769 | `node_idx` + 768 PubMedBERT dimensions |
+| `node_features_combined.csv` | 4,795 × 960 | `node_idx` + 191 structural + 768 text = **959 total features** |
 
-Missing continuous values are imputed with the column median. Binary/count/one-hot missing values are filled with 0.
+Use `node_features_combined.csv` as the final node feature matrix for GNN training.
+
+---
+
+## Step 5 — PyG Data Object (`data/step4_graph/ddi_graph.pt`)
+
+Assembles the final `torch_geometric.data.Data` object from the step4 CSVs.
+
+| Property | Value |
+|---|---|
+| `data.x` | `[4795, 959]` float32 — combined node feature matrix |
+| `data.edge_index` | `[2, 1,648,498]` long — COO format, both directions |
+| `data.edge_attr` | `[1,648,498, 1]` long — `interaction_id` per edge |
+| `data.drugbank_ids` | list of 4,795 DrugBank IDs (index → DB#####) |
+| `data.drug_names` | list of 4,795 drug names |
+| `data.is_undirected()` | `True` |
+
+```python
+import torch
+data = torch.load("data/step4_graph/ddi_graph.pt")
+x          = data.x           # [4795, 959] node features
+edge_index = data.edge_index  # [2, 1648498]
+```
+
+Use `--structural-only` for a 191-dim ablation variant (`ddi_graph_structural.pt`):
+```bash
+python pipeline/step5_pyg_data.py --structural-only
+```
 
 ---
 
 ## Downstream Use
 
 **GNN (link prediction)**
-- **Start here:** `data/step4_graph/` — ready-to-load node features + edge index
-- **Edges:** `edge_index.csv` — 824K undirected pairs as integer (src, dst) indices
-- **Node features:** `node_features.csv` — 4,795 × 70, already standardized
+- **Start here:** `data/step4_graph/ddi_graph.pt` — load directly with `torch.load(...)`
+- **Node features:** `data.x` — 4,795 × 959 (191 structural + 768 PubMedBERT), already standardized
+- **Edges:** `data.edge_index` — 1,648,498 directed edges (824,249 DDI pairs × 2)
 - **Negative sampling:** drug node pairs absent from `edge_index.csv`
+- **Ablation (no text):** use `ddi_graph_structural.pt` — 4,795 × 191
 - **Protein context (optional enrichment):** join `step3_approved/drug_interactants.csv` → `polypeptides.csv` for target/enzyme embeddings
 
 **RAG (PharmaBot)**
