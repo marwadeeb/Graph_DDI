@@ -58,6 +58,9 @@ def main():
     # Rename columns to keep naming consistent with downstream use
     dedup = dedup.rename(columns={"drug_a": "drugbank_id_a", "drug_b": "drugbank_id_b"})
 
+    # Add integer primary key (1-based)
+    dedup.insert(0, "interaction_id", range(1, len(dedup) + 1))
+
     dedup.to_csv(OUTPUT_CSV, index=False)
 
     elapsed = time.time() - t0

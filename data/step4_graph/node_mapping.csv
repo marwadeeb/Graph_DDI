@@ -1,0 +1,4796 @@
+node_idx,drugbank_id,name
+0,DB00001,Lepirudin
+1,DB00002,Cetuximab
+2,DB00003,Dornase alfa
+3,DB00004,Denileukin diftitox
+4,DB00005,Etanercept
+5,DB00006,Bivalirudin
+6,DB00007,Leuprolide
+7,DB00008,Peginterferon alfa-2a
+8,DB00009,Alteplase
+9,DB00010,Sermorelin
+10,DB00011,Interferon alfa-n1
+11,DB00012,Darbepoetin alfa
+12,DB00013,Urokinase
+13,DB00014,Goserelin
+14,DB00015,Reteplase
+15,DB00016,Erythropoietin
+16,DB00017,Salmon calcitonin
+17,DB00018,Interferon alfa-n3
+18,DB00019,Pegfilgrastim
+19,DB00020,Sargramostim
+20,DB00022,Peginterferon alfa-2b
+21,DB00023,Asparaginase Escherichia coli
+22,DB00024,Thyrotropin alfa
+23,DB00025,"Antihemophilic factor, human recombinant"
+24,DB00026,Anakinra
+25,DB00027,Gramicidin D
+26,DB00028,Human immunoglobulin G
+27,DB00029,Anistreplase
+28,DB00030,Insulin human
+29,DB00031,Tenecteplase
+30,DB00032,Menotropins
+31,DB00033,Interferon gamma-1b
+32,DB00034,Interferon alfa-2a
+33,DB00035,Desmopressin
+34,DB00036,Coagulation factor VIIa Recombinant Human
+35,DB00038,Oprelvekin
+36,DB00039,Palifermin
+37,DB00040,Glucagon
+38,DB00041,Aldesleukin
+39,DB00042,Botulinum toxin type B
+40,DB00043,Omalizumab
+41,DB00044,Lutropin alfa
+42,DB00045,Lyme disease vaccine (recombinant OspA)
+43,DB00046,Insulin lispro
+44,DB00047,Insulin glargine
+45,DB00048,Collagenase clostridium histolyticum
+46,DB00049,Rasburicase
+47,DB00050,Cetrorelix
+48,DB00051,Adalimumab
+49,DB00052,Somatotropin
+50,DB00053,Imiglucerase
+51,DB00054,Abciximab
+52,DB00055,Drotrecogin alfa
+53,DB00056,Gemtuzumab ozogamicin
+54,DB00057,Indium In-111 satumomab pendetide
+55,DB00058,Alpha-1-proteinase inhibitor
+56,DB00059,Pegaspargase
+57,DB00060,Interferon beta-1a
+58,DB00061,Pegademase
+59,DB00062,Albumin human
+60,DB00063,Eptifibatide
+61,DB00065,Infliximab
+62,DB00066,Follitropin
+63,DB00067,Vasopressin
+64,DB00068,Interferon beta-1b
+65,DB00069,Interferon alfacon-1
+66,DB00070,Hyaluronidase (ovine)
+67,DB00071,Insulin pork
+68,DB00072,Trastuzumab
+69,DB00073,Rituximab
+70,DB00074,Basiliximab
+71,DB00075,Muromonab
+72,DB00076,Digoxin Immune Fab (Ovine)
+73,DB00078,Ibritumomab tiuxetan
+74,DB00080,Daptomycin
+75,DB00081,Tositumomab
+76,DB00082,Pegvisomant
+77,DB00083,Botulinum toxin type A
+78,DB00085,Pancrelipase
+79,DB00086,Streptokinase
+80,DB00087,Alemtuzumab
+81,DB00088,Alglucerase
+82,DB00089,Capromab pendetide
+83,DB00090,Laronidase
+84,DB00091,Cyclosporine
+85,DB00092,Alefacept
+86,DB00094,Urofollitropin
+87,DB00095,Efalizumab
+88,DB00097,Choriogonadotropin alfa
+89,DB00098,Antithymocyte immunoglobulin (rabbit)
+90,DB00099,Filgrastim
+91,DB00100,Coagulation Factor IX (Recombinant)
+92,DB00102,Becaplermin
+93,DB00103,Agalsidase beta
+94,DB00104,Octreotide
+95,DB00105,Interferon alfa-2b
+96,DB00106,Abarelix
+97,DB00107,Oxytocin
+98,DB00108,Natalizumab
+99,DB00109,Enfuvirtide
+100,DB00110,Palivizumab
+101,DB00111,Daclizumab
+102,DB00112,Bevacizumab
+103,DB00114,Pyridoxal phosphate
+104,DB00115,Cyanocobalamin
+105,DB00117,Histidine
+106,DB00118,Ademetionine
+107,DB00119,Pyruvic acid
+108,DB00120,Phenylalanine
+109,DB00121,Biotin
+110,DB00122,Choline
+111,DB00123,Lysine
+112,DB00125,Arginine
+113,DB00126,Ascorbic acid
+114,DB00128,Aspartic acid
+115,DB00129,Ornithine
+116,DB00130,L-Glutamine
+117,DB00131,Adenosine phosphate
+118,DB00132,alpha-Linolenic acid
+119,DB00133,Serine
+120,DB00134,Methionine
+121,DB00135,Tyrosine
+122,DB00136,Calcitriol
+123,DB00137,Lutein
+124,DB00138,Cystine
+125,DB00139,Succinic acid
+126,DB00140,Riboflavin
+127,DB00141,N-Acetylglucosamine
+128,DB00142,Glutamic acid
+129,DB00143,Glutathione
+130,DB00144,Phosphatidyl serine
+131,DB00145,Glycine
+132,DB00146,Calcifediol
+133,DB00148,Creatine
+134,DB00149,Leucine
+135,DB00150,Tryptophan
+136,DB00151,Cysteine
+137,DB00152,Thiamine
+138,DB00153,Ergocalciferol
+139,DB00156,Threonine
+140,DB00157,NADH
+141,DB00158,Folic acid
+142,DB00159,Icosapent
+143,DB00160,Alanine
+144,DB00161,Valine
+145,DB00162,Vitamin A
+146,DB00163,Vitamin E
+147,DB00165,Pyridoxine
+148,DB00166,Lipoic acid
+149,DB00167,Isoleucine
+150,DB00169,Cholecalciferol
+151,DB00170,Menadione
+152,DB00172,Proline
+153,DB00173,Adenine
+154,DB00174,Asparagine
+155,DB00175,Pravastatin
+156,DB00176,Fluvoxamine
+157,DB00177,Valsartan
+158,DB00178,Ramipril
+159,DB00180,Flunisolide
+160,DB00181,Baclofen
+161,DB00182,Amphetamine
+162,DB00183,Pentagastrin
+163,DB00184,Nicotine
+164,DB00185,Cevimeline
+165,DB00186,Lorazepam
+166,DB00187,Esmolol
+167,DB00188,Bortezomib
+168,DB00189,Ethchlorvynol
+169,DB00190,Carbidopa
+170,DB00191,Phentermine
+171,DB00192,Indecainide
+172,DB00193,Tramadol
+173,DB00194,Vidarabine
+174,DB00195,Betaxolol
+175,DB00196,Fluconazole
+176,DB00197,Troglitazone
+177,DB00198,Oseltamivir
+178,DB00199,Erythromycin
+179,DB00200,Hydroxocobalamin
+180,DB00201,Caffeine
+181,DB00202,Succinylcholine
+182,DB00203,Sildenafil
+183,DB00204,Dofetilide
+184,DB00205,Pyrimethamine
+185,DB00206,Reserpine
+186,DB00207,Azithromycin
+187,DB00208,Ticlopidine
+188,DB00209,Trospium
+189,DB00210,Adapalene
+190,DB00211,Midodrine
+191,DB00213,Pantoprazole
+192,DB00214,Torasemide
+193,DB00215,Citalopram
+194,DB00216,Eletriptan
+195,DB00217,Bethanidine
+196,DB00218,Moxifloxacin
+197,DB00219,Oxyphenonium
+198,DB00220,Nelfinavir
+199,DB00221,Isoetharine
+200,DB00222,Glimepiride
+201,DB00223,Diflorasone
+202,DB00224,Indinavir
+203,DB00225,Gadodiamide
+204,DB00226,Guanadrel
+205,DB00227,Lovastatin
+206,DB00228,Enflurane
+207,DB00229,Cefotiam
+208,DB00230,Pregabalin
+209,DB00231,Temazepam
+210,DB00232,Methyclothiazide
+211,DB00233,Aminosalicylic acid
+212,DB00234,Reboxetine
+213,DB00235,Milrinone
+214,DB00236,Pipobroman
+215,DB00237,Butabarbital
+216,DB00238,Nevirapine
+217,DB00239,Oxiconazole
+218,DB00240,Alclometasone
+219,DB00241,Butalbital
+220,DB00242,Cladribine
+221,DB00243,Ranolazine
+222,DB00244,Mesalazine
+223,DB00245,Benzatropine
+224,DB00246,Ziprasidone
+225,DB00247,Methysergide
+226,DB00248,Cabergoline
+227,DB00249,Idoxuridine
+228,DB00250,Dapsone
+229,DB00251,Terconazole
+230,DB00252,Phenytoin
+231,DB00253,Medrysone
+232,DB00254,Doxycycline
+233,DB00255,Diethylstilbestrol
+234,DB00256,Lymecycline
+235,DB00257,Clotrimazole
+236,DB00258,Calcium acetate
+237,DB00259,Sulfanilamide
+238,DB00260,Cycloserine
+239,DB00261,Anagrelide
+240,DB00262,Carmustine
+241,DB00263,Sulfisoxazole
+242,DB00264,Metoprolol
+243,DB00265,Crotamiton
+244,DB00266,Dicoumarol
+245,DB00267,Cefmenoxime
+246,DB00268,Ropinirole
+247,DB00269,Chlorotrianisene
+248,DB00270,Isradipine
+249,DB00271,Diatrizoate
+250,DB00272,Betazole
+251,DB00273,Topiramate
+252,DB00274,Cefmetazole
+253,DB00275,Olmesartan
+254,DB00276,Amsacrine
+255,DB00277,Theophylline
+256,DB00278,Argatroban
+257,DB00279,Liothyronine
+258,DB00280,Disopyramide
+259,DB00281,Lidocaine
+260,DB00282,Pamidronic acid
+261,DB00283,Clemastine
+262,DB00284,Acarbose
+263,DB00285,Venlafaxine
+264,DB00286,Conjugated estrogens
+265,DB00287,Travoprost
+266,DB00288,Amcinonide
+267,DB00289,Atomoxetine
+268,DB00290,Bleomycin
+269,DB00291,Chlorambucil
+270,DB00292,Etomidate
+271,DB00293,Raltitrexed
+272,DB00294,Etonogestrel
+273,DB00295,Morphine
+274,DB00296,Ropivacaine
+275,DB00297,Bupivacaine
+276,DB00298,Dapiprazole
+277,DB00299,Penciclovir
+278,DB00300,Tenofovir disoproxil
+279,DB00301,Flucloxacillin
+280,DB00302,Tranexamic acid
+281,DB00303,Ertapenem
+282,DB00304,Desogestrel
+283,DB00305,Mitomycin
+284,DB00306,Talbutal
+285,DB00307,Bexarotene
+286,DB00308,Ibutilide
+287,DB00309,Vindesine
+288,DB00310,Chlorthalidone
+289,DB00311,Ethoxzolamide
+290,DB00312,Pentobarbital
+291,DB00313,Valproic acid
+292,DB00314,Capreomycin
+293,DB00315,Zolmitriptan
+294,DB00316,Acetaminophen
+295,DB00317,Gefitinib
+296,DB00318,Codeine
+297,DB00319,Piperacillin
+298,DB00320,Dihydroergotamine
+299,DB00321,Amitriptyline
+300,DB00322,Floxuridine
+301,DB00323,Tolcapone
+302,DB00324,Fluorometholone
+303,DB00325,Nitroprusside
+304,DB00326,Calcium glucoheptonate
+305,DB00327,Hydromorphone
+306,DB00328,Indomethacin
+307,DB00330,Ethambutol
+308,DB00331,Metformin
+309,DB00332,Ipratropium
+310,DB00333,Methadone
+311,DB00334,Olanzapine
+312,DB00335,Atenolol
+313,DB00336,Nitrofural
+314,DB00337,Pimecrolimus
+315,DB00338,Omeprazole
+316,DB00339,Pyrazinamide
+317,DB00340,Metixene
+318,DB00341,Cetirizine
+319,DB00342,Terfenadine
+320,DB00343,Diltiazem
+321,DB00344,Protriptyline
+322,DB00345,Aminohippuric acid
+323,DB00346,Alfuzosin
+324,DB00347,Trimethadione
+325,DB00348,Nitisinone
+326,DB00349,Clobazam
+327,DB00350,Minoxidil
+328,DB00351,Megestrol acetate
+329,DB00352,Tioguanine
+330,DB00353,Methylergometrine
+331,DB00354,Buclizine
+332,DB00355,Aztreonam
+333,DB00356,Chlorzoxazone
+334,DB00357,Aminoglutethimide
+335,DB00358,Mefloquine
+336,DB00359,Sulfadiazine
+337,DB00360,Sapropterin
+338,DB00361,Vinorelbine
+339,DB00362,Anidulafungin
+340,DB00363,Clozapine
+341,DB00364,Sucralfate
+342,DB00365,Grepafloxacin
+343,DB00366,Doxylamine
+344,DB00367,Levonorgestrel
+345,DB00368,Norepinephrine
+346,DB00369,Cidofovir
+347,DB00370,Mirtazapine
+348,DB00371,Meprobamate
+349,DB00372,Thiethylperazine
+350,DB00373,Timolol
+351,DB00374,Treprostinil
+352,DB00375,Colestipol
+353,DB00376,Trihexyphenidyl
+354,DB00377,Palonosetron
+355,DB00378,Dydrogesterone
+356,DB00379,Mexiletine
+357,DB00380,Dexrazoxane
+358,DB00381,Amlodipine
+359,DB00382,Tacrine
+360,DB00383,Oxyphencyclimine
+361,DB00384,Triamterene
+362,DB00385,Valrubicin
+363,DB00387,Procyclidine
+364,DB00388,Phenylephrine
+365,DB00389,Carbimazole
+366,DB00390,Digoxin
+367,DB00391,Sulpiride
+368,DB00392,Profenamine
+369,DB00393,Nimodipine
+370,DB00394,Beclomethasone dipropionate
+371,DB00395,Carisoprodol
+372,DB00396,Progesterone
+373,DB00397,Phenylpropanolamine
+374,DB00398,Sorafenib
+375,DB00399,Zoledronic acid
+376,DB00400,Griseofulvin
+377,DB00401,Nisoldipine
+378,DB00402,Eszopiclone
+379,DB00403,Ceruletide
+380,DB00404,Alprazolam
+381,DB00405,Dexbrompheniramine
+382,DB00406,Gentian violet cation
+383,DB00407,Ardeparin
+384,DB00408,Loxapine
+385,DB00409,Remoxipride
+386,DB00410,Mupirocin
+387,DB00411,Carbamoylcholine
+388,DB00412,Rosiglitazone
+389,DB00413,Pramipexole
+390,DB00414,Acetohexamide
+391,DB00415,Ampicillin
+392,DB00416,Metocurine iodide
+393,DB00417,Phenoxymethylpenicillin
+394,DB00418,Secobarbital
+395,DB00419,Miglustat
+396,DB00420,Promazine
+397,DB00421,Spironolactone
+398,DB00422,Methylphenidate
+399,DB00423,Methocarbamol
+400,DB00424,Hyoscyamine
+401,DB00425,Zolpidem
+402,DB00426,Famciclovir
+403,DB00427,Triprolidine
+404,DB00428,Streptozocin
+405,DB00429,Carboprost tromethamine
+406,DB00430,Cefpiramide
+407,DB00431,Lindane
+408,DB00432,Trifluridine
+409,DB00433,Prochlorperazine
+410,DB00434,Cyproheptadine
+411,DB00435,Nitric Oxide
+412,DB00436,Bendroflumethiazide
+413,DB00437,Allopurinol
+414,DB00438,Ceftazidime
+415,DB00439,Cerivastatin
+416,DB00440,Trimethoprim
+417,DB00441,Gemcitabine
+418,DB00442,Entecavir
+419,DB00443,Betamethasone
+420,DB00444,Teniposide
+421,DB00445,Epirubicin
+422,DB00446,Chloramphenicol
+423,DB00447,Loracarbef
+424,DB00448,Lansoprazole
+425,DB00449,Dipivefrin
+426,DB00450,Droperidol
+427,DB00451,Levothyroxine
+428,DB00452,Framycetin
+429,DB00454,Meperidine
+430,DB00455,Loratadine
+431,DB00456,Cefalotin
+432,DB00457,Prazosin
+433,DB00458,Imipramine
+434,DB00459,Acitretin
+435,DB00460,Verteporfin
+436,DB00461,Nabumetone
+437,DB00462,Methscopolamine bromide
+438,DB00463,Metharbital
+439,DB00464,Sodium tetradecyl sulfate
+440,DB00465,Ketorolac
+441,DB00467,Enoxacin
+442,DB00468,Quinine
+443,DB00469,Tenoxicam
+444,DB00470,Dronabinol
+445,DB00471,Montelukast
+446,DB00472,Fluoxetine
+447,DB00473,Hexylcaine
+448,DB00474,Methohexital
+449,DB00475,Chlordiazepoxide
+450,DB00476,Duloxetine
+451,DB00477,Chlorpromazine
+452,DB00478,Rimantadine
+453,DB00479,Amikacin
+454,DB00480,Lenalidomide
+455,DB00481,Raloxifene
+456,DB00482,Celecoxib
+457,DB00483,Gallamine triethiodide
+458,DB00484,Brimonidine
+459,DB00485,Dicloxacillin
+460,DB00486,Nabilone
+461,DB00487,Pefloxacin
+462,DB00488,Altretamine
+463,DB00489,Sotalol
+464,DB00490,Buspirone
+465,DB00491,Miglitol
+466,DB00492,Fosinopril
+467,DB00493,Cefotaxime
+468,DB00494,Entacapone
+469,DB00495,Zidovudine
+470,DB00496,Darifenacin
+471,DB00497,Oxycodone
+472,DB00498,Phenindione
+473,DB00499,Flutamide
+474,DB00500,Tolmetin
+475,DB00501,Cimetidine
+476,DB00502,Haloperidol
+477,DB00503,Ritonavir
+478,DB00504,Levallorphan
+479,DB00505,Tridihexethyl
+480,DB00507,Nitazoxanide
+481,DB00508,Triflupromazine
+482,DB00509,Dextrothyroxine
+483,DB00511,Acetyldigitoxin
+484,DB00512,Vancomycin
+485,DB00513,Aminocaproic acid
+486,DB00514,Dextromethorphan
+487,DB00515,Cisplatin
+488,DB00516,Bentoquatam
+489,DB00517,Anisotropine methylbromide
+490,DB00518,Albendazole
+491,DB00519,Trandolapril
+492,DB00520,Caspofungin
+493,DB00521,Carteolol
+494,DB00522,Bentiromide
+495,DB00523,Alitretinoin
+496,DB00524,Metolazone
+497,DB00525,Tolnaftate
+498,DB00526,Oxaliplatin
+499,DB00527,Cinchocaine
+500,DB00528,Lercanidipine
+501,DB00529,Foscarnet
+502,DB00530,Erlotinib
+503,DB00531,Cyclophosphamide
+504,DB00532,Mephenytoin
+505,DB00533,Rofecoxib
+506,DB00534,Chlormerodrin
+507,DB00535,Cefdinir
+508,DB00536,Guanidine
+509,DB00537,Ciprofloxacin
+510,DB00538,Gadoversetamide
+511,DB00539,Toremifene
+512,DB00540,Nortriptyline
+513,DB00541,Vincristine
+514,DB00542,Benazepril
+515,DB00543,Amoxapine
+516,DB00544,Fluorouracil
+517,DB00545,Pyridostigmine
+518,DB00547,Desoximetasone
+519,DB00548,Azelaic acid
+520,DB00549,Zafirlukast
+521,DB00550,Propylthiouracil
+522,DB00551,Acetohydroxamic acid
+523,DB00552,Pentostatin
+524,DB00553,Methoxsalen
+525,DB00554,Piroxicam
+526,DB00555,Lamotrigine
+527,DB00556,Perflutren
+528,DB00557,Hydroxyzine
+529,DB00558,Zanamivir
+530,DB00559,Bosentan
+531,DB00560,Tigecycline
+532,DB00561,Doxapram
+533,DB00562,Benzthiazide
+534,DB00563,Methotrexate
+535,DB00564,Carbamazepine
+536,DB00565,Cisatracurium
+537,DB00566,Succimer
+538,DB00567,Cephalexin
+539,DB00568,Cinnarizine
+540,DB00569,Fondaparinux
+541,DB00570,Vinblastine
+542,DB00571,Propranolol
+543,DB00572,Atropine
+544,DB00573,Fenoprofen
+545,DB00574,Fenfluramine
+546,DB00575,Clonidine
+547,DB00576,Sulfamethizole
+548,DB00577,Valaciclovir
+549,DB00578,Carbenicillin
+550,DB00579,Mazindol
+551,DB00580,Valdecoxib
+552,DB00581,Lactulose
+553,DB00582,Voriconazole
+554,DB00583,Levocarnitine
+555,DB00584,Enalapril
+556,DB00585,Nizatidine
+557,DB00586,Diclofenac
+558,DB00588,Fluticasone propionate
+559,DB00589,Lisuride
+560,DB00590,Doxazosin
+561,DB00591,Fluocinolone acetonide
+562,DB00592,Piperazine
+563,DB00593,Ethosuximide
+564,DB00594,Amiloride
+565,DB00595,Oxytetracycline
+566,DB00596,Ulobetasol
+567,DB00597,Gadoteridol
+568,DB00598,Labetalol
+569,DB00599,Thiopental
+570,DB00600,Monobenzone
+571,DB00601,Linezolid
+572,DB00602,Ivermectin
+573,DB00603,Medroxyprogesterone acetate
+574,DB00604,Cisapride
+575,DB00605,Sulindac
+576,DB00606,Cyclothiazide
+577,DB00607,Nafcillin
+578,DB00608,Chloroquine
+579,DB00609,Ethionamide
+580,DB00610,Metaraminol
+581,DB00611,Butorphanol
+582,DB00612,Bisoprolol
+583,DB00613,Amodiaquine
+584,DB00615,Rifabutin
+585,DB00617,Paramethadione
+586,DB00618,Demeclocycline
+587,DB00619,Imatinib
+588,DB00620,Triamcinolone
+589,DB00621,Oxandrolone
+590,DB00622,Nicardipine
+591,DB00623,Fluphenazine
+592,DB00624,Testosterone
+593,DB00625,Efavirenz
+594,DB00626,Bacitracin
+595,DB00627,Niacin
+596,DB00628,Clorazepic acid
+597,DB00629,Guanabenz
+598,DB00630,Alendronic acid
+599,DB00631,Clofarabine
+600,DB00632,Docosanol
+601,DB00633,Dexmedetomidine
+602,DB00634,Sulfacetamide
+603,DB00635,Prednisone
+604,DB00636,Clofibrate
+605,DB00637,Astemizole
+606,DB00638,Inulin
+607,DB00639,Butoconazole
+608,DB00640,Adenosine
+609,DB00641,Simvastatin
+610,DB00642,Pemetrexed
+611,DB00643,Mebendazole
+612,DB00644,Gonadorelin
+613,DB00645,Dyclonine
+614,DB00646,Nystatin
+615,DB00647,Dextropropoxyphene
+616,DB00648,Mitotane
+617,DB00649,Stavudine
+618,DB00650,Leucovorin
+619,DB00651,Dyphylline
+620,DB00652,Pentazocine
+621,DB00653,Magnesium sulfate
+622,DB00654,Latanoprost
+623,DB00655,Estrone
+624,DB00656,Trazodone
+625,DB00657,Mecamylamine
+626,DB00658,Sevelamer
+627,DB00659,Acamprosate
+628,DB00660,Metaxalone
+629,DB00661,Verapamil
+630,DB00662,Trimethobenzamide
+631,DB00663,Flumethasone
+632,DB00664,Sulfametopyrazine
+633,DB00665,Nilutamide
+634,DB00666,Nafarelin
+635,DB00668,Epinephrine
+636,DB00669,Sumatriptan
+637,DB00670,Pirenzepine
+638,DB00671,Cefixime
+639,DB00672,Chlorpropamide
+640,DB00673,Aprepitant
+641,DB00674,Galantamine
+642,DB00675,Tamoxifen
+643,DB00676,Benzyl benzoate
+644,DB00677,Isoflurophate
+645,DB00678,Losartan
+646,DB00679,Thioridazine
+647,DB00680,Moricizine
+648,DB00681,Amphotericin B
+649,DB00682,Warfarin
+650,DB00683,Midazolam
+651,DB00684,Tobramycin
+652,DB00685,Trovafloxacin
+653,DB00686,Pentosan polysulfate
+654,DB00687,Fludrocortisone
+655,DB00688,Mycophenolate mofetil
+656,DB00689,Cephaloglycin
+657,DB00690,Flurazepam
+658,DB00691,Moexipril
+659,DB00692,Phentolamine
+660,DB00693,Fluorescein
+661,DB00694,Daunorubicin
+662,DB00695,Furosemide
+663,DB00696,Ergotamine
+664,DB00697,Tizanidine
+665,DB00698,Nitrofurantoin
+666,DB00699,Nicergoline
+667,DB00700,Eplerenone
+668,DB00701,Amprenavir
+669,DB00702,Icodextrin
+670,DB00703,Methazolamide
+671,DB00704,Naltrexone
+672,DB00705,Delavirdine
+673,DB00706,Tamsulosin
+674,DB00707,Porfimer sodium
+675,DB00708,Sufentanil
+676,DB00709,Lamivudine
+677,DB00710,Ibandronate
+678,DB00711,Diethylcarbamazine
+679,DB00712,Flurbiprofen
+680,DB00713,Oxacillin
+681,DB00714,Apomorphine
+682,DB00715,Paroxetine
+683,DB00716,Nedocromil
+684,DB00717,Norethisterone
+685,DB00718,Adefovir dipivoxil
+686,DB00719,Azatadine
+687,DB00720,Clodronic acid
+688,DB00721,Procaine
+689,DB00722,Lisinopril
+690,DB00723,Methoxamine
+691,DB00724,Imiquimod
+692,DB00725,Homatropine methylbromide
+693,DB00726,Trimipramine
+694,DB00727,Nitroglycerin
+695,DB00728,Rocuronium
+696,DB00730,Thiabendazole
+697,DB00731,Nateglinide
+698,DB00732,Atracurium besylate
+699,DB00733,Pralidoxime
+700,DB00734,Risperidone
+701,DB00735,Naftifine
+702,DB00736,Esomeprazole
+703,DB00737,Meclizine
+704,DB00738,Pentamidine
+705,DB00739,Hetacillin
+706,DB00740,Riluzole
+707,DB00741,Hydrocortisone
+708,DB00742,Mannitol
+709,DB00743,Gadobenic acid
+710,DB00744,Zileuton
+711,DB00745,Modafinil
+712,DB00746,Deferoxamine
+713,DB00747,Scopolamine
+714,DB00748,Carbinoxamine
+715,DB00749,Etodolac
+716,DB00750,Prilocaine
+717,DB00751,Epinastine
+718,DB00752,Tranylcypromine
+719,DB00753,Isoflurane
+720,DB00754,Ethotoin
+721,DB00755,Tretinoin
+722,DB00756,Hexachlorophene
+723,DB00757,Dolasetron
+724,DB00758,Clopidogrel
+725,DB00759,Tetracycline
+726,DB00760,Meropenem
+727,DB00761,Potassium chloride
+728,DB00762,Irinotecan
+729,DB00763,Methimazole
+730,DB00764,Mometasone
+731,DB00765,Metyrosine
+732,DB00766,Clavulanic acid
+733,DB00767,Benzquinamide
+734,DB00768,Olopatadine
+735,DB00769,Hydrocortamate
+736,DB00770,Alprostadil
+737,DB00771,Clidinium
+738,DB00772,Malathion
+739,DB00773,Etoposide
+740,DB00774,Hydroflumethiazide
+741,DB00775,Tirofiban
+742,DB00776,Oxcarbazepine
+743,DB00777,Propiomazine
+744,DB00778,Roxithromycin
+745,DB00779,Nalidixic acid
+746,DB00780,Phenelzine
+747,DB00782,Propantheline
+748,DB00783,Estradiol
+749,DB00784,Mefenamic acid
+750,DB00785,Cryptenamine
+751,DB00787,Acyclovir
+752,DB00788,Naproxen
+753,DB00789,Gadopentetic acid
+754,DB00790,Perindopril
+755,DB00791,Uracil mustard
+756,DB00792,Tripelennamine
+757,DB00793,Haloprogin
+758,DB00794,Primidone
+759,DB00795,Sulfasalazine
+760,DB00796,Candesartan cilexetil
+761,DB00797,Tolazoline
+762,DB00798,Gentamicin
+763,DB00799,Tazarotene
+764,DB00800,Fenoldopam
+765,DB00801,Halazepam
+766,DB00802,Alfentanil
+767,DB00803,Colistin
+768,DB00804,Dicyclomine
+769,DB00805,Minaprine
+770,DB00806,Pentoxifylline
+771,DB00807,Proparacaine
+772,DB00808,Indapamide
+773,DB00809,Tropicamide
+774,DB00810,Biperiden
+775,DB00811,Ribavirin
+776,DB00812,Phenylbutazone
+777,DB00813,Fentanyl
+778,DB00814,Meloxicam
+779,DB00815,Sodium lauryl sulfate
+780,DB00816,Orciprenaline
+781,DB00817,Rosoxacin
+782,DB00818,Propofol
+783,DB00819,Acetazolamide
+784,DB00820,Tadalafil
+785,DB00821,Carprofen
+786,DB00822,Disulfiram
+787,DB00823,Ethynodiol diacetate
+788,DB00824,Enprofylline
+789,DB00825,Levomenthol
+790,DB00826,Natamycin
+791,DB00827,Cinoxacin
+792,DB00828,Fosfomycin
+793,DB00829,Diazepam
+794,DB00830,Phenmetrazine
+795,DB00831,Trifluoperazine
+796,DB00832,Phensuximide
+797,DB00833,Cefaclor
+798,DB00834,Mifepristone
+799,DB00835,Brompheniramine
+800,DB00836,Loperamide
+801,DB00838,Clocortolone
+802,DB00839,Tolazamide
+803,DB00840,Hydroxypropyl cellulose
+804,DB00841,Dobutamine
+805,DB00842,Oxazepam
+806,DB00843,Donepezil
+807,DB00844,Nalbuphine
+808,DB00845,Clofazimine
+809,DB00846,Flurandrenolide
+810,DB00847,Cysteamine
+811,DB00848,Levamisole
+812,DB00849,Methylphenobarbital
+813,DB00850,Perphenazine
+814,DB00851,Dacarbazine
+815,DB00852,Pseudoephedrine
+816,DB00853,Temozolomide
+817,DB00854,Levorphanol
+818,DB00855,Aminolevulinic acid
+819,DB00856,Chlorphenesin
+820,DB00857,Terbinafine
+821,DB00859,Penicillamine
+822,DB00860,Prednisolone
+823,DB00861,Diflunisal
+824,DB00862,Vardenafil
+825,DB00863,Ranitidine
+826,DB00864,Tacrolimus
+827,DB00865,Benzphetamine
+828,DB00866,Alprenolol
+829,DB00867,Ritodrine
+830,DB00868,Benzonatate
+831,DB00869,Dorzolamide
+832,DB00870,Suprofen
+833,DB00871,Terbutaline
+834,DB00872,Conivaptan
+835,DB14596,Loteprednol etabonate
+836,DB00874,Guaifenesin
+837,DB00875,Flupentixol
+838,DB00876,Eprosartan
+839,DB00877,Sirolimus
+840,DB00878,Chlorhexidine
+841,DB00879,Emtricitabine
+842,DB00880,Chlorothiazide
+843,DB00881,Quinapril
+844,DB00882,Clomifene
+845,DB00883,Isosorbide dinitrate
+846,DB00884,Risedronic acid
+847,DB00885,Pemirolast
+848,DB00887,Bumetanide
+849,DB00888,Mechlorethamine
+850,DB00889,Granisetron
+851,DB00890,Dienestrol
+852,DB00891,Sulfapyridine
+853,DB00892,Oxybuprocaine
+854,DB00893,Iron Dextran
+855,DB00894,Testolactone
+856,DB00895,Benzylpenicilloyl polylysine
+857,DB00896,Rimexolone
+858,DB00897,Triazolam
+859,DB00898,Ethanol
+860,DB00899,Remifentanil
+861,DB00900,Didanosine
+862,DB00901,Bitolterol
+863,DB00902,Methdilazine
+864,DB00903,Etacrynic acid
+865,DB00904,Ondansetron
+866,DB00905,Bimatoprost
+867,DB00906,Tiagabine
+868,DB00907,Cocaine
+869,DB00908,Quinidine
+870,DB00909,Zonisamide
+871,DB00910,Paricalcitol
+872,DB00911,Tinidazole
+873,DB00912,Repaglinide
+874,DB00913,Anileridine
+875,DB00914,Phenformin
+876,DB00915,Amantadine
+877,DB00916,Metronidazole
+878,DB00917,Dinoprostone
+879,DB00918,Almotriptan
+880,DB00919,Spectinomycin
+881,DB00920,Ketotifen
+882,DB00921,Buprenorphine
+883,DB00922,Levosimendan
+884,DB00923,Ceforanide
+885,DB00924,Cyclobenzaprine
+886,DB00925,Phenoxybenzamine
+887,DB00926,Etretinate
+888,DB00927,Famotidine
+889,DB00928,Azacitidine
+890,DB00929,Misoprostol
+891,DB00930,Colesevelam
+892,DB00931,Metacycline
+893,DB00932,Tipranavir
+894,DB00933,Mesoridazine
+895,DB00934,Maprotiline
+896,DB00935,Oxymetazoline
+897,DB00936,Salicylic acid
+898,DB00937,Diethylpropion
+899,DB00938,Salmeterol
+900,DB00939,Meclofenamic acid
+901,DB00940,Methantheline
+902,DB00941,Hexafluronium
+903,DB00942,Cycrimine
+904,DB00943,Zalcitabine
+905,DB00944,Demecarium
+906,DB00945,Acetylsalicylic acid
+907,DB00946,Phenprocoumon
+908,DB00947,Fulvestrant
+909,DB00948,Mezlocillin
+910,DB00949,Felbamate
+911,DB00950,Fexofenadine
+912,DB00951,Isoniazid
+913,DB00952,Naratriptan
+914,DB00953,Rizatriptan
+915,DB00955,Netilmicin
+916,DB00956,Hydrocodone
+917,DB00957,Norgestimate
+918,DB00958,Carboplatin
+919,DB00959,Methylprednisolone
+920,DB00960,Pindolol
+921,DB00961,Mepivacaine
+922,DB00962,Zaleplon
+923,DB00963,Bromfenac
+924,DB00964,Apraclonidine
+925,DB00965,Ethiodized oil
+926,DB00966,Telmisartan
+927,DB00967,Desloratadine
+928,DB00968,Methyldopa
+929,DB00969,Alosetron
+930,DB00970,Dactinomycin
+931,DB00971,Selenium Sulfide
+932,DB00972,Azelastine
+933,DB00973,Ezetimibe
+934,DB00974,Edetic acid
+935,DB00975,Dipyridamole
+936,DB00976,Telithromycin
+937,DB00977,Ethinylestradiol
+938,DB00978,Lomefloxacin
+939,DB00979,Cyclopentolate
+940,DB00980,Ramelteon
+941,DB00981,Physostigmine
+942,DB00982,Isotretinoin
+943,DB00983,Formoterol
+944,DB00984,Nandrolone phenpropionate
+945,DB00985,Dimenhydrinate
+946,DB00986,Glycopyrronium
+947,DB00987,Cytarabine
+948,DB00988,Dopamine
+949,DB00989,Rivastigmine
+950,DB00990,Exemestane
+951,DB00991,Oxaprozin
+952,DB00992,Methyl aminolevulinate
+953,DB00993,Azathioprine
+954,DB00994,Neomycin
+955,DB00995,Auranofin
+956,DB00996,Gabapentin
+957,DB00997,Doxorubicin
+958,DB00998,Frovatriptan
+959,DB00999,Hydrochlorothiazide
+960,DB01000,Cyclacillin
+961,DB01001,Albuterol
+962,DB01002,Levobupivacaine
+963,DB01003,Cromoglicic acid
+964,DB01004,Ganciclovir
+965,DB01005,Hydroxyurea
+966,DB01006,Letrozole
+967,DB01007,Tioconazole
+968,DB01008,Busulfan
+969,DB01009,Ketoprofen
+970,DB01010,Edrophonium
+971,DB01011,Metyrapone
+972,DB01012,Cinacalcet
+973,DB01013,Clobetasol propionate
+974,DB01014,Balsalazide
+975,DB01015,Sulfamethoxazole
+976,DB01016,Glyburide
+977,DB01017,Minocycline
+978,DB01018,Guanfacine
+979,DB01019,Bethanechol
+980,DB01020,Isosorbide mononitrate
+981,DB01021,Trichlormethiazide
+982,DB01022,Phylloquinone
+983,DB01023,Felodipine
+984,DB01024,Mycophenolic acid
+985,DB01025,Amlexanox
+986,DB01026,Ketoconazole
+987,DB01028,Methoxyflurane
+988,DB01029,Irbesartan
+989,DB01030,Topotecan
+990,DB01031,Ethinamate
+991,DB01032,Probenecid
+992,DB01033,Mercaptopurine
+993,DB01035,Procainamide
+994,DB01036,Tolterodine
+995,DB01037,Selegiline
+996,DB01038,Carphenazine
+997,DB01039,Fenofibrate
+998,DB01041,Thalidomide
+999,DB01042,Melphalan
+1000,DB01043,Memantine
+1001,DB01044,Gatifloxacin
+1002,DB01045,Rifampin
+1003,DB01046,Lubiprostone
+1004,DB01047,Fluocinonide
+1005,DB01048,Abacavir
+1006,DB01049,Ergoloid mesylate
+1007,DB01050,Ibuprofen
+1008,DB01051,Novobiocin
+1009,DB01053,Benzylpenicillin
+1010,DB01054,Nitrendipine
+1011,DB01056,Tocainide
+1012,DB01057,Echothiophate
+1013,DB01058,Praziquantel
+1014,DB01059,Norfloxacin
+1015,DB01060,Amoxicillin
+1016,DB01061,Azlocillin
+1017,DB01062,Oxybutynin
+1018,DB01063,Acetophenazine
+1019,DB01064,Isoprenaline
+1020,DB01065,Melatonin
+1021,DB01066,Cefditoren
+1022,DB01067,Glipizide
+1023,DB01068,Clonazepam
+1024,DB01069,Promethazine
+1025,DB01070,Dihydrotachysterol
+1026,DB01072,Atazanavir
+1027,DB01073,Fludarabine
+1028,DB01074,Perhexiline
+1029,DB01075,Diphenhydramine
+1030,DB01076,Atorvastatin
+1031,DB01077,Etidronic acid
+1032,DB01078,Deslanoside
+1033,DB01079,Tegaserod
+1034,DB01080,Vigabatrin
+1035,DB01081,Diphenoxylate
+1036,DB01082,Streptomycin
+1037,DB01083,Orlistat
+1038,DB01084,Emedastine
+1039,DB01085,Pilocarpine
+1040,DB01086,Benzocaine
+1041,DB01087,Primaquine
+1042,DB01088,Iloprost
+1043,DB01089,Deserpidine
+1044,DB01090,Pentolinium
+1045,DB01091,Butenafine
+1046,DB01092,Ouabain
+1047,DB01093,Dimethyl sulfoxide
+1048,DB01095,Fluvastatin
+1049,DB01096,Oxamniquine
+1050,DB01097,Leflunomide
+1051,DB01098,Rosuvastatin
+1052,DB01099,Flucytosine
+1053,DB01100,Pimozide
+1054,DB01101,Capecitabine
+1055,DB01102,Arbutamine
+1056,DB01104,Sertraline
+1057,DB01105,Sibutramine
+1058,DB01106,Levocabastine
+1059,DB01107,Methyprylon
+1060,DB01108,Trilostane
+1061,DB01109,Heparin
+1062,DB01110,Miconazole
+1063,DB01111,Colistimethate
+1064,DB01112,Cefuroxime
+1065,DB01113,Papaverine
+1066,DB01114,Chlorpheniramine
+1067,DB01115,Nifedipine
+1068,DB01116,Trimethaphan
+1069,DB01117,Atovaquone
+1070,DB01118,Amiodarone
+1071,DB01119,Diazoxide
+1072,DB01120,Gliclazide
+1073,DB01121,Phenacemide
+1074,DB01122,Ambenonium
+1075,DB01123,Proflavine
+1076,DB01124,Tolbutamide
+1077,DB01125,Anisindione
+1078,DB01126,Dutasteride
+1079,DB01127,Econazole
+1080,DB01128,Bicalutamide
+1081,DB01129,Rabeprazole
+1082,DB01130,Prednicarbate
+1083,DB01131,Proguanil
+1084,DB01132,Pioglitazone
+1085,DB01133,Tiludronic acid
+1086,DB01135,Doxacurium
+1087,DB01136,Carvedilol
+1088,DB01137,Levofloxacin
+1089,DB01138,Sulfinpyrazone
+1090,DB01139,Cefapirin
+1091,DB01140,Cefadroxil
+1092,DB01141,Micafungin
+1093,DB01142,Doxepin
+1094,DB01143,Amifostine
+1095,DB01144,Diclofenamide
+1096,DB01145,Sulfoxone
+1097,DB01146,Diphenylpyraline
+1098,DB01147,Cloxacillin
+1099,DB01148,Flavoxate
+1100,DB01149,Nefazodone
+1101,DB01150,Cefprozil
+1102,DB01151,Desipramine
+1103,DB01152,Candicidin
+1104,DB01153,Sertaconazole
+1105,DB01154,Thiamylal
+1106,DB01155,Gemifloxacin
+1107,DB01156,Bupropion
+1108,DB01157,Trimetrexate
+1109,DB01158,Bretylium
+1110,DB01159,Halothane
+1111,DB01160,Dinoprost tromethamine
+1112,DB01161,Chloroprocaine
+1113,DB01162,Terazosin
+1114,DB01163,Amdinocillin
+1115,DB01164,Calcium chloride
+1116,DB01165,Ofloxacin
+1117,DB01166,Cilostazol
+1118,DB01167,Itraconazole
+1119,DB01168,Procarbazine
+1120,DB01169,Arsenic trioxide
+1121,DB01170,Guanethidine
+1122,DB01171,Moclobemide
+1123,DB01172,Kanamycin
+1124,DB01173,Orphenadrine
+1125,DB01174,Phenobarbital
+1126,DB01175,Escitalopram
+1127,DB01176,Cyclizine
+1128,DB01177,Idarubicin
+1129,DB01178,Chlormezanone
+1130,DB01179,Podofilox
+1131,DB01180,Rescinnamine
+1132,DB01181,Ifosfamide
+1133,DB01182,Propafenone
+1134,DB01183,Naloxone
+1135,DB01184,Domperidone
+1136,DB01185,Fluoxymesterone
+1137,DB01186,Pergolide
+1138,DB01187,Iophendylate
+1139,DB01188,Ciclopirox
+1140,DB01189,Desflurane
+1141,DB01190,Clindamycin
+1142,DB01191,Dexfenfluramine
+1143,DB01192,Oxymorphone
+1144,DB01193,Acebutolol
+1145,DB01194,Brinzolamide
+1146,DB01195,Flecainide
+1147,DB01196,Estramustine
+1148,DB01197,Captopril
+1149,DB01198,Zopiclone
+1150,DB01199,Tubocurarine
+1151,DB01200,Bromocriptine
+1152,DB01201,Rifapentine
+1153,DB01202,Levetiracetam
+1154,DB01203,Nadolol
+1155,DB01204,Mitoxantrone
+1156,DB01205,Flumazenil
+1157,DB01206,Lomustine
+1158,DB01208,Sparfloxacin
+1159,DB01209,Dezocine
+1160,DB01210,Levobunolol
+1161,DB01211,Clarithromycin
+1162,DB01212,Ceftriaxone
+1163,DB01213,Fomepizole
+1164,DB01214,Metipranolol
+1165,DB01215,Estazolam
+1166,DB01216,Finasteride
+1167,DB01217,Anastrozole
+1168,DB01218,Halofantrine
+1169,DB01219,Dantrolene
+1170,DB01220,Rifaximin
+1171,DB01221,Ketamine
+1172,DB01222,Budesonide
+1173,DB01223,Aminophylline
+1174,DB01224,Quetiapine
+1175,DB01225,Enoxaparin
+1176,DB01226,Mivacurium
+1177,DB01227,Levacetylmethadol
+1178,DB01228,Encainide
+1179,DB01229,Paclitaxel
+1180,DB01230,Pemoline
+1181,DB01231,Diphenidol
+1182,DB01232,Saquinavir
+1183,DB01233,Metoclopramide
+1184,DB01234,Dexamethasone
+1185,DB01235,Levodopa
+1186,DB01236,Sevoflurane
+1187,DB01237,Bromodiphenhydramine
+1188,DB01238,Aripiprazole
+1189,DB01239,Chlorprothixene
+1190,DB01240,Epoprostenol
+1191,DB01241,Gemfibrozil
+1192,DB01242,Clomipramine
+1193,DB01243,Chloroxine
+1194,DB01244,Bepridil
+1195,DB01245,Decamethonium
+1196,DB01246,Alimemazine
+1197,DB01247,Isocarboxazid
+1198,DB01248,Docetaxel
+1199,DB01249,Iodixanol
+1200,DB01250,Olsalazine
+1201,DB01251,Gliquidone
+1202,DB01253,Ergometrine
+1203,DB01254,Dasatinib
+1204,DB01255,Lisdexamfetamine
+1205,DB01256,Retapamulin
+1206,DB01257,Eculizumab
+1207,DB01259,Lapatinib
+1208,DB01260,Desonide
+1209,DB01261,Sitagliptin
+1210,DB01262,Decitabine
+1211,DB01263,Posaconazole
+1212,DB01264,Darunavir
+1213,DB01265,Telbivudine
+1214,DB01266,Sinecatechins
+1215,DB01267,Paliperidone
+1216,DB01268,Sunitinib
+1217,DB01269,Panitumumab
+1218,DB01270,Ranibizumab
+1219,DB01271,Idursulfase
+1220,DB01272,Alglucosidase alfa
+1221,DB01273,Varenicline
+1222,DB01274,Arformoterol
+1223,DB01275,Hydralazine
+1224,DB01276,Exenatide
+1225,DB01277,Mecasermin
+1226,DB01278,Pramlintide
+1227,DB01279,Galsulfase
+1228,DB01280,Nelarabine
+1229,DB01281,Abatacept
+1230,DB01282,Carbetocin
+1231,DB01283,Lumiracoxib
+1232,DB01284,Tetracosactide
+1233,DB01285,Corticotropin
+1234,DB01288,Fenoterol
+1235,DB01291,Pirbuterol
+1236,DB01294,Bismuth subsalicylate
+1237,DB01296,Glucosamine
+1238,DB01297,Practolol
+1239,DB01298,Sulfacytine
+1240,DB01299,Sulfadoxine
+1241,DB01301,Rolitetracycline
+1242,DB01303,Oxtriphylline
+1243,DB01306,Insulin aspart
+1244,DB01307,Insulin detemir
+1245,DB01309,Insulin glulisine
+1246,DB01319,Fosamprenavir
+1247,DB01320,Fosphenytoin
+1248,DB01322,Kava
+1249,DB01323,St. John's Wort
+1250,DB01324,Polythiazide
+1251,DB01325,Quinethazone
+1252,DB01326,Cefamandole
+1253,DB01327,Cefazolin
+1254,DB01328,Cefonicid
+1255,DB01329,Cefoperazone
+1256,DB01330,Cefotetan
+1257,DB01331,Cefoxitin
+1258,DB01332,Ceftizoxime
+1259,DB01333,Cefradine
+1260,DB01336,Metocurine
+1261,DB01337,Pancuronium
+1262,DB01338,Pipecuronium
+1263,DB01339,Vecuronium
+1264,DB01340,Cilazapril
+1265,DB01344,Tolevamer
+1266,DB01345,Potassium cation
+1267,DB01346,Quinidine barbiturate
+1268,DB01348,Spirapril
+1269,DB01351,Amobarbital
+1270,DB01353,Butobarbital
+1271,DB01356,Lithium cation
+1272,DB01357,Mestranol
+1273,DB01359,Penbutolol
+1274,DB01362,Iohexol
+1275,DB01363,Ephedra sinica root
+1276,DB01364,Ephedrine
+1277,DB01365,Mephentermine
+1278,DB01366,Procaterol
+1279,DB01367,Rasagiline
+1280,DB01369,Quinupristin
+1281,DB01370,Aluminium
+1282,DB01373,Calcium
+1283,DB01377,Magnesium oxide
+1284,DB01378,Magnesium cation
+1285,DB01380,Cortisone acetate
+1286,DB01381,Ginkgo biloba
+1287,DB01382,Glymidine
+1288,DB01388,Mibefradil
+1289,DB01390,Sodium bicarbonate
+1290,DB01392,Yohimbine
+1291,DB01393,Bezafibrate
+1292,DB01394,Colchicine
+1293,DB01395,Drospirenone
+1294,DB01396,Digitoxin
+1295,DB01397,Magnesium salicylate
+1296,DB01399,Salsalate
+1297,DB01400,Neostigmine
+1298,DB01401,Choline magnesium trisalicylate
+1299,DB01403,Methotrimeprazine
+1300,DB01404,Ginseng
+1301,DB01405,Temafloxacin
+1302,DB01406,Danazol
+1303,DB01407,Clenbuterol
+1304,DB01409,Tiotropium
+1305,DB01410,Ciclesonide
+1306,DB01413,Cefepime
+1307,DB01415,Ceftibuten
+1308,DB01416,Cefpodoxime
+1309,DB01418,Acenocoumarol
+1310,DB01419,Antrafenine
+1311,DB01420,Testosterone propionate
+1312,DB01421,Paromomycin
+1313,DB01424,Aminophenazone
+1314,DB01426,Ajmaline
+1315,DB01427,Amrinone
+1316,DB01428,Oxybenzone
+1317,DB01430,Almitrine
+1318,DB01432,Cholestyramine
+1319,DB01435,Antipyrine
+1320,DB01436,Alfacalcidol
+1321,DB01437,Glutethimide
+1322,DB01438,Phenazopyridine
+1323,DB01440,gamma-Hydroxybutyric acid
+1324,DB01452,Diamorphine
+1325,DB01459,Bezitramide
+1326,DB01463,Fencamfamin
+1327,DB01493,Ethylestrenol
+1328,DB01494,Chloral betaine
+1329,DB01495,Dichloralphenazone
+1330,DB01501,Difenoxin
+1331,DB01544,Flunitrazepam
+1332,DB01546,Etryptamine
+1333,DB01550,Fenproporex
+1334,DB01551,Dihydrocodeine
+1335,DB01556,Chlorphentermine
+1336,DB01558,Bromazepam
+1337,DB01559,Clotiazepam
+1338,DB01563,Chloral hydrate
+1339,DB01574,Attapulgite
+1340,DB01575,Kaolin
+1341,DB01576,Dextroamphetamine
+1342,DB01577,Metamfetamine
+1343,DB01579,Phendimetrazine
+1344,DB01580,Oxprenolol
+1345,DB01581,Sulfamerazine
+1346,DB01582,Sulfamethazine
+1347,DB01583,Liotrix
+1348,DB01584,Thyroglobulin
+1349,DB01586,Ursodeoxycholic acid
+1350,DB01587,Ketazolam
+1351,DB01588,Prazepam
+1352,DB01589,Quazepam
+1353,DB01590,Everolimus
+1354,DB01591,Solifenacin
+1355,DB01592,Iron
+1356,DB01593,Zinc
+1357,DB01595,Nitrazepam
+1358,DB01597,Cilastatin
+1359,DB01598,Imipenem
+1360,DB01599,Probucol
+1361,DB01600,Tiaprofenic acid
+1362,DB01601,Lopinavir
+1363,DB01602,Bacampicillin
+1364,DB01603,Meticillin
+1365,DB01604,Pivampicillin
+1366,DB01605,Pivmecillinam
+1367,DB01606,Tazobactam
+1368,DB01607,Ticarcillin
+1369,DB01608,Periciazine
+1370,DB01609,Deferasirox
+1371,DB01610,Valganciclovir
+1372,DB01611,Hydroxychloroquine
+1373,DB01612,Amyl Nitrite
+1374,DB01613,Erythrityl tetranitrate
+1375,DB01616,Alverine
+1376,DB01618,Molindone
+1377,DB01619,Phenindamine
+1378,DB01620,Pheniramine
+1379,DB01621,Pipotiazine
+1380,DB01622,Thioproperazine
+1381,DB01623,Thiothixene
+1382,DB01624,Zuclopenthixol
+1383,DB01625,Isopropamide
+1384,DB01626,Pargyline
+1385,DB01627,Lincomycin
+1386,DB01628,Etoricoxib
+1387,DB01632,5-O-phosphono-alpha-D-ribofuranosyl diphosphate
+1388,DB01638,Sorbitol
+1389,DB01656,Roflumilast
+1390,DB01698,Rutin
+1391,DB01708,Prasterone
+1392,DB01718,Cetrimonium
+1393,DB01744,Camphor
+1394,DB01759,Kojic acid
+1395,DB01764,Dalfopristin
+1396,DB01783,Pantothenic acid
+1397,DB01839,Propylene glycol
+1398,DB01878,Benzophenone
+1399,DB01914,D-glucose
+1400,DB01942,Formic acid
+1401,DB01956,Taurine
+1402,DB01987,Cocarboxylase
+1403,DB02202,"(S)-butane-1,3-diol"
+1404,DB02266,Flufenamic acid
+1405,DB02300,Calcipotriol
+1406,DB02325,Isopropyl alcohol
+1407,DB02362,Aminobenzoic acid
+1408,DB02383,Tolrestat
+1409,DB02513,Thymol
+1410,DB02530,gamma-Aminobutyric acid
+1411,DB02546,Vorinostat
+1412,DB02594,Doxecitine
+1413,DB02638,Terlipressin
+1414,DB02659,Cholic Acid
+1415,DB02701,Nicotinamide
+1416,DB02703,Fusidic acid
+1417,DB02745,Uridine
+1418,DB02772,Sucrose
+1419,DB02789,Pregnenolone
+1420,DB02893,D-Methionine
+1421,DB02925,Piretanide
+1422,DB02959,Oxitriptan
+1423,DB03017,Lauric acid
+1424,DB03085,Glycolic acid
+1425,DB03088,Pidolic acid
+1426,DB03128,Acetylcholine
+1427,DB03147,Flavin adenine dinucleotide
+1428,DB03166,Acetic acid
+1429,DB03175,Propyl alcohol
+1430,DB03193,Stearic acid
+1431,DB03209,Oteracil
+1432,DB03247,Flavin mononucleotide
+1433,DB03255,Phenol
+1434,DB03310,Glutathione disulfide
+1435,DB03312,Brivudine
+1436,DB03404,Hemin
+1437,DB03585,Oxyphenbutazone
+1438,DB03604,Tiratricol
+1439,DB03614,Mecobalamin
+1440,DB03615,Ribostamycin
+1441,DB03619,Deoxycholic acid
+1442,DB03651,Picric acid
+1443,DB03754,Tromethamine
+1444,DB03756,Doconexent
+1445,DB03766,Propanoic acid
+1446,DB03783,Phenacetin
+1447,DB03793,Benzoic acid
+1448,DB03796,Palmitic Acid
+1449,DB03808,Hexamidine
+1450,DB03843,Formaldehyde
+1451,DB03852,Eucalyptol
+1452,DB03904,Urea
+1453,DB03929,D-Serine
+1454,DB04038,Ergosterol
+1455,DB04115,Berberine
+1456,DB04160,Pyrophosphoric acid
+1457,DB04173,Fructose
+1458,DB04209,Dequalinium
+1459,DB04221,Didecyldimethylammonium
+1460,DB04224,Oleic Acid
+1461,DB04272,Citric acid
+1462,DB04335,Inosine
+1463,DB04339,Carbocisteine
+1464,DB04348,Taurocholic acid
+1465,DB04398,Lactic acid
+1466,DB04465,Lactose
+1467,DB04485,Thymidine
+1468,DB04519,Caprylic acid
+1469,DB04540,Cholesterol
+1470,DB04557,Arachidonic Acid
+1471,DB04564,Gluconolactone
+1472,DB04570,Latamoxef
+1473,DB04571,Trioxsalen
+1474,DB04572,Thiotepa
+1475,DB04573,Estriol
+1476,DB04574,Estrone sulfate
+1477,DB04575,Quinestrol
+1478,DB04657,Carboxin
+1479,DB04703,Hesperidin
+1480,DB04711,Iodipamide
+1481,DB04743,Nimesulide
+1482,DB04794,Bifonazole
+1483,DB04812,Benoxaprofen
+1484,DB04813,Bithionol
+1485,DB04814,Bunamiodyl
+1486,DB04815,Clioquinol
+1487,DB04816,Dantron
+1488,DB04817,Metamizole
+1489,DB04818,Iproniazid
+1490,DB04819,Methapyrilene
+1491,DB04820,Nialamide
+1492,DB04821,Nomifensine
+1493,DB04822,Oxeladin
+1494,DB04823,Oxyphenisatin
+1495,DB04824,Phenolphthalein
+1496,DB04825,Prenylamine
+1497,DB04826,Thenalidine
+1498,DB04827,Urethane
+1499,DB04828,Zomepirac
+1500,DB04830,Buformin
+1501,DB04831,Tienilic acid
+1502,DB04832,Zimelidine
+1503,DB04833,Methaqualone
+1504,DB04834,Rapacuronium
+1505,DB04835,Maraviroc
+1506,DB04836,Amineptine
+1507,DB04837,Clofedanol
+1508,DB04838,Cyclandelate
+1509,DB04839,Cyproterone acetate
+1510,DB04840,Debrisoquine
+1511,DB04841,Flunarizine
+1512,DB04842,Fluspirilene
+1513,DB04843,Mepenzolate
+1514,DB04844,Tetrabenazine
+1515,DB04845,Ixabepilone
+1516,DB04846,Celiprolol
+1517,DB04847,Roxadustat
+1518,DB04854,Febuxostat
+1519,DB04855,Dronedarone
+1520,DB04861,Nebivolol
+1521,DB04864,Huperzine A
+1522,DB04865,Omacetaxine mepesuccinate
+1523,DB04868,Nilotinib
+1524,DB04871,Lorcaserin
+1525,DB04876,Vildagliptin
+1526,DB04880,Enoximone
+1527,DB04890,Bepotastine
+1528,DB04895,Pegaptanib
+1529,DB04896,Milnacipran
+1530,DB04897,Lucinactant
+1531,DB04898,Ximelagatran
+1532,DB04899,Nesiritide
+1533,DB04908,Flibanserin
+1534,DB04911,Oritavancin
+1535,DB04918,Ceftobiprole
+1536,DB04920,Clevidipine
+1537,DB04923,rhThrombin
+1538,DB04930,Permethrin
+1539,DB04931,Afamelanotide
+1540,DB04932,Defibrotide
+1541,DB04938,Ospemifene
+1542,DB04941,Crofelemer
+1543,DB04945,Hemoglobin
+1544,DB04946,Iloperidone
+1545,DB04948,Lofexidine
+1546,DB04951,Pirfenidone
+1547,DB04953,Ezogabine
+1548,DB05013,Ingenol mebutate
+1549,DB05015,Belinostat
+1550,DB05016,Ataluren
+1551,DB05018,Migalastat
+1552,DB05025,Arimoclomol
+1553,DB05039,Indacaterol
+1554,DB05057,Erdosteine
+1555,DB05084,Abaloparatide
+1556,DB05087,Ganaxolone
+1557,DB05099,Ancrod
+1558,DB05109,Trabectedin
+1559,DB05154,Pretomanid
+1560,DB05187,Elafibranor
+1561,DB05219,Crisaborole
+1562,DB05239,Cobimetinib
+1563,DB05245,Silver sulfadiazine
+1564,DB05246,Methsuximide
+1565,DB05258,Interferon alfa
+1566,DB05259,Glatiramer
+1567,DB05260,Gallium nitrate
+1568,DB05271,Rotigotine
+1569,DB05273,Samarium (153Sm) lexidronam
+1570,DB05276,Hepatitis B immune globulin
+1571,DB05294,Vandetanib
+1572,DB05299,Keyhole limpet hemocyanin
+1573,DB05311,Ecallantide
+1574,DB05316,Pimavanserin
+1575,DB05332,Romiplostim
+1576,DB05336,Obiltoxaximab
+1577,DB05344,Revakinagene taroretcel
+1578,DB05351,Dexlansoprazole
+1579,DB05368,Ragweed pollen extract
+1580,DB05381,Histamine
+1581,DB05382,Iodine
+1582,DB05384,Carbopol 974P
+1583,DB05389,Tetrachlorodecaoxide
+1584,DB05467,Palovarotene
+1585,DB05501,Mavorixafor
+1586,DB05521,Telaprevir
+1587,DB05528,Mipomersen
+1588,DB05541,Brivaracetam
+1589,DB05578,Ramucirumab
+1590,DB05630,Sodium stibogluconate
+1591,DB05667,Levoketoconazole
+1592,DB05676,Apremilast
+1593,DB05679,Ustekinumab
+1594,DB05773,Trastuzumab emtansine
+1595,DB05777,Thrombomodulin Alfa
+1596,DB05812,Abiraterone
+1597,DB05829,Parathyroid hormone
+1598,DB05889,Inotuzumab ozogamicin
+1599,DB05990,Obeticholic acid
+1600,DB06014,Eteplirsen
+1601,DB06016,Cariprazine
+1602,DB06043,Olaratumab
+1603,DB06045,Trofinetide
+1604,DB06077,Lumateperone
+1605,DB06081,Caplacizumab
+1606,DB06083,Tapinarof
+1607,DB06119,Cenobamate
+1608,DB06137,Tirbanibulin
+1609,DB06144,Sertindole
+1610,DB06145,Spiramycin
+1611,DB06147,Sulfathiazole
+1612,DB06148,Mianserin
+1613,DB06149,Teicoplanin
+1614,DB06150,Sulfadimethoxine
+1615,DB06151,Acetylcysteine
+1616,DB06152,Nylidrin
+1617,DB06153,Pizotifen
+1618,DB06154,Pentaerythritol tetranitrate
+1619,DB06155,Rimonabant
+1620,DB06168,Canakinumab
+1621,DB06174,Noscapine
+1622,DB06176,Romidepsin
+1623,DB06186,Ipilimumab
+1624,DB06193,Pixantrone
+1625,DB06196,Icatibant
+1626,DB06199,Atrasentan
+1627,DB06201,Rufinamide
+1628,DB06202,Lasofoxifene
+1629,DB06203,Alogliptin
+1630,DB06204,Tapentadol
+1631,DB06205,Hyaluronidase (human recombinant)
+1632,DB06206,Sugammadex
+1633,DB06207,Silodosin
+1634,DB06209,Prasugrel
+1635,DB06210,Eltrombopag
+1636,DB06211,Doripenem
+1637,DB06212,Tolvaptan
+1638,DB06213,Regadenoson
+1639,DB06215,Ferumoxytol
+1640,DB06216,Asenapine
+1641,DB06217,Vernakalant
+1642,DB06218,Lacosamide
+1643,DB06219,Dalbavancin
+1644,DB06228,Rivaroxaban
+1645,DB06230,Nalmefene
+1646,DB06234,Maribavir
+1647,DB06237,Avanafil
+1648,DB06243,Eflornithine
+1649,DB06249,Arzoxifene
+1650,DB06261,Hexaminolevulinate
+1651,DB06262,Droxidopa
+1652,DB06267,Udenafil
+1653,DB06268,Sitaxentan
+1654,DB06271,Sulodexide
+1655,DB06273,Tocilizumab
+1656,DB06274,Alvimopan
+1657,DB06282,Levocetirizine
+1658,DB06283,Ziconotide
+1659,DB06285,Teriparatide
+1660,DB06287,Temsirolimus
+1661,DB06288,Amisulpride
+1662,DB06290,Simeprevir
+1663,DB06292,Dapagliflozin
+1664,DB06317,Elotuzumab
+1665,DB06335,Saxagliptin
+1666,DB06343,Teprotumumab
+1667,DB06361,rsPSMA Vaccine
+1668,DB06366,Pertuzumab
+1669,DB06372,Rilonacept
+1670,DB06374,Elacestrant
+1671,DB06401,Bazedoxifene
+1672,DB06402,Telavancin
+1673,DB06403,Ambrisentan
+1674,DB06404,Human C1-esterase inhibitor
+1675,DB06410,Doxercalciferol
+1676,DB06412,Oxymetholone
+1677,DB06413,Armodafinil
+1678,DB06414,Etravirine
+1679,DB06415,Calfactant
+1680,DB06439,Tyloxapol
+1681,DB06441,Cangrelor
+1682,DB06448,Lonafarnib
+1683,DB06480,Prucalopride
+1684,DB06589,Pazopanib
+1685,DB06590,Ceftaroline fosamil
+1686,DB06594,Agomelatine
+1687,DB06595,Midostaurin
+1688,DB06602,Reslizumab
+1689,DB06603,Panobinostat
+1690,DB06605,Apixaban
+1691,DB06606,Teplizumab
+1692,DB06607,Catumaxomab
+1693,DB06608,Tafenoquine
+1694,DB06612,Mepolizumab
+1695,DB06614,Peramivir
+1696,DB06616,Bosutinib
+1697,DB06626,Axitinib
+1698,DB06636,Isavuconazonium
+1699,DB06637,Dalfampridine
+1700,DB06643,Denosumab
+1701,DB06650,Ofatumumab
+1702,DB06654,Safinamide
+1703,DB06655,Liraglutide
+1704,DB06663,Pasireotide
+1705,DB06674,Golimumab
+1706,DB06681,Belatacept
+1707,DB06684,Vilazodone
+1708,DB06688,Sipuleucel-T
+1709,DB06689,Ethanolamine oleate
+1710,DB06690,Nitrous oxide
+1711,DB06691,Mepyramine
+1712,DB06692,Aprotinin
+1713,DB06694,Xylometazoline
+1714,DB06695,Dabigatran etexilate
+1715,DB06697,Artemether
+1716,DB06698,Betahistine
+1717,DB06699,Degarelix
+1718,DB06700,Desvenlafaxine
+1719,DB06701,Dexmethylphenidate
+1720,DB06702,Fesoterodine
+1721,DB06703,Gadobutrol
+1722,DB06704,Iobenguane
+1723,DB06705,Gadofosveset trisodium
+1724,DB06706,Isometheptene
+1725,DB06707,Levonordefrin
+1726,DB06708,Lumefantrine
+1727,DB06709,Methacholine
+1728,DB06710,Methyltestosterone
+1729,DB06711,Naphazoline
+1730,DB06712,Nilvadipine
+1731,DB06713,Norelgestromin
+1732,DB06714,Propylhexedrine
+1733,DB06715,Potassium Iodide
+1734,DB06716,Fospropofol
+1735,DB06717,Fosaprepitant
+1736,DB06718,Stanozolol
+1737,DB06719,Buserelin
+1738,DB06720,Velaglucerase alfa
+1739,DB06723,Aluminum hydroxide
+1740,DB06724,Calcium carbonate
+1741,DB06725,Lornoxicam
+1742,DB06727,Sparteine
+1743,DB06729,Sulfaphenazole
+1744,DB06736,Aceclofenac
+1745,DB06742,Ambroxol
+1746,DB06751,Drotaverine
+1747,DB06752,Chymopapain
+1748,DB06753,Triclofos
+1749,DB06754,Danaparoid
+1750,DB06755,Beta carotene
+1751,DB06756,Betaine
+1752,DB06757,Manganese cation
+1753,DB06759,Fomivirsen
+1754,DB06760,Sacrosidase
+1755,DB06761,Beractant
+1756,DB06762,Pinacidil
+1757,DB06764,Tetryzoline
+1758,DB06766,Alcaftadine
+1759,DB06767,Ammonium chloride
+1760,DB06768,Ammonium lactate
+1761,DB06769,Bendamustine
+1762,DB06770,Benzyl alcohol
+1763,DB06771,Besifloxacin
+1764,DB06772,Cabazitaxel
+1765,DB06773,Human calcitonin
+1766,DB06774,Capsaicin
+1767,DB06775,Carglumic acid
+1768,DB06776,Sodium cellulose phosphate
+1769,DB06777,Chenodeoxycholic acid
+1770,DB06778,Cupric sulfate
+1771,DB06779,Dalteparin
+1772,DB06780,Desoxycorticosterone acetate
+1773,DB06781,Difluprednate
+1774,DB06782,Dimercaprol
+1775,DB06783,Prussian blue
+1776,DB06784,Gallium citrate Ga-67
+1777,DB06785,Ganirelix
+1778,DB06786,Halcinonide
+1779,DB06787,Hexocyclium
+1780,DB06788,Histrelin
+1781,DB06789,Hydroxyprogesterone caproate
+1782,DB06791,Lanreotide
+1783,DB06792,Lanthanum carbonate
+1784,DB06793,Levopropoxyphene
+1785,DB06794,Lodoxamide
+1786,DB06795,Mafenide
+1787,DB06796,Mangafodipir
+1788,DB06797,Mebutamate
+1789,DB06799,Methenamine
+1790,DB06800,Methylnaltrexone
+1791,DB06802,Nepafenac
+1792,DB06803,Niclosamide
+1793,DB06804,Nonoxynol-9
+1794,DB06807,Phenyl aminosalicylate
+1795,DB06808,Piperacetazine
+1796,DB06809,Plerixafor
+1797,DB06810,Plicamycin
+1798,DB06811,Polidocanol
+1799,DB06812,Povidone-iodine
+1800,DB06813,Pralatrexate
+1801,DB06814,Protokylol
+1802,DB06815,Pyrithione
+1803,DB06816,Pyrvinium
+1804,DB06817,Raltegravir
+1805,DB06819,Phenylbutyric acid
+1806,DB06820,Sulconazole
+1807,DB06821,Sulfameter
+1808,DB06822,Tinzaparin
+1809,DB06823,Tiopronin
+1810,DB06824,Triethylenetetramine
+1811,DB06825,Triptorelin
+1812,DB06826,Unoprostone
+1813,DB06827,Viomycin
+1814,DB07101,Mirdametinib
+1815,DB07402,Azapropazone
+1816,DB07565,Chloramphenicol succinate
+1817,DB07776,Flavone
+1818,DB07931,Hexestrol
+1819,DB08329,Sulthiame
+1820,DB08439,Parecoxib
+1821,DB08604,Triclosan
+1822,DB08794,Ethyl biscoumacetate
+1823,DB08797,Salicylamide
+1824,DB08799,Antazoline
+1825,DB08801,Dimetindene
+1826,DB08804,Nandrolone decanoate
+1827,DB08809,Dichloroacetic acid
+1828,DB08813,Nadroparin
+1829,DB08814,Triflusal
+1830,DB08815,Lurasidone
+1831,DB08816,Ticagrelor
+1832,DB08818,Hyaluronic acid
+1833,DB08819,Tafluprost
+1834,DB08820,Ivacaftor
+1835,DB08822,Azilsartan medoxomil
+1836,DB08823,Spinosad
+1837,DB08824,Ioflupane I-123
+1838,DB08826,Deferiprone
+1839,DB08827,Lomitapide
+1840,DB08828,Vismodegib
+1841,DB08834,Tauroursodeoxycholic acid
+1842,DB08842,Acetylcarnitine
+1843,DB08847,Hydroxyproline
+1844,DB08860,Pitavastatin
+1845,DB08862,Cholecystokinin
+1846,DB08864,Rilpivirine
+1847,DB08865,Crizotinib
+1848,DB08867,Ulipristal
+1849,DB08868,Fingolimod
+1850,DB08869,Tesamorelin
+1851,DB08870,Brentuximab vedotin
+1852,DB08871,Eribulin
+1853,DB08872,Gabapentin enacarbil
+1854,DB08873,Boceprevir
+1855,DB08874,Fidaxomicin
+1856,DB08875,Cabozantinib
+1857,DB08876,Taliglucerase alfa
+1858,DB08877,Ruxolitinib
+1859,DB08878,Aminopterin
+1860,DB08879,Belimumab
+1861,DB08880,Teriflunomide
+1862,DB08881,Vemurafenib
+1863,DB08882,Linagliptin
+1864,DB08883,Perampanel
+1865,DB08884,Gadoxetic acid
+1866,DB08885,Aflibercept
+1867,DB08886,Asparaginase Erwinia chrysanthemi
+1868,DB08887,Icosapent ethyl
+1869,DB08888,Ocriplasmin
+1870,DB08889,Carfilzomib
+1871,DB08890,Linaclotide
+1872,DB08893,Mirabegron
+1873,DB08894,Peginesatide
+1874,DB08895,Tofacitinib
+1875,DB08896,Regorafenib
+1876,DB08897,Aclidinium
+1877,DB08898,Glucarpidase
+1878,DB08899,Enzalutamide
+1879,DB08900,Teduglutide
+1880,DB08901,Ponatinib
+1881,DB08902,Raxibacumab
+1882,DB08903,Bedaquiline
+1883,DB08904,Certolizumab pegol
+1884,DB08905,Formestane
+1885,DB08906,Fluticasone furoate
+1886,DB08907,Canagliflozin
+1887,DB08908,Dimethyl fumarate
+1888,DB08909,Glycerol phenylbutyrate
+1889,DB08910,Pomalidomide
+1890,DB08911,Trametinib
+1891,DB08912,Dabrafenib
+1892,DB08913,Radium Ra 223 dichloride
+1893,DB08916,Afatinib
+1894,DB08917,Ferric carboxymaltose
+1895,DB08918,Levomilnacipran
+1896,DB08925,Adrafinil
+1897,DB08930,Dolutegravir
+1898,DB08931,Riociguat
+1899,DB08932,Macitentan
+1900,DB08933,Luliconazole
+1901,DB08934,Sofosbuvir
+1902,DB08935,Obinutuzumab
+1903,DB08936,Chlorcyclizine
+1904,DB08938,Magaldrate
+1905,DB08941,Isoxsuprine
+1906,DB08942,Isoxicam
+1907,DB08943,Isoconazole
+1908,DB08944,Isoaminile
+1909,DB08945,Iotroxic acid
+1910,DB08946,Iopanoic acid
+1911,DB08947,Iopamidol
+1912,DB08948,Iodamide
+1913,DB08949,Inositol nicotinate
+1914,DB08950,Indoramin
+1915,DB08951,Indoprofen
+1916,DB08952,Indenolol
+1917,DB08953,Indalpine
+1918,DB08954,Ifenprodil
+1919,DB08955,Ibuproxam
+1920,DB08956,Hydroxydione
+1921,DB08957,Hexoprenaline
+1922,DB08958,Hexetidine
+1923,DB08962,Glibornuride
+1924,DB08963,Glafenine
+1925,DB08964,Gemeprost
+1926,DB08965,Fusafungine
+1927,DB08966,Fursultiamine
+1928,DB08967,Dimetotiazine
+1929,DB08968,Fominoben
+1930,DB08969,Flurothyl
+1931,DB08971,Fluocortolone
+1932,DB08972,Flumequine
+1933,DB08973,Fluclorolone acetonide
+1934,DB08974,Flubendazole
+1935,DB08975,Florantyrone
+1936,DB08976,Floctafenine
+1937,DB08978,Fentonium
+1938,DB08980,Fendiline
+1939,DB08981,Fenbufen
+1940,DB08985,Etilefrine
+1941,DB08986,Etifoxine
+1942,DB08987,Etidocaine
+1943,DB08988,Ethoheptazine
+1944,DB08989,Etamivan
+1945,DB08990,Eprazinone
+1946,DB08994,Ditazole
+1947,DB08995,Diosmin
+1948,DB08996,Dimetacrine
+1949,DB08997,Dexetimide
+1950,DB08999,Cyclopentamine
+1951,DB09004,Clobutinol
+1952,DB09007,Chlorphenoxamine
+1953,DB09008,Cefaloridine
+1954,DB09009,Articaine
+1955,DB09010,Carmofur
+1956,DB09012,Carbazochrome
+1957,DB09015,Canrenoic acid
+1958,DB09016,Butriptyline
+1959,DB09017,Brotizolam
+1960,DB09019,Bromhexine
+1961,DB09020,Bisacodyl
+1962,DB09022,Benfluorex
+1963,DB09023,Benactyzine
+1964,DB09026,Aliskiren
+1965,DB09027,Ledipasvir
+1966,DB09029,Secukinumab
+1967,DB09030,Vorapaxar
+1968,DB09031,Miltefosine
+1969,DB09033,Vedolizumab
+1970,DB09034,Suvorexant
+1971,DB09035,Nivolumab
+1972,DB09036,Siltuximab
+1973,DB09037,Pembrolizumab
+1974,DB09038,Empagliflozin
+1975,DB09039,Eliglustat
+1976,DB09040,Efinaconazole
+1977,DB09041,Tavaborole
+1978,DB09042,Tedizolid phosphate
+1979,DB09043,Albiglutide
+1980,DB09045,Dulaglutide
+1981,DB09046,Metreleptin
+1982,DB09047,Finafloxacin
+1983,DB09048,Netupitant
+1984,DB09049,Naloxegol
+1985,DB09050,Ceftolozane
+1986,DB09051,Elosulfase alfa
+1987,DB09052,Blinatumomab
+1988,DB09053,Ibrutinib
+1989,DB09054,Idelalisib
+1990,DB09055,Acipimox
+1991,DB09056,Amorolfine
+1992,DB09057,Anthrax immune globulin human
+1993,DB09059,Atosiban
+1994,DB09060,Avibactam
+1995,DB09061,Cannabidiol
+1996,DB09063,Ceritinib
+1997,DB09064,Ciprofibrate
+1998,DB09065,Cobicistat
+1999,DB09066,Corifollitropin alfa
+2000,DB09067,Corticorelin ovine triflutate
+2001,DB09068,Vortioxetine
+2002,DB09069,Trimetazidine
+2003,DB09070,Tibolone
+2004,DB09071,Tasimelteon
+2005,DB09072,Sodium oxybate
+2006,DB09073,Palbociclib
+2007,DB09074,Olaparib
+2008,DB09075,Edoxaban
+2009,DB09076,Umeclidinium
+2010,DB09077,Dinutuximab
+2011,DB09078,Lenvatinib
+2012,DB09079,Nintedanib
+2013,DB09080,Olodaterol
+2014,DB09081,Idebenone
+2015,DB09082,Vilanterol
+2016,DB09083,Ivabradine
+2017,DB09084,Benzydamine
+2018,DB09085,Tetracaine
+2019,DB09086,Eugenol
+2020,DB09087,Potassium alum
+2021,DB09088,Amylocaine
+2022,DB09089,Trimebutine
+2023,DB09090,Pinaverium
+2024,DB09091,Tixocortol
+2025,DB09092,Xanthinol
+2026,DB09093,Chlortetracycline
+2027,DB09094,Podophyllin
+2028,DB09095,Difluocortolone
+2029,DB09096,Benzoyl peroxide
+2030,DB09097,Quinagolide
+2031,DB09098,Somatrem
+2032,DB09099,Somatostatin
+2033,DB09100,"Thyroid, porcine"
+2034,DB09101,Elvitegravir
+2035,DB09102,Daclatasvir
+2036,DB09103,Ancestim
+2037,DB09104,Magnesium hydroxide
+2038,DB09105,Asfotase alfa
+2039,DB09106,Hydroxyethyl Starch
+2040,DB09107,Methoxy polyethylene glycol-epoetin beta
+2041,DB09108,Simoctocog alfa
+2042,DB09109,Turoctocog alfa
+2043,DB09110,Coenzyme M
+2044,DB09111,Pentastarch
+2045,DB09112,Nitrous acid
+2046,DB09113,Poractant alfa
+2047,DB09114,Colfosceril palmitate
+2048,DB09115,Diiodohydroxyquinoline
+2049,DB09116,Calcium carbimide
+2050,DB09117,Paraldehyde
+2051,DB09118,Stiripentol
+2052,DB09119,Eslicarbazepine acetate
+2053,DB09120,Zucapsaicin
+2054,DB09121,Aurothioglucose
+2055,DB09122,Peginterferon beta-1a
+2056,DB09123,Dienogest
+2057,DB09124,Medrogestone
+2058,DB09125,Potassium citrate
+2059,DB09126,Chorionic Gonadotropin (Human)
+2060,DB09128,Brexpiprazole
+2061,DB09129,Chromic chloride
+2062,DB09130,Copper
+2063,DB09131,Cupric Chloride
+2064,DB09132,Gadoteric acid
+2065,DB09133,Iothalamic acid
+2066,DB09134,Ioversol
+2067,DB09135,Ioxilan
+2068,DB09136,Isosulfan blue
+2069,DB09137,Technetium Tc-99m mebrofenin
+2070,DB09138,Technetium Tc-99m medronate
+2071,DB09139,Technetium Tc-99m oxidronate
+2072,DB09140,Oxygen
+2073,DB09141,Protamine sulfate
+2074,DB09142,Sincalide
+2075,DB09143,Sonidegib
+2076,DB09144,Uridine triacetate
+2077,DB09145,Water
+2078,DB09146,Iron sucrose
+2079,DB09147,Ferric pyrophosphate
+2080,DB09148,Florbetaben F-18
+2081,DB09149,Florbetapir F-18
+2082,DB09151,Flutemetamol (18F)
+2083,DB09152,Nitrogen
+2084,DB09153,Sodium chloride
+2085,DB09154,Sodium citrate
+2086,DB09155,Helium
+2087,DB09156,Iopromide
+2088,DB09157,Carbon dioxide
+2089,DB09158,Trypan blue free acid
+2090,DB09160,Technetium Tc-99m tetrofosmin
+2091,DB09161,Technetium Tc-99m sestamibi
+2092,DB09163,Technetium Tc-99m exametazime
+2093,DB09164,Technetium Tc-99m disofenin
+2094,DB09165,Technetium Tc-99m pyrophosphate
+2095,DB09167,Dosulepin
+2096,DB09183,Dasabuvir
+2097,DB09185,Viloxazine
+2098,DB09194,Etoperidone
+2099,DB09195,Lorpiprazole
+2100,DB09205,Moxisylyte
+2101,DB09208,Pegloticase
+2102,DB09209,Pholcodine
+2103,DB09210,Piracetam
+2104,DB09212,Loxoprofen
+2105,DB09213,Dexibuprofen
+2106,DB09214,Dexketoprofen
+2107,DB09215,Droxicam
+2108,DB09216,Tolfenamic acid
+2109,DB09219,Bisoxatin
+2110,DB09220,Nicorandil
+2111,DB09222,Fibrinogen human
+2112,DB09225,Zotepine
+2113,DB09228,Conestat alfa
+2114,DB09236,Lacidipine
+2115,DB09237,Levamlodipine
+2116,DB09238,Manidipine
+2117,DB09241,Methylene blue
+2118,DB09242,Moxonidine
+2119,DB09246,Benmoxin
+2120,DB09247,Iproclozide
+2121,DB09248,Mebanazine
+2122,DB09249,Octamoxin
+2123,DB09250,Pheniprazine
+2124,DB09251,Phenoxypropazine
+2125,DB09252,Pivhydrazine
+2126,DB09253,Safrazine
+2127,DB09254,Caroxazone
+2128,DB09255,Dextran
+2129,DB09256,Tegafur
+2130,DB09257,Gimeracil
+2131,DB09258,Bemiparin
+2132,DB09259,Reviparin
+2133,DB09260,Parnaparin
+2134,DB09261,Certoparin
+2135,DB09263,Patiromer
+2136,DB09264,Idarucizumab
+2137,DB09265,Lixisenatide
+2138,DB09266,Technetium Tc-99m tilmanocept
+2139,DB09267,Strontium ranelate
+2140,DB09268,Picosulfuric acid
+2141,DB09269,Phenylacetic acid
+2142,DB09270,Ubidecarenone
+2143,DB09272,Eluxadoline
+2144,DB09274,Artesunate
+2145,DB09275,Bismuth subcitrate potassium
+2146,DB09276,Sodium aurothiomalate
+2147,DB09277,Choline C 11
+2148,DB09278,Activated charcoal
+2149,DB09280,Lumacaftor
+2150,DB09281,Magnesium trisilicate
+2151,DB09282,Molsidomine
+2152,DB09287,Polyethylene glycol
+2153,DB09291,Rolapitant
+2154,DB09292,Sacubitril
+2155,DB09293,Iodide I-131
+2156,DB09296,Ombitasvir
+2157,DB09297,Paritaprevir
+2158,DB09299,Tenofovir alafenamide
+2159,DB09300,Butylscopolamine
+2160,DB09301,Chondroitin sulfate
+2161,DB09302,Alirocumab
+2162,DB09303,Evolocumab
+2163,DB09310,Catridecacog
+2164,DB09311,Polycarbophil
+2165,DB09312,Antilymphocyte immunoglobulin (horse)
+2166,DB09313,Ioxaglic acid
+2167,DB09314,Technetium Tc-99m pertechnetate
+2168,DB09315,Xenon-133
+2169,DB09316,Thallous chloride
+2170,DB09317,"Synthetic Conjugated Estrogens, A"
+2171,DB09318,"Synthetic Conjugated Estrogens, B"
+2172,DB09319,Carindacillin
+2173,DB09320,Procaine benzylpenicillin
+2174,DB09321,Zinc oxide
+2175,DB09322,Zinc sulfate
+2176,DB09324,Sulbactam
+2177,DB09325,Sodium fluoride
+2178,DB09326,Ammonia N-13
+2179,DB09327,Tegafur-uracil
+2180,DB09328,Vayarin
+2181,DB09329,"Antihemophilic factor (recombinant), PEGylated"
+2182,DB09330,Osimertinib
+2183,DB09331,Daratumumab
+2184,DB09332,Kappadione
+2185,DB09333,Iopodic acid
+2186,DB09334,Seractide acetate
+2187,DB09335,Alatrofloxacin
+2188,DB09336,Technetium Tc-99m nofetumomab merpentan
+2189,DB09337,Medical air
+2190,DB09339,Indium In-111 imciromab pentetate
+2191,DB09340,Tyropanoic acid
+2192,DB09341,"Dextrose, unspecified form"
+2193,DB09342,Propoxycaine
+2194,DB09343,Tipiracil
+2195,DB09345,Pramocaine
+2196,DB09346,Metrizoic acid
+2197,DB09347,Acetrizoic acid
+2198,DB09348,Propiolactone
+2199,DB09349,Gastric intrinsic factor
+2200,DB09350,Piperonyl butoxide
+2201,DB09351,Levobetaxolol
+2202,DB09352,Hydroxyamphetamine
+2203,DB09353,Octasulfur
+2204,DB09355,Sulfabenzamide
+2205,DB09356,Protein hydrolysate
+2206,DB09357,Dexpanthenol
+2207,DB09364,Procaine merethoxylline
+2208,DB09366,Propyliodone
+2209,DB09369,Polyestradiol phosphate
+2210,DB09370,Sodium phosphate P 32
+2211,DB09371,Norethynodrel
+2212,DB09372,Tannic acid
+2213,DB09373,Trolamine polypeptide oleate condensate
+2214,DB09374,Indocyanine green acid form
+2215,DB09375,Chymotrypsin
+2216,DB09376,Lapyrium
+2217,DB09377,Undecoylium chloride iodine complex
+2218,DB09378,Fluprednisolone
+2219,DB09379,Sutilain
+2220,DB09380,Sodium chromate Cr-51
+2221,DB09381,Esterified estrogens
+2222,DB09382,Iodohippurate sodium I-131
+2223,DB09383,Meprednisone
+2224,DB09385,Cyanocobalamin Co-57
+2225,DB09387,Cyanocobalamin Co-60
+2226,DB09388,Rose bengal I-131
+2227,DB09389,Norgestrel
+2228,DB09394,Phosphoric acid
+2229,DB09395,Sodium acetate
+2230,DB09397,Technetium Tc-99m sulfur colloid
+2231,DB09398,Fluoride ion F-18
+2232,DB09400,Selenomethionine Se-75
+2233,DB09401,Isosorbide
+2234,DB09403,Iocetamic acid
+2235,DB09406,Chlormerodrin Hg-197
+2236,DB09407,Magnesium chloride
+2237,DB09409,Magnesium acetate tetrahydrate
+2238,DB09411,Technetium Tc-99m etidronate
+2239,DB09413,Monopotassium phosphate
+2240,DB09414,Dipotassium phosphate
+2241,DB09415,Meglumine
+2242,DB09418,Potassium perchlorate
+2243,DB09419,Xylose
+2244,DB09420,Iodide I-123
+2245,DB09421,Protirelin
+2246,DB09422,Soybean oil
+2247,DB09423,Technetium Tc-99m polyphosphate
+2248,DB09425,Indium In-111 pentetate
+2249,DB09429,Albumin iodinated I-125 serum
+2250,DB09430,Albumin iodinated I-131 serum
+2251,DB09436,Technetium Tc-99m succimer
+2252,DB09443,Krypton Kr 81m
+2253,DB09446,Safflower oil
+2254,DB09447,Technetium Tc-99m albumin colloid
+2255,DB09448,Iodohippurate sodium I-123
+2256,DB09449,"Sodium phosphate, monobasic"
+2257,DB09456,Insulin beef
+2258,DB09459,L-tartaric acid
+2259,DB09460,Sodium carbonate
+2260,DB09461,Xenon Xe-127
+2261,DB09462,Glycerin
+2262,DB09472,Sodium sulfate
+2263,DB09473,Indium In-111 oxyquinoline
+2264,DB09477,Enalaprilat
+2265,DB09479,Rubidium Rb-82
+2266,DB09480,Iofetamine I-123
+2267,DB09481,Magnesium carbonate
+2268,DB09483,Potassium lactate
+2269,DB09484,Sodium fluorophosphate
+2270,DB09487,Iotrolan
+2271,DB09488,Acrivastine
+2272,DB09490,Indium In-111 chloride
+2273,DB09493,Technetium Tc-99m red blood cells
+2274,DB09494,Cetyl alcohol
+2275,DB09495,Avobenzone
+2276,DB09496,Octinoxate
+2277,DB09498,Strontium chloride Sr-89
+2278,DB09499,Thiosulfuric acid
+2279,DB09501,Ferric ammonium citrate
+2280,DB09502,Fludeoxyglucose (18F)
+2281,DB09507,Ferumoxsil
+2282,DB09508,Ferumoxides
+2283,DB09510,Urea C-13
+2284,DB09511,Talc
+2285,DB09512,Simethicone
+2286,DB09513,Urea C-14
+2287,DB09516,Mequinol
+2288,DB09517,Sodium ferric gluconate complex
+2289,DB09526,Hydroquinone
+2290,DB09527,Secretin porcine
+2291,DB09531,Perflexane
+2292,DB09532,Secretin human
+2293,DB09534,Ecamsule
+2294,DB09535,Octocrylene
+2295,DB09536,Titanium dioxide
+2296,DB09537,Iodine povacrylex
+2297,DB09539,Omega-3-acid ethyl esters
+2298,DB09543,Methyl salicylate
+2299,DB09546,Iobenguane sulfate I-123
+2300,DB09550,Tetracycline phosphate complex
+2301,DB09551,Desoxyribonuclease
+2302,DB09552,Thonzonium
+2303,DB09555,Dexchlorpheniramine maleate
+2304,DB09559,Necitumumab
+2305,DB09561,Sodium glycerophosphate
+2306,DB09563,Choline C-11
+2307,DB09564,Insulin degludec
+2308,DB09567,Olive oil
+2309,DB09568,Omega-3-carboxylic acids
+2310,DB09570,Ixazomib
+2311,DB09571,Levmetamfetamine
+2312,DB09876,Clostridium tetani
+2313,DB09877,Corynebacterium diphtheriae
+2314,DB10061,"Meningococcal (groups A, C, Y and W-135) oligosaccharide diphtheria CRM197 conjugate vaccine"
+2315,DB10062,"Rabies virus inactivated antigen, B"
+2316,DB10076,Haemophilus influenzae type B strain 1482 capsular polysaccharide tetanus toxoid conjugate antigen
+2317,DB10276,Rotavirus vaccine
+2318,DB10283,"Rabies virus inactivated antigen, A"
+2319,DB10284,Neisseria meningitidis serogroup B recombinant LP2086 A05 protein variant antigen
+2320,DB10285,Neisseria meningitidis serogroup B recombinant LP2086 B01 protein variant antigen
+2321,DB10286,Streptococcus pneumoniae type 4 capsular polysaccharide diphtheria CRM197 protein conjugate antigen
+2322,DB10287,Streptococcus pneumoniae type 6B capsular polysaccharide diphtheria CRM197 protein conjugate antigen
+2323,DB10288,Streptococcus pneumoniae type 9V capsular polysaccharide diphtheria CRM197 protein conjugate antigen
+2324,DB10289,Streptococcus pneumoniae type 14 capsular polysaccharide diphtheria CRM197 protein conjugate antigen
+2325,DB10290,Streptococcus pneumoniae type 18C capsular polysaccharide diphtheria CRM197 protein conjugate antigen
+2326,DB10291,Streptococcus pneumoniae type 19F capsular polysaccharide diphtheria CRM197 protein conjugate antigen
+2327,DB10292,Streptococcus pneumoniae type 23F capsular polysaccharide diphtheria CRM197 protein conjugate antigen
+2328,DB10293,Streptococcus pneumoniae type 1 capsular polysaccharide diphtheria CRM197 protein conjugate antigen
+2329,DB10294,Streptococcus pneumoniae type 3 capsular polysaccharide diphtheria CRM197 protein conjugate antigen
+2330,DB10295,Streptococcus pneumoniae type 5 capsular polysaccharide diphtheria CRM197 protein conjugate antigen
+2331,DB10296,Streptococcus pneumoniae type 6A capsular polysaccharide diphtheria CRM197 protein conjugate antigen
+2332,DB10297,Streptococcus pneumoniae type 7F capsular polysaccharide diphtheria CRM197 protein conjugate antigen
+2333,DB10298,Streptococcus pneumoniae type 19A capsular polysaccharide diphtheria CRM197 protein conjugate antigen
+2334,DB10299,Human papillomavirus type 6 L1 capsid protein antigen
+2335,DB10300,Human papillomavirus type 11 L1 capsid protein antigen
+2336,DB10301,Human papillomavirus type 16 L1 capsid protein antigen
+2337,DB10302,Human papillomavirus type 18 L1 capsid protein antigen
+2338,DB10310,Human papillomavirus type 31 L1 capsid protein antigen
+2339,DB10311,Human papillomavirus type 33 L1 capsid protein antigen
+2340,DB10312,Human papillomavirus type 45 L1 capsid protein antigen
+2341,DB10313,Human papillomavirus type 52 L1 capsid protein antigen
+2342,DB10314,Human papillomavirus type 58 L1 capsid protein antigen
+2343,DB10315,Measles virus vaccine live attenuated
+2344,DB10316,Mumps virus strain B level jeryl lynn live antigen
+2345,DB10317,Rubella virus vaccine
+2346,DB10318,Varicella zoster vaccine (live/attenuated)
+2347,DB10319,Streptococcus pneumoniae type 1 capsular polysaccharide antigen
+2348,DB10320,Streptococcus pneumoniae type 2 capsular polysaccharide antigen
+2349,DB10321,Streptococcus pneumoniae type 3 capsular polysaccharide antigen
+2350,DB10322,Streptococcus pneumoniae type 4 capsular polysaccharide antigen
+2351,DB10323,Streptococcus pneumoniae type 5 capsular polysaccharide antigen
+2352,DB10324,Streptococcus pneumoniae type 6b capsular polysaccharide antigen
+2353,DB10325,Streptococcus pneumoniae type 7f capsular polysaccharide antigen
+2354,DB10326,Streptococcus pneumoniae type 8 capsular polysaccharide antigen
+2355,DB10327,Streptococcus pneumoniae type 9n capsular polysaccharide antigen
+2356,DB10328,Streptococcus pneumoniae type 9v capsular polysaccharide antigen
+2357,DB10329,Streptococcus pneumoniae type 10a capsular polysaccharide antigen
+2358,DB10330,Streptococcus pneumoniae type 11a capsular polysaccharide antigen
+2359,DB10331,Streptococcus pneumoniae type 12f capsular polysaccharide antigen
+2360,DB10332,Streptococcus pneumoniae type 14 capsular polysaccharide antigen
+2361,DB10333,Streptococcus pneumoniae type 15b capsular polysaccharide antigen
+2362,DB10334,Streptococcus pneumoniae type 17f capsular polysaccharide antigen
+2363,DB10335,Streptococcus pneumoniae type 18c capsular polysaccharide antigen
+2364,DB10336,Streptococcus pneumoniae type 19f capsular polysaccharide antigen
+2365,DB10337,Streptococcus pneumoniae type 19a capsular polysaccharide antigen
+2366,DB10338,Streptococcus pneumoniae type 20 capsular polysaccharide antigen
+2367,DB10339,Streptococcus pneumoniae type 22f capsular polysaccharide antigen
+2368,DB10340,Streptococcus pneumoniae type 23f capsular polysaccharide antigen
+2369,DB10341,Streptococcus pneumoniae type 33f capsular polysaccharide antigen
+2370,DB10342,Haemophilus influenzae type B capsular polysaccharide meningococcal outer membrane protein conjugate antigen
+2371,DB10343,Bacillus calmette-guerin substrain tice live antigen
+2372,DB10344,Ginger
+2373,DB10345,House dust
+2374,DB10346,Acacia longifolia pollen
+2375,DB10348,Fraxinus americana pollen
+2376,DB10349,Paspalum notatum pollen
+2377,DB10350,Fagus grandifolia pollen
+2378,DB10351,Cynodon dactylon pollen
+2379,DB10352,Betula lenta pollen
+2380,DB10353,Poa annua pollen
+2381,DB10354,Acer negundo pollen
+2382,DB10355,Bromus inermis pollen
+2383,DB10356,Xanthium strumarium pollen
+2384,DB10357,Zea mays pollen
+2385,DB10359,Rumex acetosella pollen
+2386,DB10360,Rumex crispus pollen
+2387,DB10361,Ulmus americana pollen
+2388,DB10362,Ulmus pumila pollen
+2389,DB10363,Corylus americana pollen
+2390,DB10364,Carya ovata pollen
+2391,DB10365,Sorghum halepense pollen
+2392,DB10366,Poa pratensis pollen
+2393,DB10368,Chenopodium album pollen
+2394,DB10369,Acer saccharum pollen
+2395,DB10370,Festuca pratensis pollen
+2396,DB10371,Prosopis juliflora pollen
+2397,DB10372,Artemisia vulgaris pollen
+2398,DB10373,Morus rubra pollen
+2399,DB10374,Quercus agrifolia pollen
+2400,DB10375,Quercus virginiana pollen
+2401,DB10376,Quercus alba pollen
+2402,DB10377,Avena sativa pollen
+2403,DB10378,Olea europaea pollen
+2404,DB10379,Dactylis glomerata pollen
+2405,DB10380,Carya illinoinensis pollen
+2406,DB10381,Amaranthus retroflexus pollen
+2407,DB10382,Plantago lanceolata pollen
+2408,DB10383,Populus alba pollen
+2409,DB10384,Ambrosia acanthicarpa pollen
+2410,DB10385,Ambrosia artemisiifolia pollen
+2411,DB10386,Ambrosia trifida pollen
+2412,DB10387,Ambrosia psilostachya pollen
+2413,DB10388,Salsola kali pollen
+2414,DB10389,Lolium perenne pollen
+2415,DB10390,Artemisia tridentata pollen
+2416,DB10391,Atriplex wrightii pollen
+2417,DB10392,Platanus occidentalis pollen
+2418,DB10393,Platanus racemosa pollen
+2419,DB10394,Phleum pratense pollen
+2420,DB10395,Holcus lanatus pollen
+2421,DB10396,Juglans nigra pollen
+2422,DB10397,Juglans californica pollen
+2423,DB10398,Salix nigra pollen
+2424,DB10399,Felis catus skin
+2425,DB10400,Dermatophagoides farinae
+2426,DB10401,Dermatophagoides pteronyssinus
+2427,DB10403,Agrostis gigantea pollen
+2428,DB10404,Anthoxanthum odoratum pollen
+2429,DB10406,Bos taurus skin
+2430,DB10408,Cotton seed
+2431,DB10409,Canis lupus familiaris skin
+2432,DB10410,Equus caballus skin
+2433,DB10411,Ceiba pentandra fiber
+2434,DB10412,Mus musculus skin
+2435,DB10413,Orris
+2436,DB10415,Rabbit
+2437,DB10416,Cavia porcellus skin
+2438,DB10417,Periplaneta americana
+2439,DB10418,Blatella germanica
+2440,DB10419,Solenopsis invicta
+2441,DB10420,Gallus gallus feather
+2442,DB10421,Anas platyrhynchos feather
+2443,DB10422,Anser anser feather
+2444,DB10423,Acremonium strictum
+2445,DB10424,Alternaria alternata
+2446,DB10425,Aspergillus fumigatus
+2447,DB10426,Aspergillus niger var. niger
+2448,DB10427,Aureobasidium pullulans var. pullutans
+2449,DB10428,Botrytis cinerea
+2450,DB10429,Candida albicans
+2451,DB10430,Chaetomium globosum
+2452,DB10431,Cladosporium cladosporioides
+2453,DB10432,Cladosporium sphaerospermum
+2454,DB10433,Cochliobolus sativus
+2455,DB10434,Epicoccum nigrum
+2456,DB10435,Fusarium oxysporum vasinfectum
+2457,DB10436,Helminthosporium solani
+2458,DB10437,Mucor plumbeus
+2459,DB10438,Neurospora intermedia
+2460,DB10439,Penicillium chrysogenum var. chrysogenum
+2461,DB10440,Phoma exigua var. exigua
+2462,DB10441,Rhizopus arrhizus var. arrhizus
+2463,DB10442,Rhodotorula rubra
+2464,DB10443,Ustilago maydis
+2465,DB10444,Ustilago tritici
+2466,DB10445,Stemphylium solani
+2467,DB10446,Trichophyton mentagrophytes
+2468,DB10447,Saccharomyces cerevisiae
+2469,DB10448,Aspergillus oryzae
+2470,DB10449,Aspergillus repens
+2471,DB10450,Aspergillus terreus
+2472,DB10451,Acacia
+2473,DB10452,Ailanthus altissima pollen
+2474,DB10453,Alnus incana subsp. rugosa pollen
+2475,DB10454,Medicago sativa pollen
+2476,DB10455,Fraxinus velutina pollen
+2477,DB10456,Populus tremuloides pollen
+2478,DB10457,Morella cerifera pollen
+2479,DB10458,Betula nigra pollen
+2480,DB10459,Amaranthus palmeri pollen
+2481,DB10460,Juniperus ashei pollen
+2482,DB10461,Juniperus virginiana pollen
+2483,DB10462,Xanthium strumarium var. canadense pollen
+2484,DB10463,Populus deltoides pollen
+2485,DB10464,Populus fremontii pollen
+2486,DB10465,Populus deltoides subsp. monilifera pollen
+2487,DB10466,Cupressus arizonica pollen
+2488,DB10467,Taxodium distichum pollen
+2489,DB10468,Eupatorium capillifolium pollen
+2490,DB10469,Ulmus crassifolia pollen
+2491,DB10470,Eucalyptus globulus pollen
+2492,DB10471,Solidago canadensis pollen
+2493,DB10472,Celtis occidentalis pollen
+2494,DB10473,Juniperus californica pollen
+2495,DB10474,Robinia pseudoacacia pollen
+2496,DB10475,Acer rubrum pollen
+2497,DB10478,Melaleuca quinquenervia pollen
+2498,DB10479,Chenopodium ambrosioides pollen
+2499,DB10480,Morus alba pollen
+2500,DB10481,Quercus rubra pollen
+2501,DB10482,Syagrus romanzoffiana pollen
+2502,DB10483,Schinus molle pollen
+2503,DB10484,Amaranthus spinosus pollen
+2504,DB10485,Casuarina equisetifolia pollen
+2505,DB10486,Pinus strobus pollen
+2506,DB10487,Pinus echinata pollen
+2507,DB10488,Ligustrum vulgare pollen
+2508,DB10489,Elymus repens pollen
+2509,DB10490,Ambrosia tenuifolia pollen
+2510,DB10491,Ambrosia bidentata pollen
+2511,DB10493,Artemisia frigida pollen
+2512,DB10494,Distichlis spicata pollen
+2513,DB10495,Liquidambar styraciflua pollen
+2514,DB10496,Juglans regia pollen
+2515,DB10497,Amaranthus tuberculatus pollen
+2516,DB10498,Triticum aestivum pollen
+2517,DB10499,Felis catus hair
+2518,DB10500,Almond
+2519,DB10501,Apple
+2520,DB10502,Apricot
+2521,DB10503,Asparagus
+2522,DB10504,Avocado
+2523,DB10505,Banana
+2524,DB10506,Barley
+2525,DB10508,String bean
+2526,DB10509,Beef
+2527,DB10510,Brazil nut
+2528,DB10511,Broccoli
+2529,DB10512,Buckwheat
+2530,DB10513,Cabbage
+2531,DB10514,Cantaloupe
+2532,DB10515,Carrot
+2533,DB10516,Casein
+2534,DB10517,Celery
+2535,DB10518,Cherry
+2536,DB10519,Chicken
+2537,DB10520,Cinnamon
+2538,DB10523,Coconut
+2539,DB10525,Coffee bean
+2540,DB10526,Red king crab
+2541,DB10527,Cucumber
+2542,DB10528,Egg white
+2543,DB10529,Egg
+2544,DB10530,Egg yolk
+2545,DB10531,Flounder
+2546,DB10532,Garlic
+2547,DB10533,Grape
+2548,DB10534,Grapefruit
+2549,DB10535,Karaya gum
+2550,DB10536,Honeydew melon
+2551,DB10537,Lamb
+2552,DB10538,Lemon
+2553,DB10539,Lettuce
+2554,DB10540,Lima bean
+2555,DB10541,Lobster
+2556,DB10542,Goat milk
+2557,DB10543,Cow milk
+2558,DB10544,Cultivated mushroom
+2559,DB10545,Mustard seed
+2560,DB10546,Oat
+2561,DB10547,Black olive
+2562,DB10548,Onion
+2563,DB10549,Orange
+2564,DB10550,Oyster
+2565,DB10551,Pea
+2566,DB10552,Peach
+2567,DB10553,Peanut
+2568,DB10554,Pear
+2569,DB10555,Pecan
+2570,DB10556,Green bell pepper
+2571,DB10557,Black pepper
+2572,DB10558,Pineapple
+2573,DB10559,Pistachio
+2574,DB10560,Plum
+2575,DB10561,Pork
+2576,DB10562,Potato
+2577,DB10563,Rice
+2578,DB10564,Rye
+2579,DB10566,Sesame seed
+2580,DB10567,Shrimp
+2581,DB10568,Soybean
+2582,DB10569,Spinach
+2583,DB10570,Squash
+2584,DB10571,Strawberry
+2585,DB10572,Corn
+2586,DB10573,Tomato
+2587,DB10574,Tuna
+2588,DB10575,Turkey
+2589,DB10576,Vanilla
+2590,DB10577,English walnut
+2591,DB10578,Watermelon
+2592,DB10579,Wheat
+2593,DB10580,Tea leaf
+2594,DB10581,Khuskia oryzae
+2595,DB10582,Artemisia annua pollen
+2596,DB10583,Clostridium tetani toxoid antigen (formaldehyde inactivated)
+2597,DB10584,Corynebacterium diphtheriae toxoid antigen (formaldehyde inactivated)
+2598,DB10596,"Influenza A virus A/California/7/2009 X-179A (H1N1) antigen (UV, formaldehyde inactivated)"
+2599,DB10597,"Influenza A virus A/Switzerland/9715293/2013 NIB-88 (H3N2) antigen (UV, formaldehyde inactivated)"
+2600,DB10598,"Influenza B virus B/Brisbane/60/2008 antigen (UV, formaldehyde inactivated)"
+2601,DB10599,"Influenza B virus B/Phuket/3073/2013 antigen (UV, formaldehyde inactivated)"
+2602,DB10600,Influenza A virus A/California/7/2009 X-181 (H1N1) antigen (propiolactone inactivated)
+2603,DB10601,Influenza A virus A/South Australia/55/2014 IVR-175 (H3N2) antigen (propiolactone inactivated)
+2604,DB10602,Influenza B virus B/Phuket/3073/2013 antigen (propiolactone inactivated)
+2605,DB10603,Meriones unguiculatus skin
+2606,DB10604,Capra hircus skin
+2607,DB10605,Mesocricetus auratus skin
+2608,DB10606,Sus scrofa skin
+2609,DB10607,Oryctolagus cuniculus skin
+2610,DB10608,Rattus norvegicus skin
+2611,DB10609,Bombyx mori fiber
+2612,DB10610,Duck
+2613,DB10611,Allergenic extract- beef liver
+2614,DB10612,Veal
+2615,DB10613,Bluefish
+2616,DB10614,Common carp
+2617,DB10615,Haddock
+2618,DB10616,Pacific halibut
+2619,DB10617,Herring
+2620,DB10618,Mackerel
+2621,DB10619,Northern pike
+2622,DB10620,Red snapper
+2623,DB10621,Atlantic salmon
+2624,DB10622,European pilchard
+2625,DB10623,Scallop
+2626,DB10624,Smelt
+2627,DB10625,Swordfish
+2628,DB10626,Trout
+2629,DB10627,White fish
+2630,DB10628,Blackberry
+2631,DB10629,Blueberry
+2632,DB10630,Sour cherry
+2633,DB10631,Cranberry
+2634,DB10632,Date
+2635,DB10633,Fig
+2636,DB10634,Wine grape
+2637,DB10635,Lime (citrus)
+2638,DB10636,Raspberry
+2639,DB10637,Tangerine
+2640,DB10638,Artichoke
+2641,DB10639,Kidney bean
+2642,DB10640,Beet
+2643,DB10641,Kiwi fruit
+2644,DB10642,Brussels sprout
+2645,DB10643,Cauliflower
+2646,DB10644,Eggplant
+2647,DB10645,Lentil
+2648,DB10646,Green olive
+2649,DB10647,Parsley
+2650,DB10648,Sweet potato
+2651,DB10650,Raphanus sativus
+2652,DB10651,Rhubarb
+2653,DB10652,Turnip
+2654,DB10653,Cashew
+2655,DB10654,Hazelnut
+2656,DB10655,Macadamia nut
+2657,DB10656,Nectarine
+2658,DB10657,Mango
+2659,DB10658,Papaya
+2660,DB10659,Leek
+2661,DB10660,Okra
+2662,DB10661,Parsnip
+2663,DB10662,Chickpea
+2664,DB10663,Black-eyed pea
+2665,DB10664,Watercress
+2666,DB10666,Arabica coffee bean
+2667,DB10667,Tragacanth
+2668,DB10669,Allspice
+2669,DB10670,Laurus nobilis
+2670,DB10671,Caraway seed
+2671,DB10672,Clove
+2672,DB10673,Dill
+2673,DB10674,Horseradish
+2674,DB10675,Licorice
+2675,DB10676,Nutmeg
+2676,DB10677,Oregano
+2677,DB10678,Paprika
+2678,DB10679,White pepper
+2679,DB10681,Poppy seed
+2680,DB10683,Spearmint
+2681,DB10685,Wheat bran
+2682,DB10686,American chestnut
+2683,DB10687,Hops
+2684,DB10688,Musca domestica
+2685,DB10690,Ctenocephalides canis
+2686,DB10691,Aedes taeniorhynchus
+2687,DB10693,Ctenocephalides felis
+2688,DB10694,Aspergillus flavus
+2689,DB10695,Eurotium herbariorum
+2690,DB10696,Trichothecium roseum
+2691,DB10697,Curvularia inaequalis
+2692,DB10698,Fusarium compactum
+2693,DB10699,Geotrichum candidum
+2694,DB10700,Phoma glomerata
+2695,DB10701,Rhodotorula mucilaginosa
+2696,DB10702,Stemphylium sarciniforme
+2697,DB10703,Trichoderma harzianum
+2698,DB10704,Ustilago avenae
+2699,DB10705,Tilletia caries
+2700,DB10706,Puccinia graminis
+2701,DB10707,Cotton
+2702,DB10708,Flax seed
+2703,DB10710,Tobacco leaf
+2704,DB10711,Corcorus capsularis fiber
+2705,DB10712,Agave sisalana fiber
+2706,DB10713,Poa compressa pollen
+2707,DB10714,Phalaris arundinacea pollen
+2708,DB10715,Bouteloua gracilis pollen
+2709,DB10716,Urochloa mutica pollen
+2710,DB10717,Secale cereale pollen
+2711,DB10718,Leymus condensatus pollen
+2712,DB10719,Pascopyrum smithii pollen
+2713,DB10720,Acacia baileyana pollen
+2714,DB10721,Alnus rubra pollen
+2715,DB10722,Alnus rhombifolia pollen
+2716,DB10723,Fraxinus latifolia pollen
+2717,DB10724,Betula populifolia pollen
+2718,DB10725,Tamarix gallica pollen
+2719,DB10727,Juniperus monosperma pollen
+2720,DB10728,Juniperus pinchotii pollen
+2721,DB10729,Juniperus scopulorum pollen
+2722,DB10730,Juniperus osteosperma pollen
+2723,DB10731,Juniperus occidentalis pollen
+2724,DB10732,Tilia americana pollen
+2725,DB10733,Mangifera indica pollen
+2726,DB10734,Acer macrophyllum pollen
+2727,DB10735,Acer saccharinum pollen
+2728,DB10736,Broussonetia papyrifera pollen
+2729,DB10737,Quercus velutina pollen
+2730,DB10738,Quercus macrocarpa pollen
+2731,DB10739,Quercus kelloggii pollen
+2732,DB10740,Quercus gambelii pollen
+2733,DB10741,Quercus lobata pollen
+2734,DB10742,Quercus nigra pollen
+2735,DB10743,Citrus sinensis pollen
+2736,DB10744,Pinus taeda pollen
+2737,DB10745,Pinus palustris pollen
+2738,DB10746,Pinus ponderosa pollen
+2739,DB10747,Pinus elliottii pollen
+2740,DB10748,Pinus virginiana pollen
+2741,DB10749,Pinus monticola pollen
+2742,DB10750,Populus nigra pollen
+2743,DB10751,Elaeagnus angustifolia pollen
+2744,DB10752,Salix lasiolepis pollen
+2745,DB10753,Salix discolor pollen
+2746,DB10754,Populus balsamifera subsp. trichocarpa pollen
+2747,DB10755,Taraxacum officinale pollen
+2748,DB10756,Atriplex polycarpa pollen
+2749,DB10757,Baccharis halimifolia pollen
+2750,DB10758,Hymenoclea salsola pollen
+2751,DB10759,Allenrolfea occidentalis pollen
+2752,DB10760,Atriplex lentiformis pollen
+2753,DB10761,Artemisia douglasiana pollen
+2754,DB10762,Artemisia ludoviciana pollen
+2755,DB10763,Urtica dioica pollen
+2756,DB10764,Iva axillaris pollen
+2757,DB10765,Ambrosia deltoidea pollen
+2758,DB10766,Sarcobatus vermiculatus pollen
+2759,DB10767,Atriplex canescens pollen
+2760,DB10768,Artemisia absinthium pollen
+2761,DB10769,Japanese encephalitis virus strain sa 14-14-2 antigen (formaldehyde inactivated)
+2762,DB10770,Foreskin fibroblast (neonatal)
+2763,DB10771,Bovine type I collagen
+2764,DB10772,Foreskin keratinocyte (neonatal)
+2765,DB10773,Influenza A virus A/California/7/2009 (H1N1) recombinant hemagglutinin antigen
+2766,DB10774,Influenza A virus A/Victoria/361/2011 (H3N2) recombinant hemagglutinin antigen
+2767,DB10775,Influenza B virus B/Wisconsin/1/2010 recombinant hemagglutinin antigen
+2768,DB10776,Influenza A virus A/Texas/50/2012 (H3N2) recombinant hemagglutinin antigen
+2769,DB10777,Influenza B virus B/Massachusetts/2/2012 recombinant hemagglutinin antigen
+2770,DB10778,Influenza A virus A/Switzerland/9715293/2013 (H3N2) recombinant hemagglutinin antigen
+2771,DB10779,Influenza B virus B/Phuket/3073/2013 recombinant hemagglutinin antigen
+2772,DB10780,Influenza B virus B/Hubei-Wujiagang/158/2009 BX-39 antigen (propiolactone inactivated)
+2773,DB10781,Influenza A virus A/Christchurch/16/2010 NIB-74 (H1N1) antigen (propiolactone inactivated)
+2774,DB10782,Influenza A virus A/Victoria/361/2011 IVR-165 (H3N2) antigen (propiolactone inactivated)
+2775,DB10783,Neisseria meningitidis serogroup b nhba fusion protein antigen
+2776,DB10784,Neisseria meningitidis serogroup b fhbp fusion protein antigen
+2777,DB10785,Neisseria meningitidis serogroup b nada protein antigen
+2778,DB10786,Neisseria meningitidis serogroup B strain NZ98/254 outer membrane vesicle
+2779,DB10787,Bordetella pertussis toxoid antigen (glutaraldehyde inactivated)
+2780,DB10788,Bordetella pertussis filamentous hemagglutinin antigen (formaldehyde inactivated)
+2781,DB10789,Bordetella pertussis pertactin antigen
+2782,DB10790,Bordetella pertussis fimbriae 2/3 antigen
+2783,DB10791,Influenza A virus A/California/7/2009 X-179A (H1N1) antigen (formaldehyde inactivated)
+2784,DB10792,Influenza A virus A/Switzerland/9715293/2013 NIB-88 (H3N2) antigen (formaldehyde inactivated)
+2785,DB10793,Influenza B virus B/Phuket/3073/2013 antigen (formaldehyde inactivated)
+2786,DB10794,Influenza B virus B/Brisbane/60/2008 antigen (formaldehyde inactivated)
+2787,DB10795,Poliovirus type 1 antigen (formaldehyde inactivated)
+2788,DB10796,Poliovirus type 2 antigen (formaldehyde inactivated)
+2789,DB10797,Poliovirus type 3 antigen (formaldehyde inactivated)
+2790,DB10798,Neisseria meningitidis group a capsular polysaccharide diphtheria toxoid conjugate antigen
+2791,DB10799,Neisseria meningitidis group c capsular polysaccharide diphtheria toxoid conjugate antigen
+2792,DB10800,Neisseria meningitidis group y capsular polysaccharide diphtheria toxoid conjugate antigen
+2793,DB10801,Neisseria meningitidis group w-135 capsular polysaccharide diphtheria toxoid conjugate antigen
+2794,DB10802,Influenza A virus A/California/7/2009(H1N1)-like antigen (formaldehyde inactivated)
+2795,DB10803,Typhoid Vi polysaccharide vaccine
+2796,DB10804,Bacillus calmette-guerin substrain connaught live antigen
+2797,DB10805,Yellow fever vaccine
+2798,DB10806,Fusarium oxysporum
+2799,DB10807,Candida tropicalis
+2800,DB10808,Mucor racemosus
+2801,DB10809,Penicillium camemberti
+2802,DB10810,Penicillium expansum
+2803,DB10811,Penicillium italicum
+2804,DB10812,Penicillium roqueforti
+2805,DB10813,Phoma destructiva
+2806,DB10814,Rhizopus stolonifer
+2807,DB10815,Fraxinus pennsylvanica pollen
+2808,DB10816,Atriplex confertifolia pollen
+2809,DB10817,Passalora fulva
+2810,DB10818,Cochliobolus spicifer
+2811,DB10819,Myrothecium verrucaria
+2812,DB10820,Hypomyces perniciosus
+2813,DB10821,Neurospora crassa
+2814,DB10822,Paecilomyces variotii
+2815,DB10823,Microascus brevicaulis
+2816,DB10824,Colletotrichum coccodes
+2817,DB10825,Pleospora herbarum
+2818,DB10826,Streptomyces griseus
+2819,DB10827,Trichoderma viride
+2820,DB10828,Trichophyton schoenleinii
+2821,DB10829,Basil
+2822,DB10830,Mung bean
+2823,DB10831,Betula papyrifera pollen
+2824,DB10832,Betula occidentalis pollen
+2825,DB10833,Betula alleghaniensis pollen
+2826,DB10834,Ustilago cynodontis
+2827,DB10835,Ustilago nuda hordei
+2828,DB10836,Bromus secalinus pollen
+2829,DB10837,Beta vulgaris pollen
+2830,DB10838,Chenopodium botrys pollen
+2831,DB10839,Mycocladus corymbiferus
+2832,DB10840,Acrothecium robustum
+2833,DB10841,Humicola grisea
+2834,DB10842,Microsporum audouinii
+2835,DB10843,Microsporum canis
+2836,DB10844,Apiospora montagnei
+2837,DB10845,Phycomyces blakesleeanus
+2838,DB10846,Sporotrichum pruinosum
+2839,DB10847,Stachybotrys chartarum
+2840,DB10848,Syncephalastrum racemosum
+2841,DB10849,Tetracoccosporium paxianum
+2842,DB10850,Verticillium albo-atrum
+2843,DB10851,White catfish
+2844,DB10852,Carob
+2845,DB10853,Sweet cherry
+2846,DB10855,Opilio crab
+2847,DB10856,Bos taurus hair
+2848,DB10857,Serinus canaria feather
+2849,DB10858,Melilotus albus pollen
+2850,DB10859,Melilotus officinalis pollen
+2851,DB10860,Typha latifolia pollen
+2852,DB10861,Atlantic cod
+2853,DB10862,Red currant
+2854,DB10864,Cumin
+2855,DB10865,Cladosporium herbarum
+2856,DB10866,Acheta domesticus
+2857,DB10867,Canis lupus familiaris hair
+2858,DB10868,Odocoileus virginianus hair
+2859,DB10869,Grain mill dust
+2860,DB10870,Epidermophyton floccosum
+2861,DB10871,Ambrosia dumosa pollen
+2862,DB10872,Ambrosia confertiflora pollen
+2863,DB10873,Sporisorium cruentum
+2864,DB10874,Goose
+2865,DB10875,Concord grape
+2866,DB10876,Capra hircus hair
+2867,DB10877,Cavia porcellus hair
+2868,DB10879,Arrhenatherum elatius pollen
+2869,DB10880,Equus caballus hair
+2870,DB10881,Sus scrofa hair
+2871,DB10882,Carya cordiformis pollen
+2872,DB10883,Carya glabra pollen
+2873,DB10884,Millet seed
+2874,DB10885,Mustard greens
+2875,DB10886,Quercus muehlenbergii pollen
+2876,DB10887,Quercus palustris pollen
+2877,DB10888,Quercus stellata pollen
+2878,DB10889,Quercus garryana pollen
+2879,DB10890,Red bell pepper
+2880,DB10891,Perch
+2881,DB10892,Pumpkin
+2882,DB10893,Melopsittacus undulatus feather
+2883,DB10894,Pinus contorta pollen
+2884,DB10895,Pinus sylvestris pollen
+2885,DB10896,Pinus rigida pollen
+2886,DB10897,Capsicum
+2887,DB10898,Oryctolagus cuniculus hair
+2888,DB10899,Sequoia sempervirens pollen
+2889,DB10900,Rumex obtusifolius pollen
+2890,DB10901,Rumex altissimus pollen
+2891,DB10902,Rumex salicifolius var. mexicanus pollen
+2892,DB10903,Sitotroga cerealella
+2893,DB10904,English sole
+2894,DB10905,Safflower
+2895,DB10906,Sugarcane
+2896,DB10907,Sunflower seed
+2897,DB10908,Platanus hybrida pollen
+2898,DB10909,Artemisia californica pollen
+2899,DB10910,Helianthus annuus pollen
+2900,DB10911,Carpinus caroliniana pollen
+2901,DB10912,Picea pungens pollen
+2902,DB10913,"Starch, tapioca"
+2903,DB10914,Larix occidentalis pollen
+2904,DB10915,Trichophyton rubrum
+2905,DB10916,Salix lucida ssp. lasiandra pollen
+2906,DB10917,Cedar oil
+2907,DB10918,Venison
+2908,DB10919,Black walnut
+2909,DB10921,Artemisia dracunculus pollen
+2910,DB10922,Pinus banksiana pollen
+2911,DB10923,Pinus resinosa pollen
+2912,DB10924,Pinus nigra pollen
+2913,DB10925,Pinus thunbergii pollen
+2914,DB10926,Carya tomentosa pollen
+2915,DB10927,Iva annua pollen
+2916,DB10928,Bassia scoparia pollen
+2917,DB10929,Cyclachaena xanthifolia pollen
+2918,DB10930,Amaranthus retroflexus whole
+2919,DB10932,Cephalosporium roseum
+2920,DB10933,Cochliobolus lunatus
+2921,DB10934,Haematonectria haematococca
+2922,DB10935,Chrysonilia sitophila
+2923,DB10936,Pleospora betae
+2924,DB10937,Puccinia striiformis var. striiformis
+2925,DB10939,Pleospora tarda
+2926,DB10940,Acacia pollen
+2927,DB10941,Bassia hyssopifolia pollen
+2928,DB10942,Brassica rapa pollen
+2929,DB10943,Callistemon citrinus pollen
+2930,DB10945,Dicoria canescens pollen
+2931,DB10946,Krascheninnikovia lanata pollen
+2932,DB10947,Ambrosia ambrosioides pollen
+2933,DB10948,Ambrosia chamissonis pollen
+2934,DB10949,Koeleria macrantha pollen
+2935,DB10950,Phoenix dactylifera pollen
+2936,DB10952,Quercus dumosa pollen
+2937,DB10953,Suaeda moquinii pollen
+2938,DB10954,Tilia cordata pollen
+2939,DB10955,Apis mellifera venom
+2940,DB10956,Vespula maculifrons venom protein
+2941,DB10957,Dolichovespula arenaria venom protein
+2942,DB10958,Dolichovespula maculata venom protein
+2943,DB10959,Polistes fuscatus venom protein
+2944,DB10961,Hordeum vulgare pollen
+2945,DB10962,Agrostis stolonifera pollen
+2946,DB10963,Phalaris minor pollen
+2947,DB10964,Lolium perenne subsp. multiflorum pollen
+2948,DB10965,Sorghum bicolor subsp. bicolor pollen
+2949,DB10966,Sorghum bicolor subsp. drummondii pollen
+2950,DB10967,Amphiachyris dracunculoides pollen
+2951,DB10968,Iva angustifolia pollen
+2952,DB10969,Neurospora sitophila
+2953,DB10970,Trichophyton tonsurans
+2954,DB10971,Mycogone nigra
+2955,DB10972,Absidia capillata
+2956,DB10973,Thermomyces lanuginosus
+2957,DB10974,Trichosporon cutaneum
+2958,DB10975,Tanacetum cinerariifolium flower
+2959,DB10976,Largemouth bass
+2960,DB10977,Cocoa
+2961,DB10979,Blue crab
+2962,DB10980,Barley malt
+2963,DB10981,Radish
+2964,DB10982,Sage
+2965,DB10983,Thyme
+2966,DB10984,Peppermint
+2967,DB10985,Ulmus rubra pollen
+2968,DB10986,Pseudotsuga menziesii pollen
+2969,DB10987,Carya laciniosa pollen
+2970,DB10988,Maclura pomifera pollen
+2971,DB10989,Hepatitis A Vaccine
+2972,DB10990,Haemophilus influenzae type B strain 20752 capsular polysaccharide tetanus toxoid conjugate antigen
+2973,DB10991,"Bordetella pertussis toxoid antigen (formaldehyde, glutaraldehyde inactivated)"
+2974,DB10992,Bordetella pertussis pertactin antigen (formaldehyde inactivated)
+2975,DB10994,Human papillomavirus type 16 L1 capsid protein residues 2-471 antigen
+2976,DB10995,Human papillomavirus type 18 L1 capsid protein residues 2-472 antigen
+2977,DB10996,Influenza A virus A/Christchurch/16/2010 NIB-74XP (H1N1) antigen (formaldehyde inactivated)
+2978,DB10997,Autologous cultured chondrocytes
+2979,DB10998,"Influenza A virus A/Brisbane/10/2010 (H1N1) antigen (MDCK cell derived, propiolactone inactivated)"
+2980,DB10999,"Influenza A virus A/Texas/50/2012 X-223A (H3N2) antigen (MDCK cell derived, propiolactone inactivated)"
+2981,DB11000,"Influenza B virus B/Massachusetts/2/2012 antigen (MDCK cell derived, propiolactone inactivated)"
+2982,DB11001,"Influenza A virus A/South Australia/55/2014 (H3N2) antigen (MDCK cell derived, propiolactone inactivated)"
+2983,DB11002,"Influenza B virus B/Utah/9/2014 antigen (MDCK cell derived, propiolactone inactivated)"
+2984,DB11003,Anthrax vaccine
+2985,DB11004,Betula pendula pollen
+2986,DB11005,Ulmus parvifolia pollen
+2987,DB11006,Parkinsonia florida pollen
+2988,DB11007,Cytisus scoparius flowering top
+2989,DB11008,Poultry
+2990,DB11009,"Quahog, unspecified"
+2991,DB11010,"Cod, unspecified"
+2992,DB11011,Crab leg
+2993,DB11014,"Salmon, unspecified"
+2994,DB11017,Yeast
+2995,DB11018,Canis lupus familiaris dander
+2996,DB11019,Cavia porcellus dander
+2997,DB11020,Bos taurus dander
+2998,DB11021,Equus caballus dander
+2999,DB11022,Aspergillus nidulans
+3000,DB11023,Penicillium digitatum
+3001,DB11024,Clonostachys rosea f. rosea
+3002,DB11025,Dendryphiella vinosa
+3003,DB11026,Solenopsis richteri
+3004,DB11027,Polistes annularis venom protein
+3005,DB11028,Polistes exclamans venom protein
+3006,DB11029,Polistes metricus venom protein
+3007,DB11030,Vespula germanica venom protein
+3008,DB11031,Vespula pensylvanica venom protein
+3009,DB11032,Vespula squamosa venom protein
+3010,DB11033,Vespula vulgaris venom protein
+3011,DB11034,Influenza A virus A/Bolivia/559/2013 (H1N1) live (attenuated) antigen
+3012,DB11035,Influenza A virus A/Switzerland/9715293/2013 (H3N2) live (attenuated) antigen
+3013,DB11036,Influenza B virus B/Phuket/3073/2013 live (attenuated) antigen
+3014,DB11037,Influenza B virus B/Brisbane/60/2008 live (attenuated) antigen
+3015,DB11038,Influenza A virus A/Brisbane/59/2007(H1N1) hemagglutinin antigen (propiolactone inactivated)
+3016,DB11039,Influenza A virus A/Uruguay/716/2007(H3N2) hemagglutinin antigen (propiolactone inactivated)
+3017,DB11040,Influenza B virus B/Brisbane/60/2008 hemagglutinin antigen (propiolactone inactivated)
+3018,DB11041,Influenza A virus A/California/7/2009 X-181 (H1N1) hemagglutinin antigen (propiolactone inactivated)
+3019,DB11042,Influenza A virus A/Victoria/210/2009 X-187 (H3N2) hemagglutinin antigen (propiolactone inactivated)
+3020,DB11043,Influenza A virus A/Victoria/210/2009 X-187 (H3N2) antigen (propiolactone inactivated)
+3021,DB11044,Influenza B virus B/Brisbane/60/2008 antigen (propiolactone inactivated)
+3022,DB11045,Influenza A virus A/Texas/50/2012 X-223 (H3N2) antigen (propiolactone inactivated)
+3023,DB11046,Influenza B virus B/Massachusetts/2/2012 BX-51B antigen (propiolactone inactivated)
+3024,DB11047,Influenza A virus A/Switzerland/9715293/2013 NIB-88 (H3N2) antigen (propiolactone inactivated)
+3025,DB11048,Influenza A virus A/California/7/2009(H1N1)-like hemagglutinin antigen (propiolactone inactivated)
+3026,DB11050,Typhoid Vaccine Live
+3027,DB11051,Azficel-T
+3028,DB11054,Human cord blood hematopoietic progenitor cell
+3029,DB11056,Stannous chloride
+3030,DB11057,Mineral oil
+3031,DB11058,Petrolatum
+3032,DB11059,Carboxymethylcellulose
+3033,DB11060,Polyvinyl alcohol
+3034,DB11061,Povidone
+3035,DB11062,Octisalate
+3036,DB11063,Polysorbate 80
+3037,DB11064,Homosalate
+3038,DB11065,Pancrelipase amylase
+3039,DB11066,Pancrelipase protease
+3040,DB11067,Heme iron polypeptide
+3041,DB11068,Selenic acid
+3042,DB11069,Schizochytrium DHA oil
+3043,DB11071,Phenyl salicylate
+3044,DB11072,Hydrogen fluoride
+3045,DB11073,Cetylpyridinium
+3046,DB11074,Dimethicone
+3047,DB11075,Hypromellose
+3048,DB11077,Polyethylene glycol 400
+3049,DB11079,Trolamine salicylate
+3050,DB11080,Silver nitrate
+3051,DB11081,Aluminum chloride
+3052,DB11082,Coal tar
+3053,DB11085,Resorcinol
+3054,DB11086,Cocoa butter
+3055,DB11087,Pyrethrum extract
+3056,DB11088,Shark liver oil
+3057,DB11089,Docusate
+3058,DB11090,Potassium nitrate
+3059,DB11091,Hydrogen peroxide
+3060,DB11092,Stannous fluoride
+3061,DB11093,Calcium citrate
+3062,DB11094,Vitamin D
+3063,DB11095,Desirudin
+3064,DB11096,Meradimate
+3065,DB11097,Plantago seed
+3066,DB11098,Potassium bicarbonate
+3067,DB11100,Allantoin
+3068,DB11102,N-acetyltyrosine
+3069,DB11104,Sulfur hexafluoride
+3070,DB11105,Benzalkonium
+3071,DB11107,Potassium bitartrate
+3072,DB11108,Aluminum sesquichlorohydrate
+3073,DB11109,Chlorine
+3074,DB11110,Magnesium citrate
+3075,DB11111,Witch hazel
+3076,DB11112,Lanolin
+3077,DB11113,Castor oil
+3078,DB11114,Eucalyptus oil
+3079,DB11115,Ensulizole
+3080,DB11116,Aluminum zirconium trichlorohydrex gly
+3081,DB11117,Undecylenic acid
+3082,DB11118,Ammonia
+3083,DB11119,Sodium iodide
+3084,DB11120,Turpentine
+3085,DB11121,Chloroxylenol
+3086,DB11123,Hypochlorite
+3087,DB11124,Racepinephrine
+3088,DB11125,Benzethonium
+3089,DB11126,Calcium gluconate
+3090,DB11127,Selenious acid
+3091,DB11129,Carbamide peroxide
+3092,DB11130,Opium
+3093,DB11131,Capsicum oleoresin
+3094,DB11132,Silicon dioxide
+3095,DB11133,Omega-3 fatty acids
+3096,DB11134,Cupric oxide
+3097,DB11135,Selenium
+3098,DB11136,Chromium
+3099,DB11137,Molybdenum
+3100,DB11140,Chromium Cr-51
+3101,DB11141,Manganese gluconate
+3102,DB11142,Selenomethionine
+3103,DB11143,Cresol
+3104,DB11144,Hydrogenated palm kernel oil
+3105,DB11145,Oxyquinoline
+3106,DB11147,Aluminum zirconium pentachlorohydrate
+3107,DB11148,Butamben
+3108,DB11149,Aluminum zirconium tetrachlorohydrex gly
+3109,DB11150,Barium sulfate
+3110,DB11151,Sodium hydroxide
+3111,DB11152,Trichloroacetate
+3112,DB11153,Potassium hydroxide
+3113,DB11154,Zinc citrate
+3114,DB11155,Triclocarban
+3115,DB11156,Pyrantel
+3116,DB11157,Anthralin
+3117,DB11158,Pectin
+3118,DB11159,Sodium sulfide
+3119,DB11160,Phenyltoloxamine
+3120,DB11161,Polyethylene glycol 300
+3121,DB11164,Bicisate
+3122,DB11165,Rosin
+3123,DB11166,Antithrombin Alfa
+3124,DB11168,Calcium threonate
+3125,DB11169,Ferrous asparto glycinate
+3126,DB11171,Ferric sulfate
+3127,DB11172,Sesame oil
+3128,DB11174,2-(l-menthoxy)ethanol
+3129,DB11176,Zeaxanthin
+3130,DB11178,Polysorbate 20
+3131,DB11179,Exametazime
+3132,DB11180,Tetrofosmin
+3133,DB11181,Homatropine
+3134,DB11182,Rose bengal
+3135,DB11183,Light green SF yellowish
+3136,DB11184,Oftasceine
+3137,DB11185,Sulisobenzone
+3138,DB11186,Pentoxyverine
+3139,DB11189,Magnesium glycinate
+3140,DB11190,Pantethine
+3141,DB11191,Cobamamide
+3142,DB11192,L-threonic acid
+3143,DB11193,Papain
+3144,DB11195,Xylitol
+3145,DB11197,Ferrous cysteine glycinate
+3146,DB11198,Peppermint oil
+3147,DB11199,Sage oil
+3148,DB11200,Aluminum zirconium octachlorohydrex gly
+3149,DB11201,Menthyl salicylate
+3150,DB11202,N-alkyl ethylbenzyl dimethyl ammonium (C12-C14)
+3151,DB11203,Boron
+3152,DB11204,Panthenol
+3153,DB11205,Alcloxa
+3154,DB11206,Bemotrizinol
+3155,DB11207,Amiloxate
+3156,DB11208,Aluminum chlorohydrex propylene glycol
+3157,DB11209,Iron protein succinylate
+3158,DB11210,Ferrous bisglycinate
+3159,DB11217,Arbutin
+3160,DB11218,Tea tree oil
+3161,DB11219,Enzacamene
+3162,DB11221,Dioxybenzone
+3163,DB11222,Benzoin resin
+3164,DB11224,Liquidambar styraciflua resin
+3165,DB11225,Peg-100 stearate
+3166,DB11226,Ethylhexyl methoxycrylene
+3167,DB11227,Thermus thermophilus lysate
+3168,DB11228,Methylcellulose
+3169,DB11229,Padimate A
+3170,DB11230,Magnesium Aluminum Silicate
+3171,DB11231,Lycopene
+3172,DB11232,Saccharide isomerate
+3173,DB11233,Silver citrate
+3174,DB11234,Poliglusam
+3175,DB11235,Thonzylamine
+3176,DB11236,Polyethylene glycol 3500
+3177,DB11237,Trypsin
+3178,DB11238,Borage oil
+3179,DB11239,Aluminum sulfate
+3180,DB11242,Gelatin
+3181,DB11243,Ethyl macadamiate
+3182,DB11244,Cyclomethicone 5
+3183,DB11246,Copper gluconate
+3184,DB11247,Sambucus nigra flowering top
+3185,DB11248,Zinc gluconate
+3186,DB11250,Glyceryl monostearate
+3187,DB11251,Tocopherol
+3188,DB11253,Xanthan gum
+3189,DB11254,Hexylresorcinol
+3190,DB11255,Chromium picolinate
+3191,DB11256,Levomefolic acid
+3192,DB11257,Fluoride ion
+3193,DB11259,Diosmetin
+3194,DB11260,Diacetyl benzoyl lathyrol
+3195,DB11261,Atractylodes japonica root
+3196,DB11262,Bisoctrizole
+3197,DB11263,Polydatin
+3198,DB11264,Calcium glycerophosphate
+3199,DB11265,Curcuma xanthorrhiza oil
+3200,DB11266,Sea salt
+3201,DB11267,Triethoxycaprylylsilane
+3202,DB11268,Protocatechualdehyde
+3203,DB11269,Diethylamino hydroxybenzoyl hexyl benzoate
+3204,DB11270,Atractylodes japonica root oil
+3205,DB11271,Polysilicone-15
+3206,DB11272,Methyl undecenoyl leucinate
+3207,DB11273,Dihydroergocornine
+3208,DB11274,Dihydro-alpha-ergocryptine
+3209,DB11275,Epicriptine
+3210,DB11276,Pine needle oil (pinus mugo)
+3211,DB11277,Aluminum zirconium pentachlorohydrex gly
+3212,DB11278,DL-Methylephedrine
+3213,DB11279,Brilliant green cation
+3214,DB11281,Bismuth subcarbonate
+3215,DB11282,Diethyltoluamide
+3216,DB11283,DL-dimyristoylphosphatidylcholine
+3217,DB11284,DL-dimyristoylphosphatidylglycerol
+3218,DB11285,Ethyl ferulate
+3219,DB11286,Colloidal oatmeal
+3220,DB11288,Borneol
+3221,DB11291,2-ethylhexyl benzoate
+3222,DB11293,Rice bran oil
+3223,DB11294,Coccidioides immitis spherule
+3224,DB11295,Trichophyton verrucosum
+3225,DB11296,Prezatide
+3226,DB11298,Thioredoxin
+3227,DB11299,Vanillyl butyl ether
+3228,DB11300,Thrombin
+3229,DB11301,Curcuma aromatica root oil
+3230,DB11302,Hydrogenated soybean oil
+3231,DB11304,Phenoxyethanol
+3232,DB11305,Quaternium-18
+3233,DB11306,Bentonite
+3234,DB11309,Sulfuric acid
+3235,DB11311,Prothrombin
+3236,DB11312,Protein C
+3237,DB11313,Phenyl trimethicone
+3238,DB11315,Methscopolamine
+3239,DB11318,"1,2-Docosahexanoyl-sn-glycero-3-phosphoserine"
+3240,DB11321,Cod liver oil
+3241,DB11323,Glycol salicylate
+3242,DB11324,Nonivamide
+3243,DB11325,Soy sterol
+3244,DB11326,Boric acid
+3245,DB11327,Dipyrithione
+3246,DB11328,Tetradecyl hydrogen sulfate (ester)
+3247,DB11329,C11-12 isoparaffin
+3248,DB11330,Factor IX Complex (Human)
+3249,DB11331,1-Palmitoyl-2-oleoyl-sn-glycero-3-(phospho-rac-(1-glycerol))
+3250,DB11332,Sinapultide
+3251,DB11333,Poloxamer 188
+3252,DB11336,Kinetin
+3253,DB11338,Clove oil
+3254,DB11340,Ubiquinol
+3255,DB11341,Ichthammol
+3256,DB11342,Aluminum oxide
+3257,DB11343,Silanol
+3258,DB11344,(+)-menthol
+3259,DB11345,(S)-camphor
+3260,DB11346,Rubidium
+3261,DB11347,Bacillus subtilis
+3262,DB11348,Calcium Phosphate
+3263,DB11350,Cocamidopropyl betaine
+3264,DB11352,Ascorbyl phosphate
+3265,DB11355,Propolis wax
+3266,DB11356,Polyquaternium-10 (400 cps at 2%)
+3267,DB11358,Evening primrose oil
+3268,DB11359,Guaiacol
+3269,DB11361,Betula pendula tar oil
+3270,DB11362,Selexipag
+3271,DB11363,Alectinib
+3272,DB11365,Sennosides
+3273,DB11367,Cefroxadine
+3274,DB11386,Chlorobutanol
+3275,DB11387,Chloroform
+3276,DB11431,Moxidectin
+3277,DB11460,Squalene
+3278,DB11482,Balsam of Peru
+3279,DB11491,Sarafloxacin
+3280,DB11496,2-mercaptobenzothiazole
+3281,DB11502,Butacaine
+3282,DB11512,Dihydrostreptomycin
+3283,DB11516,Dithiazanine
+3284,DB11560,Lesinurad
+3285,DB11563,Sebelipase alfa
+3286,DB11569,Ixekizumab
+3287,DB11570,Padimate O
+3288,DB11571,Human thrombin
+3289,DB11572,Thrombin alfa
+3290,DB11573,Aluminum chlorohydrate
+3291,DB11574,Elbasvir
+3292,DB11575,Grazoprevir
+3293,DB11576,Ferric oxide
+3294,DB11577,Indigotindisulfonic acid
+3295,DB11578,Hard fat
+3296,DB11579,Light mineral oil
+3297,DB11580,Ravulizumab
+3298,DB11581,Venetoclax
+3299,DB11583,Cetalkonium
+3300,DB11584,Pipradrol
+3301,DB11585,Drometrizole trisiloxane
+3302,DB11586,Asunaprevir
+3303,DB11587,Etafedrine
+3304,DB11588,Carbon monoxide
+3305,DB11589,Neon
+3306,DB11590,Thimerosal
+3307,DB11591,Bilastine
+3308,DB11594,Domiphen
+3309,DB11595,Atezolizumab
+3310,DB11596,Levoleucovorin
+3311,DB11597,Human Rho(D) immune globulin
+3312,DB11598,Antithrombin III human
+3313,DB11599,"Starch, corn"
+3314,DB11600,Beeswax
+3315,DB11601,Tuberculin purified protein derivative
+3316,DB11602,Hydroxyethyl cellulose
+3317,DB11603,"Rabies immune globulin, human"
+3318,DB11604,"Tetanus immune globulin, human"
+3319,DB11605,Myrrh
+3320,DB11606,Susoctocog alfa
+3321,DB11607,Efmoroctocog alfa
+3322,DB11608,Eftrenonacog alfa
+3323,DB11609,Normethadone
+3324,DB11610,Oxilofrine
+3325,DB11611,Lifitegrast
+3326,DB11613,Velpatasvir
+3327,DB11614,Rupatadine
+3328,DB11619,Gestrinone
+3329,DB11621,Human varicella-zoster immune globulin
+3330,DB11622,Dehydrocholic acid
+3331,DB11624,Epoetin delta
+3332,DB11625,Perflenapent
+3333,DB11626,Tasonermin
+3334,DB11627,Hepatitis B Vaccine (Recombinant)
+3335,DB11628,Depreotide
+3336,DB11629,Laropiprant
+3337,DB11630,Temoporfin
+3338,DB11631,Eptotermin alfa
+3339,DB11632,Opicapone
+3340,DB11633,Isavuconazole
+3341,DB11634,Colestilan chloride
+3342,DB11635,Tocofersolan
+3343,DB11636,Nomegestrol
+3344,DB11637,Delamanid
+3345,DB11638,Artenimol
+3346,DB11639,Dibotermin alfa
+3347,DB11640,Amifampridine
+3348,DB11641,Vinflunine
+3349,DB11642,Pitolisant
+3350,DB11643,Recombinant Cholera Toxin B Subunit
+3351,DB11644,Tafamidis
+3352,DB11652,Tucatinib
+3353,DB11653,Bremelanotide
+3354,DB11656,Rebamipide
+3355,DB11660,Latanoprostene bunod
+3356,DB11672,Curcumin
+3357,DB11677,Triheptanoin
+3358,DB11678,Treosulfan
+3359,DB11679,Fruquintinib
+3360,DB11682,Daprodustat
+3361,DB11689,Selumetinib
+3362,DB11691,Naldemedine
+3363,DB11693,Voclosporin
+3364,DB11697,Pacritinib
+3365,DB11699,Tropisetron
+3366,DB11700,Setmelanotide
+3367,DB11703,Acalabrutinib
+3368,DB11705,Iomeprol
+3369,DB11712,Tezacaftor
+3370,DB11714,Durvalumab
+3371,DB11718,Encorafenib
+3372,DB11730,Ribociclib
+3373,DB11732,Lasmiditan
+3374,DB11735,Galactose
+3375,DB11738,Rilmenidine
+3376,DB11739,Vonoprazan
+3377,DB11742,Ebastine
+3378,DB11748,Benfotiamine
+3379,DB11750,Clobetasol
+3380,DB11751,Cabotegravir
+3381,DB11753,Rifamycin
+3382,DB11757,Istradefylline
+3383,DB11760,Talazoparib
+3384,DB11761,Tenapanor
+3385,DB11763,Momelotinib
+3386,DB11767,Sarilumab
+3387,DB11768,Zytron
+3388,DB11771,Tremelimumab
+3389,DB11776,Brodalumab
+3390,DB11788,Neuropeptide Y
+3391,DB11791,Capmatinib
+3392,DB11793,Niraparib
+3393,DB11796,Fostemsavir
+3394,DB11799,Bictegravir
+3395,DB11800,Tivozanib
+3396,DB11815,Tilarginine
+3397,DB11817,Baricitinib
+3398,DB11820,Nifurtimox
+3399,DB11823,Esketamine
+3400,DB11827,Ertugliflozin
+3401,DB11828,Neratinib
+3402,DB11834,Guselkumab
+3403,DB11835,Indium In-111 pentetreotide
+3404,DB11837,Osilodrostat
+3405,DB11842,Angiotensin II
+3406,DB11850,Ublituximab
+3407,DB11853,Relugolix
+3408,DB11855,Revefenacin
+3409,DB11859,Brexanolone
+3410,DB11866,Romosozumab
+3411,DB11886,Infigratinib
+3412,DB11901,Apalutamide
+3413,DB11914,Lebrikizumab
+3414,DB11915,Valbenazine
+3415,DB11921,Deflazacort
+3416,DB11928,Vosoritide
+3417,DB11932,Abametapir
+3418,DB11936,Bempedoic acid
+3419,DB11938,Difelikefalin
+3420,DB11942,Selinexor
+3421,DB11943,Delafloxacin
+3422,DB11945,Avelumab
+3423,DB11951,Lemborexant
+3424,DB11952,Duvelisib
+3425,DB11963,Dacomitinib
+3426,DB11967,Binimetinib
+3427,DB11976,Anifrolumab
+3428,DB11978,Glasdegib
+3429,DB11979,Elagolix
+3430,DB11981,Elamipretide
+3431,DB11986,Entrectinib
+3432,DB11988,Ocrelizumab
+3433,DB11989,Benznidazole
+3434,DB11994,Diacerein
+3435,DB11995,Avatrombopag
+3436,DB12001,Abemaciclib
+3437,DB12005,Nirogacestat
+3438,DB12007,Isoflavone
+3439,DB12010,Fostamatinib
+3440,DB12015,Alpelisib
+3441,DB12016,Ponesimod
+3442,DB12020,Tecovirimat
+3443,DB12023,Benralizumab
+3444,DB12026,Voxilaprevir
+3445,DB12035,Sarecycline
+3446,DB12070,Letermovir
+3447,DB12091,Gadolinium
+3448,DB12095,Telotristat ethyl
+3449,DB12097,Mannitol busulfan
+3450,DB12107,Vaborbactam
+3451,DB12118,Sotatercept
+3452,DB12127,Sultamicillin
+3453,DB12129,Tideglusib
+3454,DB12130,Lorlatinib
+3455,DB12134,Gepotidacin
+3456,DB12141,Gilteritinib
+3457,DB12147,Erdafitinib
+3458,DB12151,Brincidofovir
+3459,DB12153,Citicoline
+3460,DB12159,Dupilumab
+3461,DB12161,Deutetrabenazine
+3462,DB12169,Tralokinumab
+3463,DB12184,Gepirone
+3464,DB12208,Iron isomaltoside 1000
+3465,DB12212,Landiolol
+3466,DB12218,Capivasertib
+3467,DB12235,Estetrol
+3468,DB12236,Bexagliflozin
+3469,DB12240,Polatuzumab vedotin
+3470,DB12243,Edaravone
+3471,DB12245,Triclabendazole
+3472,DB12249,Stem bromelain
+3473,DB12255,Vadadustat
+3474,DB12265,Fexinidazole
+3475,DB12267,Brigatinib
+3476,DB12274,Aducanumab
+3477,DB12277,Polihexanide
+3478,DB12278,Propiverine
+3479,DB12281,Luspatercept
+3480,DB12282,Defactinib
+3481,DB12293,Nefopam
+3482,DB12300,P-nitrobiphenyl
+3483,DB12301,Doravirine
+3484,DB12313,Dopexamine
+3485,DB12319,Benzbromarone
+3486,DB12328,Cantharidin
+3487,DB12329,Eravacycline
+3488,DB12332,Rucaparib
+3489,DB12343,Temocillin
+3490,DB12362,Diaminopropanol tetraacetic acid
+3491,DB12364,Betrixaban
+3492,DB12366,Vestronidase alfa
+3493,DB12371,Siponimod
+3494,DB12374,Velmanase alfa
+3495,DB12377,Relebactam
+3496,DB12390,Seladelpar
+3497,DB12401,Bromperidol
+3498,DB12404,Remimazolam
+3499,DB12407,Iobitridol
+3500,DB12434,Steviolbioside
+3501,DB12453,Chlorine dioxide
+3502,DB12455,Omadacycline
+3503,DB12457,Rimegepant
+3504,DB12466,Favipiravir
+3505,DB12471,Ibrexafungerp
+3506,DB12473,Taurolidine
+3507,DB12474,Lynestrenol
+3508,DB12480,Betulinic Acid
+3509,DB12483,Copanlisib
+3510,DB12489,Mirvetuximab soravtansine
+3511,DB12492,Piritramide
+3512,DB12498,Mogamulizumab
+3513,DB12499,Clascoterone
+3514,DB12500,Fedratinib
+3515,DB12513,Omaveloxolone
+3516,DB12523,Mizolastine
+3517,DB12529,Nitrite
+3518,DB12530,Inebilizumab
+3519,DB12532,Oxethazaine
+3520,DB12537,"1,2-Benzodiazepine"
+3521,DB12543,Samidorphan
+3522,DB12548,Sparsentan
+3523,DB12554,Mebeverine
+3524,DB12580,Tradipitant
+3525,DB12597,Asciminib
+3526,DB12602,Pentetreotide
+3527,DB12605,Etripamil
+3528,DB12612,Ozanimod
+3529,DB12615,Plazomicin
+3530,DB12645,Givinostat
+3531,DB12667,Protionamide
+3532,DB12674,Lurbinectedin
+3533,DB12688,Moxetumomab pasudotox
+3534,DB12698,Ibalizumab
+3535,DB12710,Perazine
+3536,DB12713,Sotagliflozin
+3537,DB12718,Carlumab
+3538,DB12728,Fenpropidin
+3539,DB12754,Iodide
+3540,DB12767,Gaxilose
+3541,DB12768,BCG vaccine
+3542,DB12783,Benserazide
+3543,DB12789,Dinoprost
+3544,DB12792,Boscalid
+3545,DB12808,Trifarotene
+3546,DB12817,Zoliflodacin
+3547,DB12820,Concizumab
+3548,DB12821,Perflubutane
+3549,DB12825,Lefamulin
+3550,DB12834,Secnidazole
+3551,DB12835,Olipudase alfa
+3552,DB12839,Pegvaliase
+3553,DB12865,Etelcalcetide
+3554,DB12867,Benperidol
+3555,DB12872,Vonicog alfa
+3556,DB12874,Quizartinib
+3557,DB12877,Oxatomide
+3558,DB12887,Tazemetostat
+3559,DB12893,Sacituzumab govitecan
+3560,DB12909,Factor XIII (human)
+3561,DB12911,Nicoboxil
+3562,DB12914,Resmetirom
+3563,DB12917,Bimekizumab
+3564,DB12924,Ozenoxacin
+3565,DB12938,Isoxaflutole
+3566,DB12941,Darolutamide
+3567,DB12942,Lactitol
+3568,DB12945,Dihydralazine
+3569,DB12952,Methylprednisone
+3570,DB12954,Terizidone
+3571,DB12965,Silver
+3572,DB12978,Pexidartinib
+3573,DB12982,Silicon
+3574,DB13007,Enfortumab vedotin
+3575,DB13055,Oteseconazole
+3576,DB13063,Parthenolide
+3577,DB13074,Macimorelin
+3578,DB13076,Yttrium Y-90
+3579,DB13085,Lumefantrine co-artemether
+3580,DB13100,Biguanide
+3581,DB13114,Amitriptylinoxide
+3582,DB13116,Norflurane
+3583,DB13117,Pentafluoropropane
+3584,DB13125,Lusutrombopag
+3585,DB13133,Von Willebrand factor human
+3586,DB13136,Fluindione
+3587,DB13139,Levosalbutamol
+3588,DB13140,Bezlotoxumab
+3589,DB13142,Calcium glubionate anhydrous
+3590,DB13144,Lenograstim
+3591,DB13145,Nedaplatin
+3592,DB13146,Fluciclovine (18F)
+3593,DB13147,Pancrelipase lipase
+3594,DB13148,Coagulation factor X human
+3595,DB13149,Protein S human
+3596,DB13150,Coagulation factor VII human
+3597,DB13151,Anti-inhibitor coagulant complex
+3598,DB13152,Coagulation Factor IX Human
+3599,DB13153,Levomenol
+3600,DB13154,Parachlorophenol
+3601,DB13155,Esculin
+3602,DB13156,Inosine pranobex
+3603,DB13157,Sodium lauryl sulfoacetate
+3604,DB13158,Clobetasone
+3605,DB13161,Nusinersen
+3606,DB13163,Terpin hydrate
+3607,DB13166,Zofenopril
+3608,DB13167,Alclofenac
+3609,DB13170,Plecanatide
+3610,DB13173,Cerliponase alfa
+3611,DB13178,Inositol
+3612,DB13179,Troleandomycin
+3613,DB13180,Gluconic Acid
+3614,DB13192,Antihemophilic factor human
+3615,DB13196,Valerian
+3616,DB13198,Pepsin
+3617,DB13200,Lipegfilgrastim
+3618,DB13209,Bismuth subnitrate
+3619,DB13211,Guanoxan
+3620,DB13213,Butaperazine
+3621,DB13216,Oxolamine
+3622,DB13218,Mandelic acid
+3623,DB13219,Medifoxamine
+3624,DB13221,Apronalide
+3625,DB13222,Tilbroquinol
+3626,DB13225,Dibenzepin
+3627,DB13228,Flosequinan
+3628,DB13231,Calcium lactate
+3629,DB13235,Perboric acid
+3630,DB13245,Thiram
+3631,DB13246,Quinupramine
+3632,DB13247,Pramiracetam
+3633,DB13248,Phthalylsulfathiazole
+3634,DB13249,Magnesium silicate
+3635,DB13253,Proxibarbal
+3636,DB13256,Clothiapine
+3637,DB13257,Ferrous sulfate anhydrous
+3638,DB13258,Etofamide
+3639,DB13259,Ethyl chloride
+3640,DB13262,Aceclidine
+3641,DB13265,Hexobendine
+3642,DB13267,Ritiometan
+3643,DB13268,Acetarsol
+3644,DB13269,Dichlorobenzyl alcohol
+3645,DB13270,Dibekacin
+3646,DB13273,Sultopride
+3647,DB13274,Micronomicin
+3648,DB13277,Benziodarone
+3649,DB13278,Bucetin
+3650,DB13279,Carbocromen
+3651,DB13281,Bromelains
+3652,DB13284,Meticrane
+3653,DB13286,Bumadizone
+3654,DB13287,Miocamycin
+3655,DB13288,Tromantadine
+3656,DB13292,Pimethixene
+3657,DB13293,Ipecac
+3658,DB13295,Atracurium
+3659,DB13306,Chlorquinaldol
+3660,DB13322,Hydrotalcite
+3661,DB13323,Trichloroethylene
+3662,DB13337,Pheneticillin
+3663,DB13345,Dihydroergocristine
+3664,DB13346,Bufexamac
+3665,DB13372,Calcium alginate
+3666,DB13381,Sodium feredetate
+3667,DB13389,Iopydol
+3668,DB13415,Pentetrazol
+3669,DB13421,Edoxudine
+3670,DB13444,Ioxitalamic acid
+3671,DB13501,Bendazac
+3672,DB13503,Tyrothricin
+3673,DB13518,Alginic acid
+3674,DB13520,Metergoline
+3675,DB13521,Alipogene tiparvovec
+3676,DB13532,Cyclopenthiazide
+3677,DB13583,Mephenesin
+3678,DB13586,Metandienone
+3679,DB13595,Almasilate
+3680,DB13615,Mifamurtide
+3681,DB13620,Potassium gluconate
+3682,DB13624,Methoxyphenamine
+3683,DB13628,Ethyl hydroxybenzoate
+3684,DB13657,Benorilate
+3685,DB13680,Naftazone
+3686,DB13682,Cefpirome
+3687,DB13688,Drisapersen
+3688,DB13700,Protamine
+3689,DB13707,Sodium tartrate
+3690,DB13711,Tritoqualine
+3691,DB13720,Diphemanil
+3692,DB13735,Potassium guaiacolsulfonate
+3693,DB13743,Sodium aurotiosulfate
+3694,DB13746,Bioallethrin
+3695,DB13747,Trolamine
+3696,DB13749,Magnesium gluconate
+3697,DB13751,Glycyrrhizic acid
+3698,DB13761,Tilactase
+3699,DB13766,Lidoflazine
+3700,DB13781,Xamoterol
+3701,DB13783,Acemetacin
+3702,DB13800,Calcium levulinate
+3703,DB13801,Muzolimine
+3704,DB13813,Iodoform
+3705,DB13838,Noxytiolin
+3706,DB13848,Fluorodopa (18F)
+3707,DB13851,Artemotil
+3708,DB13853,Anethole trithione
+3709,DB13854,Gamolenic acid
+3710,DB13858,Dimazole
+3711,DB13867,Fluticasone
+3712,DB13872,Lormetazepam
+3713,DB13873,Fenofibric acid
+3714,DB13874,Enasidenib
+3715,DB13878,Pibrentasvir
+3716,DB13879,Glecaprevir
+3717,DB13881,Tisagenlecleucel
+3718,DB13882,Methyl nicotinate
+3719,DB13883,Coral snake (micrurus fulvius) immune globulin antivenin (equine)
+3720,DB13884,Albutrepenonacog alfa
+3721,DB13885,Ferric subsulfate
+3722,DB13886,Human cytomegalovirus immune globulin
+3723,DB13887,Meningococcal polysaccharide vaccine group W-135
+3724,DB13888,Meningococcal polysaccharide vaccine group Y
+3725,DB13889,Meningococcal polysaccharide vaccine group A
+3726,DB13890,Meningococcal polysaccharide vaccine group C
+3727,DB13891,Crotalus scutulatus antivenin
+3728,DB13892,Crotalus atrox antivenin
+3729,DB13893,Crotalus adamanteus antivenin
+3730,DB13894,Agkistrodon piscivorus antivenin
+3731,DB13895,Rhus Glabra Pollen
+3732,DB13896,Talimogene laherparepvec
+3733,DB13897,Equine Botulinum Neurotoxin E Immune FAB2
+3734,DB13898,Equine Botulinum Neurotoxin C Immune FAB2
+3735,DB13899,Equine Botulinum Neurotoxin G Immune FAB2
+3736,DB13900,Equine Botulinum Neurotoxin A Immune FAB2
+3737,DB13901,Equine Botulinum Neurotoxin F Immune FAB2
+3738,DB13902,Equine Botulinum Neurotoxin D Immune FAB2
+3739,DB13903,Equine Botulinum Neurotoxin B Immune FAB2
+3740,DB13904,Cat dander extract
+3741,DB13905,Scorpion (centruroides) immune Fab2 antivenin (equine)
+3742,DB13906,Aloe vera leaf
+3743,DB13907,Fusarium graminearum
+3744,DB13908,Amylmetacresol
+3745,DB13909,Bismuth subgallate
+3746,DB13910,Valproate bismuth
+3747,DB13911,Phloxine B
+3748,DB13913,Belladonna
+3749,DB13915,Axicabtagene ciloleucel
+3750,DB13923,Emicizumab
+3751,DB13924,Varicella zoster vaccine (recombinant)
+3752,DB13925,Dotatate gallium Ga-68
+3753,DB13926,Cenegermin
+3754,DB13928,Semaglutide
+3755,DB13931,Netarsudil
+3756,DB13932,Voretigene neparvovec
+3757,DB13933,Nonacog beta pegol
+3758,DB13941,Piperaquine
+3759,DB13943,Testosterone cypionate
+3760,DB13944,Testosterone enanthate
+3761,DB13946,Testosterone undecanoate
+3762,DB13947,Testosterone enantate benzilic acid hydrazone
+3763,DB13949,Ferric cation
+3764,DB13952,Estradiol acetate
+3765,DB13953,Estradiol benzoate
+3766,DB13954,Estradiol cypionate
+3767,DB13955,Estradiol dienanthate
+3768,DB13956,Estradiol valerate
+3769,DB13959,Medium-chain triglycerides
+3770,DB13960,Bronopol
+3771,DB13961,Fish oil
+3772,DB13962,Calcium saccharate
+3773,DB13963,"1,2-dichlorobenzene"
+3774,DB13964,Peanut oil
+3775,DB13965,Sarracenia Purpurea
+3776,DB13966,Isopropyl myristate
+3777,DB13967,Patent Blue
+3778,DB13968,Plasma protein fraction (human)
+3779,DB13969,Quaternium-24
+3780,DB13970,Dioctyldimonium
+3781,DB13971,Vanadium
+3782,DB13972,Racemethionine
+3783,DB13973,Remestemcel-L
+3784,DB13974,Passiflora incarnata flower
+3785,DB13975,Black cohosh
+3786,DB13976,Sulesomab
+3787,DB13977,Potassium carbonate
+3788,DB13979,Besilesomab
+3789,DB13980,Copper Cu-64
+3790,DB13981,Nomegestrol acetate
+3791,DB13982,Lutetium Lu-177
+3792,DB13985,Lutetium Lu 177 dotatate
+3793,DB13987,Strontium chloride
+3794,DB13995,Ferric pyrophosphate citrate
+3795,DB13996,Magnesium acetate
+3796,DB13997,Baloxavir marboxil
+3797,DB13998,Lonoctocog alfa
+3798,DB13999,Moroctocog alfa
+3799,DB14001,alpha-Tocopherol succinate
+3800,DB14002,D-alpha-Tocopherol acetate
+3801,DB14003,alpha-Tocopherol acetate
+3802,DB14004,Tildrakizumab
+3803,DB14005,Dimethicone 410
+3804,DB14006,Choline salicylate
+3805,DB14007,Pentetic acid
+3806,DB14012,Burosumab
+3807,DB14015,Sodium bisulfite
+3808,DB14016,Ox bile extract
+3809,DB14018,Bromotheophylline
+3810,DB14019,Fosnetupitant
+3811,DB14020,Benzoin
+3812,DB14022,Typhoid vaccine
+3813,DB14033,Acetyl sulfisoxazole
+3814,DB14039,Erenumab
+3815,DB14040,Eptinezumab
+3816,DB14041,Fremanezumab
+3817,DB14042,Galcanezumab
+3818,DB14046,Dichlorobenzene
+3819,DB14048,Sodium zirconium cyclosilicate
+3820,DB14075,Imidurea
+3821,DB14078,Medronic acid
+3822,DB14082,Betiatide
+3823,DB14083,Bisphenol A diglycidyl ether
+3824,DB14084,Butylparaben
+3825,DB14086,Cianidanol
+3826,DB14089,Dimercaptosuccinic acid
+3827,DB14096,"1,2-icosapentoyl-sn-glycero-3-phosphoserine"
+3828,DB14099,"1,2-Distearoyllecithin"
+3829,DB14100,Pork collagen
+3830,DB14101,Soy isoflavones
+3831,DB14104,Linoleic acid
+3832,DB14105,"Sodium 1,2-Dipalmitoyl-sn-glycero-3-phospho-(1'-rac-glycerol)"
+3833,DB14106,Tetrakis(2-methoxyisobutylisocyanide)copper(I) tetrafluoroborate
+3834,DB14109,alpha-Arbutin
+3835,DB14110,Butylene glycol
+3836,DB14112,Human vaccinia virus immune globulin
+3837,DB14113,Black widow spider antivenin (equine)
+3838,DB14114,Viper antivenom
+3839,DB14115,Human botulinum neurotoxin A/B immune globulin
+3840,DB14116,Silodrate
+3841,DB14120,Phenylethyl resorcinol
+3842,DB14123,Racementhol
+3843,DB14139,Hydroxyethyl ethylcellulose
+3844,DB14141,p-Phenylenediamine
+3845,DB14143,Distearyldimonium
+3846,DB14148,Human albumin microspheres
+3847,DB14150,Chloric acid
+3848,DB14151,Phosphorus
+3849,DB14156,Synthetic camphor
+3850,DB14158,Microcrystalline cellulose
+3851,DB14159,Oxidronic acid
+3852,DB14162,Northern bluefin tuna
+3853,DB14163,Anthoxanthum odoratum
+3854,DB14164,Betula lenta whole
+3855,DB14165,Culex pipiens
+3856,DB14166,Rumex acetosella whole
+3857,DB14167,Rumex crispus top
+3858,DB14168,Sarocladium strictum
+3859,DB14169,Salix nigra bark
+3860,DB14170,Artemisia vulgaris root
+3861,DB14171,Penicillium glaucum
+3862,DB14172,Evernia prunastri
+3863,DB14173,Diazolidinylurea
+3864,DB14174,Dipentamethylenethiuram disulfide
+3865,DB14175,alpha-Amyl cinnamaldehyde
+3866,DB14176,Benzylparaben
+3867,DB14177,Propylparaben
+3868,DB14178,Tetramethylthiuram monosulfide
+3869,DB14179,Phleum pratense top
+3870,DB14180,Nickel sulfate
+3871,DB14181,Lanolin alcohols
+3872,DB14182,Dichromate
+3873,DB14183,Geraniol
+3874,DB14184,Cinnamaldehyde
+3875,DB14185,Aripiprazole lauroxil
+3876,DB14186,Cinnamyl alcohol
+3877,DB14187,Hydroxycitronellal
+3878,DB14188,Isoeugenol
+3879,DB14189,Ethylenediamine
+3880,DB14190,p-tert-Butylphenol-formaldehyde resin (low molecular weight)
+3881,DB14191,Diphenylguanidine
+3882,DB14192,"N,N'-diphenyl-1,4-phenylenediamine"
+3883,DB14193,Ditiocarb zinc
+3884,DB14194,Zinc dibutyldithiocarbamate
+3885,DB14195,4-(Isopropylamino)diphenylamine
+3886,DB14196,"N-Cyclohexyl-N'-phenyl-1,4-phenylenediamine"
+3887,DB14197,Methylchloroisothiazolinone
+3888,DB14198,Quaternium-15
+3889,DB14199,Bromothalonil
+3890,DB14200,Thiohexam
+3891,DB14201,"2,2'-Dibenzothiazyl disulfide"
+3892,DB14202,Morpholinylmercaptobenzothiazole
+3893,DB14203,Disperse Blue 106
+3894,DB14206,Cobalt chloride
+3895,DB14211,Fanolesomab
+3896,DB14212,Methylparaben
+3897,DB14219,Monomethyl fumarate
+3898,DB14222,Bifidobacterium longum infantis
+3899,DB14230,Albumin Aggregated
+3900,DB14233,Egg phospholipids
+3901,DB14235,Bilberry
+3902,DB14237,Echinacea angustifolia root
+3903,DB14238,Echinacea purpurea flowering top
+3904,DB14239,Echinacea purpurea
+3905,DB14240,Echinacea
+3906,DB14241,"Caviar, unspecified"
+3907,DB14242,Honey
+3908,DB14245,"Snail, unspecified"
+3909,DB14252,Jojoba oil
+3910,DB14253,Avena sativa flowering top
+3911,DB14254,Aloe vera flower
+3912,DB14256,Centella asiatica
+3913,DB14257,Aloe ferox leaf
+3914,DB14258,Elm
+3915,DB14262,Bird pepper
+3916,DB14263,Calendula officinalis flower
+3917,DB14267,Rumex crispus whole
+3918,DB14273,Ocimum tenuiflorum top
+3919,DB14274,Salix alba bark
+3920,DB14275,Indian frankincense
+3921,DB14276,Turmeric
+3922,DB14278,Carthamus tinctorius flower bud
+3923,DB14279,Corydalis ambigua tuber
+3924,DB14280,Lonicera caprifolium flower
+3925,DB14283,Angelica archangelica root
+3926,DB14288,Kaempferia galanga root
+3927,DB14289,Larix sibirica wood
+3928,DB14291,Wormwood
+3929,DB14303,Eleuthero
+3930,DB14311,Shea butter
+3931,DB14312,Glycyrrhiza glabra
+3932,DB14320,Eucalyptus globulus leaf
+3933,DB14324,Apricot kernel oil
+3934,DB14327,Purslane
+3935,DB14331,Heterotheca inuloides flower
+3936,DB14332,Inonotus obliquus fruiting body
+3937,DB14333,Nelumbo nucifera flower
+3938,DB14338,Atractylodes lancea root oil
+3939,DB14339,Scutellaria lateriflora
+3940,DB14343,Arnica montana flower
+3941,DB14349,Equisetum arvense top
+3942,DB14350,Inula helenium root
+3943,DB14351,Usnea barbata
+3944,DB14352,Azadirachta indica leaf
+3945,DB14353,Zanthoxylum clava-herculis whole
+3946,DB14357,Chamomile
+3947,DB14360,Saw palmetto
+3948,DB14361,Rice bran
+3949,DB14375,Milk thistle
+3950,DB14382,Influenza A virus A/California/7/2009 (H1N1)-like hemagglutinin antigen (formaldehyde inactivated)
+3951,DB14383,Influenza A virus A/California/7/2009 X-179A (H1N1) hemagglutinin antigen (formaldehyde inactivated)
+3952,DB14384,Influenza A virus A/Victoria/210/2009 X-187 (H3N2) hemagglutinin antigen (formaldehyde inactivated)
+3953,DB14385,Influenza B virus B/Brisbane/60/2008 hemagglutinin antigen (formaldehyde inactivated)
+3954,DB14386,Influenza A virus A/Victoria/361/2011 IVR-165 (H3N2) hemagglutinin antigen (formaldehyde inactivated)
+3955,DB14387,Influenza B virus B/Texas/6/2011 hemagglutinin antigen (formaldehyde inactivated)
+3956,DB14388,Bordetella pertussis toxoid antigen (formaldehyde inactivated)
+3957,DB14389,Influenza A virus A/Texas/50/2012 X-223A (H3N2) hemagglutinin antigen (formaldehyde inactivated)
+3958,DB14390,Influenza B virus B/Massachusetts/2/2012 hemagglutinin antigen (formaldehyde inactivated)
+3959,DB14391,Influenza A virus A/Christchurch/16/2010 NIB-74 (H1N1) hemagglutinin antigen (propiolactone inactivated)
+3960,DB14392,Influenza A virus A/Texas/50/2012 X-223 (H3N2) hemagglutinin antigen (propiolactone inactivated)
+3961,DB14393,Influenza B virus B/Massachusetts/2/2012 hemagglutinin antigen (propiolactone inactivated)
+3962,DB14394,Influenza A virus A/California/7/2009 (H1N1) live (attenuated) antigen
+3963,DB14395,Influenza A virus A/Victoria/361/2011 (H3N2) live (attenuated) antigen
+3964,DB14396,Influenza B virus B/Wisconsin/1/2010 live (attenuated) antigen
+3965,DB14397,Influenza B virus B/Massachusetts/2/2012 BX-51B hemagglutinin antigen (formaldehyde inactivated)
+3966,DB14398,"Influenza A virus A/Brisbane/10/2010 (H1N1) hemagglutinin antigen (MDCK cell derived, propiolactone inactivated)"
+3967,DB14399,"Influenza A virus A/Texas/50/2012 X-223A (H3N2) hemagglutinin antigen (MDCK cell derived, propiolactone inactivated)"
+3968,DB14400,"Influenza B virus B/Massachusetts/2/2012 hemagglutinin antigen (MDCK cell derived, propiolactone inactivated)"
+3969,DB14401,Influenza B virus B/Massachusetts/2/2012 BX-51B hemagglutinin antigen (propiolactone inactivated)
+3970,DB14402,Influenza A virus A/Switzerland/9715293/2013 NIB-88 (H3N2) hemagglutinin antigen (propiolactone inactivated)
+3971,DB14403,Influenza B virus B/Phuket/3073/2013 hemagglutinin antigen (propiolactone inactivated)
+3972,DB14404,Influenza A virus A/California/7/2009 X-181 (H1N1) hemagglutinin antigen (formaldehyde inactivated)
+3973,DB14405,Influenza A virus A/Switzerland/9715293/2013 NIB-88 (H3N2) hemagglutinin antigen (formaldehyde inactivated)
+3974,DB14406,Influenza B virus B/Brisbane/9/2014 hemagglutinin antigen (formaldehyde inactivated)
+3975,DB14407,Influenza B virus B/Phuket/3073/2013 hemagglutinin antigen (formaldehyde inactivated)
+3976,DB14408,Influenza A virus A/South Australia/55/2014 IVR-175 (H3N2) hemagglutinin antigen (propiolactone inactivated)
+3977,DB14409,Human adenovirus e serotype 4 strain cl-68578 antigen
+3978,DB14410,Human adenovirus b serotype 7
+3979,DB14411,Influenza A virus A/Victoria/361/2011 IVR-165 (H3N2) hemagglutinin antigen (propiolactone inactivated)
+3980,DB14412,Influenza B virus B/Hubei-Wujiagang/158/2009 BX-39 hemagglutinin antigen (propiolactone inactivated)
+3981,DB14413,Influenza A virus A/Hong Kong/4801/2014 X-263B (H3N2) hemagglutinin antigen (formaldehyde inactivated)
+3982,DB14414,"Influenza A virus A/California/7/2009 X-179A (H1N1) hemagglutinin antigen (UV, formaldehyde inactivated)"
+3983,DB14415,"Influenza A virus A/Switzerland/9715293/2013 NIB-88 (H3N2) hemagglutinin antigen (UV, formaldehyde inactivated)"
+3984,DB14416,"Influenza B virus B/Phuket/3073/2013 hemagglutinin antigen (UV, formaldehyde inactivated)"
+3985,DB14417,Influenza A virus A/Hong Kong/4801/2014 (H3N2) recombinant hemagglutinin antigen
+3986,DB14418,Influenza B virus B/Brisbane/60/2008 recombinant hemagglutinin antigen
+3987,DB14419,Influenza A virus A/Christchurch/16/2010 NIB-74XP (H1N1) hemagglutinin antigen (formaldehyde inactivated)
+3988,DB14420,"Influenza A virus A/South Australia/55/2014 (H3N2) hemagglutinin antigen (MDCK cell derived, propiolactone inactivated)"
+3989,DB14421,"Influenza B virus B/Utah/9/2014 hemagglutinin antigen (MDCK cell derived, propiolactone inactivated)"
+3990,DB14422,Influenza A virus A/Michigan/45/2015 X-275 (H1N1) hemagglutinin antigen (formaldehyde inactivated)
+3991,DB14423,Influenza A virus A/Michigan/45/2015 (H1N1) recombinant hemagglutinin antigen
+3992,DB14424,Influenza A virus A/Hong Kong/4801/2014 X-263B (H3N2) hemagglutinin antigen (propiolactone inactivated)
+3993,DB14425,Influenza A virus A/Slovenia/2903/2015 (H1N1) live (attenuated) antigen
+3994,DB14426,Influenza A virus A/New caledonia/71/2014 (H3N2) live (attenuated) antigen
+3995,DB14427,Neisseria meningitidis group a capsular oligosaccharide diphtheria crm197 protein conjugate antigen
+3996,DB14428,Neisseria meningitidis group c capsular oligosaccharide diphtheria crm197 protein conjugate antigen
+3997,DB14429,Neisseria meningitidis group w-135 capsular oligosaccharide diphtheria crm197 protein conjugate antigen
+3998,DB14430,Neisseria meningitidis group y capsular oligosaccharide diphtheria crm197 protein conjugate antigen
+3999,DB14431,Influenza A virus A/Singapore/gp1908/2015 IVR-180 (H1N1) hemagglutinin antigen (propiolactone inactivated)
+4000,DB14432,Influenza A virus A/Singapore/gp1908/2015 IVR-180 (H1N1) hemagglutinin antigen (formaldehyde inactivated)
+4001,DB14433,"Influenza A virus A/Singapore/gp1908/2015 IVR-180 (H1N1) hemagglutinin antigen (MDCK cell derived, propiolactone inactivated)"
+4002,DB14434,"Influenza A virus A/Singapore/gp2050/2015 (H3N2) hemagglutinin antigen (MDCK cell derived, propiolactone inactivated)"
+4003,DB14435,"Influenza B virus B/Hong Kong/259/2010 hemagglutinin antigen (MDCK cell derived, propiolactone inactivated)"
+4004,DB14436,"Influenza A virus A/Hong Kong/4801/2014 (H3N2) hemagglutinin antigen (MDCK cell derived, propiolactone inactivated)"
+4005,DB14437,"Influenza A virus A/Singapore/gp1908/2015 IVR-180 (H1N1) hemagglutinin antigen (UV, formaldehyde inactivated)"
+4006,DB14438,"Influenza A virus A/Hong Kong/4801/2014 X-263B (H3N2) hemagglutinin antigen (UV, formaldehyde inactivated)"
+4007,DB14439,"Influenza B virus B/Brisbane/60/2008 hemagglutinin antigen (UV, formaldehyde inactivated)"
+4008,DB14440,Influenza A virus A/Singapore/GP1908/2015 IVR-180A (H1N1) hemagglutinin antigen (propiolactone inactivated)
+4009,DB14441,Influenza B virus B/Brisbane/46/2015 hemagglutinin antigen (propiolactone inactivated)
+4010,DB14442,Influenza B virus B/Phuket/3073/2013 BVR-1B hemagglutinin antigen (propiolactone inactivated)
+4011,DB14443,Vibrio cholerae CVD 103-HgR strain live antigen
+4012,DB14444,Influenza A virus A/California/7/2009 (H1N1)-like antigen (propiolactone inactivated)
+4013,DB14445,Influenza A virus A/Victoria/210/2009 X-187 (H3N2) antigen (formaldehyde inactivated)
+4014,DB14446,Influenza A virus A/South Dakota/6/2007 (H1N1) live (attenuated) antigen
+4015,DB14447,Influenza A virus A/Uruguay/716/2007(H3N2) live (attenuated) antigen
+4016,DB14449,Influenza A virus A/Perth/16/2009 (H3N2) live (attenuated) antigen
+4017,DB14450,Influenza A virus A/Victoria/361/2011 IVR-165 (H3N2) antigen (formaldehyde inactivated)
+4018,DB14451,Influenza B virus B/Texas/6/2011 antigen (formaldehyde inactivated)
+4019,DB14452,Influenza A virus A/Texas/50/2012 X-223A (H3N2) antigen (formaldehyde inactivated)
+4020,DB14453,Influenza B virus B/Massachusetts/2/2012 antigen (formaldehyde inactivated)
+4021,DB14454,Influenza B virus B/Massachusetts/2/2012 BX-51B antigen (formaldehyde inactivated)
+4022,DB14455,Influenza A virus A/California/7/2009 X-181 (H1N1) antigen (formaldehyde inactivated)
+4023,DB14456,Influenza B virus B/Brisbane/9/2014 antigen (formaldehyde inactivated)
+4024,DB14457,Influenza A virus A/Hong Kong/4801/2014 X-263B (H3N2) antigen (formaldehyde inactivated)
+4025,DB14458,Influenza A virus A/Michigan/45/2015 X-275 (H1N1) antigen (formaldehyde inactivated)
+4026,DB14459,Influenza A virus A/Hong Kong/4801/2014 X-263B (H3N2) antigen (propiolactone inactivated)
+4027,DB14460,Influenza A virus A/Singapore/gp1908/2015 IVR-180 (H1N1) antigen (propiolactone inactivated)
+4028,DB14461,Influenza A virus A/Singapore/gp1908/2015 IVR-180 (H1N1) antigen (formaldehyde inactivated)
+4029,DB14462,"Influenza A virus A/Singapore/GP1908/2015 IVR-180 (H1N1) antigen (MDCK cell derived, propiolactone inactivated)"
+4030,DB14463,"Influenza A virus A/Singapore/GP2050/2015 (H3N2) antigen (MDCK cell derived, propiolactone inactivated)"
+4031,DB14464,"Influenza B virus B/Hong Kong/259/2010 antigen (MDCK cell derived, propiolactone inactivated)"
+4032,DB14465,"Influenza A virus A/Hong Kong/4801/2014 (H3N2) antigen (MDCK cell derived, propiolactone inactivated)"
+4033,DB14466,"Influenza A virus A/Singapore/GP1908/2015 IVR-180 (H1N1) antigen (UV, formaldehyde inactivated)"
+4034,DB14467,"Influenza A virus A/Hong Kong/4801/2014 X-263B (H3N2) antigen (UV, formaldehyde inactivated)"
+4035,DB14468,Influenza A virus A/Singapore/GP1908/2015 IVR-180A (H1N1) antigen (propiolactone inactivated)
+4036,DB14469,Influenza B virus B/Brisbane/46/2015 antigen (propiolactone inactivated)
+4037,DB14470,Influenza B virus B/Phuket/3073/2013 BVR-1B antigen (propiolactone inactivated)
+4038,DB14473,Beroctocog alfa
+4039,DB14475,L-Lactic acid
+4040,DB14476,DL-alpha-Tocopherol
+4041,DB14477,DL-alpha tocopheryl acetate
+4042,DB14478,Povidone K30
+4043,DB14481,Calcium phosphate dihydrate
+4044,DB14482,Sodium ascorbate
+4045,DB14483,Calcium ascorbate
+4046,DB14484,Magnesium ascorbate
+4047,DB14485,Zinc ascorbate
+4048,DB14486,Niacinamide ascorbate
+4049,DB14487,Zinc acetate
+4050,DB14488,Ferrous gluconate
+4051,DB14489,Ferrous succinate
+4052,DB14490,Ferrous ascorbate
+4053,DB14491,Ferrous fumarate
+4054,DB14495,Manganese citrate
+4055,DB14496,Sodium molybdate
+4056,DB14498,Potassium acetate
+4057,DB14499,Potassium sulfate
+4058,DB14500,Potassium
+4059,DB14501,Ferrous glycine sulfate
+4060,DB14502,"Sodium phosphate, dibasic"
+4061,DB14503,"Sodium phosphate, monobasic, unspecified form"
+4062,DB14504,"Sodium phosphate, dibasic, unspecified form"
+4063,DB14505,Sodium borate
+4064,DB14506,Lithium hydroxide
+4065,DB14507,Lithium citrate
+4066,DB14509,Lithium carbonate
+4067,DB14512,Mometasone furoate
+4068,DB14513,Magnesium
+4069,DB14517,Aluminium phosphate
+4070,DB14518,Aluminum acetate
+4071,DB14520,Tetraferric tricitrate decahydrate
+4072,DB14527,Chromic nitrate
+4073,DB14528,Chromium gluconate
+4074,DB14529,Chromium nicotinate
+4075,DB14530,Chromous sulfate
+4076,DB14533,Zinc chloride
+4077,DB14539,Hydrocortisone acetate
+4078,DB14540,Hydrocortisone butyrate
+4079,DB14541,Hydrocortisone cypionate
+4080,DB14542,Hydrocortisone phosphate
+4081,DB14543,Hydrocortisone probutate
+4082,DB14544,Hydrocortisone valerate
+4083,DB14545,Hydrocortisone succinate
+4084,DB14548,"Zinc sulfate, unspecified form"
+4085,DB14550,Gallium chloride Ga-67
+4086,DB14554,Dotatate
+4087,DB14558,Influenza A virus A/Singapore/INFIMH-16-0019/2016 NIB-104 (H3N2) antigen (formaldehyde inactivated)
+4088,DB14559,Influenza B virus B/Maryland/15/2016 BX-69A antigen (formaldehyde inactivated)
+4089,DB14560,"Influenza A virus A/Singapore/INFIMH-16-0019/2016 IVR-186 (H3N2) antigen (UV, formaldehyde inactivated)"
+4090,DB14561,"Influenza B virus B/Maryland/15/2016 BX-69A antigen (UV, formaldehyde inactivated)"
+4091,DB14562,Andexanet alfa
+4092,DB14566,Lavender oil
+4093,DB14567,Brown iron oxide
+4094,DB14568,Ivosidenib
+4095,DB14569,Tedizolid
+4096,DB14574,Cobalt
+4097,DB14575,Eslicarbazepine
+4098,DB14580,Lecanemab
+4099,DB14582,Patisiran
+4100,DB14583,Segesterone acetate
+4101,DB14585,Plantago ovata seed
+4102,DB14586,Citrus bioflavonoids
+4103,DB14587,Influenza A virus A/Singapore/INFIMH-16-0019/2016 IVR-186 (H3N2) antigen (formaldehyde inactivated)
+4104,DB14591,Influenza B virus B/Maryland/15/2016 antigen (formaldehyde inactivated)
+4105,DB14592,Influenza A virus A/Singapore/INFIMH-16-0019/2016 IVR-186 (H3N2) antigen (propiolactone inactivated)
+4106,DB14593,Influenza B virus B/Maryland/15/2016 antigen (propiolactone inactivated)
+4107,DB14594,Influenza A virus A/Singapore/INFIMH-16-0019/2016 (H3N2) recombinant hemagglutinin antigen
+4108,DB14595,Influenza B virus B/Maryland/15/2016 recombinant hemagglutinin antigen
+4109,DB00873,Loteprednol
+4110,DB14597,Lanadelumab
+4111,DB14598,Edetate calcium disodium anhydrous
+4112,DB14600,Edetate disodium anhydrous
+4113,DB14601,Barley malt syrup
+4114,DB14602,"Influenza A virus A/Victoria/361/2011 IVR-165 (H3N2) antigen (UV, formaldehyde inactivated)"
+4115,DB14603,"Influenza B virus B/Hubei-Wujiagang/158/2009 BX-39 antigen (UV, formaldehyde inactivated)"
+4116,DB14604,"Influenza A virus A/Texas/50/2012 X-223A (H3N2) antigen (UV, formaldehyde inactivated)"
+4117,DB14605,"Influenza B virus B/Massachusetts/2/2012 BX-51B antigen (UV, formaldehyde inactivated)"
+4118,DB14606,Influenza A virus A/Texas/50/2012 (H3N2) live (attenuated) antigen
+4119,DB14607,Influenza B virus B/Massachusetts/2/2012 live (attenuated) antigen
+4120,DB14608,"Influenza A virus A/Victoria/361/2011 IVR-165 (H3N2) antigen (MDCK cell derived, propiolactone inactivated)"
+4121,DB14609,"Influenza B virus B/Wisconsin/1/2010) antigen (MDCK cell derived, propiolactone inactivated)"
+4122,DB14610,Influenza B virus B/Hubei-Wujiagang/158/2009 BX-39 antigen (formaldehyde inactivated)
+4123,DB14611,"Influenza A virus A/Victoria/210/2009 X-187 (H3N2) antigen (UV, formaldehyde inactivated)"
+4124,DB14612,"Influenza A virus A/California/7/2009 X-181 (H1N1) antigen (UV, formaldehyde inactivated)"
+4125,DB14613,"Serum, horse"
+4126,DB14614,"Influenza A virus A/Victoria/210/2009 X-187 (H3N2) hemagglutinin antigen (UV, formaldehyde inactivated)"
+4127,DB14615,Influenza A virus A/Uruguay/716/2007(H3N2) antigen (formaldehyde inactivated)
+4128,DB14616,Influenza A virus A/Brisbane/59/2007 (H1N1) antigen (formaldehyde inactivated)
+4129,DB14617,Influenza A virus A/Uruguay/716/2007(H3N2) hemagglutinin antigen (formaldehyde inactivated)
+4130,DB14618,Influenza A virus A/Brisbane/59/2007 (H1N1) hemagglutinin antigen (formaldehyde inactivated)
+4131,DB14619,Influenza A virus A/Uruguay/716/2007(H3N2) antigen (propiolactone inactivated)
+4132,DB14620,Influenza A virus A/Brisbane/59/2007(H1N1) antigen (propiolactone inactivated)
+4133,DB14627,Oxyphenisatin acetate
+4134,DB14631,Prednisolone phosphate
+4135,DB14632,Prednisolone tebutate
+4136,DB14638,Diloxanide furoate
+4137,DB14642,Lypressin
+4138,DB14643,Methylprednisolone aceponate
+4139,DB14644,Methylprednisolone hemisuccinate
+4140,DB14646,Prednisone acetate
+4141,DB14649,Dexamethasone acetate
+4142,DB14650,Menadiol diphosphate
+4143,DB14655,Drostanolone propionate
+4144,DB14656,Chlorphenesin carbamate
+4145,DB14657,Paramethasone acetate
+4146,DB14658,Chloramphenicol palmitate
+4147,DB14669,Betamethasone phosphate
+4148,DB14674,Estramustine phosphate
+4149,DB14677,Gestonorone caproate
+4150,DB14684,Calcium polycarbophil
+4151,DB14685,Adenovirus type 7 vaccine live
+4152,DB14689,Rosemary oil
+4153,DB14690,Ginger oil
+4154,DB14691,Willow bark
+4155,DB14692,Turmeric oil
+4156,DB14693,Atractylodes lancea root
+4157,DB14694,Beef liver
+4158,DB14696,Influenza A virus A/Singapore/INFIMH-16-0019/2016 (H3N2) live (attenuated) antigen
+4159,DB14697,Influenza B virus B/Colorado/06/2017 live (attenuated) antigen
+4160,DB14698,"Influenza A virus A/Brisbane/59/2007(H1N1) hemagglutinin antigen (UV,formaldehyde inactivated)"
+4161,DB14699,"Influenza A virus A/Uruguay/716/2007(H3N2) hemagglutinin antigen (UV,formaldehyde inactivated)"
+4162,DB14700,Damoctocog alfa pegol
+4163,DB14702,Sodium metavanadate
+4164,DB14703,Dexamethasone metasulfobenzoate
+4165,DB14707,Cemiplimab
+4166,DB14709,Bean
+4167,DB14710,Camponotus pennsylvanicus
+4168,DB14711,"Smallpox (Vaccinia) Vaccine, Live"
+4169,DB14712,Elapegademase
+4170,DB14713,Inotersen
+4171,DB14723,Larotrectinib
+4172,DB14724,Emapalumab
+4173,DB14725,Cefamandole nafate
+4174,DB14726,Dabigatran
+4175,DB14730,Calaspargase pegol
+4176,DB14731,Tagraxofusp
+4177,DB14733,Ceftobiprole medocaril
+4178,DB14738,Turoctocog alfa pegol
+4179,DB14740,Hyaluronidase
+4180,DB14741,Luteinizing hormone
+4181,DB00781,Polymyxin B
+4182,DB14749,Polygala senega root
+4183,DB14751,Mecasermin rinfabate
+4184,DB14752,Racephedrine
+4185,DB14753,Hydroxystilbamidine
+4186,DB14754,Solriamfetol
+4187,DB14757,Agrostis gigantea top
+4188,DB14758,Catfish
+4189,DB14759,Red pepper
+4190,DB14761,Remdesivir
+4191,DB14762,Risankizumab
+4192,DB14763,Cycloguanil
+4193,DB14764,"Dengue tetravalent vaccine, live"
+4194,DB14766,Etrasimod
+4195,DB14780,Pegzilarginase
+4196,DB14782,Tofersen
+4197,DB14783,Diroximel fumarate
+4198,DB14805,Piflufolastat F 18
+4199,DB14806,Avexitide
+4200,DB14811,Isatuximab
+4201,DB14840,Ripretinib
+4202,DB14844,Dordaviprone
+4203,DB14845,Filgotinib
+4204,DB14851,Relatlimab
+4205,DB14860,Ensartinib
+4206,DB14864,Brolucizumab
+4207,DB14879,Cefiderocol
+4208,DB14881,Oliceridine
+4209,DB14895,Vibegron
+4210,DB14901,Inclisiran
+4211,DB14909,Imetelstat
+4212,DB14910,Mirikizumab
+4213,DB14914,Flortaucipir F-18
+4214,DB14919,Rozanolixizumab
+4215,DB14921,Mavacamten
+4216,DB14922,Tislelizumab
+4217,DB14924,Ritlecitinib
+4218,DB14933,Nicotinamide riboside
+4219,DB14939,Motixafortide
+4220,DB14960,Somatrogon
+4221,DB14962,Trastuzumab deruxtecan
+4222,DB14967,Margetuximab
+4223,DB14973,Abrocitinib
+4224,DB14975,Voxelotor
+4225,DB14984,Casimersen
+4226,DB14987,Difamilast
+4227,DB14989,Umbralisib
+4228,DB14992,Pegunigalsidase alfa
+4229,DB14996,Sutimlimab
+4230,DB14999,Human interferon beta
+4231,DB15001,Eflapegrastim
+4232,DB15002,Fitusiran
+4233,DB15005,Viltolarsen
+4234,DB15011,Avacopan
+4235,DB15031,Daridorexant
+4236,DB15035,Zanubrutinib
+4237,DB15037,Poly(lactic acid)
+4238,DB15043,Toripalimab
+4239,DB15044,Tafasitamab
+4240,DB15059,Aprocitentan
+4241,DB15066,Givosiran
+4242,DB15067,Volanesorsen
+4243,DB15071,Omidenepag isopropyl
+4244,DB15090,Tezepelumab
+4245,DB15091,Upadacitinib
+4246,DB15093,Somapacitan
+4247,DB15097,Gefapixant
+4248,DB15102,Pemigatinib
+4249,DB15104,Telisotuzumab vedotin
+4250,DB15114,Vamorolone
+4251,DB15118,Zolbetuximab
+4252,DB15119,Ropeginterferon alfa-2b
+4253,DB15133,Tepotinib
+4254,DB15141,Deutivacaftor
+4255,DB15149,Futibatinib
+4256,DB15164,Apadamtase alfa
+4257,DB15165,Avacincaptad pegol
+4258,DB15171,Tirzepatide
+4259,DB15218,Pozelimab
+4260,DB15226,Dasiglucagon
+4261,DB15233,Avapritinib
+4262,DB15248,Bulevirtide
+4263,DB15252,Nemolizumab
+4264,DB15254,Avutometinib
+4265,DB15258,Imlifidase
+4266,DB15266,Tovorafenib
+4267,DB15270,Efgartigimod alfa
+4268,DB15271,Crizanlizumab
+4269,DB15274,Pertussis vaccine
+4270,DB15275,Inavolisib
+4271,DB15283,Tebentafusp
+4272,DB15303,Faricimab
+4273,DB15305,Risdiplam
+4274,DB15328,Ubrogepant
+4275,DB15354,Evinacumab
+4276,DB15357,Xanomeline
+4277,DB15373,Tilmanocept
+4278,DB15395,Elranatamab
+4279,DB15401,Danicopan
+4280,DB15413,Pafolacianine
+4281,DB15434,Mosunetuzumab
+4282,DB15442,Trilaciclib
+4283,DB15444,Elexacaftor
+4284,DB15456,Vericiguat
+4285,DB15463,Belzutifan
+4286,DB15465,Benzhydrocodone
+4287,DB15467,Cinoxate
+4288,DB15471,Zanidatamab
+4289,DB15473,Haemagglutinin-strain B (Victoria-like)
+4290,DB15474,Haemagglutinin-strain B (Yamagata-like)
+4291,DB15475,Haemagglutinin-strain A(H3N2)
+4292,DB15476,Haemagglutinin-strain A(H1N1)
+4293,DB15477,Alloin
+4294,DB15478,Frangula purshiana bark
+4295,DB15479,Zirconium chloride hydroxide
+4296,DB15480,Resorcinol monoacetate
+4297,DB15481,Fish liver oil
+4298,DB15482,Haemagglutinin-strain B
+4299,DB15483,Modified vaccinia ankara
+4300,DB15484,"Vibrio cholerae Inaba 6973 El Tor biotype, formalin inactivated"
+4301,DB15485,"Vibrio cholerae Inaba 48 classical biotype, heat inactivated"
+4302,DB15486,"Vibrio cholerae Ogawa 50 classical biotype, heat inactivated"
+4303,DB15487,"Vibrio cholerae Ogawa 50 classical biotype, formalin inactivated"
+4304,DB15490,Zuranolone
+4305,DB15494,Edotreotide gallium Ga-68
+4306,DB15497,"Smallpox and Monkeypox Vaccine, Live, Non-replicating"
+4307,DB15500,Influenza A virus A/Brisbane/02/2018 IVR-190 (H1N1) antigen (propiolactone inactivated)
+4308,DB15501,Influenza A virus A/Kansas/14/2017 X-327 (H3N2) antigen (propiolactone inactivated)
+4309,DB15502,Baccharis sarothroides whole
+4310,DB15503,Amaranthus hybridus pollen
+4311,DB15504,Acacia dealbata pollen
+4312,DB15505,"Influenza A virus A/Idaho/07/2018 (H1N1) antigen (MDCK cell derived, propiolactone inactivated"
+4313,DB15506,"Influenza A virus A/Indiana/08/2018 (H3N2) antigen (MDCK cell derived, propiolactone inactivated)"
+4314,DB15507,"Influenza B virus B/Singapore/INFTT-16-0610/2016 antigen (MDCK cell derived, propiolactone inactivated)"
+4315,DB15508,"Influenza B virus B/Iowa/06/2017 antigen (MDCK cell derived, propiolactone inactivated)"
+4316,DB15509,Alnus serrulata pollen
+4317,DB15510,Prosopis velutina seed
+4318,DB15511,Gibberella fujikuroi
+4319,DB15512,Mucor circinelloides f. circinelloides
+4320,DB15513,Influenza A virus A/Switzerland/3330/2017 (H1N1) live (attenuated) antigen
+4321,DB15514,Influenza A virus A/Kansas/14/2017 (H3N2) live (attenuated) antigen
+4322,DB15515,Influenza A virus A/Brisbane/02/2018 IVR-190 (H1N1) antigen (formaldehyde inactivated)
+4323,DB15516,Influenza A virus A/Kansas/14/2017 X-327 (H3N2) antigen (formaldehyde inactivated)
+4324,DB15517,Influenza A virus A/Brisbane/02/2018 (H1N1) recombinant hemagglutinin antigen
+4325,DB15518,Influenza A virus A/Kansas/14/2017 (H3N2) recombinant hemagglutinin antigen
+4326,DB15519,"Influenza A virus A/Brisbane/02/2018 IVR-190 (H1N1) antigen (UV, formaldehyde inactivated)"
+4327,DB15520,"Influenza A virus A/Kansas/14/2017 X-327 (H3N2) antigen (UV, formaldehyde inactivated)"
+4328,DB15521,Cyd dengue virus serotype 1 live (attenuated) antigen
+4329,DB15522,Cyd dengue virus serotype 2 live (attenuated) antigen
+4330,DB15523,Cyd dengue virus serotype 3 live (attenuated) antigen
+4331,DB15524,Cyd dengue virus serotype 4 live (attenuated) antigen
+4332,DB15525,Mucor circinelloides f. lusitanicus
+4333,DB15526,Eurotium amstelodami
+4334,DB15528,Onasemnogene abeparvovec
+4335,DB15529,Leucanthemum vulgare pollen
+4336,DB15530,Trifolium pratense pollen
+4337,DB15534,Colchiceine
+4338,DB15536,Ferric chloride
+4339,DB15537,Eucalyptus gum
+4340,DB15538,Sea scallop
+4341,DB15539,Northern brown shrimp
+4342,DB15540,Rainbow trout
+4343,DB15541,Yellowfin tuna
+4344,DB15542,Atlantic mackerel
+4345,DB15543,Pacific ocean perch
+4346,DB15544,Myristica fragrans fruit
+4347,DB15545,Pisum sativum whole
+4348,DB15546,Skim milk
+4349,DB15547,Black sea bass
+4350,DB15548,Channel catfish
+4351,DB15549,Atlantic halibut
+4352,DB15555,Magnesium malate
+4353,DB15559,Zenocutuzumab
+4354,DB15561,Valoctocogene roxaparvovec
+4355,DB15562,"Influenza A virus A/North carolina/04/2016 (H3N2) hemagglutinin antigen (MDCK cell derived, propiolactone inactivated)"
+4356,DB15563,"Influenza B virus B/Iowa/06/2017 hemagglutinin antigen (MDCK cell derived, propiolactone inactivated)"
+4357,DB15564,"Influenza B virus B/Singapore/INFTT-16-0610/2016 hemagglutinin antigen (MDCK cell derived, propiolactone inactivated)"
+4358,DB15566,Prednisolone acetate
+4359,DB15568,Adagrasib
+4360,DB15569,Sotorasib
+4361,DB15572,Exagamglogene autotemcel
+4362,DB15575,Padeliporfin
+4363,DB15576,Ethyl salicylate
+4364,DB15592,Cucurbita pepo subsp. ovifera whole
+4365,DB15593,Golodirsen
+4366,DB15594,Brilliant blue G
+4367,DB15595,"Ebola Zaire vaccine (live, attenuated)"
+4368,DB15598,Ferric maltol
+4369,DB15602,Cashew fruit
+4370,DB15603,"Coffea arabica seed, roasted"
+4371,DB15604,Lactuca sativa whole
+4372,DB15605,Field mushroom
+4373,DB15606,White mustard seed
+4374,DB15608,Theobroma cacao whole
+4375,DB15611,Muskmelon
+4376,DB15612,American hazelnut
+4377,DB15613,Musa acuminata fruit
+4378,DB15615,Fennel
+4379,DB15617,Ferric derisomaltose
+4380,DB15620,Influenza B virus B/Washington/02/2019 antigen (formaldehyde inactivated)
+4381,DB15621,Influenza A virus A/South Australia/34/2019 IVR-197 (H3N2) antigen (formaldehyde inactivated)
+4382,DB15626,Spesolimab
+4383,DB15627,Dostarlimab
+4384,DB15629,Garadacimab
+4385,DB15636,Zilucoplan
+4386,DB15638,Brensocatib
+4387,DB15654,Elasomeran
+4388,DB15656,AstraZeneca COVID-19 Vaccine
+4389,DB15669,Fezolinetant
+4390,DB15673,Lenacapavir
+4391,DB15678,Calcium undecylenate
+4392,DB15679,Aluminum subacetate
+4393,DB15680,Neisseria meningitidis group A capsular polysaccharide tetanus toxoid conjugate antigen
+4394,DB15681,Neisseria meningitidis group C capsular polysaccharide tetanus toxoid conjugate antigen
+4395,DB15682,Neisseria meningitidis group Y capsular polysaccharide tetanus toxoid conjugate antigen
+4396,DB15683,Neisseria meningitidis group W-135 capsular polysaccharide tetanus toxoid conjugate antigen
+4397,DB15685,Selpercatinib
+4398,DB15688,Zavegepant
+4399,DB15690,Fluoroestradiol F-18
+4400,DB15694,Cedazuridine
+4401,DB15696,Tozinameran
+4402,DB15699,Brexucabtagene autoleucel
+4403,DB15700,Influenza A virus A/Hawaii/70/2019 (H1N1) recombinant hemagglutinin antigen
+4404,DB15701,Influenza A virus A/Minnesota/41/2019 (H3N2) recombinant hemagglutinin antigen
+4405,DB15702,Influenza B virus B/Washington/02/2019 recombinant hemagglutinin antigen
+4406,DB15703,Influenza A virus A/Guangdong-Maonan/SWL1536/2019 CNIC-1909 (H1N1) antigen (formaldehyde inactivated)
+4407,DB15704,Influenza A virus A/Hong Kong/2671/2019 IVR-208 (H3N2) antigen (formaldehyde inactivated)
+4408,DB15705,Influenza A virus A/Victoria/2454/2019 IVR-207 (H1N1) antigen (formaldehyde inactivated)
+4409,DB15706,Influenza B virus B/Victoria/705/2018 BVR-11 antigen (formaldehyde inactivated)
+4410,DB15707,"Influenza A virus A/Nebraska/14/2019 (H1N1) antigen (MDCK cell derived, propiolactone inactivated)"
+4411,DB15708,"Influenza A virus A/Delaware/39/2019 (H3N2) antigen (MDCK cell derived, propiolactone inactivated)"
+4412,DB15709,"Influenza B virus B/Darwin/7/2019 antigen (MDCK cell derived, propiolactone inactivated)"
+4413,DB15710,Influenza A virus A/Hong Kong/2671/2019 NIB-121 (H3N2) antigen (formaldehyde inactivated)
+4414,DB15711,Influenza A virus A/Victoria/2454/2019 IVR-207 (H1N1) antigen (propiolactone inactivated)
+4415,DB15712,Influenza A virus A/Hong Kong/2671/2019 IVR-208 (H3N2) antigen (propiolactone inactivated)
+4416,DB15713,Influenza B virus B/Victoria/705/2018 BVR-11 antigen (propiolactone inactivated)
+4417,DB15714,"Influenza A virus A/Guangdong-Maonan/SWL1536/2019 CNIC-1909 (H1N1) antigen (UV, formaldehyde inactivated)"
+4418,DB15715,"Influenza A virus A/Hong Kong/2671/2019 NIB-121 (H3N2) antigen (UV, formaldehyde inactivated)"
+4419,DB15716,"Influenza B virus B/Washington/02/2019 antigen (UV, formaldehyde inactivated)"
+4420,DB15718,Bamlanivimab
+4421,DB15719,Belantamab mafodotin
+4422,DB15756,Influenza A virus A/Hawaii/66/2019 (H1N1) live (attenuated) antigen
+4423,DB15757,Influenza A virus A/Hong Kong/2671/2019 (H3N2) live (attenuated) antigen
+4424,DB15758,Influenza B virus B/Washington/02/2019 live (attenuated) antigen
+4425,DB15762,Satralizumab
+4426,DB15763,Iron polymaltose
+4427,DB15766,Retifanlimab
+4428,DB15770,Cosibelimab
+4429,DB15779,Mebrofenin
+4430,DB15788,Influenza B virus B/Phuket/3073/2013 BVR-1B antigen (formaldehyde inactivated)
+4431,DB15793,Zinc phenolsulfonate
+4432,DB15795,Adiphenine
+4433,DB15810,Nuvaxovid
+4434,DB15815,Boldo leaf extract
+4435,DB15819,Potassium aspartate
+4436,DB15822,Pralsetinib
+4437,DB15823,Lactobacillus acidophilus
+4438,DB15838,Orthosiphon aristatus leaf
+4439,DB15840,Pine tar
+4440,DB15857,Janssen COVID-19 Vaccine
+4441,DB15873,Copper oxodotreotide Cu-64
+4442,DB15874,Agalsidase alfa
+4443,DB15876,Haemophilus influenzae b polysaccharide-tetanus conjugate
+4444,DB15889,Senna leaf
+4445,DB15898,Atoltivimab
+4446,DB15899,Maftivimab
+4447,DB15900,Odesivimab
+4448,DB15903,Chlormadinone acetate
+4449,DB15906,Acetylene
+4450,DB15916,Anethole
+4451,DB15926,Ammonium carbonate
+4452,DB15934,Ferric glycerophosphate
+4453,DB15935,Lumasiran
+4454,DB15936,Influenza virus type A (H1N1)
+4455,DB15937,Influenza virus type A (H3N2)
+4456,DB15938,Influenza virus type B (Victoria)
+4457,DB15939,Influenza virus type B (Yamagata)
+4458,DB15940,Imdevimab
+4459,DB15941,Casirivimab
+4460,DB15950,Sodium camphorsulfonate
+4461,DB15965,Naxitamab
+4462,DB15966,Influenza virus type B
+4463,DB15982,Berotralstat
+4464,DB15986,Cinnamon oil
+4465,DB16007,Rurioctocog alfa pegol
+4466,DB16019,Gallium Ga-68 gozetotide
+4467,DB16022,Thenyldiamine
+4468,DB16024,Indocyanine green
+4469,DB16098,Atogepant
+4470,DB16099,Avalglucosidase alfa
+4471,DB16128,Crovalimab
+4472,DB16133,Delgocitinib
+4473,DB16157,Ensifentrine
+4474,DB16165,Finerenone
+4475,DB16171,Foscarbidopa
+4476,DB16199,Eplontersen
+4477,DB16200,Iptacopan
+4478,DB16216,Lazertinib
+4479,DB16217,Leniolisib
+4480,DB16220,Lonapegsomatropin
+4481,DB16222,Loncastuximab tesirine
+4482,DB16226,Maralixibat
+4483,DB16236,Mitapivat
+4484,DB16257,Nipocalimab
+4485,DB16258,Nirsevimab
+4486,DB16261,Odevixibat
+4487,DB16267,Olutasidenib
+4488,DB16277,Paltusotine
+4489,DB16310,Rezafungin
+4490,DB16326,Sepiapterin
+4491,DB16335,Sulopenem etzadroxil
+4492,DB16355,Sotrovimab
+4493,DB16367,Autologous peripheral blood-derived CD34+ cells
+4494,DB16371,Glofitamab
+4495,DB16385,Ansuvimab
+4496,DB16388,Axatilimab
+4497,DB16390,Mobocertinib
+4498,DB16393,Cilgavimab
+4499,DB16394,Tixagevimab
+4500,DB16405,Regdanvimab
+4501,DB16410,Datopotamab deruxtecan
+4502,DB16416,Vilobelimab
+4503,DB16418,Narsoplimab
+4504,DB16427,VidPrevtyn Beta
+4505,DB16517,Influenza A virus A/Brisbane/10/2010 live (attenuated) antigen
+4506,DB16518,Influenza A virus A/South Australia/55/2014 live (attenuated) antigen
+4507,DB16536,Birch bark extract
+4508,DB16538,Bifidobacterium bifidum
+4509,DB16540,Lactobacillus delbrueckii bulgaricus
+4510,DB16541,Lactobacillus casei
+4511,DB16545,Malpighia emarginata extract
+4512,DB16548,Streptococcus thermophilus
+4513,DB16581,Darvadstrocel
+4514,DB16582,Lisocabtagene maraleucel
+4515,DB16588,Influenza A virus A/Victoria/2570/2019 IVR-215 (H1N1) antigen (formaldehyde inactivated)
+4516,DB16594,Goldenseal
+4517,DB16609,Streptococcus pneumoniae type 6a capsular polysaccharide antigen
+4518,DB16611,"Tick-borne encephalitis vaccine (whole virus, inactivated)"
+4519,DB16624,Thallous chloride Tl-201
+4520,DB16625,Prasterone enantate
+4521,DB16627,Melphalan flufenamide
+4522,DB16628,Fosdenopterin
+4523,DB16629,Serdexmethylphenidate
+4524,DB16639,Juniper tar
+4525,DB16641,Sugemalimab
+4526,DB16642,"Influenza A virus subtype H3N2 haemagglutinin, recombinant"
+4527,DB16643,"Influenza A virus subtype H1N1 haemagglutinin, recombinant"
+4528,DB16644,"Influenza B virus Victoria lineage haemagglutinin, recombinant"
+4529,DB16645,"Influenza B virus Yamagata lineage haemagglutinin, recombinant"
+4530,DB16646,Influenza A virus A/Vietnam/1194/2004 (H5N1) antigen (formaldehyde inactivated)
+4531,DB16647,Donanemab
+4532,DB16648,Bacillus calmette-guerin substrain russian BCG-I live antigen
+4533,DB16650,Deucravacitinib
+4534,DB16655,Teclistamab
+4535,DB16662,Efanesoctocog alfa
+4536,DB16665,Idecabtagene vicleucel
+4537,DB16672,Epcoritamab
+4538,DB16678,Talquetamab
+4539,DB16683,Foslevodopa
+4540,DB16684,Odronextamab
+4541,DB16691,Nirmatrelvir
+4542,DB16693,Insulin icodec
+4543,DB16694,Pegcetacoplan
+4544,DB16695,Amivantamab
+4545,DB16699,Vutrisiran
+4546,DB16701,Plasminogen
+4547,DB16703,Belumosudil
+4548,DB16704,Durlobactam
+4549,DB16705,Influenza A virus A/Tasmania/503/2020 IVR-221 (H3N2) antigen (formaldehyde inactivated)
+4550,DB16706,Influenza A virus A/Wisconsin/588/2019 (H1N1) recombinant hemagglutinin antigen
+4551,DB16708,Cipaglucosidase alfa
+4552,DB16709,Allogeneic cultured keratinocytes and dermal fibroblasts in murine collagen
+4553,DB16710,Streptococcus pneumoniae type 22F capsular polysaccharide diphtheria CRM197 protein conjugate antigen
+4554,DB16711,Streptococcus pneumoniae type 33F capsular polysaccharide diphtheria CRM197 protein conjugate antigen
+4555,DB16712,Corynebacterium diphtheriae CRM197 protein
+4556,DB16713,Streptococcus pneumoniae type 8 capsular polysaccharide diphtheria CRM197 protein conjugate antigen
+4557,DB16714,Streptococcus pneumoniae type 10A capsular polysaccharide diphtheria CRM197 protein conjugate antigen
+4558,DB16715,Streptococcus pneumoniae type 11A capsular polysaccharide diphtheria CRM197 protein conjugate antigen
+4559,DB16716,Streptococcus pneumoniae type 12F capsular polysaccharide diphtheria CRM197 protein conjugate antigen
+4560,DB16717,Streptococcus pneumoniae type 15B capsular polysaccharide diphtheria CRM197 protein conjugate antigen
+4561,DB16718,Influenza A virus A/Tasmania/503/2020 (H3N2) live (attenuated) antigen
+4562,DB16719,Influenza A virus A/Victoria/1/2020 (H1N1) live (attenuated) antigen
+4563,DB16720,"Influenza A virus A/Victoria/2570/2019 IVR-215 (H1N1) antigen (UV, formaldehyde inactivated)"
+4564,DB16721,"Influenza A virus A/Tasmania/503/2020 IVR-221 (H3N2) antigen (UV, formaldehyde inactivated)"
+4565,DB16722,Influenza A virus A/Victoria/2570/2019 IVR-215 (H1N1) antigen (propiolactone inactivated)
+4566,DB16723,Influenza A virus A/Cambodia/e0826360/2020 IVR-224 (H3N2) antigen (propiolactone inactivated)
+4567,DB16724,Influenza A virus A/Tasmania/503/2020 (H3N2) recombinant hemagglutinin antigen
+4568,DB16725,Influenza A virus A/Cambodia/e0826360/2020 IVR-224 (H3N2) antigen (formaldehyde inactivated)
+4569,DB16726,"Influenza A virus A/Tasmania/503/2020 (H3N2) antigen (MDCK cell derived, propiolactone inactivated)"
+4570,DB16727,"Influenza A virus A/Washington/19/2020 (H1N1) antigen (MDCK cell derived, propiolactone inactivated)"
+4571,DB16732,Tisotumab vedotin
+4572,DB16736,Allogeneic processed thymus tissue
+4573,DB16738,Ciltacabtagene autoleucel
+4574,DB16741,Bortezomib D-mannitol
+4575,DB16746,Elivaldogene autotemcel
+4576,DB16747,Penpulimab
+4577,DB16755,Bebtelovimab
+4578,DB16757,"Plant-based virus-like particles, recombinant, adjuvanted COVID-19 vaccine"
+4579,DB16778,Lutetium Lu-177 vipivotide tetraxetan
+4580,DB16780,Eladocagene exuparvovec
+4581,DB16783,Fidanacogene elaparvovec
+4582,DB16791,Etranacogene dezaparvovec
+4583,DB16802,Delandistrogene moxeparvovec
+4584,DB16820,LetibotulinumtoxinA
+4585,DB16826,Repotrectinib
+4586,DB16852,Remibrutinib
+4587,DB16900,Betibeglogene autotemcel
+4588,DB16901,Influenza A virus A/Norway/16606/2021 (H3N2) live (attenuated) antigen
+4589,DB16902,Influenza B virus B/Austria/1359417/2021 live (attenuated) antigen
+4590,DB16903,Influenza A virus A/Darwin/6/2021 IVR-227 (H3N2) antigen (formaldehyde inactivated)
+4591,DB16904,Influenza B virus B/Austria/1359417/2021 BVR-26 hemagglutinin antigen (formaldehyde inactivated)
+4592,DB16905,NBI-98782
+4593,DB16907,"Zoledronate D,L-Lysine Monohydrate"
+4594,DB16910,"Influenza B virus B/Singapore/WUH4618/2021 antigen (MDCK cell derived, propiolactone inactivated)"
+4595,DB16914,"Influenza A virus A/Darwin/11/2021 (H3N2) antigen (MDCK cell derived, propiolactone inactivated)"
+4596,DB16915,"Influenza A virus A/Delaware/55/2019 CVR-45 (H1N1) antigen (MDCK cell derived, propiolactone inactivated)"
+4597,DB16916,Influenza A virus A/Darwin/9/2021 SAN-010 (H3N2) antigen (formaldehyde inactivated)
+4598,DB16917,Influenza B virus B/Michigan/01/2021 antigen (formaldehyde inactivated)
+4599,DB16918,Influenza A virus A/Darwin/6/2021 IVR-227 (H3N2) antigen (propiolactone inactivated)
+4600,DB16919,Influenza B virus B/Austria/1359417/2021 BVR-26 antigen (propiolactone inactivated)
+4601,DB16922,Influenza A virus A/Darwin/6/2021 (H3N2) recombinant hemagglutinin antigen
+4602,DB16923,Influenza B virus B/Austria/1359417/2021 recombinant hemagglutinin antigen
+4603,DB16924,"Influenza A virus A/Darwin/9/2021 IVR-228 (H3N2) antigen (UV, formaldehyde inactivated)"
+4604,DB16925,"Influenza B virus B/Austria/1359417/2021 BVR-26 antigen (UV, formaldehyde inactivated)"
+4605,DB16956,L-Acetylleucine
+4606,DB16960,Lenzumestrocel
+4607,DB16965,ATH434
+4608,DB16997,AVXS-201
+4609,DB17003,BMN-044
+4610,DB17004,BMN-045
+4611,DB17005,BMN-046
+4612,DB17006,BMN-052
+4613,DB17008,BMN-053
+4614,DB17009,BMN-055
+4615,DB17072,Tabelecleucel
+4616,DB17076,Yisaipu
+4617,DB17083,Linzagolix
+4618,DB17084,Gadopiclenol
+4619,DB17088,Famtozinameran
+4620,DB17090,Imelasomeran
+4621,DB17091,Davesomeran
+4622,DB17095,Riltozinameran
+4623,DB17097,Vorasidenib
+4624,DB17107,Lifileucel
+4625,DB17132,Omidubicel
+4626,DB17171,Ziftomenib
+4627,DB17256,Tarlatamab
+4628,DB17289,L-arginine
+4629,DB17308,Laurocapram
+4630,DB17335,Indium-111 Pentetreotide
+4631,DB17362,Obecabtagene autoleucel
+4632,DB17381,Nadofaragene firadenovec
+4633,DB17386,Xenon Xe-129
+4634,DB17447,Linvoseltamab
+4635,DB17449,Anacaulase
+4636,DB17451,Serplulimab
+4637,DB17472,Pirtobrutinib
+4638,DB17520,Vimseltinib
+4639,DB17538,Atidarsagene autotemcel
+4640,DB17552,Pucotenlimab
+4641,DB17593,Etuvetidigene Autotemcel
+4642,DB17635,Nedosiran
+4643,DB17709,Rilzabrutinib
+4644,DB17725,Marstacimab
+4645,DB17743,Fecal microbiota
+4646,DB17751,Influenza A Virus A/Sydney/5/2021 SAN-013 (H1N1) antigen (formaldehyde inactivated)
+4647,DB17762,"Respiratory syncytial virus vaccine, adjuvanted"
+4648,DB17795,"Japanese Encephalitis Vaccine, Inactivated, Adsorbed"
+4649,DB17823,Perfluorohexyloctane
+4650,DB17824,Navepegritide
+4651,DB17831,Beremagene geperpavec
+4652,DB17851,Flotufolastat F-18
+4653,DB17895,Prademagene zamikeracel
+4654,DB17929,DaxibotulinumtoxinA
+4655,DB17961,Donislecel
+4656,DB17992,Lotilaner
+4657,DB17994,Influenza A Virus A/Victoria/4897/2022 IVR-238 (H1N1) antigen (formaldehyde inactivated)
+4658,DB17995,Influenza A virus A/West Virginia/30/2022 (H1N1) Recombinant Hemagglutinin Antigen
+4659,DB17996,"Influenza A virus A/Georgia/12/2022 CVR-167 (H1N1) Antigen (MDCK cell derived, propiolactone inactivated)"
+4660,DB17997,Influenza A virus A/Victoria/4897/2022 IVR-238 (H1N1) Antigen (propiolactone inactivated)
+4661,DB17998,"Influenza A virus A/Victoria/4897/2022 IVR-238 (H1N1) Antigen (UV, formaldehyde inactivated)"
+4662,DB17999,Acoramidis
+4663,DB18001,Neutral Protamine Hagedorn (NPH) insulin
+4664,DB18002,Lomifylline
+4665,DB18032,Allogenic bone marrow-derived mesenchymal stem cells
+4666,DB18227,Andusomeran
+4667,DB18228,Raxtozinameran
+4668,DB18237,Nerandomilast
+4669,DB18305,Sebetralstat
+4670,DB18373,Vanzacaftor
+4671,DB18490,Aficamten
+4672,DB18507,Alflorex
+4673,DB18515,Revumenib
+4674,DB18518,Crinecerfont
+4675,DB18592,Afamitresgene autoleucel
+4676,DB18660,Ex vivo expanded autologous human corneal epithelial cells containing stem cells
+4677,DB18661,Influenza A virus A/Norway/31694/2022 (H1N1) live (attenuated) antigen
+4678,DB18676,Palopegteriparatide
+4679,DB18680,Lovotibeglogene autotemcel
+4680,DB18701,"Chikungunya vaccine (live, attenuated)"
+4681,DB18704,Efbemalenograstim alfa
+4682,DB18705,SARS-CoV-2 virus recombinant spike (S) protein receptor binding domain (RBD) fusion heterodimer (B.1.351-B.1.1.7 strains)
+4683,DB18711,Taletrectinib
+4684,DB18712,Berdazimer
+4685,DB18713,Recombinant stabilized RSV A prefusion F antigen
+4686,DB18714,Recombinant stabilized RSV B prefusion F antigen
+4687,DB18716,Enmetazobactam
+4688,DB18717,Graphite
+4689,DB18728,Olezarsen
+4690,DB18729,Neoarsphenamine
+4691,DB18731,Pegulicianine
+4692,DB18737,Procinonide
+4693,DB18738,Ciprocinonide
+4694,DB18739,mRNA-1345
+4695,DB18740,Nogapendekin alfa
+4696,DB18750,Influenza A Virus A/California/122/2022 SAN-022 (H3N2) antigen (formaldehyde inactivated)
+4697,DB18751,Donidalorsen
+4698,DB18756,Diaminopyrimidine oxide
+4699,DB18762,Zongertinib
+4700,DB18773,Flurpiridaz F-18
+4701,DB18846,Depemokimab
+4702,DB18847,Deuruxolitinib
+4703,DB18877,Clesrovimab
+4704,DB18919,Sibeprenlimab
+4705,DB18927,Suzetrigine
+4706,DB18968,Elinzanetant
+4707,DB18997,Plozasiran
+4708,DB19043,Imlunestrant
+4709,DB19071,Lerodalcibep
+4710,DB19136,Scarlet red
+4711,DB19175,Hyaluronic acid (non-animal stabilized)
+4712,DB19202,Acoltremon
+4713,DB19248,Bifidobacterium longum
+4714,DB19282,Lacticaseibacillus rhamnosus
+4715,DB19294,Japanese Encephalitis Virus Vaccine Inactivated
+4716,DB19295,Platelet Rich Plasma
+4717,DB19320,Influenza A virus A/Thailand/8/2022 IVR-237 (H3N2) antigen (propiolactone inactivated)
+4718,DB19321,"Influenza A virus A/Sydney/1304/2022 (H3N2) antigen (MDCK cell derived, propiolactone inactivated)"
+4719,DB19322,Influenza A virus A/Massachusetts/18/2022 (H3N2) recombinant hemagglutinin antigen
+4720,DB19323,Influenza A virus A/Thailand/8/2022 IVR-237 (H3N2) antigen (formaldehyde inactivated)
+4721,DB19324,"Influenza A virus A/Thailand/8/2022 IVR-237 antigen (UV, formaldehyde inactivated)"
+4722,DB19325,Sofpironium
+4723,DB19342,Streptococcus pneumoniae type 9N capsular polysaccharide diphtheria CRM197 protein conjugate antigen
+4724,DB19343,Streptococcus pneumoniae type 15A capsular polysaccharide diphtheria CRM197 protein conjugate antigen
+4725,DB19344,Streptococcus pneumoniae type deOAc15B capsular polysaccharide diphtheria CRM197 protein conjugate antigen
+4726,DB19345,Streptococcus pneumoniae type 16F capsular polysaccharide diphtheria CRM197 protein conjugate antigen
+4727,DB19346,Streptococcus pneumoniae type 17F capsular polysaccharide diphtheria CRM197 protein conjugate antigen
+4728,DB19347,Streptococcus pneumoniae type 20A capsular polysaccharide diphtheria CRM197 protein conjugate antigen
+4729,DB19348,Streptococcus pneumoniae type 23A capsular polysaccharide diphtheria CRM197 protein conjugate antigen
+4730,DB19349,Streptococcus pneumoniae type 23B capsular polysaccharide diphtheria CRM197 protein conjugate antigen
+4731,DB19350,Streptococcus pneumoniae type 24F capsular polysaccharide diphtheria CRM197 protein conjugate antigen
+4732,DB19351,Streptococcus pneumoniae type 31 capsular polysaccharide diphtheria CRM197 protein conjugate antigen
+4733,DB19352,Streptococcus pneumoniae type 35B capsular polysaccharide diphtheria CRM197 protein conjugate antigen
+4734,DB19353,Benzgalantamine
+4735,DB19356,Carboprost
+4736,DB19358,Chlorisondamine
+4737,DB19360,Latanoprost acid
+4738,DB19361,Aurothioglycanide
+4739,DB19362,Glyceryl monocaprylate
+4740,DB19364,Azaribine
+4741,DB19365,Aminometradine
+4742,DB19368,Amisometradine
+4743,DB19370,Methylhexaneamine
+4744,DB19371,NITHIAMIDE
+4745,DB19372,Zoxazolamine
+4746,DB19374,OCTODRINE
+4747,DB19375,Chlorothymol
+4748,DB19376,Salicylanilide
+4749,DB19377,Santonin
+4750,DB19378,Megestrol
+4751,DB19379,Syrosingopine
+4752,DB19380,Parethoxycaine
+4753,DB19381,AZACYCLONOL
+4754,DB19382,Benzoylpas
+4755,DB19383,Pentapiperium
+4756,DB19387,Acetomenaphthone
+4757,DB19413,Influenza A Virus A/Thailand/8/2022 IVR-237 (H3N2) whole
+4758,DB19414,CX-046684
+4759,DB19415,Cemivameran
+4760,DB19448,Dorocubicel
+4761,DB20118,Dichlorotetrafluoroethane
+4762,DB20138,Tribromsalan
+4763,DB20831,Iopydone
+4764,DB21667,Sevabertinib
+4765,DB21761,Zapomeran
+4766,DB21762,Schinus terebinthifolia pollen
+4767,DB21765,Influenza A virus A/Croatia/10136RV/2023 X-425A (H3N2) antigen (formaldehyde inactivated)
+4768,DB21766,Chikungunya virus Senegal strain 37997 capsid protein
+4769,DB21767,Chikungunya virus Senegal strain 37997 envelope protein E1
+4770,DB21768,Chikungunya virus Senegal strain 37997 envelope protein E2
+4771,DB21811,Gozetotide
+4772,DB21906,rdESAT-6
+4773,DB21907,rCFP-10
+4774,DB21908,Sipavibart
+4775,DB22664,Dengue virus serotype 1
+4776,DB22665,Dengue virus serotype 2
+4777,DB22666,Dengue virus serotype 3
+4778,DB22667,Dengue virus serotype 4
+4779,DB22668,mRNA-1283
+4780,DB22669,Influenza A virus A/District of Columbia/27/2023 (H3N2) recombinant hemagglutinin antigen
+4781,DB22670,"Influenza A virus A/Croatia/10136RV/2023 X-425A (H3N2) antigen (UV, formaldehyde inactivated)"
+4782,DB22671,"Influenza A virus A/Victoria/800/2024 CVR-289 (H3N2) antigen (MDCK cell derived, propiolactone inactivated)"
+4783,DB22672,Influenza A virus A/Croatia/10136RV/2023 X-425A (H3N2) antigen (propiolactone inactivated)
+4784,DB22790,Berahyaluronidase alfa
+4785,DB23337,BNT162B2 Omicron (LP.8.1)
+4786,DB24672,Zopapogene imadenovec
+4787,DB28348,Unexpanded umbilical cord-derived allogeneic CD34- hematopoietic stem cells
+4788,DB30293,Acellular nerve allograft
+4789,DB31654,Influenza A virus A/Perth/722/2024 (H3N2) live (attenuated) antigen
+4790,DB31655,CX-052075
+4791,DB31656,CX-051869
+4792,DB32041,Copper histidinate
+4793,DB32138,Indium In-111 ibritumomab tiuxetan
+4794,DB32139,Yttrium y-90 ibritumomab tiuxetan
