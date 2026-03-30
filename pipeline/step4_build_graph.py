@@ -1,36 +1,37 @@
 """
-step4_build_graph.py — build PyTorch graph tensors from the FDA-approved subset.
+step4_build_graph.py — build structural node features + edge index from the FDA-approved subset.
 
 Reads all relevant tables from data/step3_approved/ and produces:
-  node_mapping.csv     node_idx | drugbank_id | name
-  node_features.csv    node_idx + 70 scaled feature columns  [N x F]
-  node_features_raw.csv  same columns, unscaled              [N x F]
-  edge_index.csv       src_idx | dst_idx | interaction_id    [E x 3]
-  feature_names.json   feature name list + group labels
+  node_mapping.csv        node_idx | drugbank_id | name
+  node_features.csv       node_idx + ~191 scaled feature columns  [N x F]
+  node_features_raw.csv   same columns, unscaled                  [N x F]
+  edge_index.csv          src_idx | dst_idx | interaction_id      [E x 3]
+  feature_names.json      feature name list + group labels
 
-Node feature matrix : [4,795 rows x 70 features]
-Edge index          : [824,249 rows x 3]  (src, dst, interaction_id)
+Run step4_embed.py afterwards to generate text embeddings and the combined feature matrix.
 
-Feature groups (F columns total — printed at runtime):
+Feature groups (printed at runtime):
   A  Drug masses          average_mass, monoisotopic_mass
   B  Drug type & state    is_biotech; state_solid/liquid/gas
   C  Calculated props     logP, logS, MW, HBD, HBA, RotB, PSA, charge,
                           rings, bioavailability, rule5, ghose, mddrl,
-                          refractivity, polarizability, pKa_acid, pKa_basic,
-                          water_solubility (calc)
+                          refractivity, polarizability, pKa_acid, pKa_basic
   D  Experimental props   exp_logP, exp_logS, exp_melting_pt, exp_boiling_pt,
                           exp_water_sol, exp_pKa
   E  Group flags          is_withdrawn, is_investigational, is_vet_approved,
                           is_nutraceutical, is_illicit
   F  Aggregate counts     n_targets, n_enzymes, n_carriers, n_transporters,
                           n_categories, n_atc_codes, n_patents, n_products,
-                          n_food_interactions, n_synonyms
-  G  ATC anatomical (one-hot)   atc_A … atc_V  (14 cols)
+                          n_food_interactions, n_synonyms, n_pathways
+  G  ATC anatomical       atc_A … atc_V  (14 one-hot cols)
   H  Classification       kingdom_organic, kingdom_inorganic;
                           superclass_* (top-10 one-hot)
+  I  MeSH categories      cat_* (top-50 most frequent, multi-hot)
+  J  Pathway membership   pathway_* (top-50 most drug-populated, multi-hot)
+  K  Sequence features    seq_length, aa_A … aa_Y (21 cols, biotech drugs only)
 
 Missing values: continuous → median imputation; binary/count/one-hot → 0.
-Features are standardised (mean=0, std=1) in x; raw unscaled values also saved as x_raw.
+Continuous features standardised (mean=0, std=1); others left as-is.
 
 Usage:
     python pipeline/step4_build_graph.py          # preview + save
@@ -75,9 +76,12 @@ drug_attrs   = load("drug_attributes")
 drug_props   = load("drug_properties")
 drug_ints    = load("drug_interactants")
 drug_cats    = load("drug_categories")
+categories   = load("categories")
 atc          = load("atc_codes")
 patents      = load("patents")
 products     = load("products")
+pathways     = load("pathways")
+path_members = load("pathway_members")
 ddi          = load("drug_interactions_dedup")
 
 N = len(drugs)
@@ -195,6 +199,9 @@ add("n_food_interactions", count_map(food, "drugbank_id"),                      
 syns = drug_attrs[drug_attrs["attr_type"] == "synonym"]
 add("n_synonyms",         count_map(syns, "drugbank_id"),                               "F")
 
+drug_path_members = path_members[path_members["member_type"] == "drug"]
+add("n_pathways",         count_map(drug_path_members, "member_id"),                    "F")
+
 # ── Group G: ATC anatomical one-hot (l4_code A–V) ────────────────────────────
 ATC_GROUPS = sorted(atc["l4_code"].dropna().unique())
 atc_onehot = atc.groupby(["drugbank_id", "l4_code"]).size().unstack("l4_code", fill_value=0)
@@ -216,6 +223,78 @@ sc_top10 = [s for s in sc.value_counts().head(11).index.tolist() if s.strip()][:
 for sup in sc_top10:
     safe = sup.lower().replace(" ", "_").replace(",", "").replace("/", "_")[:30]
     add(f"sc_{safe}", (sc == sup).astype(float), "H")
+
+# ── Group I: MeSH therapeutic categories multi-hot (top-50) ─────────────────
+# Join drug_categories → categories to get names, pick top-50 by drug count
+cat_counts = drug_cats.groupby("category_id")["drugbank_id"].nunique()
+top50_cat_ids = cat_counts.nlargest(50).index.tolist()
+top50_cats = categories[categories["category_id"].isin(top50_cat_ids)].set_index("category_id")
+
+drug_cat_pivot = (
+    drug_cats[drug_cats["category_id"].isin(top50_cat_ids)]
+    .groupby(["drugbank_id", "category_id"])
+    .size()
+    .unstack("category_id", fill_value=0)
+    .reindex(drug_ids, fill_value=0)
+)
+for cat_id in top50_cat_ids:
+    cat_name = top50_cats.loc[cat_id, "category_name"] if cat_id in top50_cats.index else cat_id
+    safe = cat_name.lower().replace(" ", "_").replace(",", "").replace("/", "_")
+    safe = "cat_" + safe[:28]
+    ser = drug_cat_pivot.get(cat_id, pd.Series(0, index=drug_ids)).astype(float)
+    add(safe, ser, "I")
+
+# ── Group J: Pathway membership multi-hot (top-50 most drug-populated) ───────
+pathway_drug_counts = drug_path_members.groupby("smpdb_id")["member_id"].nunique()
+top50_pathways = pathway_drug_counts.nlargest(50).index.tolist()
+top50_pway_names = pathways[pathways["smpdb_id"].isin(top50_pathways)].set_index("smpdb_id")
+
+drug_pway_pivot = (
+    drug_path_members[drug_path_members["smpdb_id"].isin(top50_pathways)]
+    .groupby(["member_id", "smpdb_id"])
+    .size()
+    .unstack("smpdb_id", fill_value=0)
+    .reindex(drug_ids, fill_value=0)
+)
+for smpdb_id in top50_pathways:
+    pway_name = top50_pway_names.loc[smpdb_id, "name"] if smpdb_id in top50_pway_names.index else smpdb_id
+    safe = pway_name.lower().replace(" ", "_").replace(",", "").replace("/", "_").replace("-", "_")
+    safe = "pway_" + safe[:26]
+    ser = drug_pway_pivot.get(smpdb_id, pd.Series(0, index=drug_ids)).astype(float)
+    add(safe, ser, "J")
+
+# ── Group K: Sequence features (biotech drugs only) ──────────────────────────
+# FASTA sequences stored in drug_attributes where attr_type='sequence'
+# Compute: sequence length + % of each of the 20 standard amino acids
+AA_LIST = list("ACDEFGHIKLMNPQRSTVWY")  # 20 standard amino acids
+
+seq_rows = drug_attrs[drug_attrs["attr_type"] == "sequence"].copy()
+
+def parse_fasta_seq(fasta):
+    """Strip FASTA header lines and return the bare sequence string."""
+    lines = [l for l in fasta.strip().splitlines() if not l.startswith(">")]
+    return "".join(lines).upper()
+
+seq_map = {}  # drugbank_id -> sequence string
+for _, row in seq_rows.iterrows():
+    seq = parse_fasta_seq(row["value"])
+    if seq:
+        seq_map[row["drugbank_id"]] = seq_map.get(row["drugbank_id"], "") + seq
+
+seq_lengths = pd.Series(
+    {db_id: len(seq_map[db_id]) if db_id in seq_map else 0 for db_id in drug_ids},
+    index=drug_ids, dtype=float
+)
+add("seq_length", seq_lengths, "K")
+
+for aa in AA_LIST:
+    aa_pct = pd.Series(
+        {db_id: (seq_map[db_id].count(aa) / len(seq_map[db_id])
+                 if db_id in seq_map and len(seq_map[db_id]) > 0 else 0.0)
+         for db_id in drug_ids},
+        index=drug_ids, dtype=float
+    )
+    add(f"aa_{aa}", aa_pct, "K")
 
 # ── Assemble raw matrix ───────────────────────────────────────────────────────
 feature_names = list(feat_cols.keys())
@@ -282,7 +361,9 @@ from collections import Counter
 gc = Counter(feat_groups.values())
 labels = {"A":"Drug masses","B":"Type & state","C":"Calculated props",
           "D":"Experimental props","E":"Group flags","F":"Counts",
-          "G":"ATC one-hot","H":"Classification"}
+          "G":"ATC one-hot","H":"Classification",
+          "I":"MeSH categories (multi-hot)","J":"Pathway membership (multi-hot)",
+          "K":"Sequence features"}
 for g in sorted(gc):
     print(f"  Group {g} ({labels[g]}): {gc[g]} features")
 sep()
