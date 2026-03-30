@@ -494,18 +494,3 @@ python pipeline/step5_pyg_data.py --structural-only
 ```
 
 ---
-
-## Downstream Use
-
-**GNN (link prediction)**
-- **Start here:** `data/step4_graph/ddi_graph.pt` — load directly with `torch.load(...)`
-- **Node features:** `data.x` — 4,795 × 959 (191 structural + 768 PubMedBERT), already standardized
-- **Edges:** `data.edge_index` — 1,648,498 directed edges (824,249 DDI pairs × 2)
-- **Negative sampling:** drug node pairs absent from `edge_index.csv`
-- **Ablation (no text):** use `ddi_graph_structural.pt` — 4,795 × 191
-- **Protein context (optional enrichment):** join `step3_approved/drug_interactants.csv` → `polypeptides.csv` for target/enzyme embeddings
-
-**RAG (PharmaBot)**
-- **Text fields:** `drugs.description`, `indication`, `mechanism_of_action`, `pharmacodynamics`, `toxicity`
-- **Interaction text:** `drug_interactions_dedup.csv` → `description`
-- **Structured filters:** `categories`, `atc_codes`, `drug_attributes` (group, synonym)
