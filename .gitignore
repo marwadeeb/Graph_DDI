@@ -5,8 +5,9 @@
 data/step1_full/
 data/step2_dedup/
 
-# Step 3 (FDA-approved subset) IS tracked — do not ignore
+# Step 3 & 4 outputs ARE tracked — do not ignore
 # data/step3_approved/
+# data/step4_graph/
 
 # Python
 __pycache__/
