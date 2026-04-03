@@ -12,8 +12,8 @@
 | 1 — Parse & Validate | `parser/run_all.py` | `data/step1_full/` — 27 CSVs, all drugs | 707 MB · gitignored |
 | 2 — Dedup Interactions | `pipeline/step2_dedup_interactions.py` | `data/step2_dedup/` — 1 CSV, undirected DDI | 171 MB · gitignored |
 | 3 — FDA-Approved Subset | `pipeline/step3_fda_approved.py` | `data/step3_approved/` — 27 CSVs, 4,795 drugs | 351 MB · **on GitHub** |
-| 4a — Build Graph | `pipeline/step4_build_graph.py` | `data/step4_graph/` — 191 structural features + edge index | 19 MB · **on GitHub** |
-| 4b — Text Embeddings | `pipeline/step4_embed.py` | `data/step4_graph/` — 768-dim PubMedBERT + combined 959-dim | 94 MB · **on GitHub** |
+| 4a — Build Graph | `pipeline/step4_build_graph.py` | `data/step4_graph/` — 212 structural features + edge index | 19 MB · **on GitHub** |
+| 4b — Text Embeddings | `pipeline/step4_embed.py` | `data/step4_graph/` — 768-dim PubMedBERT + combined 980-dim | 94 MB · **on GitHub** |
 | 5 — PyG Data Object | `pipeline/step5_pyg_data.py` | `data/step4_graph/ddi_graph.pt` — PyTorch Geometric `Data` | 58 MB · **on GitHub** |
 | 6 — RAG Vector Index | `pipeline/step6_rag_index.py` | `data/rag_index/` — FAISS index of 824K DDI descriptions | ~2.5 GB · gitignored |
 | 7 — RAG Query Pipeline | `pipeline/step7_rag_query.py` | CLI/API — retrieve top-k + LLM structured output | — |
@@ -54,8 +54,8 @@ python pipeline/step7_rag_query.py --drug-a Warfarin --drug-b Aspirin  # Step 7:
 ├── pipeline/                        Steps 2–4 — post-processing
 │   ├── step2_dedup_interactions.py  directed → undirected DDI pairs + interaction_id PK
 │   ├── step3_fda_approved.py        filter all tables to FDA-approved drugs
-│   ├── step4_build_graph.py         build 191 structural node features + edge index (step 4a)
-│   ├── step4_embed.py               PubMedBERT text embeddings → 959-dim combined features (step 4b)
+│   ├── step4_build_graph.py         build 212 structural node features + edge index (step 4a)
+│   ├── step4_embed.py               PubMedBERT text embeddings → 980-dim combined features (step 4b)
 │   ├── step5_pyg_data.py            assemble PyTorch Geometric Data object → ddi_graph.pt (step 5)
 │   ├── step6_rag_index.py           embed 824K DDI descriptions → FAISS vector index (step 6)
 │   └── step7_rag_query.py           RAG query pipeline: drug pair → retrieve → LLM → JSON (step 7)
@@ -439,12 +439,12 @@ Built from `data/step3_approved/`. All 4,795 FDA-approved drugs become nodes; al
 | File | Shape | Description |
 |---|---|---|
 | `node_mapping.csv` | 4,795 × 3 | `node_idx`, `drugbank_id`, `name` — integer index ↔ drug |
-| `node_features.csv` | 4,795 × 192 | `node_idx` + 191 standardized structural features (mean=0, std=1) |
-| `node_features_raw.csv` | 4,795 × 192 | Same 191 features, unscaled |
+| `node_features.csv` | 4,795 × 213 | `node_idx` + 212 standardized structural features (mean=0, std=1) |
+| `node_features_raw.csv` | 4,795 × 213 | Same 212 features, unscaled |
 | `edge_index.csv` | 824,249 × 3 | `src_idx`, `dst_idx`, `interaction_id` |
 | `feature_names.json` | — | Feature name list + group labels |
 
-**Structural feature groups (191 total):**
+**Structural feature groups (212 total):**
 
 | Group | Count | Features | Source |
 |---|---|---|---|
@@ -459,6 +459,7 @@ Built from `data/step3_approved/`. All 4,795 FDA-approved drugs become nodes; al
 | I — MeSH categories | 50 | Top-50 therapeutic categories multi-hot (e.g. cytochrome P-450 substrates, anti-infectives, antineoplastics, …) | `drug_categories.csv` + `categories.csv` |
 | J — Pathways | 49 | Top-50 SMPDB pathways multi-hot (e.g. purine metabolism, tyrosine metabolism, …) | `pathway_members.csv` + `pathways.csv` |
 | K — Sequence | 21 | `seq_length` + 20 amino acid percentages (A, C, D, … Y) | `drug_attributes.csv` (`attr_type='sequence'`) |
+| L — CYP enzyme roles | 21 | Binary flags: `cyp{subtype}_{role}` for subtypes 3A4, 2D6, 2C9, 2C19, 1A2, 2B6, 2E1 × roles substrate/inhibitor/inducer | `drug_interactants.csv` + `interactants.csv` |
 
 Missing continuous values → median imputation + standardization. Binary/count/one-hot → filled with 0.
 
@@ -469,7 +470,7 @@ Encodes rich drug text (name + description + indication + mechanism of action + 
 | File | Shape | Description |
 |---|---|---|
 | `node_embeddings.csv` | 4,795 × 769 | `node_idx` + 768 PubMedBERT dimensions |
-| `node_features_combined.csv` | 4,795 × 960 | `node_idx` + 191 structural + 768 text = **959 total features** |
+| `node_features_combined.csv` | 4,795 × 981 | `node_idx` + 212 structural + 768 text = **980 total features** |
 
 Use `node_features_combined.csv` as the final node feature matrix for GNN training.
 
@@ -481,7 +482,7 @@ Assembles the final `torch_geometric.data.Data` object from the step4 CSVs.
 
 | Property | Value |
 |---|---|
-| `data.x` | `[4795, 959]` float32 — combined node feature matrix |
+| `data.x` | `[4795, 980]` float32 — combined node feature matrix |
 | `data.edge_index` | `[2, 1,648,498]` long — COO format, both directions |
 | `data.edge_attr` | `[1,648,498, 1]` long — `interaction_id` per edge |
 | `data.drugbank_ids` | list of 4,795 DrugBank IDs (index → DB#####) |
@@ -491,11 +492,11 @@ Assembles the final `torch_geometric.data.Data` object from the step4 CSVs.
 ```python
 import torch
 data = torch.load("data/step4_graph/ddi_graph.pt")
-x          = data.x           # [4795, 959] node features
+x          = data.x           # [4795, 980] node features
 edge_index = data.edge_index  # [2, 1648498]
 ```
 
-Use `--structural-only` for a 191-dim ablation variant (`ddi_graph_structural.pt`):
+Use `--structural-only` for a 212-dim ablation variant (`ddi_graph_structural.pt`):
 ```bash
 python pipeline/step5_pyg_data.py --structural-only
 ```
