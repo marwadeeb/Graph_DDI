@@ -29,6 +29,9 @@ Feature groups (printed at runtime):
   I  MeSH categories      cat_* (top-50 most frequent, multi-hot)
   J  Pathway membership   pathway_* (top-50 most drug-populated, multi-hot)
   K  Sequence features    seq_length, aa_A … aa_Y (21 cols, biotech drugs only)
+  L  CYP enzyme roles    cyp{subtype}_{role} binary flags (7 subtypes x 3 roles = 21 cols)
+                         subtypes: 3A4, 2D6, 2C9, 2C19, 1A2, 2B6, 2E1
+                         roles   : substrate, inhibitor, inducer
 
 Missing values: continuous → median imputation; binary/count/one-hot → 0.
 Continuous features standardised (mean=0, std=1); others left as-is.
@@ -83,6 +86,7 @@ products     = load("products")
 pathways     = load("pathways")
 path_members = load("pathway_members")
 ddi          = load("drug_interactions_dedup")
+interactants = load("interactants")
 
 N = len(drugs)
 drug_ids = drugs["drugbank_id"].tolist()
@@ -296,6 +300,45 @@ for aa in AA_LIST:
     )
     add(f"aa_{aa}", aa_pct, "K")
 
+# ── Group L: CYP enzyme roles (substrate / inhibitor / inducer) ──────────────
+# 7 clinically relevant subtypes × 3 roles = 21 binary features
+CYP_SUBTYPES = {
+    "3A4":  "Cytochrome P450 3A4",
+    "2D6":  "Cytochrome P450 2D6",
+    "2C9":  "Cytochrome P450 2C9",
+    "2C19": "Cytochrome P450 2C19",
+    "1A2":  "Cytochrome P450 1A2",
+    "2B6":  "Cytochrome P450 2B6",
+    "2E1":  "Cytochrome P450 2E1",
+}
+CYP_ROLES = ["substrate", "inhibitor", "inducer"]
+
+# map interactant_id -> CYP subtype label
+cyp_id_map = {}
+for subtype, name in CYP_SUBTYPES.items():
+    match = interactants[interactants["name"] == name]
+    if not match.empty:
+        cyp_id_map[match.iloc[0]["interactant_id"]] = subtype
+
+# filter drug_interactants to CYP enzymes only
+cyp_links = drug_ints[
+    (drug_ints["role"] == "enzyme") &
+    (drug_ints["interactant_id"].isin(cyp_id_map))
+].copy()
+cyp_links["subtype"] = cyp_links["interactant_id"].map(cyp_id_map)
+
+for subtype in CYP_SUBTYPES:
+    sub_df = cyp_links[cyp_links["subtype"] == subtype]
+    for role in CYP_ROLES:
+        drugs_with_role = set(
+            sub_df[sub_df["actions"].str.contains(role, case=False, na=False)]["drugbank_id"]
+        )
+        ser = pd.Series(
+            [1.0 if db_id in drugs_with_role else 0.0 for db_id in drug_ids],
+            index=drug_ids, dtype=float
+        )
+        add(f"cyp{subtype}_{role}", ser, "L")
+
 # ── Assemble raw matrix ───────────────────────────────────────────────────────
 feature_names = list(feat_cols.keys())
 X_raw = pd.DataFrame(feat_cols)
@@ -363,7 +406,7 @@ labels = {"A":"Drug masses","B":"Type & state","C":"Calculated props",
           "D":"Experimental props","E":"Group flags","F":"Counts",
           "G":"ATC one-hot","H":"Classification",
           "I":"MeSH categories (multi-hot)","J":"Pathway membership (multi-hot)",
-          "K":"Sequence features"}
+          "K":"Sequence features","L":"CYP enzyme roles"}
 for g in sorted(gc):
     print(f"  Group {g} ({labels[g]}): {gc[g]} features")
 sep()
@@ -414,5 +457,23 @@ for path in [node_map_path, node_feat_path, node_feat_raw_path, edge_path, meta_
     kb = os.path.getsize(path) / 1024
     label = os.path.basename(path)
     print(f"  {label:<30} {kb:>8.0f} KB")
+
+# ── Auto-regenerate combined features if embeddings exist ────────────────────
+emb_path  = os.path.join(OUTPUT_DIR, "node_embeddings.csv")
+comb_path = os.path.join(OUTPUT_DIR, "node_features_combined.csv")
+if os.path.exists(emb_path):
+    print("\n[step4] node_embeddings.csv found — regenerating node_features_combined.csv ...")
+    emb_df  = pd.read_csv(emb_path, index_col=0)          # [N x 768]
+    feat_df = pd.read_csv(node_feat_path, index_col=0)    # [N x F]
+    combined = pd.concat([feat_df, emb_df], axis=1)
+    combined.index.name = "node_idx"
+    combined.reset_index().to_csv(comb_path, index=False)
+    kb = os.path.getsize(comb_path) / 1024
+    print(f"  node_features_combined.csv     {kb:>8.0f} KB  "
+          f"[{N} x {feat_df.shape[1] + emb_df.shape[1]} = "
+          f"{feat_df.shape[1]} struct + {emb_df.shape[1]} embed]")
+else:
+    print("\n[step4] node_embeddings.csv not found — run step4_embed.py to generate combined features.")
+
 sep()
 print("[step4] Done.")
