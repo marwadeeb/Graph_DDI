@@ -15,6 +15,8 @@
 | 4a — Build Graph | `pipeline/step4_build_graph.py` | `data/step4_graph/` — 191 structural features + edge index | 19 MB · **on GitHub** |
 | 4b — Text Embeddings | `pipeline/step4_embed.py` | `data/step4_graph/` — 768-dim PubMedBERT + combined 959-dim | 94 MB · **on GitHub** |
 | 5 — PyG Data Object | `pipeline/step5_pyg_data.py` | `data/step4_graph/ddi_graph.pt` — PyTorch Geometric `Data` | 58 MB · **on GitHub** |
+| 6 — RAG Vector Index | `pipeline/step6_rag_index.py` | `data/rag_index/` — FAISS index of 824K DDI descriptions | ~2.5 GB · gitignored |
+| 7 — RAG Query Pipeline | `pipeline/step7_rag_query.py` | CLI/API — retrieve top-k + LLM structured output | — |
 
 ```bash
 pip install -r requirements.txt
@@ -24,6 +26,8 @@ python pipeline/step3_fda_approved.py          # Step 3: FDA-approved subset (~2
 python pipeline/step4_build_graph.py           # Step 4a: structural node features (~15 s)
 python pipeline/step4_embed.py                 # Step 4b: PubMedBERT text embeddings (~25 min, CPU)
 python pipeline/step5_pyg_data.py              # Step 5:  assemble PyG Data object (~2 s)
+python pipeline/step6_rag_index.py             # Step 6:  build FAISS RAG index (~3-4 hrs, CPU, resumable)
+python pipeline/step7_rag_query.py --drug-a Warfarin --drug-b Aspirin  # Step 7: query
 ```
 
 ---
@@ -52,12 +56,15 @@ python pipeline/step5_pyg_data.py              # Step 5:  assemble PyG Data obje
 │   ├── step3_fda_approved.py        filter all tables to FDA-approved drugs
 │   ├── step4_build_graph.py         build 191 structural node features + edge index (step 4a)
 │   ├── step4_embed.py               PubMedBERT text embeddings → 959-dim combined features (step 4b)
-│   └── step5_pyg_data.py            assemble PyTorch Geometric Data object → ddi_graph.pt (step 5)
+│   ├── step5_pyg_data.py            assemble PyTorch Geometric Data object → ddi_graph.pt (step 5)
+│   ├── step6_rag_index.py           embed 824K DDI descriptions → FAISS vector index (step 6)
+│   └── step7_rag_query.py           RAG query pipeline: drug pair → retrieve → LLM → JSON (step 7)
 └── data/
     ├── step1_full/                  full parse output             [gitignored]
     ├── step2_dedup/                 undirected DDI pairs          [gitignored]
     ├── step3_approved/              FDA-approved subset           [tracked]
-    └── step4_graph/                 GNN-ready node/edge CSVs      [tracked]
+    ├── step4_graph/                 GNN-ready node/edge CSVs      [tracked]
+    └── rag_index/                   FAISS index + metadata        [gitignored — ~2.5 GB]
 ```
 
 ---
@@ -492,5 +499,58 @@ Use `--structural-only` for a 191-dim ablation variant (`ddi_graph_structural.pt
 ```bash
 python pipeline/step5_pyg_data.py --structural-only
 ```
+
+---
+
+## Steps 6 & 7 — RAG Pipeline
+
+### Step 6 — Vector Index (`step6_rag_index.py`)
+
+Embeds all 824,249 DDI descriptions using PubMedBERT into a local FAISS index for semantic retrieval.
+
+Each entry is formatted following the paper:
+```
+"{Drug A} interaction with {Drug B} is: {description}"
+```
+
+**Checkpoint-based:** saves every 10,000 embeddings. If interrupted, re-running resumes automatically from the last checkpoint.
+
+| File | Description |
+|---|---|
+| `data/rag_index/faiss.index` | FAISS IndexFlatIP — 824,249 × 768 vectors (cosine similarity) |
+| `data/rag_index/metadata.pkl` | Per-vector metadata: interaction_id, drugbank_id_a/b, name_a/b, text |
+| `data/rag_index/checkpoints/` | Per-chunk embeddings (resumable, gitignored) |
+
+### Step 7 — Query Pipeline (`step7_rag_query.py`)
+
+Three-stage RAG pipeline per drug pair (matches paper design):
+
+1. **Retrieve** — embed query with PubMedBERT → FAISS top-k (default k=3)
+2. **Generate** — retrieved evidence + constrained prompt → LLM (temperature=0)
+3. **Return** — structured JSON output
+
+```json
+{
+  "found": true,
+  "interaction_type": "pharmacokinetic",
+  "interaction_description": "Aspirin may increase the anticoagulant effect of Warfarin..."
+}
+```
+
+**LLM:** `nvidia/nemotron-3-super-120b-a12b` via OpenRouter (free tier)
+**Requires:** `OPENROUTER_API_KEY=sk-or-...` in `.env`
+
+```bash
+# single pair
+python pipeline/step7_rag_query.py --drug-a Warfarin --drug-b Aspirin
+
+# all pairs from a drug list (paper endpoint mode)
+python pipeline/step7_rag_query.py --drugs Warfarin Aspirin Heparin Clopidogrel
+
+# interactive REPL
+python pipeline/step7_rag_query.py
+```
+
+Drug names are resolved case-insensitively, including common synonyms (e.g. "Aspirin" → "Acetylsalicylic acid").
 
 ---
