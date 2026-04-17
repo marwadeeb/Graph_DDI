@@ -17,6 +17,9 @@
 | 5 — PyG Data Object | `pipeline/step5_pyg_data.py` | `data/step4_graph/ddi_graph.pt` — PyTorch Geometric `Data` | 58 MB · **on GitHub** |
 | 6 — RAG Vector Index | `pipeline/step6_rag_index.py` | `data/rag_index/` — FAISS index of 824K DDI descriptions | ~2.5 GB · gitignored |
 | 7 — RAG Query Pipeline | `pipeline/step7_rag_query.py` | CLI/API — retrieve top-k + LLM structured output | — |
+| 8 — RAG Evaluation | `pipeline/step8_evaluate_rag.py` | `data/evaluation/` — precision/recall/F1 metrics | — |
+| 9 — Non-AI Baselines | `pipeline/step9_baseline.py` | `data/evaluation/` — exact lookup + TF-IDF comparison table | — |
+| 10 — Flask API | `app.py` | REST API on port 5000 — DDI check, batch, compare, search | — |
 
 ```bash
 pip install -r requirements.txt
@@ -28,6 +31,9 @@ python pipeline/step4_embed.py                 # Step 4b: PubMedBERT text embedd
 python pipeline/step5_pyg_data.py              # Step 5:  assemble PyG Data object (~2 s)
 python pipeline/step6_rag_index.py             # Step 6:  build FAISS RAG index (~3-4 hrs, CPU, resumable)
 python pipeline/step7_rag_query.py --drug-a Warfarin --drug-b Aspirin  # Step 7: query
+python pipeline/step8_evaluate_rag.py --n-pairs 500 --delay 4.0        # Step 8: evaluate RAG
+python pipeline/step9_baseline.py                                       # Step 9: non-AI baselines
+python app.py                                  # Step 10: start Flask API on port 5000
 ```
 
 ---
@@ -51,20 +57,24 @@ python pipeline/step7_rag_query.py --drug-a Warfarin --drug-b Aspirin  # Step 7:
 │   ├── main_parser.py               streaming iterparse loop (one drug at a time)
 │   ├── validate.py                  16-check validation suite
 │   └── run_all.py                   entry point (parse → validate)
-├── pipeline/                        Steps 2–4 — post-processing
+├── pipeline/                        Steps 2–8 — post-processing & evaluation
 │   ├── step2_dedup_interactions.py  directed → undirected DDI pairs + interaction_id PK
 │   ├── step3_fda_approved.py        filter all tables to FDA-approved drugs
 │   ├── step4_build_graph.py         build 212 structural node features + edge index (step 4a)
 │   ├── step4_embed.py               PubMedBERT text embeddings → 980-dim combined features (step 4b)
 │   ├── step5_pyg_data.py            assemble PyTorch Geometric Data object → ddi_graph.pt (step 5)
 │   ├── step6_rag_index.py           embed 824K DDI descriptions → FAISS vector index (step 6)
-│   └── step7_rag_query.py           RAG query pipeline: drug pair → retrieve → LLM → JSON (step 7)
+│   ├── step7_rag_query.py           RAG query pipeline: drug pair → retrieve → LLM → JSON (step 7)
+│   ├── step8_evaluate_rag.py        ground-truth evaluation: precision/recall/F1 (step 8)
+│   └── step9_baseline.py            non-AI baselines: exact lookup + TF-IDF (step 9)
+├── app.py                           Flask REST API — DDI check, batch, drug search (step 9)
 └── data/
     ├── step1_full/                  full parse output             [gitignored]
     ├── step2_dedup/                 undirected DDI pairs          [gitignored]
     ├── step3_approved/              FDA-approved subset           [tracked]
     ├── step4_graph/                 GNN-ready node/edge CSVs      [tracked]
-    └── rag_index/                   FAISS index + metadata        [gitignored — ~2.5 GB]
+    ├── rag_index/                   FAISS index + metadata        [gitignored — ~2.5 GB]
+    └── evaluation/                  RAG evaluation results        [gitignored]
 ```
 
 ---
@@ -538,14 +548,15 @@ Three-stage RAG pipeline per drug pair (matches paper design):
 }
 ```
 
-**LLM:** `nvidia/nemotron-3-super-120b-a12b` via OpenRouter (free tier)
-**Requires:** `OPENROUTER_API_KEY=sk-or-...` in `.env`
+**LLM:** `llama-3.3-70b-versatile` via Groq (free tier, ~30 req/min)
+**Requires:** `GROQ_API_KEY=gsk_...` in `.env`
 
 ```bash
-# single pair
+# single pair (name or DrugBank ID)
 python pipeline/step7_rag_query.py --drug-a Warfarin --drug-b Aspirin
+python pipeline/step7_rag_query.py --drug-a DB00682 --drug-b DB00945
 
-# all pairs from a drug list (paper endpoint mode)
+# all pairs from a drug list
 python pipeline/step7_rag_query.py --drugs Warfarin Aspirin Heparin Clopidogrel
 
 # interactive REPL
@@ -553,5 +564,120 @@ python pipeline/step7_rag_query.py
 ```
 
 Drug names are resolved case-insensitively, including common synonyms (e.g. "Aspirin" → "Acetylsalicylic acid").
+
+---
+
+## Step 9 — Non-AI Baselines (`pipeline/step9_baseline.py`)
+
+Implements two non-AI baselines evaluated on the **same 500-pair test set** (seed=42) for fair comparison against the RAG pipeline (TM2A requirement).
+
+**Baseline 1 — Exact Lookup:** Check if `(drug_a, drug_b)` exists directly in `drug_interactions_dedup.csv`. Pure database lookup — no ML, no similarity, no embeddings. Fails on novel drug pairs not yet in DrugBank.
+
+**Baseline 2 — TF-IDF + Threshold:** Represent all 824K DDI descriptions as TF-IDF vectors. Query = `"drug_a interaction with drug_b is:"`. If cosine similarity > 0.30 → found. No neural networks, no LLM.
+
+```bash
+python pipeline/step9_baseline.py                 # run both baselines (~2 min)
+python pipeline/step9_baseline.py --results-only  # print saved comparison table
+```
+
+### Baseline vs RAG Comparison (500 pairs, seed=42)
+
+| Method | Precision | Recall | F1 | Accuracy |
+|---|---|---|---|---|
+| Exact Lookup (no ML) | 1.0000 | 1.0000 | 1.0000 | 1.0000 |
+| TF-IDF + threshold=0.30 | 0.5133 | 1.0000 | 0.6784 | 0.5260 |
+| **RAG (PubMedBERT + llama-3.3-70b)** | **0.9852** | **0.9852** | **0.9852** | **0.9843** |
+
+> Exact lookup scores perfectly because test pairs are drawn from the same DrugBank source — it has no ability to generalise to novel pairs. TF-IDF retrieves everything above a low threshold (high recall, low precision). The RAG system balances both via semantic retrieval + LLM reasoning.
+
+---
+
+## Step 8 — RAG Evaluation (`pipeline/step8_evaluate_rag.py`)
+
+Evaluates the RAG pipeline on a sampled ground-truth dataset drawn from DrugBank, matching the paper's methodology.
+
+**Methodology:**
+1. Sample N drugs from the 1,399-drug approved universe (matches paper)
+2. Collect all positive pairs within that universe
+3. Sample an equal number of negative pairs (not in DDI list)
+4. Run RAG pipeline on every pair → binary classification
+5. Compute precision, recall, F1, accuracy
+
+```bash
+python pipeline/step8_evaluate_rag.py --n-pairs 500 --seed 42 --delay 4.0
+python pipeline/step8_evaluate_rag.py --resume          # continue interrupted run
+python pipeline/step8_evaluate_rag.py --results-only    # print metrics from saved results
+```
+
+**Results (500 pairs, seed=42, llama-3.3-70b-versatile via Groq):**
+
+| Metric | Our System | Paper (reference) |
+|---|---|---|
+| Precision | **0.9852** | 0.9875 |
+| Recall | **0.9852** | 0.9995 |
+| F1-score | **0.9852** | 0.9913 |
+| Accuracy | **0.9843** | — |
+
+> Results computed on clean pairs (errors excluded). The paper used a full NER extractor pipeline; our system accepts drug names directly.
+
+---
+
+## Step 9 — Flask REST API (`app.py`)
+
+Serves the RAG pipeline as a REST API. The FAISS index (~2.5 GB) loads lazily on the first request (~1 min).
+
+```bash
+python app.py     # starts on http://localhost:5000
+```
+
+### Endpoints
+
+#### `GET /health`
+Liveness check.
+```json
+{ "status": "ok", "rag_loaded": true }
+```
+
+#### `POST /api/check`
+Check DDI for a single drug pair. Accepts drug names or DrugBank IDs.
+
+```bash
+curl -X POST http://localhost:5000/api/check \
+  -H "Content-Type: application/json" \
+  -d '{"drug_a": "Warfarin", "drug_b": "Aspirin"}'
+```
+
+```json
+{
+  "drug_a": { "query": "Warfarin", "resolved": "Warfarin", "id": "DB00682" },
+  "drug_b": { "query": "Aspirin", "resolved": "Acetylsalicylic acid", "id": "DB00945" },
+  "found": true,
+  "interaction_type": "pharmacodynamic",
+  "interaction_description": "Acetylsalicylic acid may increase the anticoagulant activities of Warfarin",
+  "evidence": [
+    { "rank": 1, "score": 0.9846, "text": "Warfarin interaction with Acetylsalicylic acid is: ..." }
+  ],
+  "error": null
+}
+```
+
+#### `POST /api/check/batch`
+Check up to 50 pairs in one request.
+
+```bash
+curl -X POST http://localhost:5000/api/check/batch \
+  -H "Content-Type: application/json" \
+  -d '{"pairs": [{"drug_a": "Warfarin", "drug_b": "Aspirin"}, {"drug_a": "Metformin", "drug_b": "Lisinopril"}]}'
+```
+
+#### `GET /api/drug/search?q=<query>&limit=10`
+Drug name autocomplete for the approved drug set (4,795 drugs).
+
+```bash
+curl "http://localhost:5000/api/drug/search?q=war&limit=5"
+```
+```json
+{ "results": [{ "drugbank_id": "DB00682", "name": "Warfarin" }, ...] }
+```
 
 ---

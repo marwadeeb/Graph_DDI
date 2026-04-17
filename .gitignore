@@ -8,6 +8,9 @@ data/step2_dedup/
 # RAG index — too large for GitHub (~2.5 GB)
 data/rag_index/
 
+# Evaluation results — local only
+data/evaluation/
+
 # Step 3 & 4 outputs ARE tracked — do not ignore
 # data/step3_approved/
 # data/step4_graph/

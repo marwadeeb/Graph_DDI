@@ -7,7 +7,7 @@ RAG query pipeline for DDI detection, following the paper's three-stage design:
   Stage 2 -- Feed retrieved evidence to LLM with constrained JSON prompt
   Stage 3 -- Return structured result: found, interaction_type, description
 
-LLM  : nvidia/nemotron-3-super-120b-a12b via OpenRouter (free)
+LLM  : llama-3.3-70b-versatile via Groq (free tier, ~30 req/min)
 Model: pritamdeka/S-PubMedBert-MS-MARCO for query embedding (same as index)
 
 Usage (interactive):
@@ -19,10 +19,10 @@ Usage (interactive):
 Requires:
     data/rag_index/faiss.index   (built by step6_rag_index.py)
     data/rag_index/metadata.pkl
-    OPENROUTER_API_KEY in .env or environment
+    GROQ_API_KEY in .env or environment
 """
 
-import os, sys, json, pickle, argparse, textwrap
+import os, sys, json, pickle, argparse, textwrap, time
 import numpy as np
 import pandas as pd
 import faiss
@@ -53,7 +53,8 @@ INDEX_DIR    = os.path.join(WORKING_DIR, "data", "rag_index")
 APPROVED_DIR = os.path.join(WORKING_DIR, "data", "step3_approved")
 
 MODEL_NAME   = "pritamdeka/S-PubMedBert-MS-MARCO"
-LLM_MODEL    = "nvidia/nemotron-3-super-120b-a12b:free"
+LLM_MODEL    = "llama-3.3-70b-versatile"   # Groq free tier — best quality
+LLM_API_URL  = "https://api.groq.com/openai/v1/chat/completions"
 TOP_K        = 3
 TEMPERATURE  = 0.0
 
@@ -174,16 +175,20 @@ def retrieve(name_a: str, name_b: str, top_k: int = TOP_K) -> list[dict]:
     return results
 
 
-def call_llm(name_a: str, name_b: str, retrieved: list[dict]) -> dict:
+def call_llm(name_a: str, name_b: str, retrieved: list[dict],
+             max_retries: int = 3, base_delay: float = 3.0,
+             model: str = None) -> dict:
     """
-    Call OpenRouter LLM with retrieved evidence.
+    Call Groq LLM with retrieved evidence.
     Returns structured dict: {found, interaction_type, interaction_description}.
+    Groq free tier: ~30 req/min for llama-3.3-70b-versatile, no daily cap.
+    Automatically retries on 429 (rate limit) with exponential backoff.
     """
     import urllib.request
 
-    api_key = os.environ.get("OPENROUTER_API_KEY", "")
+    api_key = os.environ.get("GROQ_API_KEY", "")
     if not api_key:
-        raise EnvironmentError("OPENROUTER_API_KEY not set. Add it to .env or environment.")
+        raise EnvironmentError("GROQ_API_KEY not set. Add it to .env or environment.")
 
     evidence = "\n".join(
         f"[{i+1}] (similarity={r['score']:.3f}) {r['text']}"
@@ -192,8 +197,13 @@ def call_llm(name_a: str, name_b: str, retrieved: list[dict]) -> dict:
 
     prompt = textwrap.dedent(f"""
         You are a clinical pharmacology expert. Based ONLY on the evidence below,
-        determine whether there is a clinically relevant drug-drug interaction (DDI)
-        between {name_a} and {name_b}.
+        determine whether a drug-drug interaction (DDI) exists between {name_a} and {name_b}.
+
+        Set "found" to true if the evidence describes ANY pharmacological interaction
+        between these two drugs, including pharmacokinetic effects (absorption, metabolism,
+        excretion changes) and pharmacodynamic effects (additive, synergistic, or antagonistic).
+        Set "found" to false ONLY if the evidence clearly states no interaction exists,
+        or if the retrieved sentences are about completely different drug pairs.
 
         Evidence:
         {evidence}
@@ -202,34 +212,45 @@ def call_llm(name_a: str, name_b: str, retrieved: list[dict]) -> dict:
         Use exactly this schema:
         {{
           "found": true or false,
-          "interaction_type": "<mechanism-based classification, e.g. pharmacokinetic/pharmacodynamic, or null if not found>",
+          "interaction_type": "<pharmacokinetic / pharmacodynamic / mixed, or null if not found>",
           "interaction_description": "<concise evidence-grounded explanation, or null if not found>"
         }}
     """).strip()
 
     payload = json.dumps({
-        "model":       LLM_MODEL,
+        "model":       model or LLM_MODEL,
         "temperature": TEMPERATURE,
         "messages":    [{"role": "user", "content": prompt}],
     }).encode("utf-8")
 
-    req = urllib.request.Request(
-        "https://openrouter.ai/api/v1/chat/completions",
-        data=payload,
-        headers={
-            "Authorization": f"Bearer {api_key}",
-            "Content-Type":  "application/json",
-            "HTTP-Referer":  "https://github.com/ddi-drugbank",
-            "X-Title":       "DDI Detection System",
-        },
-        method="POST",
-    )
+    headers = {
+        "Authorization": f"Bearer {api_key}",
+        "Content-Type":  "application/json",
+        "User-Agent":    "python-requests/2.31.0",
+    }
 
-    try:
-        resp_obj = urllib.request.urlopen(req, timeout=30)
-    except urllib.error.HTTPError as e:
-        err_body = e.read().decode("utf-8", errors="replace")
-        raise RuntimeError(f"OpenRouter API error {e.code}: {err_body}") from e
+    for attempt in range(max_retries + 1):
+        req = urllib.request.Request(
+            LLM_API_URL,
+            data=payload,
+            headers=headers,
+            method="POST",
+        )
+        try:
+            resp_obj = urllib.request.urlopen(req, timeout=60)
+        except urllib.error.HTTPError as e:
+            err_body = e.read().decode("utf-8", errors="replace")
+            if e.code == 429 and attempt < max_retries:
+                wait = base_delay * (2 ** attempt)   # 3, 6, 12 s
+                print(f"\n    [429 rate-limit] retry {attempt+1}/{max_retries} "
+                      f"after {wait:.0f}s ...", flush=True)
+                time.sleep(wait)
+                continue
+            raise RuntimeError(f"Groq API error {e.code}: {err_body}") from e
+        break   # success — exit retry loop
+    else:
+        raise RuntimeError("Max retries exceeded due to rate limiting (429).")
+
     with resp_obj as resp:
         body = json.loads(resp.read().decode("utf-8"))
 
