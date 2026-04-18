@@ -1,3 +1,14 @@
+---
+title: DDI Checker
+emoji: 💊
+colorFrom: blue
+colorTo: indigo
+sdk: docker
+app_port: 7860
+pinned: false
+license: mit
+---
+
 # DrugBank XML → CSV Pipeline
 
 **Source:** DrugBank Full Database v5.1 · 19,842 drugs · 2,911,156 DDI pairs

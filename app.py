@@ -45,61 +45,132 @@ os.environ["TF_CPP_MIN_LOG_LEVEL"] = "3"
 app = Flask(__name__)
 app.config["JSON_SORT_KEYS"] = False
 
-# Lazy-loaded RAG components (loaded on first request or at startup)
-_rag_ready    = False
-_drug_names   = None   # list of approved drug names for search (sorted by popularity)
-_drug_pop     = None   # dict drugbank_id -> interaction count
-_rag_lock     = threading.Lock()
+# Lazy-loaded components
+_rag_ready     = False
+_drug_names    = None   # list of approved drug names for search (sorted by popularity)
+_drug_pop      = None   # dict drugbank_id -> interaction count
+_ddi_lookup    = None   # primary: frozenset({id_a,id_b}) -> description — O(1) dict lookup
+_rag_lock      = threading.Lock()
 
-# Lazy-loaded baseline components
-_lookup_set   = None   # set of (id_a, id_b) known DDI pairs — exact lookup
-_tfidf_vec    = None   # TF-IDF vectorizer
-_tfidf_mat    = None   # TF-IDF document matrix
-_tfidf_meta   = None   # metadata aligned with matrix rows
+# FAISS is intentionally NOT loaded at startup.
+# It is loaded on-demand, only when the caller passes use_rag=True in the request body.
+# _faiss_lock ensures it is initialised at most once across concurrent requests.
+_faiss_lock        = threading.Lock()
+_faiss_loaded      = False
+_faiss_unavailable = False   # True when the index file is missing (e.g. deployed without it)
+
+
+def _ensure_faiss() -> bool:
+    """
+    Load PubMedBERT embed model + FAISS index on first use. Thread-safe.
+    Returns True if FAISS is ready, False if the index file is missing.
+    """
+    global _faiss_loaded, _faiss_unavailable
+    if _faiss_loaded:
+        return True
+    if _faiss_unavailable:
+        return False
+    with _faiss_lock:
+        if _faiss_loaded:
+            return True
+        if _faiss_unavailable:
+            return False
+        try:
+            import step7_rag_query as rag
+            print("[DDI] Loading embed model + FAISS index (on-demand) …", flush=True)
+            t0 = time.time()
+            rag.get_embed_model()
+            rag.get_index()
+            _faiss_loaded = True
+            print(f"[DDI] FAISS ready in {time.time()-t0:.1f}s", flush=True)
+            return True
+        except FileNotFoundError:
+            _faiss_unavailable = True
+            print("[DDI] FAISS index not found — RAG evidence unavailable on this deployment.",
+                  flush=True)
+            return False
+        except Exception as e:
+            _faiss_unavailable = True
+            print(f"[DDI] FAISS load error: {e}", flush=True)
+            return False
+
+# Lazy-loaded baseline/compare components
+_lookup_set    = None   # set of (id_a, id_b) — for compare endpoint exact-lookup method
+_tfidf_vec     = None
+_tfidf_mat     = None
+_tfidf_meta    = None
 _baseline_lock = threading.Lock()
 TFIDF_THRESHOLD = 0.30
 
 
 def _init_rag():
-    global _rag_ready, _drug_names
+    """
+    Load everything needed for /api/check:
+      - drug name list (autocomplete + popularity ranking)
+      - DDI lookup dict  frozenset({id_a, id_b}) -> description  (primary lookup)
+      - FAISS index + embed model                                  (fallback / evidence)
+    """
+    global _rag_ready, _drug_names, _ddi_lookup
     if _rag_ready:
         return
     with _rag_lock:
-        if _rag_ready:   # re-check inside lock
+        if _rag_ready:
             return
-        print("[DDI] Loading RAG pipeline ...", flush=True)
+        print("[DDI] Loading pipeline ...", flush=True)
         t0 = time.time()
 
-        import step7_rag_query as rag
-        rag.get_embed_model()
-        rag.get_index()
+        approved  = os.path.join(BASE_DIR, "data", "step3_approved")
+        ddi_path  = os.path.join(approved, "drug_interactions_dedup.csv")
+        drug_path = os.path.join(approved, "drugs.csv")
 
-        drugs_path = os.path.join(BASE_DIR, "data", "step3_approved", "drugs.csv")
-        ddi_path   = os.path.join(BASE_DIR, "data", "step3_approved", "drug_interactions_dedup.csv")
-        if os.path.exists(drugs_path):
-            df = pd.read_csv(drugs_path, usecols=["drugbank_id", "name"])
-            # rank by number of known interactions (most connected drugs first)
-            if os.path.exists(ddi_path):
-                ddi = pd.read_csv(ddi_path, usecols=["drugbank_id_a", "drugbank_id_b"])
-                counts = pd.concat([ddi["drugbank_id_a"], ddi["drugbank_id_b"]]).value_counts()
-                _drug_pop = counts.to_dict()
-                df["_pop"] = df["drugbank_id"].map(_drug_pop).fillna(0)
+        # ── Build primary DDI lookup dict ──────────────────────────────────
+        # frozenset({id_a, id_b}) → description string
+        # Order-independent, O(1) lookup, guaranteed to find any documented pair
+        if os.path.exists(ddi_path):
+            ddi = pd.read_csv(ddi_path)
+            _ddi_lookup = {}
+            for _, row in ddi.iterrows():
+                key  = frozenset([row["drugbank_id_a"], row["drugbank_id_b"]])
+                desc = str(row["description"]).strip() if pd.notna(row["description"]) else ""
+                _ddi_lookup[key] = desc
+            print(f"[DDI] Lookup dict: {len(_ddi_lookup):,} pairs", flush=True)
+        else:
+            _ddi_lookup = {}
+
+        # ── Drug name list for autocomplete ────────────────────────────────
+        if os.path.exists(drug_path):
+            df = pd.read_csv(drug_path, usecols=["drugbank_id", "name"])
+            if _ddi_lookup:
+                counts = {}
+                for key in _ddi_lookup:
+                    for did in key:
+                        counts[did] = counts.get(did, 0) + 1
+                df["_pop"] = df["drugbank_id"].map(counts).fillna(0)
                 df = df.sort_values("_pop", ascending=False).drop(columns="_pop")
             _drug_names = df.to_dict("records")
         else:
             _drug_names = []
 
+        # ── Warm up step7's drug-resolution caches ────────────────────────
+        # resolve_drug() lazily loads drugs.csv + drug_attributes.csv on first
+        # call; pre-loading them here means the first /api/check request is fast.
+        import step7_rag_query as rag
+        rag.get_drugs_df()      # drugs.csv  (name ↔ id table)
+        rag.get_synonym_map()   # drug_attributes.csv (synonym → canonical name)
+
         _rag_ready = True
-        print(f"[DDI] RAG pipeline ready in {time.time()-t0:.1f}s", flush=True)
+        print(f"[DDI] Pipeline ready (dict lookup) in {time.time()-t0:.1f}s", flush=True)
+        # FAISS is NOT loaded here — it is loaded on-demand via _ensure_faiss()
+        # only when the caller explicitly requests RAG evidence (use_rag=True).
 
 
 def _init_baselines():
-    """Load exact-lookup set and TF-IDF index (lazy, called by /compare)."""
+    """Load TF-IDF index (lazy, used by /compare for method comparison only)."""
     global _lookup_set, _tfidf_vec, _tfidf_mat, _tfidf_meta
     if _lookup_set is not None:
         return
     with _baseline_lock:
-        if _lookup_set is not None:   # re-check inside lock
+        if _lookup_set is not None:
             return
         print("[DDI] Loading baselines ...", flush=True)
         t0 = time.time()
@@ -110,25 +181,20 @@ def _init_baselines():
                             usecols=["drugbank_id", "name"])
         nm = dict(zip(drugs["drugbank_id"], drugs["name"]))
 
-        # Exact lookup set (fast, small)
         _lookup_set = set(zip(ddi["drugbank_id_a"], ddi["drugbank_id_b"]))
 
-        # TF-IDF index
         from sklearn.feature_extraction.text import TfidfVectorizer
         ddi["name_a"] = ddi["drugbank_id_a"].map(nm)
         ddi["name_b"] = ddi["drugbank_id_b"].map(nm)
         ddi = ddi.dropna(subset=["name_a", "name_b", "description"])
-
         texts = [f"{r['name_a']} interaction with {r['name_b']} is: {r['description']}"
                  for _, r in ddi.iterrows()]
         _tfidf_meta = list(zip(ddi["drugbank_id_a"], ddi["drugbank_id_b"],
                                ddi["name_a"], ddi["name_b"]))
-
         vec = TfidfVectorizer(max_features=50_000, ngram_range=(1, 2), sublinear_tf=True)
         _tfidf_vec = vec
         _tfidf_mat = vec.fit_transform(texts)
-
-    print(f"[DDI] Baselines ready in {time.time()-t0:.1f}s", flush=True)
+        print(f"[DDI] Baselines ready in {time.time()-t0:.1f}s", flush=True)
 
 
 # ---------------------------------------------------------------------------
@@ -142,10 +208,12 @@ def index():
 
 @app.route("/health", methods=["GET"])
 def health():
-    """Liveness check — returns 200 as soon as Flask is up."""
+    """Liveness / readiness check."""
     return jsonify({
-        "status": "ok",
-        "rag_loaded": _rag_ready,
+        "status":           "ok",
+        "rag_loaded":       _rag_ready,         # dict lookup + drug caches ready
+        "faiss_loaded":     _faiss_loaded,       # FAISS ready (only after first use_rag=True call)
+        "faiss_available":  not _faiss_unavailable,  # False on deployments without the index file
     })
 
 
@@ -154,8 +222,8 @@ def check_pair():
     """
     Two-stage DDI check (per project design):
 
-      Stage 1 — RAG (DrugBank retrieval + LLM):
-          If found → return as DOCUMENTED interaction (trustworthy, DrugBank-sourced).
+      Stage 1 — Dict lookup (primary) + FAISS (fallback + evidence):
+          If found → return as DOCUMENTED interaction (DrugBank-sourced, O(1) lookup).
       Stage 2 — GNN (only if RAG says no):
           If GNN probability >= GNN_THRESHOLD → return as PREDICTED (with disclaimer).
       If both say no → return not_found.
@@ -183,10 +251,11 @@ def check_pair():
 
     GNN_THRESHOLD = 0.5
 
-    body   = request.get_json(silent=True) or {}
-    drug_a = (body.get("drug_a") or "").strip()
-    drug_b = (body.get("drug_b") or "").strip()
-    top_k  = int(body.get("top_k", 3))
+    body    = request.get_json(silent=True) or {}
+    drug_a  = (body.get("drug_a") or "").strip()
+    drug_b  = (body.get("drug_b") or "").strip()
+    top_k   = int(body.get("top_k", 3))
+    use_rag = bool(body.get("use_rag", False))   # caller must opt-in to FAISS evidence
 
     if not drug_a or not drug_b:
         return jsonify({"error": "Both 'drug_a' and 'drug_b' are required."}), 400
@@ -199,48 +268,55 @@ def check_pair():
     except ValueError as e:
         return jsonify({"error": str(e)}), 404
 
-    # ── Stage 1: RAG ──────────────────────────────────────────────────────
-    retrieved = rag.retrieve(name_a, name_b, top_k=top_k)
-    retrieval_confidence = round(
-        float(sum(r["score"] for r in retrieved) / len(retrieved)), 4
-    ) if retrieved else 0.0
+    # ── Stage 1: dict lookup (O(1), always runs) ─────────────────────────────
+    t_rag_start = time.time()
 
-    evidence_list = [
-        {"rank": i+1, "score": round(r["score"], 4), "text": r["text"]}
-        for i, r in enumerate(retrieved)
-    ]
+    lookup_key = frozenset([id_a, id_b])
+    dict_desc  = _ddi_lookup.get(lookup_key)
+    dict_hit   = dict_desc is not None
 
+    # ── FAISS evidence — only when user explicitly requests it ───────────────
+    # FAISS is not loaded at startup; first use_rag=True call triggers load (~30 s).
+    # Subsequent calls are fast (model + index already in memory).
+    retrieved     = []
+    evidence_list = []
+    if use_rag and _ensure_faiss():
+        try:
+            retrieved = rag.retrieve(name_a, name_b, top_k=top_k)
+        except Exception:
+            retrieved = []
+        evidence_list = [
+            {"rank": i+1, "score": round(r["score"], 4), "text": r["text"]}
+            for i, r in enumerate(retrieved)
+        ]
+        # FAISS safety net: catches the pair if dict somehow missed it
+        if not dict_hit:
+            faiss_match = rag.match_retrieved(id_a, id_b, retrieved)
+            if faiss_match:
+                dict_hit  = True
+                dict_desc = faiss_match.get("interaction_description", "")
+
+    t_rag_ms = round((time.time() - t_rag_start) * 1000)
+
+    rag_result      = None
     fallback_method = None
-    try:
-        rag_result = rag.call_llm(name_a, name_b, retrieved)
-    except Exception as llm_err:
-        print(f"[DDI] LLM unavailable ({llm_err}), using offline fallback", flush=True)
-        _init_baselines()
-        from sklearn.metrics.pairwise import cosine_similarity as _cos_sim
-        if (id_a, id_b) in _lookup_set or (id_b, id_a) in _lookup_set:
-            fallback_method = "exact_lookup"
-            rag_result = {
-                "found": True,
-                "interaction_type": "known",
-                "interaction_description": (
-                    f"{name_a} and {name_b} have a documented interaction in DrugBank "
-                    "(offline fallback — LLM unavailable)."
-                ),
-            }
-        else:
-            q_vec = _tfidf_vec.transform([f"{name_a} interaction with {name_b} is:"])
-            best  = float(_cos_sim(q_vec, _tfidf_mat).flatten().max())
-            fallback_method = "tfidf"
-            rag_result = {
-                "found": best >= TFIDF_THRESHOLD,
-                "interaction_type": "probable" if best >= TFIDF_THRESHOLD else None,
-                "interaction_description": (
-                    f"TF-IDF similarity {best:.3f} (offline fallback — LLM unavailable)."
-                ),
-            }
+    if dict_hit:
+        rag_result = {
+            "found":                   True,
+            "interaction_type":        None,
+            "interaction_description": dict_desc or (
+                f"Documented interaction between {name_a} and {name_b} in DrugBank."
+            ),
+            "confidence":              1.0,
+        }
+
+    retrieval_confidence = 1.0 if dict_hit else (
+        round(float(sum(r["score"] for r in retrieved) / len(retrieved)), 4)
+        if retrieved else 0.0
+    )
 
     # ── Stage 1 hit: documented interaction ──────────────────────────────
-    if rag_result.get("found"):
+    if rag_result and rag_result.get("found"):
         return jsonify({
             "drug_a": {"query": drug_a, "resolved": name_a, "id": id_a},
             "drug_b": {"query": drug_b, "resolved": name_b, "id": id_b},
@@ -249,6 +325,7 @@ def check_pair():
             "interaction_type":        rag_result.get("interaction_type"),
             "interaction_description": rag_result.get("interaction_description"),
             "retrieval_confidence":    retrieval_confidence,
+            "retrieval_ms":            t_rag_ms,
             "evidence":   evidence_list,
             "gnn":        None,
             "disclaimer": None,
@@ -280,6 +357,7 @@ def check_pair():
                 f"(probability {gnn_prob:.0%})."
             ),
             "retrieval_confidence":    retrieval_confidence,
+            "retrieval_ms":            t_rag_ms,
             "evidence":   evidence_list,
             "gnn":        gnn_result,
             "disclaimer": (
@@ -307,6 +385,7 @@ def check_pair():
             "always consult a pharmacist or clinician when in doubt."
         ),
         "retrieval_confidence":    retrieval_confidence,
+        "retrieval_ms":            t_rag_ms,
         "evidence":   evidence_list,
         "gnn":        gnn_result,
         "disclaimer": None,
@@ -335,8 +414,9 @@ def check_batch():
     _init_rag()
 
     body  = request.get_json(silent=True) or {}
-    pairs = body.get("pairs", [])
-    top_k = int(body.get("top_k", 3))
+    pairs   = body.get("pairs", [])
+    top_k   = int(body.get("top_k", 3))
+    use_rag = bool(body.get("use_rag", False))
 
     if not pairs:
         return jsonify({"error": "'pairs' list is required and must not be empty."}), 400
@@ -344,6 +424,8 @@ def check_batch():
         return jsonify({"error": "Maximum 50 pairs per batch request."}), 400
 
     import step7_rag_query as rag
+
+    faiss_ok = use_rag and _ensure_faiss()   # load once before the loop
 
     results = []
     for pair in pairs:
@@ -362,25 +444,24 @@ def check_batch():
                             "error": str(e)})
             continue
 
-        retrieved = rag.retrieve(name_a, name_b, top_k=top_k)
-
-        try:
-            result = rag.call_llm(name_a, name_b, retrieved)
-        except Exception as e:
-            results.append({"drug_a": {"query": drug_a, "resolved": name_a, "id": id_a},
-                            "drug_b": {"query": drug_b, "resolved": name_b, "id": id_b},
-                            "error": f"LLM error: {e}"})
-            continue
-
-        confidence = round(float(sum(r["score"] for r in retrieved) / len(retrieved)), 4) if retrieved else 0.0
+        retrieved = []
+        if faiss_ok:
+            try:
+                retrieved = rag.retrieve(name_a, name_b, top_k=top_k)
+            except Exception:
+                retrieved = []
+        result = rag.match_retrieved(id_a, id_b, retrieved) if retrieved else None
+        if result is None:
+            result = {"found": False, "interaction_type": None,
+                      "interaction_description": None, "confidence": 0.0}
 
         results.append({
             "drug_a": {"query": drug_a, "resolved": name_a, "id": id_a},
             "drug_b": {"query": drug_b, "resolved": name_b, "id": id_b},
-            "found":                  result.get("found", False),
-            "interaction_type":       result.get("interaction_type"),
-            "interaction_description":result.get("interaction_description"),
-            "confidence":             confidence,
+            "found":                   result.get("found", False),
+            "interaction_type":        result.get("interaction_type"),
+            "interaction_description": result.get("interaction_description"),
+            "confidence":              result.get("confidence", 0.0),
             "evidence": [
                 {"rank": i+1, "score": round(r["score"], 4), "text": r["text"]}
                 for i, r in enumerate(retrieved)
@@ -462,20 +543,37 @@ def check_compare():
 
     # ── Method 3: RAG (PubMedBERT + LLM) ─────────────────────────────────
     retrieved = rag.retrieve(name_a, name_b, top_k=top_k)
-    try:
-        rag_result = rag.call_llm(name_a, name_b, retrieved)
+    # compare endpoint: try direct match first, fall back to LLM for comparison value
+    rag_direct = rag.match_retrieved(id_a, id_b, retrieved)
+    if rag_direct:
         results["methods"]["rag"] = {
-            "found":                  rag_result.get("found", False),
-            "interaction_type":       rag_result.get("interaction_type"),
-            "interaction_description":rag_result.get("interaction_description"),
+            "found":                   rag_direct["found"],
+            "interaction_type":        rag_direct.get("interaction_type"),
+            "interaction_description": rag_direct.get("interaction_description"),
+            "confidence":              rag_direct.get("confidence"),
+            "via_llm":                 False,
             "evidence": [
                 {"rank": i+1, "score": round(r["score"], 4), "text": r["text"]}
                 for i, r in enumerate(retrieved)
             ],
             "error": None,
         }
-    except Exception as e:
-        results["methods"]["rag"] = {"found": None, "error": str(e)}
+    else:
+        try:
+            rag_llm = rag.call_llm(name_a, name_b, retrieved)
+            results["methods"]["rag"] = {
+                "found":                   rag_llm.get("found", False),
+                "interaction_type":        rag_llm.get("interaction_type"),
+                "interaction_description": rag_llm.get("interaction_description"),
+                "via_llm":                 True,
+                "evidence": [
+                    {"rank": i+1, "score": round(r["score"], 4), "text": r["text"]}
+                    for i, r in enumerate(retrieved)
+                ],
+                "error": None,
+            }
+        except Exception as e:
+            results["methods"]["rag"] = {"found": None, "via_llm": True, "error": str(e)}
 
     # ── Method 4: GNN (Graph Neural Network) ──────────────────────────────
     try:
@@ -526,10 +624,16 @@ def drug_search():
 
 
 # ---------------------------------------------------------------------------
+# Eager startup — kick off dict/cache loading as soon as the module is imported.
+# Works for both `python app.py` and Gunicorn worker processes.
+# The thread is daemonised so it never blocks the process from exiting.
+# ---------------------------------------------------------------------------
+threading.Thread(target=_init_rag, daemon=True).start()
+
+
+# ---------------------------------------------------------------------------
 # Entry point
 # ---------------------------------------------------------------------------
 
 if __name__ == "__main__":
-    # threaded=False prevents multiple threads loading the 2.5 GB FAISS index
-    # simultaneously which would crash low-RAM machines.
     app.run(host="0.0.0.0", port=5000, debug=False, threaded=False)

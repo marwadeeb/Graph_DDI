@@ -11,8 +11,11 @@ data/rag_index/
 # Evaluation results — local only
 data/evaluation/
 
-# Step 3 & 4 outputs ARE tracked — do not ignore
+# Step 3 approved subset IS tracked (web app needs it)
 # data/step3_approved/
+
+# Step 4 graph data — tracked locally, but not needed by the web server.
+# Uncomment the line below to exclude from HF Spaces push:
 # data/step4_graph/
 
 # Python
