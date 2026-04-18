@@ -71,8 +71,8 @@
     /* ── Main layout ────────────────────────────────────────── */
     main {
       max-width: 840px;
-      margin: 32px auto;
-      padding: 0 20px 72px;
+      margin: 28px auto;
+      padding: 0 20px 80px;
     }
 
     /* ── Section labels ─────────────────────────────────────── */
@@ -87,6 +87,9 @@
       flex: 1; height: 1px;
       background: linear-gradient(90deg, rgba(99,102,241,.25), transparent);
     }
+    /* spacing between sections */
+    .section-label + * { }   /* placeholder anchor */
+    .section-gap { margin-top: 28px; }
 
     /* ── Search card ────────────────────────────────────────── */
     .search-card {
@@ -227,6 +230,20 @@
     .btn-secondary:hover     { border-color: #a5b4fc; background: #eef2ff; color: #4f46e5; }
     .btn-secondary:disabled  { opacity: .5; cursor: not-allowed; }
 
+    /* RAG toggle */
+    .rag-toggle {
+      display: flex; align-items: center; gap: 7px;
+      font-size: .78rem; color: var(--gray-600);
+      cursor: pointer; user-select: none;
+      margin-left: 4px;
+    }
+    .rag-toggle input[type="checkbox"] {
+      width: 14px; height: 14px;
+      accent-color: #6366f1;
+      cursor: pointer;
+    }
+    .rag-toggle span { white-space: nowrap; }
+
     /* ── Sample pairs ───────────────────────────────────────── */
     .samples-row {
       margin-top: 16px;
@@ -316,25 +333,6 @@
       border-radius: 4px; transition: width .5s ease;
     }
 
-    /* ── Export button ──────────────────────────────────────── */
-    .export-row {
-      display: flex;
-      justify-content: flex-end;
-      margin-bottom: 12px;
-    }
-    .btn-export {
-      font-size: .72rem;
-      background: rgba(255,255,255,.8);
-      color: #6366f1;
-      border: 1px solid #c7d2fe;
-      border-radius: 8px;
-      padding: 5px 13px;
-      cursor: pointer;
-      font-weight: 600;
-      transition: all .14s;
-    }
-    .btn-export:hover { background: #eef2ff; border-color: #818cf8; }
-
     /* ── Fallback warning ───────────────────────────────────── */
     .fallback-banner {
       background: linear-gradient(135deg, #fffbeb, #fef9c3);
@@ -389,17 +387,13 @@
       100% { left: 160%; }
     }
 
-    /* header row */
+    /* header row — badge only, right-aligned */
     .pf-header {
       display: flex;
       align-items: center;
-      justify-content: space-between;
-      margin-bottom: 20px;
+      justify-content: flex-end;
+      margin-bottom: 16px;
       position: relative;
-    }
-    .pf-title {
-      font-size: .66rem; font-weight: 700; letter-spacing: .14em;
-      text-transform: uppercase; color: #6366f1;
     }
     .pf-badge {
       font-size: .63rem; font-weight: 700; letter-spacing: .06em;
@@ -581,9 +575,45 @@
     .pf-line-fill.done-found   { width:100%; background: #22c55e; box-shadow: none; animation:none; }
     .pf-line-fill.done-gnn     { width:100%; background: #f59e0b; box-shadow: none; animation:none; }
     .pf-line-fill.done-skipped { width:100%; background: var(--gray-200); animation:none; box-shadow:none; }
+    .pf-line-fill.done-missed  { width:100%; background: #f87171; box-shadow: 0 0 8px rgba(239,68,68,.35); animation:none; }
     .pf-line-fill.done-found   ~ .pf-packet,
     .pf-line-fill.done-gnn     ~ .pf-packet,
-    .pf-line-fill.done-skipped ~ .pf-packet { animation: none; opacity: 0; }
+    .pf-line-fill.done-skipped ~ .pf-packet,
+    .pf-line-fill.done-missed  ~ .pf-packet { animation: none; opacity: 0; }
+
+    /* ── Startup loading banner ─────────────────────────────────── */
+    #loading-banner {
+      display: none;
+      background: linear-gradient(90deg, rgba(99,102,241,.07), rgba(37,99,235,.05));
+      border: 1px solid rgba(99,102,241,.18);
+      border-radius: 10px;
+      padding: 10px 18px;
+      margin-bottom: 18px;
+      font-size: .82rem;
+      color: #4338ca;
+      font-weight: 500;
+      align-items: center;
+      gap: 12px;
+    }
+    #loading-banner.visible { display: flex; }
+    .loading-bar-track {
+      flex: 1;
+      height: 4px;
+      background: rgba(99,102,241,.15);
+      border-radius: 2px;
+      overflow: hidden;
+    }
+    .loading-bar-fill {
+      height: 100%;
+      border-radius: 2px;
+      background: linear-gradient(90deg, #6366f1, #818cf8, #6366f1);
+      background-size: 200% 100%;
+      animation: loading-sweep 1.4s ease infinite;
+    }
+    @keyframes loading-sweep {
+      0%   { background-position: 100% 0; }
+      100% { background-position: -100% 0; }
+    }
 
     /* ── Status bar ─────────────────────────────────────────── */
     #status-bar {
@@ -608,22 +638,28 @@
 
     /* ── Results ────────────────────────────────────────────── */
     #results {
-      margin-top: 24px; display: none;
-      animation: results-in .3s ease;
+      margin-top: 28px; display: none;
+      animation: results-in .35s ease;
     }
     @keyframes results-in {
-      from { opacity: 0; transform: translateY(8px); }
+      from { opacity: 0; transform: translateY(10px); }
       to   { opacity: 1; transform: translateY(0); }
     }
     #results.visible { display: block; }
 
+    .results-top-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 14px;
+    }
     .results-header {
       font-size: .67rem;
       font-weight: 700;
       color: #6366f1;
       text-transform: uppercase;
       letter-spacing: .12em;
-      margin-bottom: 12px;
+      flex: 1;
       display: flex; align-items: center; gap: 8px;
     }
     .results-header::after {
@@ -631,6 +667,21 @@
       flex: 1; height: 1px;
       background: linear-gradient(90deg, rgba(99,102,241,.25), transparent);
     }
+
+    /* ── Export button ──────────────────────────────────────── */
+    .btn-export {
+      font-size: .72rem;
+      background: rgba(255,255,255,.8);
+      color: #6366f1;
+      border: 1px solid #c7d2fe;
+      border-radius: 8px;
+      padding: 5px 13px;
+      cursor: pointer;
+      font-weight: 600;
+      transition: all .14s;
+      flex-shrink: 0;
+    }
+    .btn-export:hover { background: #eef2ff; border-color: #818cf8; }
 
     /* Method cards */
     .methods-grid {
@@ -805,8 +856,11 @@
       text-align: center;
       font-size: .73rem;
       color: #94a3b8;
-      padding: 28px 0 20px;
+      padding: 28px 0 24px;
       letter-spacing: .01em;
+      border-top: 1px solid rgba(99,102,241,.10);
+      max-width: 840px;
+      margin: 0 auto;
     }
   </style>
 </head>
@@ -858,6 +912,10 @@
       <button class="btn-primary" id="btn-check" onclick="checkInteraction(false)">Check Interaction</button>
       <button class="btn-secondary" id="btn-compare" onclick="checkInteraction(true)">Compare All Methods</button>
       <button class="btn-secondary" onclick="clearAll()">Clear</button>
+      <label class="rag-toggle" title="Loads PubMedBERT + FAISS on first use (~30 s). Adds semantic evidence passages to the result.">
+        <input type="checkbox" id="chk-rag" />
+        <span>Show RAG evidence</span>
+      </label>
     </div>
     <div class="samples-row">
       <span class="samples-label">Try:</span>
@@ -872,20 +930,26 @@
     </div><!-- /.search-card-body -->
   </div>
 
+  <!-- Startup loading banner — shown while server builds the lookup dict -->
+  <div id="loading-banner">
+    <span>⚙ Loading drug database…</span>
+    <div class="loading-bar-track"><div class="loading-bar-fill"></div></div>
+    <span id="loading-label" style="white-space:nowrap;font-size:.74rem;color:#6366f1">preparing</span>
+  </div>
+
   <!-- Pipeline flow diagram — always visible -->
-  <div class="section-label" style="margin-top:28px">How it works</div>
+  <div class="section-label section-gap">How it works</div>
   <div id="pipeline-flow">
     <div class="pf-header">
-      <span class="pf-title">&#9670; Detection Pipeline</span>
       <span class="pf-badge" id="pf-badge">Ready</span>
     </div>
     <div class="pf-wrap">
 
-      <!-- Step 1: RAG -->
+      <!-- Step 1: DrugBank Lookup -->
       <div class="pf-step">
         <div class="pf-node idle" id="pf-dot-rag">🔍</div>
-        <div class="pf-name">DrugBank RAG</div>
-        <div class="pf-desc">Semantic retrieval<br>from curated knowledge</div>
+        <div class="pf-name">DrugBank Lookup</div>
+        <div class="pf-desc">Direct O(1) lookup<br>in documented pairs</div>
         <div><span class="pf-tag">824 K pairs</span></div>
         <div class="pf-sub" id="pf-sub-rag">Awaiting query</div>
       </div>
@@ -929,13 +993,13 @@
 
   <!-- Results -->
   <div id="results">
-    <div class="export-row">
-      <button class="btn-export" onclick="exportResult()">Export JSON</button>
+    <div class="results-top-row">
+      <div class="results-header" id="results-header">Results</div>
+      <button class="btn-export" onclick="exportResult()">⬇ Export JSON</button>
     </div>
     <div class="fallback-banner" id="fallback-banner"></div>
     <!-- Primary result (two-stage: documented / predicted / not-found) -->
     <div id="primary-result" style="display:none"></div>
-    <div class="results-header" id="results-header">Results — Method Comparison</div>
 
     <div class="methods-grid">
       <div class="method-card" id="card-exact">
@@ -957,7 +1021,7 @@
         </div>
       </div>
       <div class="method-card" id="card-rag">
-        <div class="method-name">RAG · PubMedBERT + LLM</div>
+        <div class="method-name">DrugBank · Dict Lookup</div>
         <div id="rag-result">—</div>
         <div class="method-detail" id="rag-type"></div>
       </div>
@@ -979,12 +1043,12 @@
 
     <div class="rag-detail-card" id="rag-detail" style="display:none">
       <h3>
-        RAG Analysis
+        Interaction Details
         <span class="interaction-type" id="detail-type"></span>
         <span class="confidence-badge" id="confidence-badge" style="display:none"></span>
       </h3>
       <div class="description" id="detail-desc"></div>
-      <div class="evidence-label">Retrieved Evidence</div>
+      <div class="evidence-label">Semantic Evidence (FAISS · top-k)</div>
       <div class="evidence-list" id="evidence-list"></div>
     </div>
 
@@ -1000,6 +1064,44 @@
 <script>
   // ── State ─────────────────────────────────────────────────────────────
   let _lastResult = null;
+
+  // ── Startup readiness polling ──────────────────────────────────────────
+  (function pollReady() {
+    const banner = document.getElementById('loading-banner');
+    const label  = document.getElementById('loading-label');
+    const btnCheck   = document.getElementById('btn-check');
+    const btnCompare = document.getElementById('btn-compare');
+
+    // Show banner immediately; hide it once the server is ready
+    banner.classList.add('visible');
+    btnCheck.disabled   = true;
+    btnCompare.disabled = true;
+
+    async function check() {
+      try {
+        const res  = await fetch('/health');
+        const data = await res.json();
+        if (data.rag_loaded) {
+          banner.classList.remove('visible');
+          btnCheck.disabled   = false;
+          btnCompare.disabled = false;
+          // Grey out RAG checkbox if FAISS index not present on this deployment
+          if (data.faiss_available === false) {
+            const chk = document.getElementById('chk-rag');
+            chk.disabled = true;
+            chk.closest('label').title = 'FAISS index not available on this deployment';
+            chk.closest('label').style.opacity = '.4';
+          }
+          return; // done
+        }
+        label.textContent = 'building lookup…';
+      } catch (_) {
+        label.textContent = 'connecting…';
+      }
+      setTimeout(check, 900);
+    }
+    check();
+  })();
 
   // ── Autocomplete ───────────────────────────────────────────────────────
   let acTimers = {};
@@ -1057,8 +1159,9 @@
 
   // ── Check interaction ──────────────────────────────────────────────────
   async function checkInteraction(compare = false) {
-    const drugA = document.getElementById('drug-a').value.trim();
-    const drugB = document.getElementById('drug-b').value.trim();
+    const drugA  = document.getElementById('drug-a').value.trim();
+    const drugB  = document.getElementById('drug-b').value.trim();
+    const useRag = document.getElementById('chk-rag').checked;
 
     if (!drugA || !drugB) {
       setStatus('Please enter both drug names.', false);
@@ -1074,7 +1177,7 @@
       const res = await fetch(endpoint, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ drug_a: drugA, drug_b: drugB, top_k: 3 })
+        body: JSON.stringify({ drug_a: drugA, drug_b: drugB, top_k: 3, use_rag: useRag })
       });
 
       const data = await res.json();
@@ -1088,7 +1191,7 @@
         // /api/check uses two-stage logic: render dedicated view
         _lastResult = Object.assign({ _raw: data }, data);
         renderCheckResult(data);
-        flowComplete(data.source || 'not_found');
+        flowComplete(data.source || 'not_found', data.retrieval_ms);
       } else {
         _lastResult = data;
         renderCompareResult(data);
@@ -1156,7 +1259,7 @@
     // Header
     const nameA = data.drug_a?.resolved || '';
     const nameB = data.drug_b?.resolved || '';
-    document.getElementById('results-header').textContent = `${nameA}  ×  ${nameB}`;
+    document.getElementById('results-header').textContent = `${nameA}  ×  ${nameB}`; // section-label reads "Results"
 
     // Fallback banner
     const banner = document.getElementById('fallback-banner');
@@ -1168,7 +1271,7 @@
       banner.style.display = 'none';
     }
 
-    // Evidence panel — only show when RAG found the interaction
+    // Evidence panel — only shown when RAG was requested AND returned passages
     const detail = document.getElementById('rag-detail');
     if (src === 'rag_documented' && data.evidence?.length) {
       detail.style.display = 'block';
@@ -1197,7 +1300,7 @@
   function renderCompareResult(data) {
     document.getElementById('primary-result').style.display = 'none';
     document.querySelectorAll('.method-card').forEach(c => c.style.display = '');
-    document.getElementById('results-header').textContent = 'Results — Method Comparison';
+    document.getElementById('results-header').textContent = 'Method Comparison';
     renderResults(data);
   }
 
@@ -1218,8 +1321,7 @@
     // Header
     const nameA = data.drug_a.resolved;
     const nameB = data.drug_b.resolved;
-    document.querySelector('.results-header').textContent =
-      `Results — ${nameA}  ×  ${nameB}`;
+    document.querySelector('.results-header').textContent = `${nameA}  ×  ${nameB}`;
 
     // Exact lookup
     const exactCard = document.getElementById('exact-result').closest('.method-card');
@@ -1335,7 +1437,7 @@
     document.getElementById('confidence-badge').style.display = 'none';
     document.getElementById('gnn-bar-wrap').style.display = 'none';
     document.getElementById('gnn-mock').style.display = 'none';
-    document.getElementById('results-header').textContent = 'Results — Method Comparison';
+    document.getElementById('results-header').textContent = 'Method Comparison';
     document.querySelectorAll('.method-card').forEach(c => c.style.display = '');
     ['exact-result','tfidf-result','rag-result','gnn-result'].forEach(id =>
       document.getElementById(id).innerHTML = '—');
@@ -1382,8 +1484,10 @@
   }
 
   function setLoading(on = true, compare = false) {
-    document.getElementById('btn-check').disabled = on;
-    document.getElementById('btn-compare').disabled = on;
+    // Don't re-enable buttons if the startup banner is still visible
+    const stillStarting = document.getElementById('loading-banner').classList.contains('visible');
+    document.getElementById('btn-check').disabled   = on || stillStarting;
+    document.getElementById('btn-compare').disabled = on || stillStarting;
     if (on) {
       const msg = compare ? 'Comparing all methods…' : 'Checking interaction…';
       setStatus(msg);
@@ -1436,12 +1540,13 @@
     flowEl('pf-fill-1').className  = 'pf-line-fill glow';
   }
 
-  /* Called with API response source */
-  function flowComplete(source) {
+  /* Called with API response source + optional retrieval time in ms */
+  function flowComplete(source, ms) {
+    const msLabel = ms != null ? ` · ${ms}ms` : '';
     if (source === 'rag_documented') {
       flowEl('pf-dot-rag').className = 'pf-node done-found';
       flowEl('pf-fill-1').className  = 'pf-line-fill done-found';
-      setSub('pf-sub-rag', '✓ Found in DrugBank', 'found');
+      setSub('pf-sub-rag', `✓ Found in DrugBank${msLabel}`, 'found');
       flowEl('pf-dot-gnn').className = 'pf-node done-skipped';
       flowEl('pf-fill-2').className  = 'pf-line-fill done-skipped';
       setSub('pf-sub-gnn', 'Not needed', 'missed');
@@ -1450,9 +1555,9 @@
       setBadge('Documented', 'rag-done');
     } else {
       flowEl('pf-dot-rag').className = 'pf-node done-skipped';
-      setSub('pf-sub-rag', '✕ Not in DrugBank', 'missed');
+      setSub('pf-sub-rag', `✕ Not in DrugBank${msLabel}`, 'missed');
       setTimeout(() => {
-        flowEl('pf-fill-1').className  = 'pf-line-fill done-skipped';
+        flowEl('pf-fill-1').className  = 'pf-line-fill done-missed';  // red — lookup miss
         flowEl('pf-dot-gnn').className = 'pf-node active';
         flowEl('pf-fill-2').className  = 'pf-line-fill glow';
         setSub('pf-sub-gnn', 'Analysing graph…', '');

@@ -23,6 +23,7 @@ Requires:
 """
 
 import os, sys, json, pickle, argparse, textwrap, time
+from typing import Optional
 import numpy as np
 import pandas as pd
 import faiss
@@ -57,6 +58,17 @@ LLM_MODEL    = "llama-3.3-70b-versatile"   # Groq free tier — best quality
 LLM_API_URL  = "https://api.groq.com/openai/v1/chat/completions"
 TOP_K        = 3
 TEMPERATURE  = 0.0
+
+# ── Fast-path flag ──────────────────────────────────────────────────────────
+# When True (default): metadata direct-match is tried first.
+# If the exact drug pair is found in the retrieved passages, return immediately
+# with no LLM call (~250ms total).  If no exact match, return found=False and
+# let the caller fall through to GNN — the LLM is NOT called in that case
+# because reasoning from analogous evidence is speculation, not documentation.
+#
+# Set USE_LLM_FALLBACK = True to revert to the original LLM-always behaviour
+# (useful if accuracy drops on a specific test set and you want to diagnose why).
+USE_LLM_FALLBACK = False
 
 # ---------------------------------------------------------------------------
 
@@ -158,7 +170,7 @@ def retrieve(name_a: str, name_b: str, top_k: int = TOP_K) -> list[dict]:
     Embed the query '{name_a} interaction with {name_b}' and retrieve
     top-k most similar interaction sentences from the FAISS index.
     """
-    model          = get_embed_model()
+    model           = get_embed_model()
     index, metadata = get_index()
 
     query = f"{name_a} interaction with {name_b} is:"
@@ -173,6 +185,33 @@ def retrieve(name_a: str, name_b: str, top_k: int = TOP_K) -> list[dict]:
         entry["score"] = float(score)
         results.append(entry)
     return results
+
+
+def match_retrieved(id_a: str, id_b: str, retrieved: list[dict]) -> Optional[dict]:
+    """
+    Check whether any retrieved passage is an exact match for the queried pair.
+
+    DrugBank is a structured database — every metadata entry already carries
+    drugbank_id_a and drugbank_id_b.  If the pair exists in DrugBank, FAISS
+    will surface it and we can return its description directly with no LLM.
+
+    Returns a result dict on hit, or None if the pair is not documented.
+    The FAISS cosine score is used as confidence (better-calibrated than LLM).
+    """
+    target = {id_a, id_b}
+    for r in retrieved:
+        if {r.get("drugbank_id_a"), r.get("drugbank_id_b")} == target:
+            # strip the "Drug A interaction with Drug B is: " prefix
+            text = r["text"]
+            desc = text.split(" is: ", 1)[1].strip() if " is: " in text else text.strip()
+            return {
+                "found":                   True,
+                "interaction_type":        None,   # not stored in FAISS metadata
+                "interaction_description": desc,
+                "confidence":              round(r["score"], 4),
+                "via_llm":                 False,
+            }
+    return None
 
 
 def call_llm(name_a: str, name_b: str, retrieved: list[dict],
@@ -270,8 +309,15 @@ def detect(drug_a: str, drug_b: str, top_k: int = TOP_K, verbose: bool = True) -
     """
     Full pipeline for a single drug pair.
     drug_a / drug_b: DrugBank ID (DB#####) or drug name string.
-    Returns: {drugbank_id_a, drugbank_id_b, name_a, name_b, found,
-               interaction_type, interaction_description, retrieved}
+
+    Flow:
+      1. resolve_drug()       — synonym/ID resolution, no network
+      2. retrieve()           — PubMedBERT embed + FAISS search (~200 ms)
+      3. match_retrieved()    — exact ID match in metadata, no LLM (~0 ms)
+         → found: return DrugBank description + FAISS score as confidence
+         → not found: return found=False (caller falls through to GNN)
+
+    USE_LLM_FALLBACK=True reverts to the original LLM path for diagnostics.
     """
     id_a, name_a = resolve_drug(drug_a)
     id_b, name_b = resolve_drug(drug_b)
@@ -286,19 +332,41 @@ def detect(drug_a: str, drug_b: str, top_k: int = TOP_K, verbose: bool = True) -
     if verbose:
         print(f"\n  Top-{top_k} retrieved:")
         for i, r in enumerate(retrieved):
-            print(f"    [{i+1}] score={r['score']:.3f}  {r['text'][:100]}...")
+            print(f"    [{i+1}] score={r['score']:.3f}  "
+                  f"ids=({r.get('drugbank_id_a')},{r.get('drugbank_id_b')})  "
+                  f"{r['text'][:80]}...")
 
-    result = call_llm(name_a, name_b, retrieved)
+    # ── Fast path: exact metadata match (no LLM) ──────────────────────────
+    if not USE_LLM_FALLBACK:
+        result = match_retrieved(id_a, id_b, retrieved)
+        if result is None:
+            result = {"found": False, "interaction_type": None,
+                      "interaction_description": None, "via_llm": False}
+        if verbose:
+            path = "direct match" if result["found"] else "not found in DB"
+            print(f"\n  Result  : found={result['found']}  [{path}]")
+            if result.get("interaction_description"):
+                import textwrap
+                for line in textwrap.wrap(result["interaction_description"], 70):
+                    print(f"    {line}")
+    else:
+        # ── LLM fallback (original behaviour, kept for diagnostics) ───────
+        if verbose:
+            print(f"\n  [LLM fallback mode] calling {LLM_MODEL} ...")
+        result = call_llm(name_a, name_b, retrieved)
+        result["via_llm"] = True
 
     output = {
-        "drugbank_id_a":          id_a,
-        "drugbank_id_b":          id_b,
-        "name_a":                 name_a,
-        "name_b":                 name_b,
-        "found":                  result.get("found", False),
-        "interaction_type":       result.get("interaction_type"),
+        "drugbank_id_a":           id_a,
+        "drugbank_id_b":           id_b,
+        "name_a":                  name_a,
+        "name_b":                  name_b,
+        "found":                   result.get("found", False),
+        "interaction_type":        result.get("interaction_type"),
         "interaction_description": result.get("interaction_description"),
-        "retrieved":              retrieved,
+        "confidence":              result.get("confidence"),
+        "via_llm":                 result.get("via_llm", False),
+        "retrieved":               retrieved,
     }
 
     if verbose:

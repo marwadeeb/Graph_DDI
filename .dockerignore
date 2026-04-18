@@ -1,0 +1,35 @@
+# ── Python cache ─────────────────────────────────────────────────────────────
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+*.egg-info/
+dist/
+build/
+
+# ── Virtual environments ──────────────────────────────────────────────────────
+venv/
+.venv/
+env/
+
+# ── Large binary / intermediate pipeline outputs ──────────────────────────────
+# These must be committed with Git LFS or downloaded at build time via RUN curl.
+data/rag_index/checkpoints/
+data/step5_gnn/
+
+# ── Jupyter / editor artefacts ────────────────────────────────────────────────
+.ipynb_checkpoints/
+*.ipynb
+.DS_Store
+.idea/
+.vscode/
+
+# ── Secrets ───────────────────────────────────────────────────────────────────
+.env
+*.env
+*.key
+
+# ── Git history (not needed inside the image) ─────────────────────────────────
+.git/
+.gitignore
