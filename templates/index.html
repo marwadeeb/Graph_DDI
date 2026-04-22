@@ -1191,7 +1191,11 @@
         // /api/check uses two-stage logic: render dedicated view
         _lastResult = Object.assign({ _raw: data }, data);
         renderCheckResult(data);
-        flowComplete(data.source || 'not_found', data.retrieval_ms);
+        if (data.source === 'drug_not_found') {
+          flowIdle(); // drug wasn't in DB — pipeline never ran
+        } else {
+          flowComplete(data.source || 'not_found', data.retrieval_ms);
+        }
       } else {
         _lastResult = data;
         renderCompareResult(data);
@@ -1208,6 +1212,28 @@
   function renderCheckResult(data) {
     const primary = document.getElementById('primary-result');
     const src = data.source || 'not_found';
+
+    // ── Drug not found in database ─────────────────────────────────────
+    if (src === 'drug_not_found') {
+      primary.innerHTML = `
+        <div class="result-card not-found">
+          <div class="rc-label">⚠ Drug Not Recognised</div>
+          <div class="rc-desc">
+            <strong>"${escHtml(data.drug_not_found)}"</strong> was not found in the
+            DrugBank database (4,795 approved drugs). Please check the spelling or
+            use the autocomplete dropdown to select a recognised drug name.
+          </div>
+          <div class="rc-safety">ℹ Because this drug has no record in the database,
+            the GNN model also cannot predict interactions for it — it has no
+            representation in the drug interaction graph.</div>
+        </div>`;
+      primary.style.display = 'block';
+      document.getElementById('results-header').textContent = 'Drug Not Found';
+      document.querySelectorAll('.method-card').forEach(c => c.style.display = 'none');
+      document.getElementById('results').classList.add('visible');
+      return;
+    }
+
     const cls = src === 'rag_documented' ? 'documented'
               : src === 'gnn_predicted'  ? 'predicted'
               : 'not-found';
@@ -1234,15 +1260,25 @@
     const disclaimerHtml = data.disclaimer
       ? `<div class="rc-disclaimer">${escHtml(data.disclaimer)}</div>` : '';
 
-    // For not-found: split description from safety note at "Important:"
-    let descHtml = escHtml(data.interaction_description || '');
+    // Safety note — shown for documented AND predicted interactions
     let safetyHtml = '';
-    if (src === 'not_found') {
+    if (src === 'rag_documented') {
+      safetyHtml = `<div class="rc-safety">ℹ To reduce risk from this documented
+        interaction, consider separating doses by at least 2–3 hours and consult a
+        pharmacist or clinician before use.</div>`;
+    } else if (src === 'not_found') {
+      // split "Important:" note from the main description
       const split = (data.interaction_description || '').indexOf('Important:');
       if (split !== -1) {
-        descHtml   = escHtml(data.interaction_description.slice(0, split).trim());
         safetyHtml = `<div class="rc-safety">ℹ ${escHtml(data.interaction_description.slice(split))}</div>`;
       }
+    }
+
+    // For not-found: strip the "Important:..." part from descHtml
+    let descHtml = escHtml(data.interaction_description || '');
+    if (src === 'not_found') {
+      const split = (data.interaction_description || '').indexOf('Important:');
+      if (split !== -1) descHtml = escHtml(data.interaction_description.slice(0, split).trim());
     }
 
     primary.innerHTML = `
