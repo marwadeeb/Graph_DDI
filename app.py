@@ -264,9 +264,23 @@ def check_pair():
 
     try:
         id_a, name_a = rag.resolve_drug(drug_a)
+    except ValueError:
+        return jsonify({
+            "source":         "drug_not_found",
+            "drug_not_found": drug_a,
+            "found":          False,
+            "error":          None,
+        })
+
+    try:
         id_b, name_b = rag.resolve_drug(drug_b)
-    except ValueError as e:
-        return jsonify({"error": str(e)}), 404
+    except ValueError:
+        return jsonify({
+            "source":         "drug_not_found",
+            "drug_not_found": drug_b,
+            "found":          False,
+            "error":          None,
+        })
 
     # ── Stage 1: dict lookup (O(1), always runs) ─────────────────────────────
     t_rag_start = time.time()

@@ -31,6 +31,7 @@ license: mit
 | 8 — RAG Evaluation | `pipeline/step8_evaluate_rag.py` | `data/evaluation/` — precision/recall/F1 metrics | — |
 | 9 — Non-AI Baselines | `pipeline/step9_baseline.py` | `data/evaluation/` — exact lookup + TF-IDF comparison table | — |
 | 10 — Flask API | `app.py` | REST API on port 5000 — DDI check, batch, compare, search | — |
+| 11 — Deploy | `Dockerfile` | HuggingFace Spaces Docker deployment | [live](https://huggingface.co/spaces/marwadeeb/ddi-checker) |
 
 ```bash
 pip install -r requirements.txt
@@ -633,9 +634,18 @@ python pipeline/step8_evaluate_rag.py --results-only    # print metrics from sav
 
 ---
 
-## Step 9 — Flask REST API (`app.py`)
+## Step 10 — Flask REST API + Web UI (`app.py`)
 
-Serves the RAG pipeline as a REST API. The FAISS index (~2.5 GB) loads lazily on the first request (~1 min).
+Two-stage DDI detection served as a REST API with a web interface.
+
+**Architecture:**
+1. **DrugBank dict lookup** (primary) — O(1) lookup across all 824K documented pairs. Instant, exact, no model required.
+2. **GNN link prediction** (fallback) — graph-based prediction for pairs not in DrugBank.
+3. **RAG evidence** (optional, user-toggled) — PubMedBERT + FAISS semantic search, loaded on demand only.
+
+FAISS is **not** loaded at startup. The server is ready in ~3 s (dict build only). RAG evidence loads on first request with the "Show RAG evidence" checkbox checked.
+
+**Live deployment:** https://huggingface.co/spaces/marwadeeb/ddi-checker
 
 ```bash
 python app.py     # starts on http://localhost:5000
@@ -644,10 +654,11 @@ python app.py     # starts on http://localhost:5000
 ### Endpoints
 
 #### `GET /health`
-Liveness check.
+Readiness check.
 ```json
-{ "status": "ok", "rag_loaded": true }
+{ "status": "ok", "rag_loaded": true, "faiss_loaded": false, "faiss_available": true }
 ```
+`rag_loaded` → dict lookup ready. `faiss_available` → false on deployments without the FAISS index file.
 
 #### `POST /api/check`
 Check DDI for a single drug pair. Accepts drug names or DrugBank IDs.
@@ -655,22 +666,25 @@ Check DDI for a single drug pair. Accepts drug names or DrugBank IDs.
 ```bash
 curl -X POST http://localhost:5000/api/check \
   -H "Content-Type: application/json" \
-  -d '{"drug_a": "Warfarin", "drug_b": "Aspirin"}'
+  -d '{"drug_a": "Warfarin", "drug_b": "Aspirin", "use_rag": false}'
 ```
+Pass `"use_rag": true` to include FAISS semantic evidence passages (loads model on first call, ~30 s).
 
 ```json
 {
   "drug_a": { "query": "Warfarin", "resolved": "Warfarin", "id": "DB00682" },
   "drug_b": { "query": "Aspirin", "resolved": "Acetylsalicylic acid", "id": "DB00945" },
+  "source": "rag_documented",
   "found": true,
-  "interaction_type": "pharmacodynamic",
-  "interaction_description": "Acetylsalicylic acid may increase the anticoagulant activities of Warfarin",
-  "evidence": [
-    { "rank": 1, "score": 0.9846, "text": "Warfarin interaction with Acetylsalicylic acid is: ..." }
-  ],
+  "interaction_type": null,
+  "interaction_description": "Acetylsalicylic acid may increase the anticoagulant activities of Warfarin...",
+  "retrieval_ms": 4,
+  "evidence": [],
+  "gnn": null,
   "error": null
 }
 ```
+`source` values: `"rag_documented"` (in DrugBank) · `"gnn_predicted"` (novel, GNN only) · `"not_found"` · `"drug_not_found"` (unrecognised drug name).
 
 #### `POST /api/check/batch`
 Check up to 50 pairs in one request.
