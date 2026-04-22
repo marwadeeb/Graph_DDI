@@ -198,12 +198,201 @@ def _init_baselines():
 
 
 # ---------------------------------------------------------------------------
+# Groq LLM helpers  (chatbot — NER + explanation)
+# ---------------------------------------------------------------------------
+
+_groq_client = None
+_groq_lock   = threading.Lock()
+
+GROQ_NER_MODEL  = "llama-3.1-8b-instant"    # fast, free — structured NER task
+GROQ_CHAT_MODEL = "llama-3.3-70b-versatile"  # better quality for explanation
+
+
+def _get_groq():
+    """Lazy Groq client.  Returns None when GROQ_API_KEY is not set."""
+    global _groq_client
+    if _groq_client is not None:
+        return _groq_client
+    with _groq_lock:
+        if _groq_client is not None:
+            return _groq_client
+        api_key = os.environ.get("GROQ_API_KEY", "").strip()
+        if not api_key:
+            return None
+        try:
+            from groq import Groq
+            _groq_client = Groq(api_key=api_key)
+            print("[DDI] Groq client initialised.", flush=True)
+        except Exception as e:
+            print(f"[DDI] Groq init error: {e}", flush=True)
+        return _groq_client
+
+
+def extract_drugs_nlp(text: str) -> list:
+    """
+    Call Groq LLM to extract drug / medication names from free text (NER).
+    Returns a list of drug name strings.  Falls back to [] on error / no key.
+    """
+    client = _get_groq()
+    if not client:
+        return []
+
+    prompt = (
+        "You are a medical named-entity recognition system. "
+        "Extract every drug, medication, or supplement name mentioned in the text below. "
+        "Return ONLY a valid JSON array of strings — no explanation, no markdown fences.\n"
+        "Example output: [\"Warfarin\", \"Aspirin\"]\n"
+        "If no drugs are found, return: []\n\n"
+        f"Text: {text}"
+    )
+    try:
+        resp = client.chat.completions.create(
+            model=GROQ_NER_MODEL,
+            messages=[{"role": "user", "content": prompt}],
+            temperature=0.0,
+            max_tokens=200,
+        )
+        raw = resp.choices[0].message.content.strip()
+        # Strip markdown fences if present
+        if "```" in raw:
+            raw = raw.split("```")[1].strip()
+            if raw.lower().startswith("json"):
+                raw = raw[4:].strip()
+        drugs = json.loads(raw)
+        if isinstance(drugs, list):
+            return [str(d).strip() for d in drugs if str(d).strip()]
+        return []
+    except Exception as e:
+        print(f"[DDI] NER error: {e}", flush=True)
+        return []
+
+
+def _fallback_reply(pair_results: list, drugs_not_found: list) -> str:
+    """Template-based reply used when Groq is unavailable."""
+    lines = []
+    if drugs_not_found:
+        lines.append(
+            f"⚠ I couldn't find these in my database: **{', '.join(drugs_not_found)}**. "
+            "Please check the spelling or use the Checker page for autocomplete suggestions."
+        )
+    for r in pair_results:
+        src   = r.get("source", "")
+        name_a = r.get("drug_a", {}).get("resolved", "Drug A")
+        name_b = r.get("drug_b", {}).get("resolved", "Drug B")
+        desc   = r.get("interaction_description", "")
+        if src == "rag_documented":
+            lines.append(
+                f"⚠ **{name_a}** and **{name_b}** have a **documented interaction** in DrugBank. "
+                "Please consult a pharmacist or clinician before combining these medications. "
+                f"{desc}"
+            )
+        elif src == "gnn_predicted":
+            prob = (r.get("gnn") or {}).get("probability") or 0
+            lines.append(
+                f"🔶 The GNN model predicts a **possible interaction** between **{name_a}** "
+                f"and **{name_b}** (probability {prob:.0%}). "
+                "This is not confirmed in DrugBank — consult a pharmacist before use."
+            )
+        else:
+            lines.append(
+                f"✓ No interaction between **{name_a}** and **{name_b}** was found in DrugBank "
+                "or predicted by the GNN. Absence of data does not guarantee safety — always "
+                "consult a healthcare professional when in doubt."
+            )
+    if not lines:
+        return (
+            "I couldn't identify any drug names in your message. "
+            "Try mentioning specific medication names, e.g. \"Is warfarin safe with aspirin?\""
+        )
+    return "\n\n".join(lines)
+
+
+def generate_chat_reply(
+    user_message: str,
+    drugs_resolved: list,
+    pair_results: list,
+    drugs_not_found: list,
+) -> str:
+    """
+    Generate a plain-language conversational reply via Groq LLM.
+    Falls back to _fallback_reply() when no API key is configured.
+    """
+    client = _get_groq()
+    if not client:
+        return _fallback_reply(pair_results, drugs_not_found)
+
+    # Build structured context for the LLM
+    ctx_lines = []
+    for r in pair_results:
+        src    = r.get("source", "")
+        name_a = r.get("drug_a", {}).get("resolved", "")
+        name_b = r.get("drug_b", {}).get("resolved", "")
+        desc   = r.get("interaction_description", "")
+        if src == "rag_documented":
+            ctx_lines.append(
+                f"- {name_a} + {name_b}: DOCUMENTED in DrugBank. {desc}"
+            )
+        elif src == "gnn_predicted":
+            prob = (r.get("gnn") or {}).get("probability") or 0
+            ctx_lines.append(
+                f"- {name_a} + {name_b}: PREDICTED by GNN (probability {prob:.0%}). "
+                "Not confirmed in DrugBank."
+            )
+        else:
+            ctx_lines.append(f"- {name_a} + {name_b}: No interaction found.")
+
+    if drugs_not_found:
+        ctx_lines.append(
+            f"- Drugs not found in database: {', '.join(drugs_not_found)}"
+        )
+
+    context = "\n".join(ctx_lines) if ctx_lines else "No pairs analysed."
+
+    system_prompt = (
+        "You are a clinical decision-support assistant that helps users understand "
+        "drug-drug interaction (DDI) results from the DDI Checker system, which uses "
+        "DrugBank data and a Graph Neural Network.\n"
+        "Rules:\n"
+        "1. Be concise (3-5 sentences), empathetic, and use plain language.\n"
+        "2. For documented interactions: always recommend consulting a pharmacist or clinician.\n"
+        "3. For GNN-predicted interactions: clearly state these are model predictions, not confirmed findings.\n"
+        "4. Never diagnose or prescribe. Always remind users this is decision support, not medical advice.\n"
+        "5. Mention specific drug names in your reply."
+    )
+    user_prompt = (
+        f"User message: \"{user_message}\"\n\n"
+        f"DDI analysis results:\n{context}\n\n"
+        "Write a conversational reply explaining these results to the user."
+    )
+
+    try:
+        resp = client.chat.completions.create(
+            model=GROQ_CHAT_MODEL,
+            messages=[
+                {"role": "system", "content": system_prompt},
+                {"role": "user",   "content": user_prompt},
+            ],
+            temperature=0.3,
+            max_tokens=450,
+        )
+        return resp.choices[0].message.content.strip()
+    except Exception as e:
+        print(f"[DDI] Groq chat error: {e}", flush=True)
+        return _fallback_reply(pair_results, drugs_not_found)
+
+
+# ---------------------------------------------------------------------------
 # Routes
 # ---------------------------------------------------------------------------
 
 @app.route("/", methods=["GET"])
 def index():
     return render_template("index.html")
+
+
+@app.route("/chat", methods=["GET"])
+def chat_page():
+    return render_template("chat.html")
 
 
 @app.route("/health", methods=["GET"])
@@ -405,6 +594,147 @@ def check_pair():
         "disclaimer": None,
         "fallback":   fallback_method,
         "error":      None,
+    })
+
+
+@app.route("/api/chat", methods=["POST"])
+def chat_api():
+    """
+    Chatbot endpoint.
+
+    Flow:
+      1. Groq NER  — extract drug names from free-text message
+      2. resolve_drug() — map raw names to DrugBank IDs
+      3. Dict lookup + GNN — check every unique pair
+      4. Groq LLM  — generate plain-language explanation
+
+    Request body (JSON):
+        { "message": "I'm taking warfarin and want to start aspirin, is that safe?" }
+
+    Response:
+        {
+            "reply":           "...",     # LLM-generated explanation
+            "drugs":           [...],     # resolved drug objects
+            "drugs_not_found": [...],     # names not in DrugBank
+            "pairs":           [...],     # one entry per unique pair
+            "llm_available":   true,
+            "error":           null
+        }
+    """
+    _init_rag()
+
+    body    = request.get_json(silent=True) or {}
+    message = (body.get("message") or "").strip()
+
+    if not message:
+        return jsonify({"error": "message is required"}), 400
+    if len(message) > 2000:
+        return jsonify({"error": "message too long (max 2000 chars)"}), 400
+
+    import step7_rag_query as rag
+
+    llm_available   = _get_groq() is not None
+
+    # ── Step 1: NER ──────────────────────────────────────────────────────
+    drug_names_raw = extract_drugs_nlp(message)
+
+    # ── Step 2: Resolve each name ────────────────────────────────────────
+    drugs_resolved  = []  # [{"query": str, "name": str, "id": str}]
+    drugs_not_found = []
+
+    for raw in drug_names_raw:
+        try:
+            did, dname = rag.resolve_drug(raw)
+            # Deduplicate by DrugBank ID
+            if not any(d["id"] == did for d in drugs_resolved):
+                drugs_resolved.append({"query": raw, "name": dname, "id": did})
+        except ValueError:
+            if raw not in drugs_not_found:
+                drugs_not_found.append(raw)
+
+    # ── Step 3: Check every unique pair ──────────────────────────────────
+    GNN_THRESHOLD = 0.5
+    pair_results  = []
+    seen_pairs    = set()
+
+    for i, da in enumerate(drugs_resolved):
+        for db in drugs_resolved[i + 1:]:
+            pair_key = frozenset([da["id"], db["id"]])
+            if pair_key in seen_pairs:
+                continue
+            seen_pairs.add(pair_key)
+
+            id_a, name_a = da["id"], da["name"]
+            id_b, name_b = db["id"], db["name"]
+
+            # Stage 1 — dict lookup
+            dict_desc = _ddi_lookup.get(frozenset([id_a, id_b]))
+            if dict_desc is not None:
+                pair_results.append({
+                    "drug_a": {"query": da["query"], "resolved": name_a, "id": id_a},
+                    "drug_b": {"query": db["query"], "resolved": name_b, "id": id_b},
+                    "source":                  "rag_documented",
+                    "found":                   True,
+                    "interaction_description": dict_desc or (
+                        f"Documented interaction between {name_a} and {name_b} in DrugBank."
+                    ),
+                    "gnn":       None,
+                    "disclaimer": None,
+                })
+                continue
+
+            # Stage 2 — GNN
+            gnn_result = None
+            try:
+                import gnn_predictor
+                gnn_result = gnn_predictor.predict(id_a, id_b)
+            except Exception as e:
+                gnn_result = {"found": None, "probability": None,
+                              "note": str(e), "mock": True}
+
+            gnn_prob  = (gnn_result or {}).get("probability")
+            gnn_found = gnn_prob is not None and gnn_prob >= GNN_THRESHOLD
+
+            if gnn_found:
+                pair_results.append({
+                    "drug_a": {"query": da["query"], "resolved": name_a, "id": id_a},
+                    "drug_b": {"query": db["query"], "resolved": name_b, "id": id_b},
+                    "source":                  "gnn_predicted",
+                    "found":                   True,
+                    "interaction_description": (
+                        f"No documented interaction found in DrugBank for {name_a} and {name_b}. "
+                        f"The GNN predicts a possible interaction (probability {gnn_prob:.0%})."
+                    ),
+                    "gnn":        gnn_result,
+                    "disclaimer": (
+                        "⚠ GNN prediction — not a confirmed DrugBank finding. "
+                        "Consult a pharmacist or clinician before use."
+                    ),
+                })
+            else:
+                pair_results.append({
+                    "drug_a": {"query": da["query"], "resolved": name_a, "id": id_a},
+                    "drug_b": {"query": db["query"], "resolved": name_b, "id": id_b},
+                    "source":                  "not_found",
+                    "found":                   False,
+                    "interaction_description": (
+                        f"No interaction between {name_a} and {name_b} was found "
+                        "in DrugBank or predicted by the GNN."
+                    ),
+                    "gnn":        gnn_result,
+                    "disclaimer": None,
+                })
+
+    # ── Step 4: LLM explanation ──────────────────────────────────────────
+    reply = generate_chat_reply(message, drugs_resolved, pair_results, drugs_not_found)
+
+    return jsonify({
+        "reply":           reply,
+        "drugs":           drugs_resolved,
+        "drugs_not_found": drugs_not_found,
+        "pairs":           pair_results,
+        "llm_available":   llm_available,
+        "error":           None,
     })
 
 
