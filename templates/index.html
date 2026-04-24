@@ -873,6 +873,7 @@
   <div class="header-nav">
     <a href="/chat">💬 Chat</a>
     <a href="/results">📊 Results</a>
+    <a href="/responsible">🛡️ Responsible ML</a>
     <div class="header-status">
       <div class="status-dot"></div>
       System online
@@ -907,8 +908,7 @@
     </div>
 
     <div class="btn-row">
-      <button class="btn-primary" id="btn-check" onclick="checkInteraction(false)">Check Interaction</button>
-      <button class="btn-secondary" id="btn-compare" onclick="checkInteraction(true)">Compare All Methods</button>
+      <button class="btn-primary" id="btn-check" onclick="checkInteraction()">Check Interaction</button>
       <button class="btn-secondary" onclick="clearAll()">Clear</button>
     </div>
     <div class="samples-row">
@@ -1063,12 +1063,10 @@
     const banner = document.getElementById('loading-banner');
     const label  = document.getElementById('loading-label');
     const btnCheck   = document.getElementById('btn-check');
-    const btnCompare = document.getElementById('btn-compare');
 
     // Show banner immediately; hide it once the server is ready
     banner.classList.add('visible');
     btnCheck.disabled   = true;
-    btnCompare.disabled = true;
 
     async function check() {
       try {
@@ -1077,7 +1075,6 @@
         if (data.rag_loaded) {
           banner.classList.remove('visible');
           btnCheck.disabled   = false;
-          btnCompare.disabled = false;
           return; // done
         }
         label.textContent = 'building lookup…';
@@ -1144,7 +1141,7 @@
   setupAutocomplete('drug-b', 'drop-b');
 
   // ── Check interaction ──────────────────────────────────────────────────
-  async function checkInteraction(compare = false) {
+  async function checkInteraction() {
     const drugA  = document.getElementById('drug-a').value.trim();
     const drugB  = document.getElementById('drug-b').value.trim();
     if (!drugA || !drugB) {
@@ -1153,12 +1150,10 @@
     }
 
     clearResults();
-    setLoading(on=true, compare);
-
-    const endpoint = compare ? '/api/check/compare' : '/api/check';
+    setLoading(true);
 
     try {
-      const res = await fetch(endpoint, {
+      const res = await fetch('/api/check', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ drug_a: drugA, drug_b: drugB, top_k: 3 })
@@ -1171,18 +1166,12 @@
         return;
       }
 
-      if (!compare) {
-        // /api/check uses two-stage logic: render dedicated view
-        _lastResult = Object.assign({ _raw: data }, data);
-        renderCheckResult(data);
-        if (data.source === 'drug_not_found') {
-          flowIdle(); // drug wasn't in DB — pipeline never ran
-        } else {
-          flowComplete(data.source || 'not_found', data.retrieval_ms);
-        }
+      _lastResult = Object.assign({ _raw: data }, data);
+      renderCheckResult(data);
+      if (data.source === 'drug_not_found') {
+        flowIdle();
       } else {
-        _lastResult = data;
-        renderCompareResult(data);
+        flowComplete(data.source || 'not_found', data.retrieval_ms);
       }
 
     } catch (err) {
@@ -1503,15 +1492,12 @@
       : '';
   }
 
-  function setLoading(on = true, compare = false) {
-    // Don't re-enable buttons if the startup banner is still visible
+  function setLoading(on = true) {
     const stillStarting = document.getElementById('loading-banner').classList.contains('visible');
-    document.getElementById('btn-check').disabled   = on || stillStarting;
-    document.getElementById('btn-compare').disabled = on || stillStarting;
+    document.getElementById('btn-check').disabled = on || stillStarting;
     if (on) {
-      const msg = compare ? 'Comparing all methods…' : 'Checking interaction…';
-      setStatus(msg);
-      if (!compare) flowStart();
+      setStatus('Checking interaction…');
+      flowStart();
     } else {
       setStatus('');
     }

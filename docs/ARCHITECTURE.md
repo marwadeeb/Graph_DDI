@@ -14,13 +14,29 @@ For operational instructions see the main [README](../README.md).
 | 3 — FDA-Approved Subset | `pipeline/step3_fda_approved.py` | `data/step3_approved/` — 4,795 drugs | 351 MB · **on GitHub** |
 | 4a — Build Graph | `pipeline/step4_build_graph.py` | `data/step4_graph/` — 212 structural features + edge index | 19 MB · **on GitHub** |
 | 4b — Text Embeddings | `pipeline/step4_embed.py` | `data/step4_graph/` — 768-dim PubMedBERT + combined 980-dim | 94 MB · **on GitHub** |
-| 5 — PyG Data Object | `pipeline/step5_pyg_data.py` | `data/step4_graph/ddi_graph.pt` | 58 MB · **on GitHub** |
+| 5a — PyG Homo Graph | `pipeline/step5_pyg_data.py` | `data/step4_graph/ddi_graph.pt` — homogeneous | 58 MB · **on GitHub** |
+| 5b — PyG Hetero Graph | `pipeline/step5_hetero_graph.py` | `data/step4_graph/hetero_ddi_graph.pt` — drug + protein nodes | 46 MB · **on GitHub** |
 | 6 — RAG Vector Index | `pipeline/step6_rag_index.py` | `data/rag_index/` — FAISS index of 824K DDI descriptions | ~2.5 GB · gitignored |
 | 7 — RAG / Dict Query | `pipeline/step7_rag_query.py` | CLI/API — O(1) dict lookup + optional FAISS | — |
 | 8 — RAG Evaluation | `pipeline/step8_evaluate_rag.py` | `data/evaluation/` — precision/recall/F1 | — |
-| 9 — Baselines | `pipeline/step9_baseline.py` | `data/evaluation/` — graph heuristics + LR AUC | — |
+| 9 — Baselines + Split | `pipeline/step9_baseline.py` | `data/evaluation/` — graph heuristics + LR + cold-start split files | — |
 | 10 — Responsible ML | `pipeline/step10_responsible_ml.py` | `data/evaluation/` — bias + robustness JSON | — |
+| GNN Training | `hetero_model.ipynb` | `data/step4_graph/bestHeteroModel.pt` — HeteroGraphSAGE + NCN | 6 MB · **on GitHub** |
 | — | `app.py` | REST API + Web UI on port 7860 | — |
+
+### GNN Model Architecture
+
+| Component | Detail |
+|---|---|
+| Model | HeteroGraphSAGE + EnhancedLinkPredictor (NCN-style decoder) |
+| Node types | Drug (4,795 · 980-dim features), Protein (2,708 human proteins · 5-dim) |
+| Edge types | `(drug, ddi, drug)`, `(drug, targets, protein)`, `(protein, rev_targets, drug)` |
+| Encoder layers | 3 × HeteroConv(SAGEConv), hidden=256, out=64, dropout=0.3 |
+| Decoder | NCN pooling: `[z_u | z_v | mean(common DDI neighbours) | mean(shared proteins)]` |
+| Loss | nnPU (non-negative PU loss, handles unlabelled negatives) |
+| Warm AUROC | **0.9738** (hetero) · 0.9615 (homo fallback) |
+| Warm AUPR | **0.9589** (hetero) · 0.9450 (homo fallback) |
+| Threshold | 0.43 (set by Laure on validation set) |
 
 ---
 
@@ -49,11 +65,14 @@ For operational instructions see the main [README](../README.md).
 │   ├── step4_build_graph.py
 │   ├── step4_embed.py
 │   ├── step5_pyg_data.py
+│   ├── step5_hetero_graph.py        drug-protein hetero graph (step 5b)
 │   ├── step6_rag_index.py
 │   ├── step7_rag_query.py
 │   ├── step8_evaluate_rag.py
-│   ├── step9_baseline.py
-│   └── step10_responsible_ml.py
+│   ├── step9_baseline.py            graph heuristics + LR + cold-start split
+│   ├── step10_responsible_ml.py
+│   └── gnn_predictor.py             GNN inference interface (Flask ↔ model)
+├── hetero_model.ipynb               GNN training notebook (HeteroGraphSAGE + NCN)
 ├── app.py                           Flask REST API
 ├── docs/                            Technical documentation
 │   ├── ARCHITECTURE.md              (this file)
@@ -61,6 +80,8 @@ For operational instructions see the main [README](../README.md).
 ├── templates/                       Jinja2 HTML templates
 │   ├── index.html                   DDI Checker UI
 │   ├── chat.html                    Chat interface
+│   ├── results.html                 Model performance page
+│   └── responsible.html             Responsible ML page
 │   └── results.html                 Model comparison page
 └── data/
     ├── step1_full/                  full parse output             [gitignored]

@@ -397,18 +397,31 @@ def chat_page():
 
 @app.route("/results", methods=["GET"])
 def results_page():
-    """Model comparison / evaluation results page."""
+    """Model performance comparison page (warm + cold-start evaluation)."""
     import json as _json
     results_path = os.path.join(BASE_DIR, "data", "evaluation", "baselines_results.json")
-    bias_path    = os.path.join(BASE_DIR, "data", "evaluation", "responsible_ml_bias.json")
-    robust_path  = os.path.join(BASE_DIR, "data", "evaluation", "responsible_ml_robust.json")
 
-    results_data, bias_data, robust_data = {}, {}, {}
+    results_data = {}
     try:
         with open(results_path) as f:
             results_data = _json.load(f)
     except Exception:
         pass
+
+    return render_template("results.html",
+                           results=results_data.get("results", {}),
+                           cold_results=results_data.get("cold_results", {}),
+                           config=results_data.get("config", {}))
+
+
+@app.route("/responsible", methods=["GET"])
+def responsible_page():
+    """Responsible ML page — explainability, fairness, privacy, robustness."""
+    import json as _json
+    bias_path   = os.path.join(BASE_DIR, "data", "evaluation", "responsible_ml_bias.json")
+    robust_path = os.path.join(BASE_DIR, "data", "evaluation", "responsible_ml_robust.json")
+
+    bias_data, robust_data = {}, {}
     try:
         with open(bias_path) as f:
             bias_data = _json.load(f)
@@ -420,10 +433,7 @@ def results_page():
     except Exception:
         pass
 
-    return render_template("results.html",
-                           results=results_data.get("results", {}),
-                           cold_results=results_data.get("cold_results", {}),
-                           config=results_data.get("config", {}),
+    return render_template("responsible.html",
                            bias=bias_data,
                            robust=robust_data)
 

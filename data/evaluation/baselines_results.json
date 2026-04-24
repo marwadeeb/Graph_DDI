@@ -92,11 +92,11 @@
       ]
     },
     "gnn": {
-      "auc_roc": "TBD",
-      "avg_precision": "TBD",
+      "auc_roc": 0.9738,
+      "avg_precision": 0.9589,
       "category": "gnn",
-      "label": "GNN (graph + features)",
-      "note": "Fill in from Laure's model evaluation on the same split."
+      "label": "GNN — HeteroGraphSAGE + NCN (graph + features + drug-protein targets)",
+      "note": "HeteroGraphSAGE encoder + NCN-style EnhancedLinkPredictor, nnPU loss. Laure's split (may differ from step9 warm split). Fallback homo model: AUROC 0.9615."
     },
     "random_chance": {
       "auc_roc": 0.5,

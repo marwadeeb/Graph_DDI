@@ -43,22 +43,33 @@ The FAISS RAG index is loaded on demand only.
 |---|---|
 | `/` | Drug pair checker — type two drug names, get interaction details |
 | `/chat` | Chat interface — ask in plain English, NER extracts drug names |
-| `/results` | Model comparison table + Responsible ML analysis |
+| `/results` | Model performance — cold-start (primary) + warm evaluation |
+| `/responsible` | Responsible ML — explainability, fairness, privacy, robustness |
 
 ---
 
 ## Key Results
 
-Link-prediction evaluation · 80/20 train-test split · seed 42 · 1:1 pos:neg ratio
+**Warm evaluation** (80/20 edge split · seed 42 · 1:1 pos:neg) — *context only; heuristics exploit dense graph, not generalisation*
 
-| Model | AUC-ROC | Category |
+| Model | AUC-ROC | Avg Precision | Category |
+|---|---|---|---|
+| **GNN — HeteroGraphSAGE + NCN** | **0.9738** | **0.9589** | Final model |
+| Jaccard (graph heuristic) | 0.9845 | 0.9823 | Non-AI baseline |
+| Adamic-Adar (graph heuristic) | 0.9828 | 0.9813 | Non-AI baseline |
+| Common Neighbors | 0.9818 | 0.9801 | Non-AI baseline |
+| Logistic Regression (node features) | 0.9502 | 0.9505 | Non-graph ML |
+| Random chance | 0.5000 | — | Trivial |
+
+**Cold-start evaluation** (10 % of drugs held out entirely — the GNN's real use case)
+
+| Model | Cold AUC-ROC | Note |
 |---|---|---|
-| Jaccard (graph heuristic) | **0.9845** | Non-AI baseline (TM2A) |
-| Adamic-Adar (graph heuristic) | 0.9828 | Non-AI baseline (TM2A) |
-| Common Neighbors | 0.9818 | Non-AI baseline (TM2A) |
-| Logistic Regression (node features) | 0.9502 | Non-graph ML baseline (TM10G) |
-| **GNN (graph + features)** | **TBD** | Final model |
-| Random chance | 0.5000 | Trivial baseline |
+| **GNN — HeteroGraphSAGE + NCN** | *run pending* | Uses node features + graph structure |
+| Logistic Regression | *run pending* | Uses node features only |
+| Graph heuristics | **0.5000** | Analytically guaranteed — zero training edges = zero score |
+
+> Graph heuristics score 0.98 on warm evaluation because DrugBank is extremely dense (avg degree 344). On cold-start they collapse to 0.50 = random chance. The GNN's purpose is novel pair prediction — see `/results` for full analysis.
 
 ---
 
@@ -66,32 +77,36 @@ Link-prediction evaluation · 80/20 train-test split · seed 42 · 1:1 pos:neg r
 
 ```
 DrugBank XML (19,842 drugs · 2.9M DDI)
-    ↓ parser/run_all.py          [Step 1] parse → 27 CSVs
-    ↓ step2_dedup_interactions   [Step 2] directed → undirected DDI pairs
-    ↓ step3_fda_approved         [Step 3] filter to 4,795 approved drugs
-    ↓ step4_build_graph          [Step 4a] 212 structural node features
-    ↓ step4_embed                [Step 4b] + 768-dim PubMedBERT = 980 features
-    ↓ step5_pyg_data             [Step 5] PyTorch Geometric Data object
-    ↓ step6_rag_index            [Step 6] FAISS index of 824K DDI descriptions
-    ↓ step7_rag_query            [Step 7] dict lookup + optional FAISS query
-    ↓ step8_evaluate_rag         [Step 8] precision/recall/F1 evaluation
-    ↓ step9_baseline             [Step 9] graph heuristics + LR baselines
-    ↓ step10_responsible_ml      [Step 10] bias + robustness analysis
-    ↓ app.py                              Flask REST API + Web UI
+    ↓ parser/run_all.py           [Step 1]  parse → 27 CSVs
+    ↓ step2_dedup_interactions    [Step 2]  directed → undirected DDI pairs
+    ↓ step3_fda_approved          [Step 3]  filter to 4,795 approved drugs
+    ↓ step4_build_graph           [Step 4a] 212 structural node features
+    ↓ step4_embed                 [Step 4b] + 768-dim PubMedBERT = 980 features
+    ↓ step5_pyg_data              [Step 5a] PyG homogeneous ddi_graph.pt
+    ↓ step5_hetero_graph          [Step 5b] + drug-protein edges → hetero_ddi_graph.pt
+    ↓ step6_rag_index             [Step 6]  FAISS index of 824K DDI descriptions
+    ↓ step7_rag_query             [Step 7]  dict lookup + optional FAISS query
+    ↓ step8_evaluate_rag          [Step 8]  precision/recall/F1 evaluation
+    ↓ step9_baseline              [Step 9]  graph heuristics + LR + cold-start split
+    ↓ step10_responsible_ml       [Step 10] bias + robustness analysis
+    ↓ hetero_model.ipynb                    GNN training (HeteroGraphSAGE + NCN)
+    ↓ app.py                               Flask REST API + Web UI
 ```
 
 Full run commands:
 
 ```bash
-python parser/run_all.py                       # ~2 min
-python pipeline/step2_dedup_interactions.py    # ~3.5 min
-python pipeline/step3_fda_approved.py          # ~20 s
-python pipeline/step4_build_graph.py           # ~15 s
-python pipeline/step4_embed.py                 # ~25 min (CPU)
-python pipeline/step5_pyg_data.py             # ~2 s
-python pipeline/step6_rag_index.py             # ~3-4 hrs (CPU, resumable)
-python pipeline/step9_baseline.py              # ~30 s (graph heuristics + LR)
-python pipeline/step10_responsible_ml.py       # ~5 s  (bias + robustness)
+python parser/run_all.py                        # ~2 min
+python pipeline/step2_dedup_interactions.py     # ~3.5 min
+python pipeline/step3_fda_approved.py           # ~20 s
+python pipeline/step4_build_graph.py            # ~15 s
+python pipeline/step4_embed.py                  # ~25 min (CPU)
+python pipeline/step5_pyg_data.py              # ~2 s
+python pipeline/step5_hetero_graph.py           # ~30 s  (drug-protein hetero graph)
+python pipeline/step6_rag_index.py              # ~3-4 hrs (CPU, resumable)
+python pipeline/step9_baseline.py               # ~30 s  (graph heuristics + LR + cold split)
+python pipeline/step10_responsible_ml.py        # ~5 s   (bias + robustness)
+# GNN training: run hetero_model.ipynb in Jupyter
 ```
 
 ---

@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>DDI Results — Model Evaluation</title>
+  <title>DDI — Model Performance</title>
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -53,7 +53,6 @@
     }
     header h1  { font-size: 1.1rem; font-weight: 700; letter-spacing: -.3px; }
     header p   { font-size: .74rem; opacity: .80; margin-top: 1px; }
-
     .header-nav {
       margin-left: auto;
       display: flex; align-items: center; gap: 10px;
@@ -72,19 +71,10 @@
     .header-nav a.active { background: rgba(255,255,255,.18); border-color: rgba(255,255,255,.4); }
 
     /* ── Layout ─────────────────────────────────────────────── */
-    main {
-      max-width: 1000px;
-      margin: 0 auto;
-      padding: 32px 20px 60px;
-    }
+    main { max-width: 1000px; margin: 0 auto; padding: 32px 20px 60px; }
 
-    .page-title {
-      font-size: 1.6rem; font-weight: 800; letter-spacing: -.5px;
-      color: #1e3a8a; margin-bottom: 4px;
-    }
-    .page-sub {
-      font-size: .9rem; color: var(--gray-500); margin-bottom: 32px;
-    }
+    .page-title { font-size: 1.6rem; font-weight: 800; letter-spacing: -.5px; color: #1e3a8a; margin-bottom: 4px; }
+    .page-sub   { font-size: .9rem; color: var(--gray-500); margin-bottom: 32px; }
 
     /* ── Cards ───────────────────────────────────────────────── */
     .card {
@@ -100,16 +90,44 @@
       font-size: 1rem; font-weight: 700; color: var(--indigo);
       margin-bottom: 4px; display: flex; align-items: center; gap: 8px;
     }
-    .card-sub {
-      font-size: .8rem; color: var(--gray-500); margin-bottom: 18px;
+    .card-sub { font-size: .8rem; color: var(--gray-500); margin-bottom: 18px; }
+
+    /* Primary card (cold-start) has a stronger border */
+    .card-primary {
+      border-color: rgba(79,70,229,.35);
+      box-shadow: 0 4px 20px rgba(79,70,229,.12);
+    }
+    .card-secondary {
+      opacity: .92;
+      border-style: dashed;
+    }
+
+    /* ── Callout explaining WHY cold-start matters ───────────── */
+    .callout {
+      background: linear-gradient(135deg, rgba(79,70,229,.07), rgba(37,99,235,.04));
+      border: 1px solid rgba(79,70,229,.18);
+      border-radius: var(--radius);
+      padding: 16px 20px;
+      margin-bottom: 22px;
+      font-size: .86rem;
+      line-height: 1.6;
+      color: var(--gray-700);
+    }
+    .callout strong { color: var(--indigo); }
+    .callout .callout-title {
+      font-size: .92rem; font-weight: 700; color: var(--indigo);
+      margin-bottom: 6px; display: flex; align-items: center; gap: 6px;
+    }
+
+    /* ── Section heading ─────────────────────────────────────── */
+    .section-h {
+      font-size: .7rem; font-weight: 700; letter-spacing: .1em;
+      text-transform: uppercase; color: var(--gray-400);
+      margin: 32px 0 12px;
     }
 
     /* ── Table ───────────────────────────────────────────────── */
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      font-size: .86rem;
-    }
+    table { width: 100%; border-collapse: collapse; font-size: .86rem; }
     th {
       background: rgba(79,70,229,.06);
       color: var(--indigo);
@@ -119,17 +137,13 @@
       border-bottom: 2px solid rgba(79,70,229,.15);
       white-space: nowrap;
     }
-    td {
-      padding: 10px 14px;
-      border-bottom: 1px solid var(--gray-100);
-      vertical-align: middle;
-    }
+    td { padding: 10px 14px; border-bottom: 1px solid var(--gray-100); vertical-align: middle; }
     tr:last-child td { border-bottom: none; }
     tr:hover td { background: rgba(79,70,229,.03); }
-
     .row-gnn td { background: rgba(16,163,74,.04); font-weight: 600; }
     .row-trivial td { color: var(--gray-400); font-style: italic; }
 
+    /* ── Badges ──────────────────────────────────────────────── */
     .badge {
       display: inline-block;
       padding: 2px 10px;
@@ -137,64 +151,20 @@
       font-size: .72rem; font-weight: 700;
       white-space: nowrap;
     }
-    .badge-graph  { background: #ede9fe; color: #6d28d9; }
-    .badge-ml     { background: #fef3c7; color: #92400e; }
-    .badge-gnn    { background: #d1fae5; color: #065f46; }
-    .badge-trivial{ background: var(--gray-100); color: var(--gray-500); }
-
-    .val-tbd {
-      color: var(--gray-400); font-style: italic; font-size: .82rem;
-    }
+    .badge-graph   { background: #ede9fe; color: #6d28d9; }
+    .badge-ml      { background: #fef3c7; color: #92400e; }
+    .badge-gnn     { background: #d1fae5; color: #065f46; }
+    .badge-trivial { background: var(--gray-100); color: var(--gray-500); }
+    .val-tbd { color: var(--gray-400); font-style: italic; font-size: .82rem; }
 
     /* ── Bar chart ───────────────────────────────────────────── */
-    .bar-wrap {
-      display: flex; align-items: center; gap: 10px;
-    }
-    .bar-track {
-      flex: 1;
-      height: 8px;
-      background: var(--gray-100);
-      border-radius: 4px;
-      overflow: hidden;
-    }
-    .bar-fill {
-      height: 100%;
-      border-radius: 4px;
-      transition: width .5s ease;
-    }
-    .bar-lbl {
-      font-size: .82rem; font-weight: 600; min-width: 46px; text-align: right;
-    }
-
-    /* ── Stat grid ───────────────────────────────────────────── */
-    .stat-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-      gap: 14px;
-      margin-top: 4px;
-    }
-    .stat-box {
-      background: var(--gray-50);
-      border: 1px solid var(--gray-200);
-      border-radius: var(--radius);
-      padding: 14px 16px;
-      text-align: center;
-    }
-    .stat-val { font-size: 1.5rem; font-weight: 800; color: var(--indigo); }
-    .stat-lbl { font-size: .72rem; color: var(--gray-500); margin-top: 2px; }
-
-    /* ── Category table ──────────────────────────────────────── */
-    .cat-row-best td { background: rgba(16,163,74,.05); }
-    .cat-row-worst td { background: rgba(220,38,38,.04); }
-
-    /* ── Robustness table ────────────────────────────────────── */
-    .pass { color: var(--green); font-weight: 700; }
-    .fail { color: var(--red);   font-weight: 700; }
+    .bar-wrap { display: flex; align-items: center; gap: 10px; }
+    .bar-track { flex: 1; height: 8px; background: var(--gray-100); border-radius: 4px; overflow: hidden; }
+    .bar-fill  { height: 100%; border-radius: 4px; transition: width .5s ease; }
+    .bar-lbl   { font-size: .82rem; font-weight: 600; min-width: 46px; text-align: right; }
 
     /* ── Features ────────────────────────────────────────────── */
-    .feat-list {
-      display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px;
-    }
+    .feat-list { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px; }
     .feat-chip {
       background: var(--blue-lt);
       border: 1px solid rgba(37,99,235,.2);
@@ -203,16 +173,8 @@
       font-size: .76rem; color: var(--blue);
       font-family: monospace;
     }
-    .feat-chip .coef {
-      font-weight: 700;
-      margin-left: 5px;
-      color: var(--indigo);
-    }
-    .feat-chip.neg {
-      background: #fef2f2;
-      border-color: rgba(220,38,38,.2);
-      color: var(--red);
-    }
+    .feat-chip .coef { font-weight: 700; margin-left: 5px; color: var(--indigo); }
+    .feat-chip.neg { background: #fef2f2; border-color: rgba(220,38,38,.2); color: var(--red); }
     .feat-chip.neg .coef { color: var(--red); }
 
     /* ── Note box ────────────────────────────────────────────── */
@@ -225,11 +187,29 @@
       margin-top: 16px;
     }
 
-    /* ── Section heading ─────────────────────────────────────── */
-    .section-h {
-      font-size: .7rem; font-weight: 700; letter-spacing: .1em;
-      text-transform: uppercase; color: var(--gray-400);
-      margin: 28px 0 10px;
+    /* ── Split info box ──────────────────────────────────────── */
+    .split-pills {
+      display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 18px;
+    }
+    .split-pill {
+      background: var(--gray-50);
+      border: 1px solid var(--gray-200);
+      border-radius: 20px;
+      padding: 4px 14px;
+      font-size: .78rem; color: var(--gray-600);
+    }
+    .split-pill strong { color: var(--gray-800); }
+
+    /* ── Warm context label ──────────────────────────────────── */
+    .context-label {
+      display: inline-block;
+      background: var(--amber-lt);
+      border: 1px solid rgba(217,119,6,.25);
+      border-radius: 6px;
+      padding: 3px 10px;
+      font-size: .72rem; font-weight: 700;
+      color: var(--amber);
+      margin-bottom: 12px;
     }
   </style>
 </head>
@@ -238,72 +218,122 @@
 <header>
   <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"
        stroke-linecap="round" stroke-linejoin="round">
-    <path d="M9 3H5a2 2 0 0 0-2 2v4m6-6h10a2 2 0 0 1 2 2v4M9 3v18m0 0h10a2 2 0 0 0 2-2V9M9 21H5a2 2 0 0 1-2-2V9m0 0h18"/>
+    <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/>
   </svg>
   <div>
-    <h1>DDI Model Evaluation</h1>
-    <p>Baseline comparison &amp; Responsible ML analysis</p>
+    <h1>DDI — Model Performance</h1>
+    <p>Link-prediction evaluation · DrugBank interaction graph</p>
   </div>
   <nav class="header-nav">
-    <a href="/">🔍 Checker</a>
+    <a href="/">🔬 Checker</a>
     <a href="/chat">💬 Chat</a>
     <a href="/results" class="active">📊 Results</a>
+    <a href="/responsible">🛡️ Responsible ML</a>
   </nav>
 </header>
 
 <main>
 
-  <p class="page-title">Model Comparison &amp; Evaluation</p>
+  <p class="page-title">Model Performance Evaluation</p>
   <p class="page-sub">
-    Link-prediction performance on the DrugBank interaction graph (4,795 nodes · 824,249 edges).<br>
-    Split: 80 % train / 20 % test · seed 42 · 1:1 positive:negative ratio.
+    Comparing graph heuristics, Logistic Regression, and GNN on the DDI prediction task.
   </p>
 
   <!-- ════════════════════════════════════════════════════════════
-       SECTION 1 — Baseline comparison
+       WHY COLD-START MATTERS
   ═══════════════════════════════════════════════════════════════ -->
-  <div class="card">
+  <div class="callout">
+    <div class="callout-title">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+           stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="12" cy="12" r="10"/>
+        <line x1="12" y1="8" x2="12" y2="12"/>
+        <line x1="12" y1="16" x2="12.01" y2="16"/>
+      </svg>
+      Why cold-start evaluation is what matters here
+    </div>
+    The GNN's real-world purpose is to predict interactions for <strong>drugs with no documented
+    DrugBank pairs</strong> — newly approved drugs, rare compounds, or combinations simply never
+    studied together. In a standard random 80/20 split every test drug still appears in the
+    training graph, so graph heuristics exploit dense connectivity (average degree 344) and score
+    ~0.98 AUC — not because they generalise, but because the graph is so dense that almost any
+    two test drugs share common neighbours.<br><br>
+    In <strong>cold-start evaluation</strong>, 10 % of drugs are held out entirely — they have
+    zero training edges. Common Neighbours, Adamic-Adar and Jaccard score exactly 0 for every
+    cold pair (AUC = 0.50, pure chance). Logistic Regression survives because it uses node
+    features (physicochemical properties, ATC codes, CYP450 profiles) that exist independently
+    of graph topology. <strong>The GNN's goal is to beat LR by combining features with
+    structural context from nearby warm drugs.</strong>
+  </div>
+
+  <!-- ════════════════════════════════════════════════════════════
+       SECTION 1 — Cold-start evaluation (PRIMARY)
+  ═══════════════════════════════════════════════════════════════ -->
+  <div class="card card-primary">
     <div class="card-title">
       <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-        <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/>
+        <circle cx="12" cy="12" r="10"/>
+        <line x1="2" y1="12" x2="22" y2="12"/>
+        <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
       </svg>
-      Link-Prediction Performance (AUC-ROC)
+      Cold-Start Evaluation — Predicting Undocumented Interactions
     </div>
-    <div class="card-sub">Higher is better · GNN uses both graph topology + 212 node features</div>
+    <div class="card-sub">
+      10 % of drugs held out (zero training edges) · mimics newly approved drugs ·
+      heuristics collapse to AUC = 0.50 · LR uses node features · GNN must beat both
+    </div>
+
+    {% set cfg = config %}
+    <div class="split-pills">
+      <span class="split-pill">Held-out drugs: <strong>{{ cfg.get('cold_frac', 0.1)|round(0)|int * 10 }} %</strong></span>
+      <span class="split-pill">Split seed: <strong>{{ cfg.get('seed', 42) }}</strong></span>
+      <span class="split-pill">Pos:neg ratio: <strong>1:1</strong></span>
+    </div>
 
     <table>
       <thead>
         <tr>
           <th>Model</th>
           <th>Category</th>
-          <th>AUC-ROC</th>
-          <th style="width:220px">Bar</th>
+          <th>Cold-Start AUC-ROC</th>
+          <th style="width:220px">Performance</th>
           <th>Avg Precision</th>
         </tr>
       </thead>
       <tbody>
-        {% set methods = [
-          ('adamic_adar',        'Adamic-Adar',               'graph_heuristic', 'badge-graph'),
-          ('common_neighbors',   'Common Neighbors',          'graph_heuristic', 'badge-graph'),
-          ('jaccard',            'Jaccard',                   'graph_heuristic', 'badge-graph'),
-          ('logistic_regression','Logistic Regression',       'non_graph_ml',    'badge-ml'),
-          ('gnn',                'GNN (graph + features)',    'gnn',             'badge-gnn'),
-          ('random_chance',      'Random (chance)',           'trivial',         'badge-trivial'),
+        {% set cold_methods = [
+          ('adamic_adar',        'Adamic-Adar',             'badge-graph',   'graph heuristic'),
+          ('common_neighbors',   'Common Neighbors',        'badge-graph',   'graph heuristic'),
+          ('jaccard',            'Jaccard',                 'badge-graph',   'graph heuristic'),
+          ('logistic_regression','Logistic Regression',     'badge-ml',      'non-graph ML'),
+          ('gnn',                'GNN (graph + features)',  'badge-gnn',     'GNN'),
+          ('random_chance',      'Random (chance)',         'badge-trivial', 'trivial'),
         ] %}
-        {% for key, label, cat, badge_cls in methods %}
-          {% set r = results.get(key, {}) %}
+        {% for key, label, badge_cls, cat in cold_methods %}
+          {% if cold_results %}
+            {% set r = cold_results.get(key, {}) %}
+          {% else %}
+            {% set r = {} %}
+          {% endif %}
           {% set auc = r.get('auc_roc', 'TBD') %}
           {% set ap  = r.get('avg_precision', 'TBD') %}
-          {% set is_tbd = (auc == 'TBD') %}
+          {% set is_tbd = (auc == 'TBD' or auc is string) %}
           <tr class="{% if key == 'gnn' %}row-gnn{% elif key == 'random_chance' %}row-trivial{% endif %}">
             <td><strong>{{ label }}</strong></td>
-            <td><span class="badge {{ badge_cls }}">{{ cat.replace('_', ' ') }}</span></td>
+            <td><span class="badge {{ badge_cls }}">{{ cat }}</span></td>
             <td>
               {% if is_tbd %}
-                <span class="val-tbd">TBD</span>
+                <span class="val-tbd">pending run</span>
+              {% elif key in ('adamic_adar','common_neighbors','jaccard') %}
+                <span style="color:var(--red); font-weight:700;">{{ "%.4f"|format(auc) }}</span>
+                <span style="color:var(--gray-400); font-size:.74rem; margin-left:4px">(collapses)</span>
+              {% elif key == 'random_chance' %}
+                <span style="color:var(--gray-400)">{{ "%.4f"|format(auc) }}</span>
               {% else %}
-                <strong>{{ "%.4f"|format(auc) }}</strong>
+                <strong style="color:{% if auc >= 0.8 %}var(--green){% elif auc >= 0.6 %}var(--amber){% else %}var(--red){% endif %}">
+                  {{ "%.4f"|format(auc) }}
+                </strong>
               {% endif %}
             </td>
             <td>
@@ -312,19 +342,111 @@
                   <div class="bar-track">
                     <div class="bar-fill" style="
                       width: {{ [(auc - 0.5) / 0.5 * 100, 0]|max|round(1) }}%;
-                      background: {% if key == 'gnn' %}#16a34a{% elif key == 'random_chance' %}#9ca3af{% elif cat == 'non_graph_ml' %}#d97706{% else %}#4f46e5{% endif %};
+                      background: {% if key == 'gnn' %}#16a34a{% elif key == 'random_chance' %}#9ca3af{% elif key in ('adamic_adar','common_neighbors','jaccard') %}var(--red){% elif cat == 'non-graph ML' %}#d97706{% else %}#4f46e5{% endif %};
                     "></div>
                   </div>
-                  <span class="bar-lbl" style="color:{% if key == 'random_chance' %}var(--gray-400){% else %}var(--gray-800){% endif %}">
-                    {{ "%.4f"|format(auc) }}
-                  </span>
+                </div>
+              {% else %}
+                <span style="color:var(--gray-300); font-size:.8rem">run step9_baseline.py to populate</span>
+              {% endif %}
+            </td>
+            <td>
+              {% if ap == 'TBD' or ap is string %}
+                <span class="val-tbd">—</span>
+              {% else %}
+                {{ "%.4f"|format(ap) }}
+              {% endif %}
+            </td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+
+    <div class="note">
+      <strong>Graph heuristics (Adamic-Adar, Common Neighbors, Jaccard)</strong> score exactly 0
+      for all cold pairs — cold drugs have no training neighbors, so every heuristic formula
+      evaluates to 0. AUC = 0.50 is mathematically guaranteed, not measured.
+      <br>
+      <strong>Logistic Regression</strong> uses 212 node features that exist independently of
+      graph connectivity, so it works on cold drugs. The GNN should outperform LR by leveraging
+      partial neighborhood context from nearby warm drugs.
+    </div>
+  </div>
+
+  <!-- ════════════════════════════════════════════════════════════
+       SECTION 2 — Warm evaluation (CONTEXT ONLY)
+  ═══════════════════════════════════════════════════════════════ -->
+  <div class="section-h">Warm evaluation — for reference only</div>
+
+  <div class="card card-secondary">
+    <div class="card-title">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+           stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/>
+      </svg>
+      Standard 80/20 Edge Split (Transductive)
+    </div>
+    <div class="card-sub">
+      All test drugs appear in the training graph · not a fair test of generalisation ·
+      80 % train / 20 % test · seed 42 · 1:1 pos:neg
+    </div>
+
+    <span class="context-label">
+      ⚠ Context only — high scores here reflect graph density, not true generalisation
+    </span>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Model</th>
+          <th>Category</th>
+          <th>Warm AUC-ROC</th>
+          <th style="width:220px">Bar</th>
+          <th>Avg Precision</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% set warm_methods = [
+          ('adamic_adar',        'Adamic-Adar',             'badge-graph',   'graph heuristic'),
+          ('common_neighbors',   'Common Neighbors',        'badge-graph',   'graph heuristic'),
+          ('jaccard',            'Jaccard',                 'badge-graph',   'graph heuristic'),
+          ('logistic_regression','Logistic Regression',     'badge-ml',      'non-graph ML'),
+          ('gnn',                'GNN (graph + features)',  'badge-gnn',     'GNN'),
+          ('random_chance',      'Random (chance)',         'badge-trivial', 'trivial'),
+        ] %}
+        {% for key, label, badge_cls, cat in warm_methods %}
+          {% set r = results.get(key, {}) %}
+          {% set auc = r.get('auc_roc', 'TBD') %}
+          {% set ap  = r.get('avg_precision', 'TBD') %}
+          {% set is_tbd = (auc == 'TBD' or auc is string) %}
+          <tr class="{% if key == 'gnn' %}row-gnn{% elif key == 'random_chance' %}row-trivial{% endif %}">
+            <td><strong>{{ label }}</strong></td>
+            <td><span class="badge {{ badge_cls }}">{{ cat }}</span></td>
+            <td>
+              {% if is_tbd %}
+                <span class="val-tbd">TBD</span>
+              {% else %}
+                <span style="color:var(--gray-600)">{{ "%.4f"|format(auc) }}</span>
+              {% endif %}
+            </td>
+            <td>
+              {% if not is_tbd %}
+                <div class="bar-wrap">
+                  <div class="bar-track">
+                    <div class="bar-fill" style="
+                      width: {{ [(auc - 0.5) / 0.5 * 100, 0]|max|round(1) }}%;
+                      background: {% if key == 'gnn' %}#16a34a{% elif key == 'random_chance' %}#9ca3af{% elif cat == 'non-graph ML' %}#d97706{% else %}#4f46e5{% endif %};
+                      opacity: .5;
+                    "></div>
+                  </div>
+                  <span class="bar-lbl" style="color:var(--gray-500)">{{ "%.4f"|format(auc) }}</span>
                 </div>
               {% else %}
                 <span style="color:var(--gray-300)">—</span>
               {% endif %}
             </td>
             <td>
-              {% if ap == '—' or ap == 'TBD' %}
+              {% if ap is string %}
                 <span class="val-tbd">{{ ap }}</span>
               {% else %}
                 {{ "%.4f"|format(ap) }}
@@ -336,111 +458,18 @@
     </table>
 
     <div class="note">
-      <strong>Graph heuristics</strong> (Adamic-Adar, CN, Jaccard) score 0 for any node pair where
-      neither node appears in the training graph — i.e. cold-start drugs. They require no training but
-      can only leverage topology. <strong>Logistic Regression</strong> uses 212 node features
-      (physicochemical, ATC codes, CYP450 profiles) concatenated as symmetric pair vectors — it works
-      for cold-start but ignores graph structure. The <strong>GNN</strong> combines both.
+      Graph heuristics score ~0.98 here because DrugBank is extremely dense (avg degree 344 —
+      almost every drug pair shares common neighbors). This is a property of the dataset, not a
+      sign these methods generalise. In cold-start they drop to AUC = 0.50.
     </div>
   </div>
 
   <!-- ════════════════════════════════════════════════════════════
-       SECTION 1b — Cold-start evaluation
-  ═══════════════════════════════════════════════════════════════ -->
-  {% if cold_results %}
-  <div class="card">
-    <div class="card-title">
-      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-           stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-        <circle cx="12" cy="12" r="10"/>
-        <line x1="2" y1="12" x2="22" y2="12"/>
-        <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
-      </svg>
-      Cold-Start Evaluation — GNN's Real Use Case
-    </div>
-    <div class="card-sub">
-      10% of drugs held out entirely (zero training edges) · mimics a newly approved drug ·
-      heuristics score 0 → AUC ≈ 0.50 (blind) · LR uses features · GNN should beat both
-    </div>
-
-    <table>
-      <thead>
-        <tr>
-          <th>Model</th>
-          <th>Category</th>
-          <th>Warm AUC</th>
-          <th>Cold AUC</th>
-          <th style="width:180px">Cold-start drop</th>
-        </tr>
-      </thead>
-      <tbody>
-        {% set cold_methods = [
-          ('adamic_adar',        'Adamic-Adar',              'badge-graph',   'graph_heuristic'),
-          ('common_neighbors',   'Common Neighbors',         'badge-graph',   'graph_heuristic'),
-          ('jaccard',            'Jaccard',                  'badge-graph',   'graph_heuristic'),
-          ('logistic_regression','Logistic Regression',      'badge-ml',      'non_graph_ml'),
-          ('gnn',                'GNN (graph + features)',   'badge-gnn',     'gnn'),
-        ] %}
-        {% for key, label, badge_cls, cat in cold_methods %}
-          {% set warm = results.get(key, {}).get('auc_roc', 'TBD') %}
-          {% set cold = cold_results.get(key, {}).get('auc_roc', 'TBD') %}
-          {% set warm_f = warm if warm is string else warm %}
-          {% set cold_f = cold if cold is string else cold %}
-          <tr class="{% if key == 'gnn' %}row-gnn{% endif %}">
-            <td><strong>{{ label }}</strong></td>
-            <td><span class="badge {{ badge_cls }}">{{ cat.replace('_', ' ') }}</span></td>
-            <td>
-              {% if warm == 'TBD' %}<span class="val-tbd">TBD</span>
-              {% else %}<span style="color:var(--gray-500)">{{ "%.4f"|format(warm) }}</span>{% endif %}
-            </td>
-            <td>
-              {% if cold == 'TBD' %}<span class="val-tbd">TBD</span>
-              {% elif cold is number %}
-                <strong style="color:{% if cold < 0.6 %}var(--red){% elif cold < 0.8 %}var(--amber){% else %}var(--green){% endif %}">
-                  {{ "%.4f"|format(cold) }}
-                </strong>
-              {% else %}{{ cold }}{% endif %}
-            </td>
-            <td>
-              {% if warm is number and cold is number %}
-                {% set drop = warm - cold %}
-                <div class="bar-wrap">
-                  <div class="bar-track">
-                    <div class="bar-fill" style="
-                      width: {{ [drop / 0.5 * 100, 0]|max|round(1) }}%;
-                      background: {% if drop > 0.3 %}var(--red){% elif drop > 0.1 %}var(--amber){% else %}var(--green){% endif %};
-                    "></div>
-                  </div>
-                  <span class="bar-lbl" style="color:{% if drop > 0.3 %}var(--red){% elif drop > 0.1 %}var(--amber){% else %}var(--green){% endif %}">
-                    -{{ "%.3f"|format(drop) }}
-                  </span>
-                </div>
-              {% elif warm == 'TBD' or cold == 'TBD' %}
-                <span class="val-tbd">—</span>
-              {% endif %}
-            </td>
-          </tr>
-        {% endfor %}
-      </tbody>
-    </table>
-
-    <div class="note">
-      <strong>Reading this table:</strong>
-      Graph heuristics collapse completely on cold-start (AUC ≈ 0.50 = random) because
-      cold drugs have zero training neighbours — Common Neighbors scores 0 for every pair.
-      Logistic Regression survives because it uses node features (physicochemical properties,
-      ATC codes, CYP450 profiles) that exist independently of graph topology.
-      The GNN's advantage is combining both: features + partial neighbourhood context from
-      nearby warm drugs it <em>can</em> see.
-    </div>
-  </div>
-  {% endif %}
-
-  <!-- ════════════════════════════════════════════════════════════
-       SECTION 2 — LR top features
+       SECTION 3 — LR top features
   ═══════════════════════════════════════════════════════════════ -->
   {% set lr = results.get('logistic_regression', {}) %}
   {% if lr.get('top_features') %}
+  <div class="section-h">Feature analysis</div>
   <div class="card">
     <div class="card-title">
       <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
@@ -448,10 +477,10 @@
         <line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/>
         <line x1="6"  y1="20" x2="6"  y2="14"/>
       </svg>
-      Logistic Regression — Top Features by |Coefficient|
+      Logistic Regression — Top Predictive Features
     </div>
     <div class="card-sub">
-      AUC-ROC {{ "%.4f"|format(lr.auc_roc) }} · 212-dim node features →
+      AUC-ROC {{ "%.4f"|format(lr.auc_roc) }} · 212 node features →
       424-dim symmetric pair vector [|feat_A − feat_B|, feat_A ⊙ feat_B]
     </div>
     <div class="feat-list">
@@ -464,241 +493,32 @@
     </div>
     <div class="note">
       <strong>PROD:</strong> element-wise product — high when <em>both</em> drugs share a property
-      (e.g. both are CYP3A4 substrates).
-      <strong>DIFF:</strong> absolute difference — high when drugs differ greatly in mass, etc.
-      Positive coefficient = feature increases DDI probability.
+      (e.g. both are CYP3A4 substrates). &nbsp;
+      <strong>DIFF:</strong> absolute difference — high when drugs differ greatly (e.g. molecular weight).
+      Positive coefficient = feature increases interaction probability.
     </div>
   </div>
   {% endif %}
 
   <!-- ════════════════════════════════════════════════════════════
-       SECTION 3 — RM2 Bias / Fairness
+       SECTION 4 — Split provenance note
   ═══════════════════════════════════════════════════════════════ -->
-  {% if bias %}
-  <div class="section-h">Responsible ML</div>
-
-  <div class="card">
-    <div class="card-title">
-      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-           stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-        <circle cx="12" cy="12" r="10"/>
-        <line x1="12" y1="8" x2="12" y2="12"/>
-        <line x1="12" y1="16" x2="12.01" y2="16"/>
-      </svg>
-      RM2 — Bias &amp; Fairness (Interaction Coverage by ATC Category)
-    </div>
-    <div class="card-sub">
-      DrugBank interaction data is skewed toward well-studied drug classes.
-      The GNN is better calibrated for high-coverage categories.
-    </div>
-
-    {% set s = bias.get('summary', {}) %}
-    <div class="stat-grid">
-      <div class="stat-box">
-        <div class="stat-val">{{ "{:,}".format(s.get('n_drugs_total', 0)) }}</div>
-        <div class="stat-lbl">Approved drugs</div>
-      </div>
-      <div class="stat-box">
-        <div class="stat-val">{{ "{:,}".format(s.get('n_ddi_pairs', 0)) }}</div>
-        <div class="stat-lbl">DDI pairs</div>
-      </div>
-      <div class="stat-box">
-        <div class="stat-val">{{ s.get('mean_degree', 0)|round(0)|int }}</div>
-        <div class="stat-lbl">Mean degree</div>
-      </div>
-      <div class="stat-box">
-        <div class="stat-val">{{ "{:,}".format(s.get('max_degree', 0)) }}</div>
-        <div class="stat-lbl">Max degree (hub)</div>
-      </div>
-      <div class="stat-box">
-        <div class="stat-val" style="color:var(--red)">{{ s.get('coverage_ratio', 0) }}x</div>
-        <div class="stat-lbl">Best/worst ratio</div>
-      </div>
-    </div>
-
-    {% if bias.get('by_category') %}
-    <div style="margin-top: 20px; overflow-x: auto;">
-      <table>
-        <thead>
-          <tr>
-            <th>ATC Category</th>
-            <th>Drugs</th>
-            <th>Mean Degree</th>
-            <th style="width:200px">Coverage</th>
-            <th>Isolated %</th>
-          </tr>
-        </thead>
-        <tbody>
-          {% set cats = bias.by_category %}
-          {% set max_deg = cats[0].mean_degree if cats else 1 %}
-          {% for c in cats %}
-            {% set is_best  = loop.first %}
-            {% set is_worst = loop.last %}
-            <tr class="{% if is_best %}cat-row-best{% elif is_worst %}cat-row-worst{% endif %}">
-              <td>
-                {% if is_best  %}<strong style="color:var(--green)">{{ c.atc_category }}</strong>{% endif %}
-                {% if is_worst %}<strong style="color:var(--red)">{{ c.atc_category }}</strong>{% endif %}
-                {% if not is_best and not is_worst %}{{ c.atc_category }}{% endif %}
-              </td>
-              <td>{{ c.n_drugs }}</td>
-              <td>{{ c.mean_degree|round(1) }}</td>
-              <td>
-                <div class="bar-wrap">
-                  <div class="bar-track">
-                    <div class="bar-fill" style="
-                      width: {{ (c.mean_degree / max_deg * 100)|round(1) }}%;
-                      background: {% if is_best %}var(--green){% elif is_worst %}var(--red){% else %}var(--indigo){% endif %};
-                      opacity: .7;
-                    "></div>
-                  </div>
-                </div>
-              </td>
-              <td>{{ c.isolated_pct }}%</td>
-            </tr>
-          {% endfor %}
-        </tbody>
-      </table>
-    </div>
-
-    <div class="note">
-      <strong>Best:</strong> {{ s.get('best_atc_category') }} (mean degree {{ s.get('best_mean_degree') }}) ·
-      <strong>Worst:</strong> {{ s.get('worst_atc_category') }} (mean degree {{ s.get('worst_mean_degree') }}).
-      Coverage ratio {{ s.get('coverage_ratio') }}x.
-      Mitigation: report per-category AUC in GNN error analysis (TM6).
-    </div>
-    {% endif %}
-  </div>
-  {% endif %}
-
-  <!-- ════════════════════════════════════════════════════════════
-       SECTION 4 — RM4 Robustness
-  ═══════════════════════════════════════════════════════════════ -->
-  {% if robust %}
-  <div class="card">
-    <div class="card-title">
-      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-           stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
-      </svg>
-      RM4 — Robustness &amp; Drug Name Resolution
-    </div>
-    <div class="card-sub">
-      {{ robust.get('n_total', 0) }} test cases · {{ robust.get('n_pass', 0) }} passed
-      ({{ robust.get('pass_rate', 0) }}%)
-    </div>
-
-    {% set n_pass = robust.get('n_pass', 0) %}
-    {% set n_total = robust.get('n_total', 0) %}
-    <div style="display:flex; align-items:center; gap:14px; margin-bottom:16px;">
-      <div class="bar-track" style="flex:1; height:14px;">
-        <div class="bar-fill" style="
-          width: {{ robust.get('pass_rate', 0) }}%;
-          background: linear-gradient(90deg, var(--green), #4ade80);
-        "></div>
-      </div>
-      <span style="font-size:1.2rem; font-weight:800; color:var(--green)">
-        {{ robust.get('pass_rate', 0) }}%
-      </span>
-    </div>
-
-    {% if robust.get('cases') %}
-    <div style="overflow-x:auto;">
-      <table>
-        <thead>
-          <tr>
-            <th>#</th>
-            <th>Description</th>
-            <th>Input</th>
-            <th>Expected</th>
-            <th>Got</th>
-            <th>Status</th>
-          </tr>
-        </thead>
-        <tbody>
-          {% for c in robust.cases %}
-            <tr>
-              <td style="color:var(--gray-400); font-size:.8rem">{{ loop.index }}</td>
-              <td>{{ c.case }}</td>
-              <td><code style="font-size:.78rem; background:var(--gray-100); padding:2px 6px; border-radius:4px;">
-                {{ c.input|e if c.input else '(empty)' }}
-              </code></td>
-              <td>{{ c.expected }}</td>
-              <td>
-                {% if c.outcome == 'found' %}
-                  <span style="color:var(--green)">{{ c.resolved }}</span>
-                {% else %}
-                  <span style="color:var(--gray-400)">—</span>
-                {% endif %}
-              </td>
-              <td class="{% if c.passed %}pass{% else %}fail{% endif %}">
-                {{ 'PASS' if c.passed else 'FAIL' }}
-              </td>
-            </tr>
-          {% endfor %}
-        </tbody>
-      </table>
-    </div>
-    {% endif %}
-
-    <div class="note">
-      <strong>Passing:</strong> Case-insensitive matching, common synonyms (aspirin, adrenaline),
-      DrugBank IDs, whitespace trimming, hydrochloride suffixes.<br>
-      <strong>By design not supported:</strong> Brand names (Tylenol, Advil) require a commercial
-      synonym table — misspellings are rejected to avoid false positives in a clinical safety context.
-      Empty/nonsense inputs raise ValueError.
-    </div>
-  </div>
-  {% endif %}
-
-  <!-- ════════════════════════════════════════════════════════════
-       SECTION 5 — RM summary
-  ═══════════════════════════════════════════════════════════════ -->
-  <div class="card">
-    <div class="card-title">
-      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+  <div class="card" style="border-color:rgba(99,102,241,.1); background:rgba(255,255,255,.65);">
+    <div class="card-title" style="color:var(--gray-600)">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
         <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
         <polyline points="14 2 14 8 20 8"/>
-        <line x1="16" y1="13" x2="8" y2="13"/>
-        <line x1="16" y1="17" x2="8" y2="17"/>
-        <polyline points="10 9 9 9 8 9"/>
       </svg>
-      Responsible ML Coverage
+      Evaluation Notes
     </div>
-    <div class="card-sub">4 required topics — 3 implemented + 1 partially covered</div>
-
-    <table>
-      <thead>
-        <tr><th>Topic</th><th>Status</th><th>Summary</th></tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td><strong>RM1 — Explainability</strong></td>
-          <td><span class="badge" style="background:#fef3c7;color:#92400e;">Partial</span></td>
-          <td>Dict lookup returns exact DrugBank sentence (fully interpretable).
-              LR coefficients above show feature attribution.
-              GNNExplainer planned after GNN delivery.</td>
-        </tr>
-        <tr>
-          <td><strong>RM2 — Bias / Fairness</strong></td>
-          <td><span class="badge badge-gnn">Done</span></td>
-          <td>Documented above. NERVOUS SYSTEM drugs have 4.1× more interactions than
-              VARIOUS drugs. Hub drugs (Clozapine: 1,907 edges) dominate training.</td>
-        </tr>
-        <tr>
-          <td><strong>RM3 — Privacy</strong></td>
-          <td><span class="badge badge-gnn">Done</span></td>
-          <td>All data is public DrugBank (CC BY-NC 4.0). No patient data, no re-identification
-              risk. Design-decision audit in <code>docs/responsible_ml.md</code>.</td>
-        </tr>
-        <tr>
-          <td><strong>RM4 — Robustness</strong></td>
-          <td><span class="badge badge-gnn">Done</span></td>
-          <td>{{ robust.get('pass_rate', '?') }}% pass rate on {{ robust.get('n_total', '?') }} input-variation
-              cases. Misspellings intentionally rejected. Data currency limitation documented.</td>
-        </tr>
-      </tbody>
-    </table>
+    <ul style="font-size:.84rem; color:var(--gray-600); line-height:1.8; padding-left:18px;">
+      <li>Cold-start split: 10 % of drugs randomly selected at the drug level (not edge level), all their edges removed from training.</li>
+      <li>Warm split: random 80/20 edge split, seed 42, 1:1 positive:negative sampling via random drug pairs not in DrugBank.</li>
+      <li>GNN uses the same split files (<code>edge_split.npz</code>, <code>cold_split.npz</code>) for a fair comparison.</li>
+      <li>Data: DrugBank Full Database v5.1 · 4,795 FDA-approved drugs · 824,249 documented interaction pairs.</li>
+      <li>Graph heuristics and LR baselines: <code>pipeline/step9_baseline.py</code> · GNN: <code>pipeline/gnn_predictor.py</code>.</li>
+    </ul>
   </div>
 
 </main>

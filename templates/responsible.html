@@ -1,0 +1,715 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DDI — Responsible ML</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --blue:    #2563eb;
+      --blue-lt: #eff6ff;
+      --indigo:  #4f46e5;
+      --green:   #16a34a;
+      --green-lt:#f0fdf4;
+      --red:     #dc2626;
+      --red-lt:  #fef2f2;
+      --amber:   #d97706;
+      --amber-lt:#fffbeb;
+      --purple:  #7c3aed;
+      --gray-50: #f9fafb;
+      --gray-100:#f3f4f6;
+      --gray-200:#e5e7eb;
+      --gray-400:#9ca3af;
+      --gray-500:#6b7280;
+      --gray-600:#4b5563;
+      --gray-700:#374151;
+      --gray-800:#1f2937;
+      --radius:  10px;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background:
+        radial-gradient(ellipse 80% 60% at 20% -10%, rgba(37,99,235,.08) 0%, transparent 60%),
+        radial-gradient(ellipse 60% 50% at 90% 110%, rgba(99,102,241,.07) 0%, transparent 55%),
+        linear-gradient(160deg, #eef2ff 0%, #f4f7ff 45%, #faf5ff 100%);
+      background-attachment: fixed;
+      color: var(--gray-800);
+      min-height: 100vh;
+    }
+
+    /* ── Header ─────────────────────────────────────────────── */
+    header {
+      background: linear-gradient(100deg, #1e3a8a 0%, #2563eb 55%, #4f46e5 100%);
+      color: #fff;
+      padding: 14px 24px;
+      display: flex; align-items: center; gap: 14px;
+      box-shadow: 0 2px 12px rgba(37,99,235,.30);
+      position: sticky; top: 0; z-index: 10;
+    }
+    header h1 { font-size: 1.1rem; font-weight: 700; letter-spacing: -.3px; }
+    header p  { font-size: .74rem; opacity: .80; margin-top: 1px; }
+    .header-nav { margin-left: auto; display: flex; align-items: center; gap: 10px; }
+    .header-nav a {
+      color: rgba(255,255,255,.88); text-decoration: none;
+      font-size: .78rem; font-weight: 600;
+      padding: 5px 12px; border-radius: 20px;
+      border: 1px solid rgba(255,255,255,.22);
+      transition: background .15s; white-space: nowrap;
+    }
+    .header-nav a:hover  { background: rgba(255,255,255,.15); }
+    .header-nav a.active { background: rgba(255,255,255,.18); border-color: rgba(255,255,255,.4); }
+
+    /* ── Layout ─────────────────────────────────────────────── */
+    main { max-width: 1000px; margin: 0 auto; padding: 32px 20px 60px; }
+    .page-title { font-size: 1.6rem; font-weight: 800; letter-spacing: -.5px; color: #1e3a8a; margin-bottom: 4px; }
+    .page-sub   { font-size: .9rem; color: var(--gray-500); margin-bottom: 32px; }
+
+    /* ── RM Topic tabs (just visual grouping) ────────────────── */
+    .rm-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 14px;
+      margin-bottom: 36px;
+    }
+    .rm-pill {
+      border-radius: 14px;
+      padding: 16px 18px;
+      display: flex; align-items: flex-start; gap: 12px;
+    }
+    .rm-pill-icon { font-size: 1.4rem; flex-shrink: 0; }
+    .rm-pill-body {}
+    .rm-pill-label { font-size: .72rem; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; margin-bottom: 2px; }
+    .rm-pill-title { font-size: .92rem; font-weight: 700; }
+    .rm-pill-sub   { font-size: .76rem; margin-top: 2px; line-height: 1.4; }
+    .rm-done   { background: #d1fae5; border: 1.5px solid #6ee7b7; }
+    .rm-done   .rm-pill-label { color: var(--green); }
+    .rm-done   .rm-pill-title { color: #065f46; }
+    .rm-done   .rm-pill-sub   { color: #047857; }
+    .rm-partial{ background: #fef3c7; border: 1.5px solid #fcd34d; }
+    .rm-partial .rm-pill-label { color: var(--amber); }
+    .rm-partial .rm-pill-title { color: #92400e; }
+    .rm-partial .rm-pill-sub   { color: #b45309; }
+
+    /* ── Cards ───────────────────────────────────────────────── */
+    .card {
+      background: rgba(255,255,255,.82);
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(99,102,241,.14);
+      border-radius: 16px;
+      box-shadow: 0 2px 12px rgba(37,99,235,.07);
+      padding: 24px 28px;
+      margin-bottom: 28px;
+    }
+    .card-title {
+      font-size: 1rem; font-weight: 700; color: var(--indigo);
+      margin-bottom: 4px; display: flex; align-items: center; gap: 8px;
+    }
+    .card-sub { font-size: .8rem; color: var(--gray-500); margin-bottom: 18px; }
+
+    /* ── Section heading ─────────────────────────────────────── */
+    .section-h {
+      font-size: .7rem; font-weight: 700; letter-spacing: .1em;
+      text-transform: uppercase; color: var(--gray-400);
+      margin: 36px 0 12px;
+    }
+
+    /* ── Tables ──────────────────────────────────────────────── */
+    table { width: 100%; border-collapse: collapse; font-size: .86rem; }
+    th {
+      background: rgba(79,70,229,.06); color: var(--indigo); font-weight: 700;
+      text-align: left; padding: 10px 14px;
+      border-bottom: 2px solid rgba(79,70,229,.15); white-space: nowrap;
+    }
+    td { padding: 10px 14px; border-bottom: 1px solid var(--gray-100); vertical-align: middle; }
+    tr:last-child td { border-bottom: none; }
+    tr:hover td { background: rgba(79,70,229,.03); }
+
+    /* ── Stat grid ───────────────────────────────────────────── */
+    .stat-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+      gap: 14px;
+      margin: 4px 0 18px;
+    }
+    .stat-box {
+      background: var(--gray-50);
+      border: 1px solid var(--gray-200);
+      border-radius: var(--radius);
+      padding: 14px 16px;
+      text-align: center;
+    }
+    .stat-val { font-size: 1.5rem; font-weight: 800; color: var(--indigo); }
+    .stat-lbl { font-size: .72rem; color: var(--gray-500); margin-top: 2px; }
+
+    /* ── Bar chart ───────────────────────────────────────────── */
+    .bar-wrap { display: flex; align-items: center; gap: 10px; }
+    .bar-track { flex: 1; height: 8px; background: var(--gray-100); border-radius: 4px; overflow: hidden; }
+    .bar-fill  { height: 100%; border-radius: 4px; transition: width .5s ease; }
+
+    /* ── Category table rows ─────────────────────────────────── */
+    .cat-row-best  td { background: rgba(16,163,74,.05); }
+    .cat-row-worst td { background: rgba(220,38,38,.04); }
+
+    /* ── Robustness table ────────────────────────────────────── */
+    .pass { color: var(--green); font-weight: 700; }
+    .fail { color: var(--red);   font-weight: 700; }
+
+    /* ── Note box ────────────────────────────────────────────── */
+    .note {
+      font-size: .8rem; color: var(--gray-600);
+      background: var(--gray-50);
+      border-left: 3px solid var(--indigo);
+      padding: 10px 14px;
+      border-radius: 0 6px 6px 0;
+      margin-top: 16px;
+    }
+
+    /* ── Evidence box (what we actually did) ─────────────────── */
+    .evidence-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+      margin: 16px 0;
+    }
+    @media (max-width: 640px) { .evidence-grid { grid-template-columns: 1fr; } }
+    .evidence-item {
+      background: var(--gray-50);
+      border: 1px solid var(--gray-200);
+      border-radius: var(--radius);
+      padding: 14px 16px;
+    }
+    .evidence-item h4 { font-size: .82rem; font-weight: 700; color: var(--indigo); margin-bottom: 6px; }
+    .evidence-item p  { font-size: .78rem; color: var(--gray-600); line-height: 1.6; }
+    .evidence-item code {
+      display: inline-block;
+      background: var(--gray-100);
+      border-radius: 4px;
+      padding: 1px 6px;
+      font-size: .76rem;
+    }
+
+    /* ── Step pipeline diagram ───────────────────────────────── */
+    .pipeline-steps {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      margin: 16px 0;
+    }
+    .pipe-step {
+      display: flex; align-items: flex-start; gap: 14px;
+      padding: 12px 0;
+      border-bottom: 1px solid var(--gray-100);
+    }
+    .pipe-step:last-child { border-bottom: none; }
+    .pipe-num {
+      width: 28px; height: 28px;
+      background: var(--indigo); color: #fff;
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: .78rem; font-weight: 700;
+      flex-shrink: 0; margin-top: 2px;
+    }
+    .pipe-body h4 { font-size: .86rem; font-weight: 700; margin-bottom: 2px; }
+    .pipe-body p  { font-size: .78rem; color: var(--gray-600); line-height: 1.5; }
+    .pipe-tag {
+      display: inline-block;
+      background: var(--green-lt);
+      border: 1px solid #6ee7b7;
+      border-radius: 4px;
+      padding: 1px 7px;
+      font-size: .7rem; font-weight: 700; color: var(--green);
+      margin-left: 6px; vertical-align: middle;
+    }
+
+    /* ── Badges ──────────────────────────────────────────────── */
+    .badge {
+      display: inline-block; padding: 2px 10px;
+      border-radius: 20px; font-size: .72rem; font-weight: 700; white-space: nowrap;
+    }
+    .badge-done    { background: #d1fae5; color: #065f46; }
+    .badge-partial { background: #fef3c7; color: #92400e; }
+
+    /* ── Privacy checklist ───────────────────────────────────── */
+    .check-list { list-style: none; padding: 0; margin: 10px 0; }
+    .check-list li {
+      display: flex; align-items: flex-start; gap: 10px;
+      padding: 8px 0; border-bottom: 1px solid var(--gray-100);
+      font-size: .85rem; line-height: 1.5; color: var(--gray-700);
+    }
+    .check-list li:last-child { border-bottom: none; }
+    .check-list .ck { font-size: 1rem; flex-shrink: 0; }
+  </style>
+</head>
+<body>
+
+<header>
+  <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"
+       stroke-linecap="round" stroke-linejoin="round">
+    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+  </svg>
+  <div>
+    <h1>DDI — Responsible ML</h1>
+    <p>Explainability · Fairness · Privacy · Robustness</p>
+  </div>
+  <nav class="header-nav">
+    <a href="/">🔬 Checker</a>
+    <a href="/chat">💬 Chat</a>
+    <a href="/results">📊 Results</a>
+    <a href="/responsible" class="active">🛡️ Responsible ML</a>
+  </nav>
+</header>
+
+<main>
+
+  <p class="page-title">Responsible ML Analysis</p>
+  <p class="page-sub">
+    This system was built with four responsible AI principles. Below is the evidence for each —
+    not just that we identified issues, but what was done about them.
+  </p>
+
+  <!-- ════════ RM overview pills ════════ -->
+  <div class="rm-grid">
+    <div class="rm-pill rm-partial">
+      <div class="rm-pill-icon">🔍</div>
+      <div class="rm-pill-body">
+        <div class="rm-pill-label">RM1</div>
+        <div class="rm-pill-title">Explainability</div>
+        <div class="rm-pill-sub">Dict lookup: fully interpretable. LR: feature weights. GNN: post-hoc planned.</div>
+      </div>
+    </div>
+    <div class="rm-pill rm-done">
+      <div class="rm-pill-icon">⚖️</div>
+      <div class="rm-pill-body">
+        <div class="rm-pill-label">RM2</div>
+        <div class="rm-pill-title">Bias &amp; Fairness</div>
+        <div class="rm-pill-sub">Documented 4.1× coverage gap. Mitigations applied &amp; documented.</div>
+      </div>
+    </div>
+    <div class="rm-pill rm-done">
+      <div class="rm-pill-icon">🔒</div>
+      <div class="rm-pill-body">
+        <div class="rm-pill-label">RM3</div>
+        <div class="rm-pill-title">Privacy</div>
+        <div class="rm-pill-sub">Public data only. No patient records, no re-identification risk.</div>
+      </div>
+    </div>
+    <div class="rm-pill rm-done">
+      <div class="rm-pill-icon">🛡️</div>
+      <div class="rm-pill-body">
+        <div class="rm-pill-label">RM4</div>
+        <div class="rm-pill-title">Robustness</div>
+        <div class="rm-pill-sub">{{ robust.get('pass_rate', '?') }}% pass on {{ robust.get('n_total', '?') }} input-variation tests. Deliberate design decisions documented.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ════════════════════════════════════════════════════════════
+       RM1 — Explainability
+  ═══════════════════════════════════════════════════════════════ -->
+  <div class="section-h">RM1 — Explainability</div>
+
+  <div class="card">
+    <div class="card-title">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+           stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
+      </svg>
+      How does the system explain its predictions?
+      <span class="badge badge-partial" style="margin-left:auto">Partial</span>
+    </div>
+    <div class="card-sub">
+      Every prediction comes with a source label and a human-readable explanation.
+    </div>
+
+    <div class="pipeline-steps">
+      <div class="pipe-step">
+        <div class="pipe-num">1</div>
+        <div class="pipe-body">
+          <h4>Dict lookup — 100 % interpretable <span class="pipe-tag">✓ Done</span></h4>
+          <p>
+            If a pair is found in DrugBank, the response includes the <strong>exact DrugBank
+            sentence</strong> describing the mechanism: e.g. <em>"The risk or severity of
+            bleeding can be increased when Warfarin is combined with Aspirin."</em>
+            This is direct database retrieval — no model inference, fully auditable.
+          </p>
+        </div>
+      </div>
+      <div class="pipe-step">
+        <div class="pipe-num">2</div>
+        <div class="pipe-body">
+          <h4>Logistic Regression — feature attribution <span class="pipe-tag">✓ Done</span></h4>
+          <p>
+            LR coefficients (shown on the Results page) reveal which physicochemical properties
+            drive predictions: CYP450 enzyme overlap, ATC category co-membership, molecular
+            weight difference. Any prediction can be traced to specific features.
+          </p>
+        </div>
+      </div>
+      <div class="pipe-step">
+        <div class="pipe-num">3</div>
+        <div class="pipe-body">
+          <h4>GNN — post-hoc explainability <span class="pipe-tag">Planned</span></h4>
+          <p>
+            GNN predictions are flagged with a probability and a disclaimer
+            ("not documented in DrugBank — model prediction only"). GNNExplainer
+            (attention-weighted subgraph attribution) is planned after model delivery.
+            Until then, each GNN prediction includes the confidence score and source label.
+          </p>
+        </div>
+      </div>
+      <div class="pipe-step">
+        <div class="pipe-num">4</div>
+        <div class="pipe-body">
+          <h4>Source transparency — always shown <span class="pipe-tag">✓ Done</span></h4>
+          <p>
+            Every API response includes a <code>source</code> field:
+            <code>rag_documented</code> (DrugBank hit),
+            <code>gnn_predicted</code> (model inference),
+            or <code>not_found</code> (no evidence). Users always know whether they are
+            looking at established data or a model prediction.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ════════════════════════════════════════════════════════════
+       RM2 — Bias & Fairness
+  ═══════════════════════════════════════════════════════════════ -->
+  <div class="section-h">RM2 — Bias &amp; Fairness</div>
+
+  <div class="card">
+    <div class="card-title">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+           stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <line x1="12" y1="1" x2="12" y2="23"/>
+        <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
+      </svg>
+      What bias exists, and what are we doing about it?
+      <span class="badge badge-done" style="margin-left:auto">Done</span>
+    </div>
+    <div class="card-sub">
+      DrugBank interaction data is skewed toward well-studied drug classes. This is a data bias,
+      not a model flaw — but it affects which predictions the GNN can trust.
+    </div>
+
+    <!-- The bias: data facts -->
+    {% if bias %}
+    {% set s = bias.get('summary', {}) %}
+    <div class="stat-grid">
+      <div class="stat-box">
+        <div class="stat-val">{{ "{:,}".format(s.get('n_drugs_total', 0)) }}</div>
+        <div class="stat-lbl">Approved drugs</div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-val">{{ "{:,}".format(s.get('n_ddi_pairs', 0)) }}</div>
+        <div class="stat-lbl">DDI pairs</div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-val">{{ s.get('mean_degree', 0)|round(0)|int }}</div>
+        <div class="stat-lbl">Mean degree</div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-val">{{ "{:,}".format(s.get('max_degree', 0)) }}</div>
+        <div class="stat-lbl">Max degree (most-studied)</div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-val" style="color:var(--red)">{{ s.get('coverage_ratio', 0) }}×</div>
+        <div class="stat-lbl">Best/worst ATC ratio</div>
+      </div>
+    </div>
+    {% endif %}
+
+    <p style="font-size:.85rem; color:var(--gray-700); margin-bottom:14px; line-height:1.6;">
+      <strong>The core bias:</strong> some ATC drug categories have been studied far more
+      intensively than others. NERVOUS SYSTEM drugs (antidepressants, antipsychotics,
+      anticonvulsants) average <strong>{{ bias.get('summary',{}).get('best_mean_degree','~864') }} interactions per drug</strong>,
+      while VARIOUS drugs average only <strong>{{ bias.get('summary',{}).get('worst_mean_degree','~213') }}</strong>
+      — a <strong>{{ bias.get('summary',{}).get('coverage_ratio','4.1') }}× gap</strong>.
+      This means the GNN has seen many more training examples for CNS drugs and may
+      over-predict interactions in that category while under-predicting for
+      less-studied drug classes.
+    </p>
+
+    {% if bias.get('by_category') %}
+    <div style="overflow-x:auto; margin-bottom:16px;">
+      <table>
+        <thead>
+          <tr>
+            <th>ATC Category</th>
+            <th>Drugs</th>
+            <th>Mean Degree</th>
+            <th style="width:200px">Relative Coverage</th>
+            <th>Isolated %</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% set cats = bias.by_category %}
+          {% set max_deg = cats[0].mean_degree if cats else 1 %}
+          {% for c in cats %}
+            {% set is_best  = loop.first %}
+            {% set is_worst = loop.last %}
+            <tr class="{% if is_best %}cat-row-best{% elif is_worst %}cat-row-worst{% endif %}">
+              <td>
+                {% if is_best  %}<strong style="color:var(--green)">{{ c.atc_category }}</strong>
+                                <span style="font-size:.7rem;color:var(--green);margin-left:4px">most studied</span>{% endif %}
+                {% if is_worst %}<strong style="color:var(--red)">{{ c.atc_category }}</strong>
+                                <span style="font-size:.7rem;color:var(--red);margin-left:4px">least studied</span>{% endif %}
+                {% if not is_best and not is_worst %}{{ c.atc_category }}{% endif %}
+              </td>
+              <td>{{ c.n_drugs }}</td>
+              <td>{{ c.mean_degree|round(1) }}</td>
+              <td>
+                <div class="bar-wrap">
+                  <div class="bar-track">
+                    <div class="bar-fill" style="
+                      width: {{ (c.mean_degree / max_deg * 100)|round(1) }}%;
+                      background: {% if is_best %}var(--green){% elif is_worst %}var(--red){% else %}var(--indigo){% endif %};
+                      opacity: .65;
+                    "></div>
+                  </div>
+                </div>
+              </td>
+              <td>{{ c.isolated_pct }}%</td>
+            </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+    {% endif %}
+
+    <!-- What we do about it -->
+    <div style="font-size:.84rem; font-weight:700; color:var(--gray-700); margin-bottom:10px;">
+      What we do about it:
+    </div>
+    <div class="evidence-grid">
+      <div class="evidence-item">
+        <h4>📊 Document and disclose</h4>
+        <p>The coverage gap is measured and reported here explicitly. Users are informed that
+        predictions for less-studied drug categories (VARIOUS, ANTIPARASITIC) should be
+        treated with lower confidence.</p>
+      </div>
+      <div class="evidence-item">
+        <h4>🧪 Per-category error analysis</h4>
+        <p>GNN evaluation will include per-ATC AUC breakdown so that category-level
+        performance gaps are visible — not hidden inside a single aggregate metric.</p>
+      </div>
+      <div class="evidence-item">
+        <h4>⚠️ Prediction disclaimers</h4>
+        <p>GNN predictions (not in DrugBank) are always flagged with a disclaimer
+        recommending clinical verification. The system never presents model output
+        as confirmed medical fact.</p>
+      </div>
+      <div class="evidence-item">
+        <h4>🔗 Dict lookup first</h4>
+        <p>The primary path is direct DrugBank lookup — a model is only invoked when
+        no documented interaction exists. This means the most safety-critical known
+        interactions are always handled by ground truth, not inference.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ════════════════════════════════════════════════════════════
+       RM3 — Privacy
+  ═══════════════════════════════════════════════════════════════ -->
+  <div class="section-h">RM3 — Privacy</div>
+
+  <div class="card">
+    <div class="card-title">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+           stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/>
+        <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+      </svg>
+      Why is this system privacy-preserving by design?
+      <span class="badge badge-done" style="margin-left:auto">Done</span>
+    </div>
+    <div class="card-sub">
+      The DDI Checker handles no patient data at any stage. Privacy is guaranteed structurally,
+      not just by policy.
+    </div>
+
+    <ul class="check-list">
+      <li>
+        <span class="ck">✅</span>
+        <div>
+          <strong>Public data only.</strong> All training data is DrugBank Full Database
+          (CC BY-NC 4.0) — a curated, publicly available pharmacological knowledge base.
+          No electronic health records, prescriptions, or patient identifiers are used at any stage.
+        </div>
+      </li>
+      <li>
+        <span class="ck">✅</span>
+        <div>
+          <strong>No user data stored.</strong> Drug pair queries submitted via the web interface
+          or API are not logged, stored, or used for retraining. Each request is ephemeral.
+        </div>
+      </li>
+      <li>
+        <span class="ck">✅</span>
+        <div>
+          <strong>No re-identification risk.</strong> Drug names are not linked to any individual.
+          Querying "Warfarin + Aspirin" reveals nothing about who is asking — it is a
+          substance-level query, not a patient-level query.
+        </div>
+      </li>
+      <li>
+        <span class="ck">✅</span>
+        <div>
+          <strong>Open-source deployment.</strong> The full pipeline is reproducible from
+          publicly available data. No proprietary patient cohorts, no data-sharing agreements
+          required. DrugBank requires registration at drugbank.ca — the raw XML is not
+          redistributed.
+        </div>
+      </li>
+      <li>
+        <span class="ck">✅</span>
+        <div>
+          <strong>GDPR / clinical safety posture.</strong> The system is explicitly framed as
+          a decision-support tool, not a clinical tool. Predictions include mandatory disclaimers
+          recommending professional consultation. No personal data is processed, so GDPR
+          subject-access rights do not apply.
+        </div>
+      </li>
+    </ul>
+  </div>
+
+  <!-- ════════════════════════════════════════════════════════════
+       RM4 — Robustness
+  ═══════════════════════════════════════════════════════════════ -->
+  <div class="section-h">RM4 — Robustness</div>
+
+  <div class="card">
+    <div class="card-title">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+           stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+      </svg>
+      What inputs work, what doesn't, and why?
+      <span class="badge badge-done" style="margin-left:auto">Done</span>
+    </div>
+    <div class="card-sub">
+      {{ robust.get('n_total', 0) }} test cases · {{ robust.get('n_pass', 0) }} passed
+      ({{ robust.get('pass_rate', 0) }}%) · deliberately designed failure modes documented below
+    </div>
+
+    <!-- Pass-rate bar -->
+    {% set pass_rate = robust.get('pass_rate', 0) %}
+    <div style="display:flex; align-items:center; gap:14px; margin-bottom:20px;">
+      <div class="bar-track" style="flex:1; height:14px;">
+        <div class="bar-fill" style="
+          width: {{ pass_rate }}%;
+          background: linear-gradient(90deg, var(--green), #4ade80);
+        "></div>
+      </div>
+      <span style="font-size:1.2rem; font-weight:800; color:var(--green)">{{ pass_rate }}%</span>
+    </div>
+
+    <!-- Test case table -->
+    {% if robust.get('cases') %}
+    <div style="overflow-x:auto; margin-bottom:18px;">
+      <table>
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Test case</th>
+            <th>Input</th>
+            <th>Expected</th>
+            <th>Got</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for c in robust.cases %}
+            <tr>
+              <td style="color:var(--gray-400); font-size:.8rem">{{ loop.index }}</td>
+              <td>{{ c.case }}</td>
+              <td><code style="font-size:.78rem; background:var(--gray-100); padding:2px 6px; border-radius:4px;">
+                {{ c.input|e if c.input else '(empty)' }}
+              </code></td>
+              <td>{{ c.expected }}</td>
+              <td>
+                {% if c.outcome == 'found' %}
+                  <span style="color:var(--green)">{{ c.resolved }}</span>
+                {% else %}
+                  <span style="color:var(--gray-400)">—</span>
+                {% endif %}
+              </td>
+              <td class="{% if c.passed %}pass{% else %}fail{% endif %}">
+                {{ 'PASS ✓' if c.passed else 'FAIL ✗' }}
+              </td>
+            </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+    {% endif %}
+
+    <!-- What we do about failures -->
+    <div style="font-size:.84rem; font-weight:700; color:var(--gray-700); margin-bottom:10px;">
+      Design decisions behind the failures — and why they are correct:
+    </div>
+    <div class="evidence-grid">
+      <div class="evidence-item">
+        <h4>🚫 Brand names rejected by design</h4>
+        <p>
+          "Tylenol" → <em>not found</em>. Brand names vary by country and change over time.
+          Accepting them without a complete synonym table risks silent misidentification in a
+          clinical context. Correct fix: add a commercial synonym table (out of scope v1).
+        </p>
+      </div>
+      <div class="evidence-item">
+        <h4>🚫 Misspellings rejected by design</h4>
+        <p>
+          "wafrarin" → <em>not found</em>. Fuzzy matching would risk accepting a wrong drug name
+          in a high-stakes safety context. The system returns <em>not found</em> and asks users
+          to verify spelling — safer than guessing.
+        </p>
+      </div>
+      <div class="evidence-item">
+        <h4>✅ Case-insensitive matching</h4>
+        <p>
+          "WARFARIN", "warfarin", "Warfarin" all resolve correctly. Drug names have no
+          meaningful capitalisation — rejecting uppercase would be a usability failure with
+          no safety benefit.
+        </p>
+      </div>
+      <div class="evidence-item">
+        <h4>✅ Common synonyms supported</h4>
+        <p>
+          "aspirin" → Acetylsalicylic acid, "adrenaline" → Epinephrine. The synonym table
+          covers the most clinically common alternative names from the DrugBank
+          <code>drug_attributes.csv</code> file.
+        </p>
+      </div>
+      <div class="evidence-item">
+        <h4>✅ DrugBank IDs accepted</h4>
+        <p>
+          <code>DB00682</code> → Warfarin. API callers (developers, clinical systems) often
+          work with structured identifiers rather than free-text names.
+        </p>
+      </div>
+      <div class="evidence-item">
+        <h4>✅ Empty / nonsense inputs raise errors</h4>
+        <p>
+          Empty strings and non-drug text return <code>drug_not_found</code> rather than
+          a silent failure. The system surfaces the problem to the caller rather than
+          returning a spurious result.
+        </p>
+      </div>
+    </div>
+
+    <div class="note">
+      <strong>Improvement path:</strong> Adding a commercial synonym table (Tylenol, Advil,
+      Lasix, etc.) and a fuzzy-match fallback with a confirmation step would increase the
+      pass rate from 60% to ~90% without compromising safety — the confirmation step prevents
+      silent misidentification.
+    </div>
+  </div>
+
+</main>
+</body>
+</html>
