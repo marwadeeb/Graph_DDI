@@ -395,6 +395,38 @@ def chat_page():
     return render_template("chat.html")
 
 
+@app.route("/results", methods=["GET"])
+def results_page():
+    """Model comparison / evaluation results page."""
+    import json as _json
+    results_path = os.path.join(BASE_DIR, "data", "evaluation", "baselines_results.json")
+    bias_path    = os.path.join(BASE_DIR, "data", "evaluation", "responsible_ml_bias.json")
+    robust_path  = os.path.join(BASE_DIR, "data", "evaluation", "responsible_ml_robust.json")
+
+    results_data, bias_data, robust_data = {}, {}, {}
+    try:
+        with open(results_path) as f:
+            results_data = _json.load(f)
+    except Exception:
+        pass
+    try:
+        with open(bias_path) as f:
+            bias_data = _json.load(f)
+    except Exception:
+        pass
+    try:
+        with open(robust_path) as f:
+            robust_data = _json.load(f)
+    except Exception:
+        pass
+
+    return render_template("results.html",
+                           results=results_data.get("results", {}),
+                           config=results_data.get("config", {}),
+                           bias=bias_data,
+                           robust=robust_data)
+
+
 @app.route("/health", methods=["GET"])
 def health():
     """Liveness / readiness check."""

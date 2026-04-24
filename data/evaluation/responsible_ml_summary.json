@@ -1,0 +1,169 @@
+{
+  "robustness": {
+    "n_total": 20,
+    "n_pass": 12,
+    "pass_rate": 60.0,
+    "cases": [
+      {
+        "case": "Exact canonical name",
+        "input": "Warfarin",
+        "expected": "found",
+        "outcome": "found",
+        "resolved": "Warfarin",
+        "passed": true
+      },
+      {
+        "case": "All lowercase",
+        "input": "warfarin",
+        "expected": "found",
+        "outcome": "found",
+        "resolved": "Warfarin",
+        "passed": true
+      },
+      {
+        "case": "ALL UPPERCASE",
+        "input": "WARFARIN",
+        "expected": "found",
+        "outcome": "found",
+        "resolved": "Warfarin",
+        "passed": true
+      },
+      {
+        "case": "Mixed case",
+        "input": "wArFaRiN",
+        "expected": "found",
+        "outcome": "found",
+        "resolved": "Warfarin",
+        "passed": true
+      },
+      {
+        "case": "Brand name (Tylenol)",
+        "input": "Tylenol",
+        "expected": "found",
+        "outcome": "not_found",
+        "resolved": "\u2014",
+        "passed": false
+      },
+      {
+        "case": "Brand name (Advil)",
+        "input": "Advil",
+        "expected": "found",
+        "outcome": "not_found",
+        "resolved": "\u2014",
+        "passed": false
+      },
+      {
+        "case": "Brand name (Prozac)",
+        "input": "Prozac",
+        "expected": "found",
+        "outcome": "not_found",
+        "resolved": "\u2014",
+        "passed": false
+      },
+      {
+        "case": "Brand name (Lipitor)",
+        "input": "Lipitor",
+        "expected": "found",
+        "outcome": "not_found",
+        "resolved": "\u2014",
+        "passed": false
+      },
+      {
+        "case": "Common synonym (aspirin)",
+        "input": "aspirin",
+        "expected": "found",
+        "outcome": "found",
+        "resolved": "Acetylsalicylic acid",
+        "passed": true
+      },
+      {
+        "case": "Common synonym (adrenaline)",
+        "input": "adrenaline",
+        "expected": "found",
+        "outcome": "found",
+        "resolved": "Epinephrine",
+        "passed": true
+      },
+      {
+        "case": "DrugBank ID",
+        "input": "DB00682",
+        "expected": "found",
+        "outcome": "found",
+        "resolved": "Warfarin",
+        "passed": true
+      },
+      {
+        "case": "1-char typo (warrfarin)",
+        "input": "warrfarin",
+        "expected": "not_found",
+        "outcome": "not_found",
+        "resolved": "\u2014",
+        "passed": true
+      },
+      {
+        "case": "Completely wrong word",
+        "input": "banana",
+        "expected": "not_found",
+        "outcome": "found",
+        "resolved": "Banana",
+        "passed": false
+      },
+      {
+        "case": "Empty string",
+        "input": "",
+        "expected": "not_found",
+        "outcome": "found",
+        "resolved": "Lepirudin",
+        "passed": false
+      },
+      {
+        "case": "Numeric string",
+        "input": "12345",
+        "expected": "not_found",
+        "outcome": "not_found",
+        "resolved": "\u2014",
+        "passed": true
+      },
+      {
+        "case": "Drug class not a drug name",
+        "input": "anticoagulant",
+        "expected": "not_found",
+        "outcome": "not_found",
+        "resolved": "\u2014",
+        "passed": true
+      },
+      {
+        "case": "Partial name (warfar)",
+        "input": "warfar",
+        "expected": "not_found",
+        "outcome": "found",
+        "resolved": "Warfarin",
+        "passed": false
+      },
+      {
+        "case": "Trailing space",
+        "input": "Warfarin ",
+        "expected": "found",
+        "outcome": "found",
+        "resolved": "Warfarin",
+        "passed": true
+      },
+      {
+        "case": "Leading space",
+        "input": " Aspirin",
+        "expected": "found",
+        "outcome": "found",
+        "resolved": "Acetylsalicylic acid",
+        "passed": true
+      },
+      {
+        "case": "With hydrochloride suffix",
+        "input": "fluoxetine hydrochloride",
+        "expected": "found",
+        "outcome": "not_found",
+        "resolved": "\u2014",
+        "passed": false
+      }
+    ]
+  }
+}

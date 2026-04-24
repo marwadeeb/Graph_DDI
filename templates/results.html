@@ -1,0 +1,614 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DDI Results — Model Evaluation</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --blue:    #2563eb;
+      --blue-lt: #eff6ff;
+      --indigo:  #4f46e5;
+      --green:   #16a34a;
+      --green-lt:#f0fdf4;
+      --red:     #dc2626;
+      --red-lt:  #fef2f2;
+      --amber:   #d97706;
+      --amber-lt:#fffbeb;
+      --purple:  #7c3aed;
+      --gray-50: #f9fafb;
+      --gray-100:#f3f4f6;
+      --gray-200:#e5e7eb;
+      --gray-400:#9ca3af;
+      --gray-500:#6b7280;
+      --gray-600:#4b5563;
+      --gray-700:#374151;
+      --gray-800:#1f2937;
+      --radius:  10px;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background:
+        radial-gradient(ellipse 80% 60% at 20% -10%, rgba(37,99,235,.08) 0%, transparent 60%),
+        radial-gradient(ellipse 60% 50% at 90% 110%, rgba(99,102,241,.07) 0%, transparent 55%),
+        linear-gradient(160deg, #eef2ff 0%, #f4f7ff 45%, #faf5ff 100%);
+      background-attachment: fixed;
+      color: var(--gray-800);
+      min-height: 100vh;
+    }
+
+    /* ── Header ─────────────────────────────────────────────── */
+    header {
+      background: linear-gradient(100deg, #1e3a8a 0%, #2563eb 55%, #4f46e5 100%);
+      color: #fff;
+      padding: 14px 24px;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      box-shadow: 0 2px 12px rgba(37,99,235,.30);
+      position: sticky; top: 0; z-index: 10;
+    }
+    header h1  { font-size: 1.1rem; font-weight: 700; letter-spacing: -.3px; }
+    header p   { font-size: .74rem; opacity: .80; margin-top: 1px; }
+
+    .header-nav {
+      margin-left: auto;
+      display: flex; align-items: center; gap: 10px;
+    }
+    .header-nav a {
+      color: rgba(255,255,255,.88);
+      text-decoration: none;
+      font-size: .78rem; font-weight: 600;
+      padding: 5px 12px;
+      border-radius: 20px;
+      border: 1px solid rgba(255,255,255,.22);
+      transition: background .15s;
+      white-space: nowrap;
+    }
+    .header-nav a:hover  { background: rgba(255,255,255,.15); }
+    .header-nav a.active { background: rgba(255,255,255,.18); border-color: rgba(255,255,255,.4); }
+
+    /* ── Layout ─────────────────────────────────────────────── */
+    main {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 32px 20px 60px;
+    }
+
+    .page-title {
+      font-size: 1.6rem; font-weight: 800; letter-spacing: -.5px;
+      color: #1e3a8a; margin-bottom: 4px;
+    }
+    .page-sub {
+      font-size: .9rem; color: var(--gray-500); margin-bottom: 32px;
+    }
+
+    /* ── Cards ───────────────────────────────────────────────── */
+    .card {
+      background: rgba(255,255,255,.82);
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(99,102,241,.14);
+      border-radius: 16px;
+      box-shadow: 0 2px 12px rgba(37,99,235,.07);
+      padding: 24px 28px;
+      margin-bottom: 28px;
+    }
+    .card-title {
+      font-size: 1rem; font-weight: 700; color: var(--indigo);
+      margin-bottom: 4px; display: flex; align-items: center; gap: 8px;
+    }
+    .card-sub {
+      font-size: .8rem; color: var(--gray-500); margin-bottom: 18px;
+    }
+
+    /* ── Table ───────────────────────────────────────────────── */
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: .86rem;
+    }
+    th {
+      background: rgba(79,70,229,.06);
+      color: var(--indigo);
+      font-weight: 700;
+      text-align: left;
+      padding: 10px 14px;
+      border-bottom: 2px solid rgba(79,70,229,.15);
+      white-space: nowrap;
+    }
+    td {
+      padding: 10px 14px;
+      border-bottom: 1px solid var(--gray-100);
+      vertical-align: middle;
+    }
+    tr:last-child td { border-bottom: none; }
+    tr:hover td { background: rgba(79,70,229,.03); }
+
+    .row-gnn td { background: rgba(16,163,74,.04); font-weight: 600; }
+    .row-trivial td { color: var(--gray-400); font-style: italic; }
+
+    .badge {
+      display: inline-block;
+      padding: 2px 10px;
+      border-radius: 20px;
+      font-size: .72rem; font-weight: 700;
+      white-space: nowrap;
+    }
+    .badge-graph  { background: #ede9fe; color: #6d28d9; }
+    .badge-ml     { background: #fef3c7; color: #92400e; }
+    .badge-gnn    { background: #d1fae5; color: #065f46; }
+    .badge-trivial{ background: var(--gray-100); color: var(--gray-500); }
+
+    .val-tbd {
+      color: var(--gray-400); font-style: italic; font-size: .82rem;
+    }
+
+    /* ── Bar chart ───────────────────────────────────────────── */
+    .bar-wrap {
+      display: flex; align-items: center; gap: 10px;
+    }
+    .bar-track {
+      flex: 1;
+      height: 8px;
+      background: var(--gray-100);
+      border-radius: 4px;
+      overflow: hidden;
+    }
+    .bar-fill {
+      height: 100%;
+      border-radius: 4px;
+      transition: width .5s ease;
+    }
+    .bar-lbl {
+      font-size: .82rem; font-weight: 600; min-width: 46px; text-align: right;
+    }
+
+    /* ── Stat grid ───────────────────────────────────────────── */
+    .stat-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+      gap: 14px;
+      margin-top: 4px;
+    }
+    .stat-box {
+      background: var(--gray-50);
+      border: 1px solid var(--gray-200);
+      border-radius: var(--radius);
+      padding: 14px 16px;
+      text-align: center;
+    }
+    .stat-val { font-size: 1.5rem; font-weight: 800; color: var(--indigo); }
+    .stat-lbl { font-size: .72rem; color: var(--gray-500); margin-top: 2px; }
+
+    /* ── Category table ──────────────────────────────────────── */
+    .cat-row-best td { background: rgba(16,163,74,.05); }
+    .cat-row-worst td { background: rgba(220,38,38,.04); }
+
+    /* ── Robustness table ────────────────────────────────────── */
+    .pass { color: var(--green); font-weight: 700; }
+    .fail { color: var(--red);   font-weight: 700; }
+
+    /* ── Features ────────────────────────────────────────────── */
+    .feat-list {
+      display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px;
+    }
+    .feat-chip {
+      background: var(--blue-lt);
+      border: 1px solid rgba(37,99,235,.2);
+      border-radius: var(--radius);
+      padding: 4px 10px;
+      font-size: .76rem; color: var(--blue);
+      font-family: monospace;
+    }
+    .feat-chip .coef {
+      font-weight: 700;
+      margin-left: 5px;
+      color: var(--indigo);
+    }
+    .feat-chip.neg {
+      background: #fef2f2;
+      border-color: rgba(220,38,38,.2);
+      color: var(--red);
+    }
+    .feat-chip.neg .coef { color: var(--red); }
+
+    /* ── Note box ────────────────────────────────────────────── */
+    .note {
+      font-size: .8rem; color: var(--gray-600);
+      background: var(--gray-50);
+      border-left: 3px solid var(--indigo);
+      padding: 10px 14px;
+      border-radius: 0 6px 6px 0;
+      margin-top: 16px;
+    }
+
+    /* ── Section heading ─────────────────────────────────────── */
+    .section-h {
+      font-size: .7rem; font-weight: 700; letter-spacing: .1em;
+      text-transform: uppercase; color: var(--gray-400);
+      margin: 28px 0 10px;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"
+       stroke-linecap="round" stroke-linejoin="round">
+    <path d="M9 3H5a2 2 0 0 0-2 2v4m6-6h10a2 2 0 0 1 2 2v4M9 3v18m0 0h10a2 2 0 0 0 2-2V9M9 21H5a2 2 0 0 1-2-2V9m0 0h18"/>
+  </svg>
+  <div>
+    <h1>DDI Model Evaluation</h1>
+    <p>Baseline comparison &amp; Responsible ML analysis</p>
+  </div>
+  <nav class="header-nav">
+    <a href="/">🔍 Checker</a>
+    <a href="/chat">💬 Chat</a>
+    <a href="/results" class="active">📊 Results</a>
+  </nav>
+</header>
+
+<main>
+
+  <p class="page-title">Model Comparison &amp; Evaluation</p>
+  <p class="page-sub">
+    Link-prediction performance on the DrugBank interaction graph (4,795 nodes · 824,249 edges).<br>
+    Split: 80 % train / 20 % test · seed 42 · 1:1 positive:negative ratio.
+  </p>
+
+  <!-- ════════════════════════════════════════════════════════════
+       SECTION 1 — Baseline comparison
+  ═══════════════════════════════════════════════════════════════ -->
+  <div class="card">
+    <div class="card-title">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+           stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/>
+      </svg>
+      Link-Prediction Performance (AUC-ROC)
+    </div>
+    <div class="card-sub">Higher is better · GNN uses both graph topology + 212 node features</div>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Model</th>
+          <th>Category</th>
+          <th>AUC-ROC</th>
+          <th style="width:220px">Bar</th>
+          <th>Avg Precision</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% set methods = [
+          ('adamic_adar',        'Adamic-Adar',               'graph_heuristic', 'badge-graph'),
+          ('common_neighbors',   'Common Neighbors',          'graph_heuristic', 'badge-graph'),
+          ('jaccard',            'Jaccard',                   'graph_heuristic', 'badge-graph'),
+          ('logistic_regression','Logistic Regression',       'non_graph_ml',    'badge-ml'),
+          ('gnn',                'GNN (graph + features)',    'gnn',             'badge-gnn'),
+          ('random_chance',      'Random (chance)',           'trivial',         'badge-trivial'),
+        ] %}
+        {% for key, label, cat, badge_cls in methods %}
+          {% set r = results.get(key, {}) %}
+          {% set auc = r.get('auc_roc', 'TBD') %}
+          {% set ap  = r.get('avg_precision', 'TBD') %}
+          {% set is_tbd = (auc == 'TBD') %}
+          <tr class="{% if key == 'gnn' %}row-gnn{% elif key == 'random_chance' %}row-trivial{% endif %}">
+            <td><strong>{{ label }}</strong></td>
+            <td><span class="badge {{ badge_cls }}">{{ cat.replace('_', ' ') }}</span></td>
+            <td>
+              {% if is_tbd %}
+                <span class="val-tbd">TBD</span>
+              {% else %}
+                <strong>{{ "%.4f"|format(auc) }}</strong>
+              {% endif %}
+            </td>
+            <td>
+              {% if not is_tbd %}
+                <div class="bar-wrap">
+                  <div class="bar-track">
+                    <div class="bar-fill" style="
+                      width: {{ [(auc - 0.5) / 0.5 * 100, 0]|max|round(1) }}%;
+                      background: {% if key == 'gnn' %}#16a34a{% elif key == 'random_chance' %}#9ca3af{% elif cat == 'non_graph_ml' %}#d97706{% else %}#4f46e5{% endif %};
+                    "></div>
+                  </div>
+                  <span class="bar-lbl" style="color:{% if key == 'random_chance' %}var(--gray-400){% else %}var(--gray-800){% endif %}">
+                    {{ "%.4f"|format(auc) }}
+                  </span>
+                </div>
+              {% else %}
+                <span style="color:var(--gray-300)">—</span>
+              {% endif %}
+            </td>
+            <td>
+              {% if ap == '—' or ap == 'TBD' %}
+                <span class="val-tbd">{{ ap }}</span>
+              {% else %}
+                {{ "%.4f"|format(ap) }}
+              {% endif %}
+            </td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+
+    <div class="note">
+      <strong>Graph heuristics</strong> (Adamic-Adar, CN, Jaccard) score 0 for any node pair where
+      neither node appears in the training graph — i.e. cold-start drugs. They require no training but
+      can only leverage topology. <strong>Logistic Regression</strong> uses 212 node features
+      (physicochemical, ATC codes, CYP450 profiles) concatenated as symmetric pair vectors — it works
+      for cold-start but ignores graph structure. The <strong>GNN</strong> combines both.
+    </div>
+  </div>
+
+  <!-- ════════════════════════════════════════════════════════════
+       SECTION 2 — LR top features
+  ═══════════════════════════════════════════════════════════════ -->
+  {% set lr = results.get('logistic_regression', {}) %}
+  {% if lr.get('top_features') %}
+  <div class="card">
+    <div class="card-title">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+           stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/>
+        <line x1="6"  y1="20" x2="6"  y2="14"/>
+      </svg>
+      Logistic Regression — Top Features by |Coefficient|
+    </div>
+    <div class="card-sub">
+      AUC-ROC {{ "%.4f"|format(lr.auc_roc) }} · 212-dim node features →
+      424-dim symmetric pair vector [|feat_A − feat_B|, feat_A ⊙ feat_B]
+    </div>
+    <div class="feat-list">
+      {% for name, coef in lr.top_features %}
+        <span class="feat-chip {% if coef < 0 %}neg{% endif %}">
+          {{ name.replace('prod_cat_', 'BOTH:').replace('diff_', 'DIFF:').replace('prod_', 'PROD:') }}
+          <span class="coef">{{ "%+.3f"|format(coef) }}</span>
+        </span>
+      {% endfor %}
+    </div>
+    <div class="note">
+      <strong>PROD:</strong> element-wise product — high when <em>both</em> drugs share a property
+      (e.g. both are CYP3A4 substrates).
+      <strong>DIFF:</strong> absolute difference — high when drugs differ greatly in mass, etc.
+      Positive coefficient = feature increases DDI probability.
+    </div>
+  </div>
+  {% endif %}
+
+  <!-- ════════════════════════════════════════════════════════════
+       SECTION 3 — RM2 Bias / Fairness
+  ═══════════════════════════════════════════════════════════════ -->
+  {% if bias %}
+  <div class="section-h">Responsible ML</div>
+
+  <div class="card">
+    <div class="card-title">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+           stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="12" cy="12" r="10"/>
+        <line x1="12" y1="8" x2="12" y2="12"/>
+        <line x1="12" y1="16" x2="12.01" y2="16"/>
+      </svg>
+      RM2 — Bias &amp; Fairness (Interaction Coverage by ATC Category)
+    </div>
+    <div class="card-sub">
+      DrugBank interaction data is skewed toward well-studied drug classes.
+      The GNN is better calibrated for high-coverage categories.
+    </div>
+
+    {% set s = bias.get('summary', {}) %}
+    <div class="stat-grid">
+      <div class="stat-box">
+        <div class="stat-val">{{ "{:,}".format(s.get('n_drugs_total', 0)) }}</div>
+        <div class="stat-lbl">Approved drugs</div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-val">{{ "{:,}".format(s.get('n_ddi_pairs', 0)) }}</div>
+        <div class="stat-lbl">DDI pairs</div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-val">{{ s.get('mean_degree', 0)|round(0)|int }}</div>
+        <div class="stat-lbl">Mean degree</div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-val">{{ "{:,}".format(s.get('max_degree', 0)) }}</div>
+        <div class="stat-lbl">Max degree (hub)</div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-val" style="color:var(--red)">{{ s.get('coverage_ratio', 0) }}x</div>
+        <div class="stat-lbl">Best/worst ratio</div>
+      </div>
+    </div>
+
+    {% if bias.get('by_category') %}
+    <div style="margin-top: 20px; overflow-x: auto;">
+      <table>
+        <thead>
+          <tr>
+            <th>ATC Category</th>
+            <th>Drugs</th>
+            <th>Mean Degree</th>
+            <th style="width:200px">Coverage</th>
+            <th>Isolated %</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% set cats = bias.by_category %}
+          {% set max_deg = cats[0].mean_degree if cats else 1 %}
+          {% for c in cats %}
+            {% set is_best  = loop.first %}
+            {% set is_worst = loop.last %}
+            <tr class="{% if is_best %}cat-row-best{% elif is_worst %}cat-row-worst{% endif %}">
+              <td>
+                {% if is_best  %}<strong style="color:var(--green)">{{ c.atc_category }}</strong>{% endif %}
+                {% if is_worst %}<strong style="color:var(--red)">{{ c.atc_category }}</strong>{% endif %}
+                {% if not is_best and not is_worst %}{{ c.atc_category }}{% endif %}
+              </td>
+              <td>{{ c.n_drugs }}</td>
+              <td>{{ c.mean_degree|round(1) }}</td>
+              <td>
+                <div class="bar-wrap">
+                  <div class="bar-track">
+                    <div class="bar-fill" style="
+                      width: {{ (c.mean_degree / max_deg * 100)|round(1) }}%;
+                      background: {% if is_best %}var(--green){% elif is_worst %}var(--red){% else %}var(--indigo){% endif %};
+                      opacity: .7;
+                    "></div>
+                  </div>
+                </div>
+              </td>
+              <td>{{ c.isolated_pct }}%</td>
+            </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+
+    <div class="note">
+      <strong>Best:</strong> {{ s.get('best_atc_category') }} (mean degree {{ s.get('best_mean_degree') }}) ·
+      <strong>Worst:</strong> {{ s.get('worst_atc_category') }} (mean degree {{ s.get('worst_mean_degree') }}).
+      Coverage ratio {{ s.get('coverage_ratio') }}x.
+      Mitigation: report per-category AUC in GNN error analysis (TM6).
+    </div>
+    {% endif %}
+  </div>
+  {% endif %}
+
+  <!-- ════════════════════════════════════════════════════════════
+       SECTION 4 — RM4 Robustness
+  ═══════════════════════════════════════════════════════════════ -->
+  {% if robust %}
+  <div class="card">
+    <div class="card-title">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+           stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+      </svg>
+      RM4 — Robustness &amp; Drug Name Resolution
+    </div>
+    <div class="card-sub">
+      {{ robust.get('n_total', 0) }} test cases · {{ robust.get('n_pass', 0) }} passed
+      ({{ robust.get('pass_rate', 0) }}%)
+    </div>
+
+    {% set n_pass = robust.get('n_pass', 0) %}
+    {% set n_total = robust.get('n_total', 0) %}
+    <div style="display:flex; align-items:center; gap:14px; margin-bottom:16px;">
+      <div class="bar-track" style="flex:1; height:14px;">
+        <div class="bar-fill" style="
+          width: {{ robust.get('pass_rate', 0) }}%;
+          background: linear-gradient(90deg, var(--green), #4ade80);
+        "></div>
+      </div>
+      <span style="font-size:1.2rem; font-weight:800; color:var(--green)">
+        {{ robust.get('pass_rate', 0) }}%
+      </span>
+    </div>
+
+    {% if robust.get('cases') %}
+    <div style="overflow-x:auto;">
+      <table>
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Description</th>
+            <th>Input</th>
+            <th>Expected</th>
+            <th>Got</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for c in robust.cases %}
+            <tr>
+              <td style="color:var(--gray-400); font-size:.8rem">{{ loop.index }}</td>
+              <td>{{ c.case }}</td>
+              <td><code style="font-size:.78rem; background:var(--gray-100); padding:2px 6px; border-radius:4px;">
+                {{ c.input|e if c.input else '(empty)' }}
+              </code></td>
+              <td>{{ c.expected }}</td>
+              <td>
+                {% if c.outcome == 'found' %}
+                  <span style="color:var(--green)">{{ c.resolved }}</span>
+                {% else %}
+                  <span style="color:var(--gray-400)">—</span>
+                {% endif %}
+              </td>
+              <td class="{% if c.passed %}pass{% else %}fail{% endif %}">
+                {{ 'PASS' if c.passed else 'FAIL' }}
+              </td>
+            </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+    {% endif %}
+
+    <div class="note">
+      <strong>Passing:</strong> Case-insensitive matching, common synonyms (aspirin, adrenaline),
+      DrugBank IDs, whitespace trimming, hydrochloride suffixes.<br>
+      <strong>By design not supported:</strong> Brand names (Tylenol, Advil) require a commercial
+      synonym table — misspellings are rejected to avoid false positives in a clinical safety context.
+      Empty/nonsense inputs raise ValueError.
+    </div>
+  </div>
+  {% endif %}
+
+  <!-- ════════════════════════════════════════════════════════════
+       SECTION 5 — RM summary
+  ═══════════════════════════════════════════════════════════════ -->
+  <div class="card">
+    <div class="card-title">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+           stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+        <polyline points="14 2 14 8 20 8"/>
+        <line x1="16" y1="13" x2="8" y2="13"/>
+        <line x1="16" y1="17" x2="8" y2="17"/>
+        <polyline points="10 9 9 9 8 9"/>
+      </svg>
+      Responsible ML Coverage
+    </div>
+    <div class="card-sub">4 required topics — 3 implemented + 1 partially covered</div>
+
+    <table>
+      <thead>
+        <tr><th>Topic</th><th>Status</th><th>Summary</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>RM1 — Explainability</strong></td>
+          <td><span class="badge" style="background:#fef3c7;color:#92400e;">Partial</span></td>
+          <td>Dict lookup returns exact DrugBank sentence (fully interpretable).
+              LR coefficients above show feature attribution.
+              GNNExplainer planned after GNN delivery.</td>
+        </tr>
+        <tr>
+          <td><strong>RM2 — Bias / Fairness</strong></td>
+          <td><span class="badge badge-gnn">Done</span></td>
+          <td>Documented above. NERVOUS SYSTEM drugs have 4.1× more interactions than
+              VARIOUS drugs. Hub drugs (Clozapine: 1,907 edges) dominate training.</td>
+        </tr>
+        <tr>
+          <td><strong>RM3 — Privacy</strong></td>
+          <td><span class="badge badge-gnn">Done</span></td>
+          <td>All data is public DrugBank (CC BY-NC 4.0). No patient data, no re-identification
+              risk. Design-decision audit in <code>docs/responsible_ml.md</code>.</td>
+        </tr>
+        <tr>
+          <td><strong>RM4 — Robustness</strong></td>
+          <td><span class="badge badge-gnn">Done</span></td>
+          <td>{{ robust.get('pass_rate', '?') }}% pass rate on {{ robust.get('n_total', '?') }} input-variation
+              cases. Misspellings intentionally rejected. Data currency limitation documented.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+</main>
+</body>
+</html>

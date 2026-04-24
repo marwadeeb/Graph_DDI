@@ -1,0 +1,158 @@
+{
+  "summary": {
+    "n_drugs_total": 4795,
+    "n_drugs_with_atc": 2653,
+    "n_drugs_with_ddi": 2872,
+    "n_ddi_pairs": 824249,
+    "mean_degree": 573.99,
+    "max_degree": 1907,
+    "isolated_drugs": 0,
+    "best_atc_category": "NERVOUS SYSTEM",
+    "best_mean_degree": 864.1,
+    "worst_atc_category": "VARIOUS",
+    "worst_mean_degree": 212.8,
+    "coverage_ratio": 4.1
+  },
+  "by_category": [
+    {
+      "atc_category": "NERVOUS SYSTEM",
+      "n_drugs": 381,
+      "total_interactions": 329234,
+      "mean_degree": 864.1312335958005,
+      "median_degree": 893.0,
+      "isolated_drugs": 14,
+      "interactions_per_drug": 864.1,
+      "isolated_pct": 3.7
+    },
+    {
+      "atc_category": "CARDIOVASCULAR SYSTEM",
+      "n_drugs": 245,
+      "total_interactions": 177501,
+      "mean_degree": 724.4938775510204,
+      "median_degree": 742.0,
+      "isolated_drugs": 10,
+      "interactions_per_drug": 724.5,
+      "isolated_pct": 4.1
+    },
+    {
+      "atc_category": "MUSCULO-SKELETAL SYSTEM",
+      "n_drugs": 118,
+      "total_interactions": 83422,
+      "mean_degree": 706.9661016949152,
+      "median_degree": 746.0,
+      "isolated_drugs": 11,
+      "interactions_per_drug": 707.0,
+      "isolated_pct": 9.3
+    },
+    {
+      "atc_category": "ANTINEOPLASTIC AND IMMUNOMODULATING AGENTS",
+      "n_drugs": 401,
+      "total_interactions": 232936,
+      "mean_degree": 580.8877805486285,
+      "median_degree": 519.0,
+      "isolated_drugs": 8,
+      "interactions_per_drug": 580.9,
+      "isolated_pct": 2.0
+    },
+    {
+      "atc_category": "GENITO URINARY SYSTEM AND SEX HORMONES",
+      "n_drugs": 142,
+      "total_interactions": 79000,
+      "mean_degree": 556.3380281690141,
+      "median_degree": 556.5,
+      "isolated_drugs": 19,
+      "interactions_per_drug": 556.3,
+      "isolated_pct": 13.4
+    },
+    {
+      "atc_category": "ANTIINFECTIVES FOR SYSTEMIC USE",
+      "n_drugs": 268,
+      "total_interactions": 143521,
+      "mean_degree": 535.526119402985,
+      "median_degree": 625.0,
+      "isolated_drugs": 3,
+      "interactions_per_drug": 535.5,
+      "isolated_pct": 1.1
+    },
+    {
+      "atc_category": "RESPIRATORY SYSTEM",
+      "n_drugs": 139,
+      "total_interactions": 71825,
+      "mean_degree": 516.726618705036,
+      "median_degree": 537.0,
+      "isolated_drugs": 20,
+      "interactions_per_drug": 516.7,
+      "isolated_pct": 14.4
+    },
+    {
+      "atc_category": "ALIMENTARY TRACT AND METABOLISM",
+      "n_drugs": 295,
+      "total_interactions": 129344,
+      "mean_degree": 438.4542372881356,
+      "median_degree": 380.0,
+      "isolated_drugs": 55,
+      "interactions_per_drug": 438.5,
+      "isolated_pct": 18.6
+    },
+    {
+      "atc_category": "BLOOD AND BLOOD FORMING ORGANS",
+      "n_drugs": 151,
+      "total_interactions": 65085,
+      "mean_degree": 431.02649006622516,
+      "median_degree": 396.0,
+      "isolated_drugs": 18,
+      "interactions_per_drug": 431.0,
+      "isolated_pct": 11.9
+    },
+    {
+      "atc_category": "SYSTEMIC HORMONAL PREPARATIONS, EXCL. SEX HORMONES AND INSULINS",
+      "n_drugs": 53,
+      "total_interactions": 22588,
+      "mean_degree": 426.188679245283,
+      "median_degree": 333.0,
+      "isolated_drugs": 4,
+      "interactions_per_drug": 426.2,
+      "isolated_pct": 7.5
+    },
+    {
+      "atc_category": "ANTIPARASITIC PRODUCTS, INSECTICIDES AND REPELLENTS",
+      "n_drugs": 57,
+      "total_interactions": 22814,
+      "mean_degree": 400.2456140350877,
+      "median_degree": 323.0,
+      "isolated_drugs": 11,
+      "interactions_per_drug": 400.2,
+      "isolated_pct": 19.3
+    },
+    {
+      "atc_category": "SENSORY ORGANS",
+      "n_drugs": 102,
+      "total_interactions": 40063,
+      "mean_degree": 392.77450980392155,
+      "median_degree": 212.5,
+      "isolated_drugs": 18,
+      "interactions_per_drug": 392.8,
+      "isolated_pct": 17.6
+    },
+    {
+      "atc_category": "DERMATOLOGICALS",
+      "n_drugs": 139,
+      "total_interactions": 38094,
+      "mean_degree": 274.0575539568345,
+      "median_degree": 46.0,
+      "isolated_drugs": 41,
+      "interactions_per_drug": 274.1,
+      "isolated_pct": 29.5
+    },
+    {
+      "atc_category": "VARIOUS",
+      "n_drugs": 162,
+      "total_interactions": 34474,
+      "mean_degree": 212.80246913580248,
+      "median_degree": 6.0,
+      "isolated_drugs": 70,
+      "interactions_per_drug": 212.8,
+      "isolated_pct": 43.2
+    }
+  ]
+}

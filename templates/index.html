@@ -245,19 +245,6 @@
     .btn-secondary:hover     { border-color: #a5b4fc; background: #eef2ff; color: #4f46e5; }
     .btn-secondary:disabled  { opacity: .5; cursor: not-allowed; }
 
-    /* RAG toggle */
-    .rag-toggle {
-      display: flex; align-items: center; gap: 7px;
-      font-size: .78rem; color: var(--gray-600);
-      cursor: pointer; user-select: none;
-      margin-left: 4px;
-    }
-    .rag-toggle input[type="checkbox"] {
-      width: 14px; height: 14px;
-      accent-color: #6366f1;
-      cursor: pointer;
-    }
-    .rag-toggle span { white-space: nowrap; }
 
     /* ── Sample pairs ───────────────────────────────────────── */
     .samples-row {
@@ -820,14 +807,6 @@
       margin-bottom: 16px;
     }
 
-    .evidence-label {
-      font-size: .72rem;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: .06em;
-      color: var(--gray-400);
-      margin-bottom: 8px;
-    }
     .evidence-list { display: flex; flex-direction: column; gap: 8px; }
     .evidence-item {
       background: rgba(255,255,255,.7);
@@ -893,6 +872,7 @@
   </div>
   <div class="header-nav">
     <a href="/chat">💬 Chat</a>
+    <a href="/results">📊 Results</a>
     <div class="header-status">
       <div class="status-dot"></div>
       System online
@@ -930,10 +910,6 @@
       <button class="btn-primary" id="btn-check" onclick="checkInteraction(false)">Check Interaction</button>
       <button class="btn-secondary" id="btn-compare" onclick="checkInteraction(true)">Compare All Methods</button>
       <button class="btn-secondary" onclick="clearAll()">Clear</button>
-      <label class="rag-toggle" title="Loads PubMedBERT + FAISS on first use (~30 s). Adds semantic evidence passages to the result.">
-        <input type="checkbox" id="chk-rag" />
-        <span>Show RAG evidence</span>
-      </label>
     </div>
     <div class="samples-row">
       <span class="samples-label">Try:</span>
@@ -1066,7 +1042,6 @@
         <span class="confidence-badge" id="confidence-badge" style="display:none"></span>
       </h3>
       <div class="description" id="detail-desc"></div>
-      <div class="evidence-label">Semantic Evidence (FAISS · top-k)</div>
       <div class="evidence-list" id="evidence-list"></div>
     </div>
 
@@ -1103,13 +1078,6 @@
           banner.classList.remove('visible');
           btnCheck.disabled   = false;
           btnCompare.disabled = false;
-          // Grey out RAG checkbox if FAISS index not present on this deployment
-          if (data.faiss_available === false) {
-            const chk = document.getElementById('chk-rag');
-            chk.disabled = true;
-            chk.closest('label').title = 'FAISS index not available on this deployment';
-            chk.closest('label').style.opacity = '.4';
-          }
           return; // done
         }
         label.textContent = 'building lookup…';
@@ -1179,8 +1147,6 @@
   async function checkInteraction(compare = false) {
     const drugA  = document.getElementById('drug-a').value.trim();
     const drugB  = document.getElementById('drug-b').value.trim();
-    const useRag = document.getElementById('chk-rag').checked;
-
     if (!drugA || !drugB) {
       setStatus('Please enter both drug names.', false);
       return;
@@ -1195,7 +1161,7 @@
       const res = await fetch(endpoint, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ drug_a: drugA, drug_b: drugB, top_k: 3, use_rag: useRag })
+        body: JSON.stringify({ drug_a: drugA, drug_b: drugB, top_k: 3 })
       });
 
       const data = await res.json();

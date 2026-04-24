@@ -1,0 +1,108 @@
+{
+  "config": {
+    "neg_ratio": 1,
+    "test_size": 0.2,
+    "seed": 42
+  },
+  "results": {
+    "common_neighbors": {
+      "auc_roc": 0.9818,
+      "avg_precision": 0.9801,
+      "category": "graph_heuristic",
+      "label": "Common Neighbors"
+    },
+    "adamic_adar": {
+      "auc_roc": 0.9828,
+      "avg_precision": 0.9813,
+      "category": "graph_heuristic",
+      "label": "Adamic Adar"
+    },
+    "jaccard": {
+      "auc_roc": 0.9845,
+      "avg_precision": 0.9823,
+      "category": "graph_heuristic",
+      "label": "Jaccard"
+    },
+    "logistic_regression": {
+      "auc_roc": 0.9502,
+      "avg_precision": 0.9505,
+      "category": "non_graph_ml",
+      "label": "Logistic Regression (drug features)",
+      "top_features": [
+        [
+          "diff_monoisotopic_mass",
+          2.169
+        ],
+        [
+          "prod_cat_drugs_that_are_mainly_renall",
+          1.4462
+        ],
+        [
+          "diff_average_mass",
+          -1.1098
+        ],
+        [
+          "diff_calc_mol_weight",
+          -1.1098
+        ],
+        [
+          "prod_monoisotopic_mass",
+          -1.1016
+        ],
+        [
+          "prod_cat_central_nervous_system_depre",
+          1.0614
+        ],
+        [
+          "prod_cat_qtc_prolonging_agents",
+          1.0161
+        ],
+        [
+          "prod_cat_agents_that_produce_hyperten",
+          0.8488
+        ],
+        [
+          "prod_n_categories",
+          0.7867
+        ],
+        [
+          "diff_cat_increased_histamine_release",
+          -0.7637
+        ],
+        [
+          "prod_cat_immunosuppressive_agents",
+          0.638
+        ],
+        [
+          "prod_cat_cytochrome_p-450_cyp3a_subst",
+          0.6338
+        ],
+        [
+          "prod_calc_mol_weight",
+          0.5422
+        ],
+        [
+          "prod_average_mass",
+          0.5422
+        ],
+        [
+          "prod_cat_increased_histamine_release",
+          -0.5027
+        ]
+      ]
+    },
+    "gnn": {
+      "auc_roc": "TBD",
+      "avg_precision": "TBD",
+      "category": "gnn",
+      "label": "GNN (graph + features)",
+      "note": "Fill in from Laure's model evaluation on the same split."
+    },
+    "random_chance": {
+      "auc_roc": 0.5,
+      "avg_precision": "\u2014",
+      "category": "trivial",
+      "label": "Random (chance)"
+    }
+  }
+}
