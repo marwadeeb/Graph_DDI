@@ -471,7 +471,7 @@ def check_pair():
     """
     _init_rag()
 
-    GNN_THRESHOLD = 0.5
+    GNN_THRESHOLD = 0.43
 
     body    = request.get_json(silent=True) or {}
     drug_a  = (body.get("drug_a") or "").strip()
