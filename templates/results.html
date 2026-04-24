@@ -345,6 +345,98 @@
   </div>
 
   <!-- ════════════════════════════════════════════════════════════
+       SECTION 1b — Cold-start evaluation
+  ═══════════════════════════════════════════════════════════════ -->
+  {% if cold_results %}
+  <div class="card">
+    <div class="card-title">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+           stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="12" cy="12" r="10"/>
+        <line x1="2" y1="12" x2="22" y2="12"/>
+        <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+      </svg>
+      Cold-Start Evaluation — GNN's Real Use Case
+    </div>
+    <div class="card-sub">
+      10% of drugs held out entirely (zero training edges) · mimics a newly approved drug ·
+      heuristics score 0 → AUC ≈ 0.50 (blind) · LR uses features · GNN should beat both
+    </div>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Model</th>
+          <th>Category</th>
+          <th>Warm AUC</th>
+          <th>Cold AUC</th>
+          <th style="width:180px">Cold-start drop</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% set cold_methods = [
+          ('adamic_adar',        'Adamic-Adar',              'badge-graph',   'graph_heuristic'),
+          ('common_neighbors',   'Common Neighbors',         'badge-graph',   'graph_heuristic'),
+          ('jaccard',            'Jaccard',                  'badge-graph',   'graph_heuristic'),
+          ('logistic_regression','Logistic Regression',      'badge-ml',      'non_graph_ml'),
+          ('gnn',                'GNN (graph + features)',   'badge-gnn',     'gnn'),
+        ] %}
+        {% for key, label, badge_cls, cat in cold_methods %}
+          {% set warm = results.get(key, {}).get('auc_roc', 'TBD') %}
+          {% set cold = cold_results.get(key, {}).get('auc_roc', 'TBD') %}
+          {% set warm_f = warm if warm is string else warm %}
+          {% set cold_f = cold if cold is string else cold %}
+          <tr class="{% if key == 'gnn' %}row-gnn{% endif %}">
+            <td><strong>{{ label }}</strong></td>
+            <td><span class="badge {{ badge_cls }}">{{ cat.replace('_', ' ') }}</span></td>
+            <td>
+              {% if warm == 'TBD' %}<span class="val-tbd">TBD</span>
+              {% else %}<span style="color:var(--gray-500)">{{ "%.4f"|format(warm) }}</span>{% endif %}
+            </td>
+            <td>
+              {% if cold == 'TBD' %}<span class="val-tbd">TBD</span>
+              {% elif cold is number %}
+                <strong style="color:{% if cold < 0.6 %}var(--red){% elif cold < 0.8 %}var(--amber){% else %}var(--green){% endif %}">
+                  {{ "%.4f"|format(cold) }}
+                </strong>
+              {% else %}{{ cold }}{% endif %}
+            </td>
+            <td>
+              {% if warm is number and cold is number %}
+                {% set drop = warm - cold %}
+                <div class="bar-wrap">
+                  <div class="bar-track">
+                    <div class="bar-fill" style="
+                      width: {{ [drop / 0.5 * 100, 0]|max|round(1) }}%;
+                      background: {% if drop > 0.3 %}var(--red){% elif drop > 0.1 %}var(--amber){% else %}var(--green){% endif %};
+                    "></div>
+                  </div>
+                  <span class="bar-lbl" style="color:{% if drop > 0.3 %}var(--red){% elif drop > 0.1 %}var(--amber){% else %}var(--green){% endif %}">
+                    -{{ "%.3f"|format(drop) }}
+                  </span>
+                </div>
+              {% elif warm == 'TBD' or cold == 'TBD' %}
+                <span class="val-tbd">—</span>
+              {% endif %}
+            </td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+
+    <div class="note">
+      <strong>Reading this table:</strong>
+      Graph heuristics collapse completely on cold-start (AUC ≈ 0.50 = random) because
+      cold drugs have zero training neighbours — Common Neighbors scores 0 for every pair.
+      Logistic Regression survives because it uses node features (physicochemical properties,
+      ATC codes, CYP450 profiles) that exist independently of graph topology.
+      The GNN's advantage is combining both: features + partial neighbourhood context from
+      nearby warm drugs it <em>can</em> see.
+    </div>
+  </div>
+  {% endif %}
+
+  <!-- ════════════════════════════════════════════════════════════
        SECTION 2 — LR top features
   ═══════════════════════════════════════════════════════════════ -->
   {% set lr = results.get('logistic_regression', {}) %}

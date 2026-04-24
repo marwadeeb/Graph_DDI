@@ -322,27 +322,30 @@ def run_graph_heuristics(tr_pos, te_pos, te_neg, n_nodes):
 
     deg = np.asarray(A.sum(axis=1)).flatten()   # shape (n_nodes,)
 
+    # ── Dense matmul via BLAS (faster + avoids bloated sparse intermediate) ─
+    # With avg degree ~344 / 4790 nodes, A is ~7% dense.  After A @ A the
+    # result is nearly fully dense (most node pairs share common neighbours),
+    # so scipy sparse × sparse builds a huge CSR matrix.  Converting A to
+    # float32 dense (92 MB) and using numpy BLAS SGEMM is 5-10× faster.
+    print("  Converting adjacency to dense (BLAS matmul)...", flush=True)
+    A_d = A.toarray()    # (n_nodes, n_nodes) float32 — 92 MB
+
     # ── Common Neighbours: A² ──────────────────────────────────────────────
     print("  Computing A² (common neighbours)...", flush=True)
-    CN = A @ A    # sparse; CN[u,v] = |N(u) ∩ N(v)|
+    CN_d = A_d @ A_d     # BLAS SGEMM — fast; CN_d[u,v] = |N(u) ∩ N(v)|
 
-    # ── Adamic-Adar: A · D · A  where D = diag(1/log(deg)) ───────────────
+    # ── Adamic-Adar: (A * w) · A  where w = 1/log(deg) per column ─────────
     print("  Computing Adamic-Adar...", flush=True)
-    safe_deg  = np.where(deg > 1, deg, np.e)    # avoid log(0) and log(1)=0
+    safe_deg  = np.where(deg > 1, deg, np.e)          # avoid log(0), log(1)=0
     aa_weight = (1.0 / np.log(safe_deg)).astype(np.float32)
-    D  = sp.diags(aa_weight, format="csr")
-    AA = A @ D @ A
+    AA_d = (A_d * aa_weight[np.newaxis, :]) @ A_d     # row-scaled matmul
 
     # ── Score lookup for test pairs ────────────────────────────────────────
     test_pairs = np.vstack([te_pos, te_neg])
     y_true     = np.array([1]*len(te_pos) + [0]*len(te_neg), dtype=int)
     u, v       = test_pairs[:, 0], test_pairs[:, 1]
 
-    # Convert to dense for fast indexing (n_nodes ≤ ~5 k -> ≈ 90 MB float32)
     print("  Scoring test pairs...", flush=True)
-    CN_d = CN.toarray()
-    AA_d = AA.toarray()
-
     cn_scores = CN_d[u, v].astype(float)
     aa_scores = AA_d[u, v].astype(float)
 
@@ -422,6 +425,32 @@ def score_cold_heuristics(CN_d, AA_d, deg, cold_pos, cold_neg):
 
     print("  ^ Expected: AUC ~0.50 — heuristics are blind to cold-start drugs.")
     return cold_results
+
+
+def score_cold_heuristics_direct(cold_pos, cold_neg):
+    """
+    Cold-start heuristic scoring without any matrix computation.
+
+    Every pair in cold_pos/cold_neg contains at least one cold drug.
+    Cold drugs have degree 0 in the training graph (their edges were withheld),
+    so ALL graph heuristics score exactly 0 for every cold pair.
+
+    When all scores are 0, no ranking is possible -> AUC = 0.50 exactly
+    (any tie-breaking is random -> expected AUC is 0.5 by definition).
+    Avg precision = fraction of positives = 0.5 (balanced labels).
+    """
+    sep("Graph heuristics — COLD-START pairs  (analytical, no matmul needed)")
+    n_pos = len(cold_pos)
+    n_neg = len(cold_neg)
+    pos_frac = round(n_pos / (n_pos + n_neg), 4)
+    print(f"  {n_pos:,} cold positive pairs + {n_neg:,} cold negative pairs")
+    print(f"  All graph heuristic scores = 0 (cold drugs have no training neighbours)")
+    print(f"  -> AUC = 0.5000  Avg-Prec = {pos_frac:.4f}  (random baseline, by design)")
+
+    result = {"auc_roc": 0.5, "avg_precision": pos_frac}
+    for name in ("common_neighbors", "adamic_adar", "jaccard"):
+        print(f"  {name:<22}  AUC-ROC=0.5000   Avg-Prec={pos_frac:.4f}  [all scores=0]")
+    return {k: dict(result) for k in ("common_neighbors", "adamic_adar", "jaccard")}
 
 
 # ---------------------------------------------------------------------------
@@ -550,10 +579,14 @@ DISPLAY_ORDER = [
 ]
 
 
-def save_and_print(results, args):
+def save_and_print(results, cold_results, args):
+    """
+    results      : warm-split AUC-ROC per method
+    cold_results : cold-start AUC-ROC per method (None if --warm-only)
+    """
     OUT.mkdir(parents=True, exist_ok=True)
 
-    # Inject GNN placeholder
+    # Inject GNN placeholders
     results["gnn"] = {
         "auc_roc":       "TBD",
         "avg_precision": "TBD",
@@ -568,20 +601,30 @@ def save_and_print(results, args):
         "label": "Random (chance)",
     }
 
+    if cold_results:
+        cold_results["gnn"] = {
+            "auc_roc": "TBD", "avg_precision": "TBD"
+        }
+        cold_results["random_chance"] = {
+            "auc_roc": 0.5, "avg_precision": "—"
+        }
+
     payload = {
         "config": {
-            "neg_ratio": args.neg_ratio,
-            "test_size": args.test_size,
-            "seed":      args.seed,
+            "neg_ratio":  args.neg_ratio,
+            "test_size":  args.test_size,
+            "seed":       args.seed,
+            "cold_frac":  getattr(args, "cold_frac", 0.10),
         },
-        "results": results,
+        "results":      results,
+        "cold_results": cold_results or {},
     }
     with open(JSON_PATH, "w") as f:
         json.dump(payload, f, indent=2)
     print(f"\n  Saved -> {JSON_PATH}")
 
-    # Markdown / terminal table
-    sep("BASELINE COMPARISON TABLE")
+    # ── Warm table ────────────────────────────────────────────────────────────
+    sep("WARM EVALUATION (standard transductive link prediction)")
     header = f"{'Method':<42} {'AUC-ROC':>8} {'Avg Prec':>10}"
     print(f"\n  {header}")
     print(f"  {'-'*42} {'-'*8} {'-'*10}")
@@ -592,14 +635,48 @@ def save_and_print(results, args):
         auc = r.get("auc_roc",       auc_default) if auc_default is None else auc_default
         ap  = r.get("avg_precision", ap_default)  if ap_default  is None else ap_default
         print(f"  {label:<42} {str(auc):>8} {str(ap):>10}")
-        rows_csv.append({"method": label, "auc_roc": auc, "avg_precision": ap})
+        rows_csv.append({"setting": "warm", "method": label,
+                         "auc_roc": auc, "avg_precision": ap})
+
+    # ── Cold-start table ──────────────────────────────────────────────────────
+    if cold_results:
+        sep("COLD-START EVALUATION (10% drugs held out — GNN's real use case)")
+        print(f"\n  {'Method':<42} {'AUC-ROC':>8} {'Avg Prec':>10}")
+        print(f"  {'-'*42} {'-'*8} {'-'*10}")
+        for key, label, auc_default, ap_default in DISPLAY_ORDER:
+            r   = cold_results.get(key, {})
+            auc = r.get("auc_roc",       auc_default) if auc_default is None else auc_default
+            ap  = r.get("avg_precision", ap_default)  if ap_default  is None else ap_default
+            print(f"  {label:<42} {str(auc):>8} {str(ap):>10}")
+            rows_csv.append({"setting": "cold", "method": label,
+                             "auc_roc": auc, "avg_precision": ap})
+
+        sep("INTERPRETATION")
+        print()
+        print("  WARM  — all methods score high because the dense interaction")
+        print("          graph (avg degree 344) gives heuristics many common")
+        print("          neighbours for any test pair.")
+        print()
+        print("  COLD  — heuristics score ~0.50 (random) because cold drugs")
+        print("          have NO training neighbours.  LR uses node features")
+        print("          (physicochemical, ATC, CYP450) and scores meaningfully.")
+        print("          The GNN should outperform LR by combining features")
+        print("          with partial graph context — this is its killer use case.")
+        print()
+        lr_warm  = results.get("logistic_regression", {}).get("auc_roc", "?")
+        lr_cold  = cold_results.get("logistic_regression", {}).get("auc_roc", "?")
+        aa_warm  = results.get("adamic_adar", {}).get("auc_roc", "?")
+        aa_cold  = cold_results.get("adamic_adar", {}).get("auc_roc", "?")
+        print(f"  Adamic-Adar  :  warm={aa_warm}  ->  cold={aa_cold}  (topology collapses)")
+        print(f"  LR (features):  warm={lr_warm}  ->  cold={lr_cold}  (features survive)")
+        print(f"  GNN           :  warm=TBD       ->  cold=TBD       (should beat both)")
 
     pd.DataFrame(rows_csv).to_csv(CSV_PATH, index=False)
     print(f"\n  Saved -> {CSV_PATH}")
     sep()
     print("  ★  Adamic-Adar is the primary non-AI baseline (TM2A).")
-    print("  ★  GNN column to be filled once Laure's model is evaluated on")
-    print(f"     the same split saved at: {SPLIT_PATH}")
+    print("  ★  GNN warm column -> fill from Laure's eval on edge_split.npz")
+    print("  ★  GNN cold column -> fill from Laure's eval on cold_split.npz")
     sep()
 
 
@@ -609,9 +686,10 @@ def print_saved_results():
         sys.exit(1)
     with open(JSON_PATH) as f:
         payload = json.load(f)
-    results = payload["results"]
+    results      = payload.get("results", {})
+    cold_results = payload.get("cold_results", {})
 
-    sep("SAVED BASELINE RESULTS")
+    sep("WARM RESULTS")
     print(f"\n  {'Method':<42} {'AUC-ROC':>8} {'Avg Prec':>10}")
     print(f"  {'-'*42} {'-'*8} {'-'*10}")
     for key, label, auc_default, ap_default in DISPLAY_ORDER:
@@ -620,6 +698,17 @@ def print_saved_results():
         ap  = r.get("avg_precision", ap_default)  if ap_default  is None else ap_default
         print(f"  {label:<42} {str(auc):>8} {str(ap):>10}")
     sep()
+
+    if cold_results:
+        sep("COLD-START RESULTS")
+        print(f"\n  {'Method':<42} {'AUC-ROC':>8} {'Avg Prec':>10}")
+        print(f"  {'-'*42} {'-'*8} {'-'*10}")
+        for key, label, auc_default, ap_default in DISPLAY_ORDER:
+            r   = cold_results.get(key, {})
+            auc = r.get("auc_roc",       auc_default) if auc_default is None else auc_default
+            ap  = r.get("avg_precision", ap_default)  if ap_default  is None else ap_default
+            print(f"  {label:<42} {str(auc):>8} {str(ap):>10}")
+        sep()
 
     lr = results.get("logistic_regression", {})
     if lr.get("top_features"):
@@ -641,15 +730,19 @@ def main():
     parser.add_argument("--neg-ratio",    type=int,   default=1,
                         help="Negative edges per positive (default 1)")
     parser.add_argument("--test-size",    type=float, default=0.2,
-                        help="Fraction of edges held out for test (default 0.2)")
+                        help="Fraction of edges held out for warm test (default 0.2)")
+    parser.add_argument("--cold-frac",    type=float, default=0.10,
+                        help="Fraction of drugs held out for cold-start eval (default 0.10)")
     parser.add_argument("--seed",         type=int,   default=42,
                         help="Random seed (default 42)")
     parser.add_argument("--results-only", action="store_true",
                         help="Print previously saved results without re-running")
+    parser.add_argument("--warm-only",    action="store_true",
+                        help="Skip cold-start evaluation (faster)")
     parser.add_argument("--load-split",   type=str,   default=None,
                         help="Path to a .npz split file from Laure's GNN training "
                              "(keys: train_pos, train_neg, test_pos, test_neg). "
-                             "If provided, skips split generation and uses hers.")
+                             "If provided, uses hers for the warm evaluation.")
     args = parser.parse_args()
 
     if args.results_only:
@@ -657,14 +750,15 @@ def main():
         return
 
     sep("STEP 9 — LINK PREDICTION BASELINES")
-    print(f"  neg-ratio={args.neg_ratio}  test-size={args.test_size}  seed={args.seed}")
+    print(f"  neg-ratio={args.neg_ratio}  test-size={args.test_size}  "
+          f"cold-frac={args.cold_frac}  seed={args.seed}")
 
     pos_edges, feat_matrix, feat_cols, n_nodes = load_graph_data()
 
+    # ── Warm split ─────────────────────────────────────────────────────────────
     if args.load_split:
-        # Use Laure's split so baselines are evaluated on identical edges as GNN
-        sep("Loading split from Laure's file")
-        split = np.load(args.load_split)
+        sep("Loading warm split from Laure's file")
+        split  = np.load(args.load_split)
         tr_pos = split["train_pos"].astype(np.int64)
         tr_neg = split["train_neg"].astype(np.int64)
         te_pos = split["test_pos"].astype(np.int64)
@@ -680,11 +774,52 @@ def main():
             seed=args.seed,
         )
 
+    # ── Warm evaluation ────────────────────────────────────────────────────────
     results = {}
-    results.update(run_graph_heuristics(tr_pos, te_pos, te_neg, n_nodes))
-    results.update(run_logistic_regression(tr_pos, te_pos, tr_neg, te_neg,
-                                           feat_matrix, feat_cols))
-    save_and_print(results, args)
+    heuristic_res, CN_d, AA_d, deg = run_graph_heuristics(
+        tr_pos, te_pos, te_neg, n_nodes)
+    results.update(heuristic_res)
+
+    lr_res, clf = run_logistic_regression(
+        tr_pos, te_pos, tr_neg, te_neg, feat_matrix, feat_cols)
+    results.update(lr_res)
+
+    # ── Cold-start evaluation ──────────────────────────────────────────────────
+    cold_results = None
+    if not args.warm_only:
+        sep("COLD-START EVALUATION SETUP")
+        # Build cold split from the FULL edge set (independent of warm split)
+        # so cold drugs are truly unseen in training
+        cold_tr_pos, cold_pos, cold_tr_neg, cold_neg, cold_drugs = make_cold_split(
+            pos_edges, n_nodes,
+            cold_frac=args.cold_frac,
+            neg_ratio=args.neg_ratio,
+            seed=args.seed,
+        )
+        # Heuristics on cold pairs — no matmul needed.
+        # Every cold pair has at least one cold drug; cold drugs have degree 0
+        # in the training graph (their edges are withheld), so their rows/cols
+        # in A are all-zero -> CN[cold, :] = 0, AA[cold, :] = 0 for all
+        # partners.  We assign score 0 directly and compute AUC analytically.
+        cold_heuristic = score_cold_heuristics_direct(cold_pos, cold_neg)
+
+        # LR: retrain on cold_tr_pos so no cold-drug edges leak into training
+        lr_cold_res, clf_cold = run_logistic_regression(
+            cold_tr_pos, cold_pos, cold_tr_neg, cold_neg, feat_matrix, feat_cols)
+        cold_lr = score_cold_lr(clf_cold, cold_pos, cold_neg, feat_matrix)
+
+        cold_results = {
+            "common_neighbors":   cold_heuristic["common_neighbors"],
+            "adamic_adar":        cold_heuristic["adamic_adar"],
+            "jaccard":            cold_heuristic["jaccard"],
+            "logistic_regression": {
+                **cold_lr,
+                "category": "non_graph_ml",
+                "label":    "Logistic Regression (drug features)",
+            },
+        }
+
+    save_and_print(results, cold_results, args)
 
 
 if __name__ == "__main__":

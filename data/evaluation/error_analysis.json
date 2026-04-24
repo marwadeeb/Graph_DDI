@@ -1,0 +1,16 @@
+{
+  "total_clean_pairs": 247,
+  "total_errors": 3,
+  "fp": 3,
+  "fn": 0,
+  "fp_categories": {
+    "WRONG_PAIR": 3
+  },
+  "fn_categories": {},
+  "overall_categories": {
+    "WRONG_PAIR": 3,
+    "LOW_EVIDENCE": 0,
+    "LLM_HALLUC": 0,
+    "AMBIGUOUS": 0
+  }
+}

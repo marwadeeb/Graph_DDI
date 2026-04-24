@@ -9,7 +9,10 @@ data/step2_dedup/
 data/rag_index/
 
 # Evaluation results — local only
-data/evaluation/
+data/evaluation/*.csv
+data/evaluation/rag_eval*
+data/evaluation/*.npz
+#    (keep JSON results tracked, ignore large CSVs)
 
 # Step 3 approved subset IS tracked (web app needs it)
 # data/step3_approved/

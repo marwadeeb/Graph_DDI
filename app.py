@@ -422,6 +422,7 @@ def results_page():
 
     return render_template("results.html",
                            results=results_data.get("results", {}),
+                           cold_results=results_data.get("cold_results", {}),
                            config=results_data.get("config", {}),
                            bias=bias_data,
                            robust=robust_data)
