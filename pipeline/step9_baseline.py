@@ -139,51 +139,71 @@ def load_graph_data():
 # Train / test split
 # ---------------------------------------------------------------------------
 
-def make_split(pos_edges, n_nodes, neg_ratio=1, test_size=0.2, seed=42):
+def make_split(pos_edges, n_nodes, neg_ratio=1, test_size=0.1, mask_ratio=0.2, seed=42):
+    """
+    Warm train/test split matching Laure's GNN training configuration:
+      mask_ratio=0.2  : 20% of edges are held out as nnPU masked positives
+                        (not used to build the training adjacency — matches
+                         config["maskRatio"] = 0.2 in hetero_model.ipynb)
+      test_size=0.1   : 10% of REMAINING edges used for test evaluation
+                        (matches config["testRatio"] = 0.1)
+      This gives: 80% train adj · 10% test (of 80%) · 20% masked
+
+    Note: Laure's notebook uses torch.randperm without a fixed seed, so
+    exact edge assignment will differ.  Methodology and ratios are identical.
+    """
     from sklearn.model_selection import train_test_split
 
-    sep("Creating train/test split")
+    sep("Creating train/test split  (matching Laure's GNN config)")
     rng = np.random.RandomState(seed)
 
-    # Deduplicate & ensure undirected (keep both orders in pos_set for lookup)
+    # Deduplicate & ensure undirected
     pos_set = set(map(tuple, pos_edges.tolist()))
     pos_set |= set(map(tuple, pos_edges[:, ::-1].tolist()))
     unique_pos = np.array(list({(min(a,b), max(a,b)) for a,b in pos_edges}))
+    rng.shuffle(unique_pos)
 
-    # Negative sampling  (no self-loops, not in pos_set)
-    n_neg = len(unique_pos) * neg_ratio
+    # Step 1: mask 20% as nnPU positives (same as Laure's maskRatio)
+    n_masked = int(len(unique_pos) * mask_ratio)
+    masked_pos  = unique_pos[:n_masked]          # held out (nnPU only)
+    visible_pos = unique_pos[n_masked:]          # used for train/test split
+
+    # Step 2: split visible edges into train/test (10% test like Laure)
+    tr_pos, te_pos = train_test_split(visible_pos, test_size=test_size,
+                                      random_state=seed)
+
+    # Negative sampling against the full positive set (no leakage)
+    n_neg = (len(tr_pos) + len(te_pos)) * neg_ratio
     neg_list = []
     while len(neg_list) < n_neg:
         batch = n_neg * 3
-        u = rng.randint(0, n_nodes, size=batch)
-        v = rng.randint(0, n_nodes, size=batch)
+        u = rng.randint(0, n_nodes, size=int(batch))
+        v = rng.randint(0, n_nodes, size=int(batch))
         for a, b in zip(u, v):
             if a == b:
                 continue
             key = (int(min(a, b)), int(max(a, b)))
             if key not in pos_set:
                 neg_list.append(key)
-                pos_set.add(key)   # avoid duplicates in negatives
+                pos_set.add(key)
                 if len(neg_list) >= n_neg:
                     break
     neg_edges = np.array(neg_list[:n_neg], dtype=np.int64)
-
-    # Split
-    tr_pos, te_pos = train_test_split(unique_pos, test_size=test_size,
-                                      random_state=seed)
-    tr_neg, te_neg = train_test_split(neg_edges,  test_size=test_size,
+    tr_neg, te_neg = train_test_split(neg_edges, test_size=test_size,
                                       random_state=seed)
 
+    print(f"  Config: mask_ratio={mask_ratio}  test_ratio={test_size}  "
+          f"(matches hetero_model.ipynb)")
+    print(f"  Masked positives (nnPU): {len(masked_pos):,}")
     print(f"  Train: {len(tr_pos):,} pos  +  {len(tr_neg):,} neg")
     print(f"  Test:  {len(te_pos):,} pos  +  {len(te_neg):,} neg")
 
-    # Save so GNN (Laure) can reuse the exact same split
     OUT.mkdir(parents=True, exist_ok=True)
     np.savez(SPLIT_PATH,
              train_pos=tr_pos, train_neg=tr_neg,
-             test_pos=te_pos,  test_neg=te_neg)
+             test_pos=te_pos,  test_neg=te_neg,
+             masked_pos=masked_pos)
     print(f"  Split saved -> {SPLIT_PATH}")
-    print("  (Share this file with Laure so GNN uses the same split.)")
 
     return tr_pos, te_pos, tr_neg, te_neg
 
@@ -729,8 +749,10 @@ def main():
     )
     parser.add_argument("--neg-ratio",    type=int,   default=1,
                         help="Negative edges per positive (default 1)")
-    parser.add_argument("--test-size",    type=float, default=0.2,
-                        help="Fraction of edges held out for warm test (default 0.2)")
+    parser.add_argument("--test-size",    type=float, default=0.1,
+                        help="Test fraction of visible edges (default 0.1, matches Laure testRatio=0.1)")
+    parser.add_argument("--mask-ratio",   type=float, default=0.2,
+                        help="Fraction of edges masked as nnPU positives (default 0.2, matches Laure maskRatio=0.2)")
     parser.add_argument("--cold-frac",    type=float, default=0.10,
                         help="Fraction of drugs held out for cold-start eval (default 0.10)")
     parser.add_argument("--seed",         type=int,   default=42,
@@ -750,8 +772,9 @@ def main():
         return
 
     sep("STEP 9 — LINK PREDICTION BASELINES")
-    print(f"  neg-ratio={args.neg_ratio}  test-size={args.test_size}  "
-          f"cold-frac={args.cold_frac}  seed={args.seed}")
+    print(f"  neg-ratio={args.neg_ratio}  mask-ratio={args.mask_ratio}  "
+          f"test-size={args.test_size}  cold-frac={args.cold_frac}  seed={args.seed}")
+    print(f"  Split config matches Laure's hetero_model.ipynb (maskRatio=0.2, testRatio=0.1)")
 
     pos_edges, feat_matrix, feat_cols, n_nodes = load_graph_data()
 
@@ -771,6 +794,7 @@ def main():
             pos_edges, n_nodes,
             neg_ratio=args.neg_ratio,
             test_size=args.test_size,
+            mask_ratio=args.mask_ratio,
             seed=args.seed,
         )
 

@@ -913,12 +913,12 @@
     </div>
     <div class="samples-row">
       <span class="samples-label">Try:</span>
-      <span class="sample-chip" onclick="loadSample('Warfarin','Aspirin')">Warfarin × Aspirin</span>
-      <span class="sample-chip" onclick="loadSample('Metformin','Lisinopril')">Metformin × Lisinopril</span>
-      <span class="sample-chip" onclick="loadSample('Atorvastatin','Clarithromycin')">Atorvastatin × Clarithromycin</span>
-      <span class="sample-chip" onclick="loadSample('Sildenafil','Nitroglycerin')">Sildenafil × Nitroglycerin</span>
-      <span class="sample-chip" onclick="loadSample('Ibuprofen','Naproxen')">Ibuprofen × Naproxen</span>
-      <span class="sample-chip" onclick="loadSample('Bicalutamide','Asenapine')">Bicalutamide × Asenapine ⚡</span>
+      <span class="sample-chip" title="Documented in DrugBank — high confidence" onclick="loadSample('Warfarin','Aspirin')">Warfarin × Aspirin 📋</span>
+      <span class="sample-chip" title="Documented in DrugBank — serious interaction" onclick="loadSample('Simvastatin','Clarithromycin')">Simvastatin × Clarithromycin 📋</span>
+      <span class="sample-chip" title="Documented in DrugBank — high severity" onclick="loadSample('Sildenafil','Nitroglycerin')">Sildenafil × Nitroglycerin 📋</span>
+      <span class="sample-chip" title="GNN prediction — not documented, model predicts possible interaction" onclick="loadSample('Clozapine','Quetiapine')">Clozapine × Quetiapine 🔶</span>
+      <span class="sample-chip" title="GNN prediction — novel pair, low-to-mid confidence" onclick="loadSample('Metformin','Atorvastatin')">Metformin × Atorvastatin 🔶</span>
+      <span class="sample-chip" title="Expected: no interaction found" onclick="loadSample('Amoxicillin','Metformin')">Amoxicillin × Metformin ✓</span>
     </div>
     <div id="status-bar"></div>
     </div><!-- /.search-card-body -->
@@ -1207,10 +1207,10 @@
       return;
     }
 
-    const cls = src === 'rag_documented' ? 'documented'
+    const cls = src === 'documented' ? 'documented'
               : src === 'gnn_predicted'  ? 'predicted'
               : 'not-found';
-    const label = src === 'rag_documented' ? '✓ Documented Interaction — DrugBank'
+    const label = src === 'documented' ? '✓ Documented Interaction — DrugBank'
                 : src === 'gnn_predicted'  ? '⚡ Predicted Interaction — GNN Model'
                 : '✕ No Interaction Found';
 
@@ -1235,7 +1235,7 @@
 
     // Safety note — shown for documented AND predicted interactions
     let safetyHtml = '';
-    if (src === 'rag_documented') {
+    if (src === 'documented') {
       safetyHtml = `<div class="rc-safety">ℹ To reduce risk from this documented
         interaction, consider separating doses by at least 2–3 hours and consult a
         pharmacist or clinician before use.</div>`;
@@ -1282,7 +1282,7 @@
 
     // Evidence panel — only shown when RAG was requested AND returned passages
     const detail = document.getElementById('rag-detail');
-    if (src === 'rag_documented' && data.evidence?.length) {
+    if (src === 'documented' && data.evidence?.length) {
       detail.style.display = 'block';
       document.getElementById('detail-type').textContent = data.interaction_type || '';
       document.getElementById('detail-desc').textContent = '';
@@ -1549,7 +1549,7 @@
   /* Called with API response source + optional retrieval time in ms */
   function flowComplete(source, ms) {
     const msLabel = ms != null ? ` · ${ms}ms` : '';
-    if (source === 'rag_documented') {
+    if (source === 'documented') {
       flowEl('pf-dot-rag').className = 'pf-node done-found';
       flowEl('pf-fill-1').className  = 'pf-line-fill done-found';
       setSub('pf-sub-rag', `✓ Found in DrugBank${msLabel}`, 'found');

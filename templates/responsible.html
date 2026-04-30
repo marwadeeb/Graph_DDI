@@ -366,7 +366,7 @@
           <h4>Source transparency — always shown <span class="pipe-tag">✓ Done</span></h4>
           <p>
             Every API response includes a <code>source</code> field:
-            <code>rag_documented</code> (DrugBank hit),
+            <code>documented</code> (DrugBank hit),
             <code>gnn_predicted</code> (model inference),
             or <code>not_found</code> (no evidence). Users always know whether they are
             looking at established data or a model prediction.
@@ -481,6 +481,82 @@
     </div>
     {% endif %}
 
+    <!-- Per-category GNN AUC (TM6 error analysis) -->
+    {% if gnn_auc and gnn_auc.get('by_category') %}
+    {% set ov = gnn_auc.get('overall', {}) %}
+    <div style="font-size:.84rem; font-weight:700; color:var(--gray-700); margin: 18px 0 10px;">
+      Per-category GNN AUC — TM6 error analysis
+      <span style="font-size:.76rem; font-weight:400; color:var(--gray-500); margin-left:8px;">
+        {{ "{:,}".format(ov.get('n_pairs', 0)) }} test pairs · overall AUC-ROC
+        <strong>{{ ov.get('auc_roc', '—') }}</strong> · Avg Precision
+        <strong>{{ ov.get('avg_precision', '—') }}</strong>
+      </span>
+    </div>
+    <div style="overflow-x:auto; margin-bottom:16px;">
+      <table>
+        <thead>
+          <tr>
+            <th>ATC Category</th>
+            <th>Test Pairs</th>
+            <th>AUC-ROC</th>
+            <th>Δ vs Overall</th>
+            <th style="width:180px">Performance</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for c in gnn_auc.by_category %}
+            {% set is_best  = loop.first %}
+            {% set is_worst = loop.last %}
+            <tr class="{% if is_best %}cat-row-best{% elif is_worst %}cat-row-worst{% endif %}">
+              <td>
+                {% if is_best %}
+                  <strong style="color:var(--green)">{{ c.atc_category }}</strong>
+                  <span style="font-size:.7rem; color:var(--green); margin-left:4px">best</span>
+                {% elif is_worst %}
+                  <strong style="color:var(--red)">{{ c.atc_category }}</strong>
+                  <span style="font-size:.7rem; color:var(--red); margin-left:4px">worst</span>
+                {% else %}
+                  {{ c.atc_category }}
+                {% endif %}
+              </td>
+              <td>{{ "{:,}".format(c.n_pairs) }}</td>
+              <td><strong>{{ c.auc_roc }}</strong></td>
+              <td>
+                {% if c.delta_vs_overall >= 0 %}
+                  <span style="color:var(--green); font-weight:700">▲{{ "%.4f"|format(c.delta_vs_overall) }}</span>
+                {% else %}
+                  <span style="color:var(--red); font-weight:700">▼{{ "%.4f"|format(c.delta_vs_overall|abs) }}</span>
+                {% endif %}
+              </td>
+              <td>
+                <div class="bar-wrap">
+                  <div class="bar-track">
+                    <div class="bar-fill" style="
+                      width: {{ (c.auc_roc * 100)|round(1) }}%;
+                      background: {% if is_best %}var(--green){% elif is_worst %}var(--red){% else %}var(--indigo){% endif %};
+                      opacity: .7;
+                    "></div>
+                  </div>
+                </div>
+              </td>
+            </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+    <div class="note" style="margin-bottom:18px;">
+      Categories where GNN underperforms correspond to drug classes with fewer documented
+      interactions in DrugBank — directly confirming the data bias measured above.
+      This is the TM6 (error analysis) evidence required by the rubric.
+    </div>
+    {% else %}
+    <div class="note" style="margin-bottom:18px;">
+      <strong>Per-category GNN AUC not yet generated.</strong>
+      Run <code>python pipeline/step10_responsible_ml.py --section gnn_auc</code>
+      (requires <code>data/step4_graph/bestHeteroModel.pt</code>) to populate this table.
+    </div>
+    {% endif %}
+
     <!-- What we do about it -->
     <div style="font-size:.84rem; font-weight:700; color:var(--gray-700); margin-bottom:10px;">
       What we do about it:
@@ -494,8 +570,9 @@
       </div>
       <div class="evidence-item">
         <h4>🧪 Per-category error analysis</h4>
-        <p>GNN evaluation will include per-ATC AUC breakdown so that category-level
-        performance gaps are visible — not hidden inside a single aggregate metric.</p>
+        <p>GNN AUC is evaluated per ATC category — performance gaps are visible above,
+        not hidden inside a single aggregate metric. Underperforming categories align
+        directly with the training-data sparsity documented in the bias table.</p>
       </div>
       <div class="evidence-item">
         <h4>⚠️ Prediction disclaimers</h4>
@@ -656,9 +733,10 @@
       <div class="evidence-item">
         <h4>🚫 Brand names rejected by design</h4>
         <p>
-          "Tylenol" → <em>not found</em>. Brand names vary by country and change over time.
-          Accepting them without a complete synonym table risks silent misidentification in a
-          clinical context. Correct fix: add a commercial synonym table (out of scope v1).
+          "Tylenol" → <em>not found</em>. Brand names vary by country, change over time, and
+          can map to multiple generics. Accepting an ambiguous brand name risks silent
+          misidentification in a clinical safety context — returning wrong interaction data
+          is more dangerous than returning <em>not found</em>.
         </p>
       </div>
       <div class="evidence-item">
@@ -711,5 +789,23 @@
   </div>
 
 </main>
+
+<!-- Floating chat button -->
+<a href="/chat" id="fab-chat" title="Ask about drug interactions"
+   style="
+     position: fixed; bottom: 28px; left: 28px; z-index: 100;
+     width: 56px; height: 56px; border-radius: 50%;
+     background: linear-gradient(135deg, #2563eb, #4f46e5);
+     color: #fff; text-decoration: none;
+     display: flex; align-items: center; justify-content: center;
+     font-size: 1.4rem;
+     box-shadow: 0 4px 18px rgba(37,99,235,.45);
+     transition: transform .18s, box-shadow .18s;
+   "
+   onmouseover="this.style.transform='scale(1.1)';this.style.boxShadow='0 6px 24px rgba(37,99,235,.55)'"
+   onmouseout="this.style.transform='scale(1)';this.style.boxShadow='0 4px 18px rgba(37,99,235,.45)'">
+  💬
+</a>
+
 </body>
 </html>

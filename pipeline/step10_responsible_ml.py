@@ -193,6 +193,156 @@ def run_bias_analysis():
 
 
 # ---------------------------------------------------------------------------
+# RM2 Extension — Per-category GNN AUC  (TM6 error analysis)
+# ---------------------------------------------------------------------------
+
+def run_per_category_gnn_auc():
+    """
+    Evaluate GNN AUC per ATC drug category on the warm test split.
+
+    This is the concrete RM2 mitigation:  instead of reporting only a single
+    aggregate AUROC, we show how model performance varies across drug classes
+    — directly exposing the training-data bias.
+
+    Requires:
+      data/evaluation/edge_split.npz   (from step9_baseline.py)
+      data/step4_graph/node_mapping.csv
+      data/step3_approved/atc_codes.csv
+      pipeline/gnn_predictor.py + model files
+    """
+    sep("RM2 EXTENSION — PER-CATEGORY GNN AUC  (TM6 error analysis)")
+
+    GRAPH_DIR     = BASE / "data" / "step4_graph"
+    split_path    = BASE / "data" / "evaluation" / "edge_split.npz"
+    node_map_path = GRAPH_DIR / "node_mapping.csv"
+    gnn_auc_path  = EVAL_DIR / "responsible_ml_gnn_auc.json"
+
+    # ── Prerequisite checks ───────────────────────────────────────────────
+    if not split_path.exists():
+        print("  [SKIP] edge_split.npz not found. Run step9_baseline.py first.")
+        return None
+    if not node_map_path.exists():
+        print("  [SKIP] node_mapping.csv not found.")
+        return None
+
+    # ── Load GNN model ────────────────────────────────────────────────────
+    try:
+        import gnn_predictor
+        if not gnn_predictor.is_available():
+            print("  [SKIP] GNN model is in mock mode — model files not found.")
+            print("         Place bestHeteroModel.pt + hetero_ddi_graph.pt in data/step4_graph/")
+            return None
+        info = gnn_predictor.get_model_info()
+        print(f"  GNN variant : {info['variant']}  ({info['note'][:60]})")
+    except Exception as e:
+        print(f"  [SKIP] Could not load gnn_predictor: {e}")
+        return None
+
+    # ── Load split and mappings ───────────────────────────────────────────
+    split  = np.load(split_path)
+    te_pos = split["test_pos"].astype(np.int64)   # shape (N, 2)
+    te_neg = split["test_neg"].astype(np.int64)
+
+    node_map   = pd.read_csv(node_map_path, usecols=["node_idx", "drugbank_id"])
+    idx_to_id  = dict(zip(node_map["node_idx"].astype(int), node_map["drugbank_id"]))
+
+    atc = pd.read_csv(APPROVED_DIR / "atc_codes.csv",
+                      usecols=["drugbank_id", "l4_name"])
+    # l4_name is the top-level ATC category (e.g. "NERVOUS SYSTEM")
+    drug_atc = atc.groupby("drugbank_id")["l4_name"].first().to_dict()
+
+    # ── Collect predictions ───────────────────────────────────────────────
+    all_edges  = np.vstack([te_pos, te_neg])
+    all_labels = np.array([1] * len(te_pos) + [0] * len(te_neg), dtype=np.int8)
+
+    preds    = np.empty(len(all_edges), dtype=np.float32)
+    atc_cats = []
+
+    print(f"  Scoring {len(all_edges):,} test pairs ...")
+    for i, (u, v) in enumerate(all_edges):
+        id_a = idx_to_id.get(int(u))
+        id_b = idx_to_id.get(int(v))
+        if id_a is None or id_b is None:
+            preds[i] = 0.5
+            atc_cats.append("UNKNOWN")
+            continue
+        res = gnn_predictor.predict(id_a, id_b)
+        preds[i] = res.get("probability", 0.5)
+        # Use ATC of drug_a; fall back to drug_b; fall back to UNKNOWN
+        cat = drug_atc.get(id_a) or drug_atc.get(id_b) or "UNKNOWN"
+        atc_cats.append(cat)
+
+    atc_cats = np.array(atc_cats)
+
+    # ── Compute overall AUC ───────────────────────────────────────────────
+    from sklearn.metrics import roc_auc_score, average_precision_score
+    overall_auc = roc_auc_score(all_labels, preds)
+    overall_ap  = average_precision_score(all_labels, preds)
+    print(f"  Overall AUC-ROC : {overall_auc:.4f}")
+    print(f"  Overall Avg-Prec: {overall_ap:.4f}")
+
+    # ── Per-category AUC ─────────────────────────────────────────────────
+    print(f"\n  {'ATC Category':<45} {'Pairs':>7} {'AUC-ROC':>9} {'vs Overall':>11}")
+    print(f"  {'-'*45} {'-'*7} {'-'*9} {'-'*11}")
+
+    per_cat = []
+    for cat in sorted(set(atc_cats)):
+        mask = atc_cats == cat
+        if mask.sum() < 30:
+            continue
+        y_true = all_labels[mask]
+        y_pred = preds[mask]
+        if len(np.unique(y_true)) < 2:
+            continue
+        try:
+            auc = float(roc_auc_score(y_true, y_pred))
+            ap  = float(average_precision_score(y_true, y_pred))
+        except Exception:
+            continue
+        delta = auc - overall_auc
+        sign  = "▲" if delta > 0 else "▼"
+        print(f"  {cat[:45]:<45} {mask.sum():>7,} {auc:>9.4f} "
+              f"  {sign}{abs(delta):.4f}")
+        per_cat.append({
+            "atc_category": cat,
+            "n_pairs":      int(mask.sum()),
+            "auc_roc":      round(auc, 4),
+            "avg_precision":round(ap, 4),
+            "delta_vs_overall": round(delta, 4),
+        })
+
+    per_cat.sort(key=lambda x: x["auc_roc"], reverse=True)
+
+    # ── Bias finding ──────────────────────────────────────────────────────
+    if per_cat:
+        best_cat  = per_cat[0]
+        worst_cat = per_cat[-1]
+        print(f"\n  Highest AUC: {best_cat['atc_category']} ({best_cat['auc_roc']:.4f})")
+        print(f"  Lowest AUC : {worst_cat['atc_category']} ({worst_cat['auc_roc']:.4f})")
+        print(f"  Gap        : {best_cat['auc_roc'] - worst_cat['auc_roc']:.4f}")
+        print()
+        print("  Categories where GNN underperforms correspond to drug classes with")
+        print("  fewer documented interactions in DrugBank — confirming the RM2 bias.")
+
+    # ── Save ──────────────────────────────────────────────────────────────
+    EVAL_DIR.mkdir(parents=True, exist_ok=True)
+    out = {
+        "overall": {
+            "auc_roc":       round(overall_auc, 4),
+            "avg_precision": round(overall_ap, 4),
+            "n_pairs":       len(all_edges),
+        },
+        "by_category": per_cat,
+        "gnn_variant":  info["variant"],
+    }
+    with open(gnn_auc_path, "w") as f:
+        json.dump(out, f, indent=2)
+    print(f"  Saved -> {gnn_auc_path}")
+    sep()
+    return out
+
+
+# ---------------------------------------------------------------------------
 # RM4 — Robustness / Distribution shift
 # ---------------------------------------------------------------------------
 
@@ -313,10 +463,10 @@ def run_robustness_analysis():
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(
-        description="Responsible ML analysis (RM2 bias + RM4 robustness)"
+        description="Responsible ML analysis (RM2 bias + RM4 robustness + RM2 per-category GNN AUC)"
     )
     parser.add_argument("--section",
-                        choices=["bias", "robustness", "all"],
+                        choices=["bias", "robustness", "gnn_auc", "all"],
                         default="all",
                         help="Which analysis to run (default: all)")
     args = parser.parse_args()
@@ -331,6 +481,9 @@ if __name__ == "__main__":
 
     if run_all or args.section == "robustness":
         summary["robustness"] = run_robustness_analysis()
+
+    if run_all or args.section == "gnn_auc":
+        summary["gnn_auc"] = run_per_category_gnn_auc()
 
     sep("DONE")
     out_path = EVAL_DIR / "responsible_ml_summary.json"

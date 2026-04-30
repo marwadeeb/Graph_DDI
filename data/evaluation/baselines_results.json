@@ -1,108 +1,137 @@
 {
   "config": {
     "neg_ratio": 1,
-    "test_size": 0.2,
-    "seed": 42
+    "test_size": 0.1,
+    "seed": 42,
+    "cold_frac": 0.1
   },
   "results": {
     "common_neighbors": {
       "auc_roc": 0.9818,
-      "avg_precision": 0.9801,
+      "avg_precision": 0.9802,
       "category": "graph_heuristic",
       "label": "Common Neighbors"
     },
     "adamic_adar": {
       "auc_roc": 0.9828,
-      "avg_precision": 0.9813,
+      "avg_precision": 0.9815,
       "category": "graph_heuristic",
       "label": "Adamic Adar"
     },
     "jaccard": {
       "auc_roc": 0.9845,
-      "avg_precision": 0.9823,
+      "avg_precision": 0.982,
       "category": "graph_heuristic",
       "label": "Jaccard"
     },
     "logistic_regression": {
-      "auc_roc": 0.9502,
-      "avg_precision": 0.9505,
+      "auc_roc": 0.9498,
+      "avg_precision": 0.9502,
       "category": "non_graph_ml",
       "label": "Logistic Regression (drug features)",
       "top_features": [
         [
           "diff_monoisotopic_mass",
-          2.169
+          2.0837
         ],
         [
           "prod_cat_drugs_that_are_mainly_renall",
-          1.4462
+          1.4543
         ],
         [
           "diff_average_mass",
-          -1.1098
+          -1.0681
         ],
         [
           "diff_calc_mol_weight",
-          -1.1098
-        ],
-        [
-          "prod_monoisotopic_mass",
-          -1.1016
+          -1.0681
         ],
         [
           "prod_cat_central_nervous_system_depre",
-          1.0614
+          1.0493
         ],
         [
           "prod_cat_qtc_prolonging_agents",
-          1.0161
+          1.0409
+        ],
+        [
+          "prod_monoisotopic_mass",
+          -0.8985
         ],
         [
           "prod_cat_agents_that_produce_hyperten",
-          0.8488
+          0.8472
         ],
         [
           "prod_n_categories",
-          0.7867
+          0.7936
         ],
         [
           "diff_cat_increased_histamine_release",
-          -0.7637
-        ],
-        [
-          "prod_cat_immunosuppressive_agents",
-          0.638
+          -0.7633
         ],
         [
           "prod_cat_cytochrome_p-450_cyp3a_subst",
-          0.6338
+          0.671
         ],
         [
-          "prod_calc_mol_weight",
-          0.5422
-        ],
-        [
-          "prod_average_mass",
-          0.5422
+          "prod_cat_immunosuppressive_agents",
+          0.6263
         ],
         [
           "prod_cat_increased_histamine_release",
-          -0.5027
+          -0.5054
+        ],
+        [
+          "prod_state_solid",
+          0.4681
+        ],
+        [
+          "prod_cat_cytochrome_p-450_cyp3a4_subs",
+          -0.4637
         ]
       ]
     },
     "gnn": {
-      "auc_roc": 0.9738,
-      "avg_precision": 0.9589,
+      "auc_roc": "TBD",
+      "avg_precision": "TBD",
       "category": "gnn",
-      "label": "GNN — HeteroGraphSAGE + NCN (graph + features + drug-protein targets)",
-      "note": "HeteroGraphSAGE encoder + NCN-style EnhancedLinkPredictor, nnPU loss. Laure's split (may differ from step9 warm split). Fallback homo model: AUROC 0.9615."
+      "label": "GNN (graph + features)",
+      "note": "Fill in from Laure's model evaluation on the same split."
     },
     "random_chance": {
       "auc_roc": 0.5,
       "avg_precision": "\u2014",
       "category": "trivial",
       "label": "Random (chance)"
+    }
+  },
+  "cold_results": {
+    "common_neighbors": {
+      "auc_roc": 0.5,
+      "avg_precision": 0.5
+    },
+    "adamic_adar": {
+      "auc_roc": 0.5,
+      "avg_precision": 0.5
+    },
+    "jaccard": {
+      "auc_roc": 0.5,
+      "avg_precision": 0.5
+    },
+    "logistic_regression": {
+      "auc_roc": 0.8765,
+      "avg_precision": 0.8967,
+      "category": "non_graph_ml",
+      "label": "Logistic Regression (drug features)"
+    },
+    "gnn": {
+      "auc_roc": "TBD",
+      "avg_precision": "TBD"
+    },
+    "random_chance": {
+      "auc_roc": 0.5,
+      "avg_precision": "\u2014"
     }
   }
 }

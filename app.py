@@ -280,7 +280,7 @@ def _fallback_reply(pair_results: list, drugs_not_found: list) -> str:
         name_a = r.get("drug_a", {}).get("resolved", "Drug A")
         name_b = r.get("drug_b", {}).get("resolved", "Drug B")
         desc   = r.get("interaction_description", "")
-        if src == "rag_documented":
+        if src == "documented":
             lines.append(
                 f"⚠ **{name_a}** and **{name_b}** have a **documented interaction** in DrugBank. "
                 "Please consult a pharmacist or clinician before combining these medications. "
@@ -328,7 +328,7 @@ def generate_chat_reply(
         name_a = r.get("drug_a", {}).get("resolved", "")
         name_b = r.get("drug_b", {}).get("resolved", "")
         desc   = r.get("interaction_description", "")
-        if src == "rag_documented":
+        if src == "documented":
             ctx_lines.append(
                 f"- {name_a} + {name_b}: DOCUMENTED in DrugBank. {desc}"
             )
@@ -418,10 +418,11 @@ def results_page():
 def responsible_page():
     """Responsible ML page — explainability, fairness, privacy, robustness."""
     import json as _json
-    bias_path   = os.path.join(BASE_DIR, "data", "evaluation", "responsible_ml_bias.json")
-    robust_path = os.path.join(BASE_DIR, "data", "evaluation", "responsible_ml_robust.json")
+    bias_path    = os.path.join(BASE_DIR, "data", "evaluation", "responsible_ml_bias.json")
+    robust_path  = os.path.join(BASE_DIR, "data", "evaluation", "responsible_ml_robust.json")
+    gnn_auc_path = os.path.join(BASE_DIR, "data", "evaluation", "responsible_ml_gnn_auc.json")
 
-    bias_data, robust_data = {}, {}
+    bias_data, robust_data, gnn_auc_data = {}, {}, {}
     try:
         with open(bias_path) as f:
             bias_data = _json.load(f)
@@ -432,10 +433,16 @@ def responsible_page():
             robust_data = _json.load(f)
     except Exception:
         pass
+    try:
+        with open(gnn_auc_path) as f:
+            gnn_auc_data = _json.load(f)
+    except Exception:
+        pass
 
     return render_template("responsible.html",
                            bias=bias_data,
-                           robust=robust_data)
+                           robust=robust_data,
+                           gnn_auc=gnn_auc_data)
 
 
 @app.route("/health", methods=["GET"])
@@ -467,7 +474,7 @@ def check_pair():
         {
             "drug_a":   { "query": "...", "resolved": "...", "id": "..." },
             "drug_b":   { ... },
-            "source":   "rag_documented" | "gnn_predicted" | "not_found",
+            "source":   "documented" | "gnn_predicted" | "not_found",
             "found":    true | false,
             "interaction_type":        "...",
             "interaction_description": "...",
@@ -566,7 +573,7 @@ def check_pair():
         return jsonify({
             "drug_a": {"query": drug_a, "resolved": name_a, "id": id_a},
             "drug_b": {"query": drug_b, "resolved": name_b, "id": id_b},
-            "source":                  "rag_documented",
+            "source":                  "documented",
             "found":                   True,
             "interaction_type":        rag_result.get("interaction_type"),
             "interaction_description": rag_result.get("interaction_description"),
@@ -716,7 +723,7 @@ def chat_api():
                 pair_results.append({
                     "drug_a": {"query": da["query"], "resolved": name_a, "id": id_a},
                     "drug_b": {"query": db["query"], "resolved": name_b, "id": id_b},
-                    "source":                  "rag_documented",
+                    "source":                  "documented",
                     "found":                   True,
                     "interaction_description": dict_desc or (
                         f"Documented interaction between {name_a} and {name_b} in DrugBank."

@@ -361,7 +361,7 @@ Use `--load-split path/to/split.npz` to evaluate on Laure's GNN training split f
 {
   "drug_a": { "query": "Warfarin", "resolved": "Warfarin", "id": "DB00682" },
   "drug_b": { "query": "Aspirin",  "resolved": "Acetylsalicylic acid", "id": "DB00945" },
-  "source":  "rag_documented",
+  "source":  "documented",
   "found":   true,
   "interaction_description": "Acetylsalicylic acid may increase the anticoagulant activities...",
   "gnn":     null,
@@ -370,7 +370,7 @@ Use `--load-split path/to/split.npz` to evaluate on Laure's GNN training split f
 ```
 
 `source` values:
-- `"rag_documented"` — pair found in DrugBank dict (exact, O(1))
+- `"documented"` — pair found in DrugBank dict (exact, O(1))
 - `"gnn_predicted"` — novel pair, GNN link prediction
 - `"not_found"` — not in DrugBank, GNN scores below threshold
 - `"drug_not_found"` — drug name could not be resolved

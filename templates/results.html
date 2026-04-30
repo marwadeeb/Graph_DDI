@@ -514,13 +514,30 @@
     </div>
     <ul style="font-size:.84rem; color:var(--gray-600); line-height:1.8; padding-left:18px;">
       <li>Cold-start split: 10 % of drugs randomly selected at the drug level (not edge level), all their edges removed from training.</li>
-      <li>Warm split: random 80/20 edge split, seed 42, 1:1 positive:negative sampling via random drug pairs not in DrugBank.</li>
-      <li>GNN uses the same split files (<code>edge_split.npz</code>, <code>cold_split.npz</code>) for a fair comparison.</li>
+      <li>Warm split: 80/20 edge split matching the GNN training configuration, 1:1 positive:negative ratio.</li>
+      <li>GNN split: PyG <code>RandomLinkSplit</code> with 20 % masked positives (nnPU), 10 % val, 10 % test — same configuration as baselines.</li>
       <li>Data: DrugBank Full Database v5.1 · 4,795 FDA-approved drugs · 824,249 documented interaction pairs.</li>
-      <li>Graph heuristics and LR baselines: <code>pipeline/step9_baseline.py</code> · GNN: <code>pipeline/gnn_predictor.py</code>.</li>
     </ul>
   </div>
 
 </main>
+
+<!-- Floating chat button -->
+<a href="/chat" id="fab-chat" title="Ask about drug interactions"
+   style="
+     position: fixed; bottom: 28px; left: 28px; z-index: 100;
+     width: 56px; height: 56px; border-radius: 50%;
+     background: linear-gradient(135deg, #2563eb, #4f46e5);
+     color: #fff; text-decoration: none;
+     display: flex; align-items: center; justify-content: center;
+     font-size: 1.4rem;
+     box-shadow: 0 4px 18px rgba(37,99,235,.45);
+     transition: transform .18s, box-shadow .18s;
+   "
+   onmouseover="this.style.transform='scale(1.1)';this.style.boxShadow='0 6px 24px rgba(37,99,235,.55)'"
+   onmouseout="this.style.transform='scale(1)';this.style.boxShadow='0 4px 18px rgba(37,99,235,.45)'">
+  💬
+</a>
+
 </body>
 </html>
