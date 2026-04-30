@@ -106,6 +106,7 @@ python pipeline/step5_hetero_graph.py           # ~30 s  (drug-protein hetero gr
 python pipeline/step6_rag_index.py              # ~3-4 hrs (CPU, resumable)
 python pipeline/step9_baseline.py               # ~30 s  (graph heuristics + LR + cold split)
 python pipeline/step10_responsible_ml.py        # ~5 s   (bias + robustness)
+python pipeline/step10_responsible_ml.py --section gnn_auc  # per-category GNN AUC (needs model .pt files)
 # GNN training: run hetero_model.ipynb in Jupyter
 ```
 

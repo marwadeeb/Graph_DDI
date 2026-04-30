@@ -20,7 +20,7 @@ For operational instructions see the main [README](../README.md).
 | 7 — RAG / Dict Query | `pipeline/step7_rag_query.py` | CLI/API — O(1) dict lookup + optional FAISS | — |
 | 8 — RAG Evaluation | `pipeline/step8_evaluate_rag.py` | `data/evaluation/` — precision/recall/F1 | — |
 | 9 — Baselines + Split | `pipeline/step9_baseline.py` | `data/evaluation/` — graph heuristics + LR + cold-start split files | — |
-| 10 — Responsible ML | `pipeline/step10_responsible_ml.py` | `data/evaluation/` — bias + robustness JSON | — |
+| 10 — Responsible ML | `pipeline/step10_responsible_ml.py` | `data/evaluation/` — bias JSON · robustness JSON · per-category GNN AUC JSON | — |
 | GNN Training | `hetero_model.ipynb` | `data/step4_graph/bestHeteroModel.pt` — HeteroGraphSAGE + NCN | 6 MB · **on GitHub** |
 | — | `app.py` | REST API + Web UI on port 7860 | — |
 
@@ -80,9 +80,8 @@ For operational instructions see the main [README](../README.md).
 ├── templates/                       Jinja2 HTML templates
 │   ├── index.html                   DDI Checker UI
 │   ├── chat.html                    Chat interface
-│   ├── results.html                 Model performance page
-│   └── responsible.html             Responsible ML page
-│   └── results.html                 Model comparison page
+│   ├── results.html                 Model performance page (cold-start primary)
+│   └── responsible.html             Responsible ML page (RM1–RM4)
 └── data/
     ├── step1_full/                  full parse output             [gitignored]
     ├── step2_dedup/                 undirected DDI pairs          [gitignored]
@@ -347,7 +346,8 @@ Use `--load-split path/to/split.npz` to evaluate on Laure's GNN training split f
 |---|---|---|
 | GET | `/` | DDI Checker UI |
 | GET | `/chat` | Chat interface |
-| GET | `/results` | Model comparison page |
+| GET | `/results` | Model performance page (cold-start + warm evaluation) |
+| GET | `/responsible` | Responsible ML page (RM1–RM4, per-category AUC) |
 | GET | `/health` | Liveness / readiness check |
 | POST | `/api/check` | Check single drug pair |
 | POST | `/api/check/batch` | Check up to 50 pairs |
