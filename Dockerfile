@@ -47,12 +47,9 @@ RUN pip install --no-cache-dir -r requirements.txt
 # ── Application code ──────────────────────────────────────────────────────────
 COPY . .
 
-# ── Pre-download the sentence-transformer model so the image is self-contained.
-# Cached in the HuggingFace model cache inside the image (no network at runtime).
-RUN python - <<'EOF'
-from sentence_transformers import SentenceTransformer
-SentenceTransformer("pritamdeka/S-PubMedBert-MS-MARCO")
-EOF
+# NOTE: sentence-transformer model is loaded lazily at runtime (only when
+# use_rag=True is passed to /api/check). Pre-downloading here caused numpy
+# ABI conflicts during build; the lazy loader in _ensure_faiss() handles it.
 
 # ── HuggingFace Spaces runs on port 7860 ─────────────────────────────────────
 EXPOSE 7860
