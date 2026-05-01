@@ -81,6 +81,81 @@ For operational instructions see the main [README](../README.md).
 
 ---
 
+## Step 1 — DrugBank XML Parsing (Key Differentiator)
+
+One of the most technically demanding stages of this project is the first one: converting the raw
+DrugBank Full Database XML into clean, analysis-ready relational tables.
+
+### Why This Is Hard
+
+DrugBank distributes its data as a single monolithic XML file (v5.1: **1.1 GB**, **19,842 drug entries**).
+The schema is deeply nested, highly polymorphic, and semi-structured — each drug can contain dozens of
+optional, variable-depth sub-trees covering synonyms, drug interactions, protein targets, metabolic
+pathways, pharmacokinetic properties, commercial products, literature references, and more.
+
+Key structural challenges:
+- **Variability**: fields may be absent, empty, or present at unpredictable depths across different drug entries
+- **Many-to-many relationships**: one drug can have thousands of DDI records, multiple protein targets, multiple categories
+- **Cross-references**: external identifiers (PubChem, ChEMBL, UniProt) appear as nested `<identifier>` nodes with `resource=` attributes
+- **Scale**: 19,842 complete drug records × deep nesting = cannot be loaded into memory all at once
+
+### Streaming iterparse Architecture
+
+We use **lxml `iterparse`** to process one `<drug>` element at a time, keeping peak memory bounded.
+The parser is split into domain-specific modules, each responsible for one slice of the schema:
+
+```
+main_parser.py          streaming loop — fires per-drug event, calls all parsers
+├── parse_core.py       → drugs, drug_ids, drug_attributes, properties, external_identifiers
+├── parse_references.py → references, reference_associations
+├── parse_commercial.py → salts, products, mixtures, prices, commercial_entities
+├── parse_pharmacological.py → categories, atc_codes, dosages, patents
+├── parse_interactions.py    → drug_interactions (DDI), drug_snp_data
+├── parse_pathways.py   → pathways, pathway_members, reactions
+└── parse_proteins.py   → interactants, polypeptides, polypeptide_attributes
+```
+
+A central `ParserState` tracks global deduplication counters across modules.
+A utility layer (`utils.py`) provides safe XML-field extraction, canonical ID normalisation,
+and incremental CSV writing.
+
+### Output: 27 Relational Tables
+
+The parser produces **27 normalised CSV files** in `data/step1_full/`:
+
+| Domain | Tables |
+|---|---|
+| Core | `drugs`, `drug_ids`, `drug_attributes`, `drug_properties`, `external_identifiers` |
+| Interactions | `drug_interactions`, `drug_snp_data` |
+| Proteins / Targets | `interactants`, `drug_interactants`, `polypeptides`, `interactant_polypeptides`, `polypeptide_attributes` |
+| Pharmacology | `categories`, `drug_categories`, `atc_codes`, `dosages`, `patents` |
+| Commercial | `salts`, `products`, `drug_commercial_entities`, `mixtures`, `prices` |
+| Literature | `references`, `reference_associations` |
+| Pathways | `pathways`, `pathway_members`, `reactions` |
+
+### Validation Suite (16 checks)
+
+`parser/validate.py` runs automatically after parsing and checks:
+- Primary-key uniqueness for every table
+- Referential integrity (all `drugbank_id` FKs exist in `drugs`)
+- Row-count thresholds (e.g. `drug_interactions` > 2.5M rows)
+- Non-null constraints on critical fields
+- Duplicate-detection for many-to-many junction tables
+
+### Why This Matters
+
+This parsing stage is the **foundation of the entire pipeline**. Every downstream step —
+interaction deduplication, graph construction, GNN feature engineering, RAG index building —
+depends on the quality of these 27 tables. Without a robust, memory-efficient parser that
+correctly handles the schema's irregularities, none of the ML work would be possible.
+
+The clean relational representation also enables precise *undirected* DDI deduplication (Step 2):
+the raw XML contains directed pairs `(A→B)` and `(B→A)` separately;
+`step2_dedup_interactions.py` collapses these to canonical `{A,B}` frozenset pairs,
+reducing 2.9M directed records to the 824K unique undirected pairs used throughout the system.
+
+---
+
 ## File Structure
 
 ```
@@ -119,10 +194,13 @@ For operational instructions see the main [README](../README.md).
 │   ├── ARCHITECTURE.md              (this file)
 │   └── responsible_ml.md            RM1-RM4 analysis
 ├── templates/                       Jinja2 HTML templates
-│   ├── index.html                   DDI Checker UI
-│   ├── chat.html                    Chat interface
+│   ├── index.html                   DDI Checker UI (drug pair lookup)
+│   ├── chat.html                    Chat interface (NER + LLM explanation)
 │   ├── results.html                 Model performance page (cold-start primary)
-│   └── responsible.html             Responsible ML page (RM1–RM4)
+│   ├── responsible.html             Responsible ML page (RM1–RM4)
+│   ├── dashboard.html               Live dashboard (query stats, system health)
+│   ├── about.html                   About page (tech stack, pipeline, key numbers)
+│   └── landing.html                 Animated landing page (visual demo)
 └── data/
     ├── step1_full/                  full parse output             [gitignored]
     ├── step2_dedup/                 undirected DDI pairs          [gitignored]
@@ -389,7 +467,11 @@ Use `--load-split path/to/split.npz` to evaluate on Laure's GNN training split f
 | GET | `/chat` | Chat interface |
 | GET | `/results` | Model performance page (cold-start + warm evaluation) |
 | GET | `/responsible` | Responsible ML page (RM1–RM4, per-category AUC) |
+| GET | `/dashboard` | Live dashboard (query stats, system health, top pairs) |
+| GET | `/about` | About page (tech stack, pipeline, key numbers) |
+| GET | `/landing` | Animated landing page (visual pipeline demo) |
 | GET | `/health` | Liveness / readiness check |
+| GET | `/api/stats` | Live stats (queries, hit rate, top pairs, system health) |
 | POST | `/api/check` | Check single drug pair |
 | POST | `/api/check/batch` | Check up to 50 pairs |
 | POST | `/api/check/compare` | Side-by-side dict vs GNN |

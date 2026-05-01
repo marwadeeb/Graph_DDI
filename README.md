@@ -47,6 +47,7 @@ The FAISS RAG index is loaded on demand only.
 | `/responsible` | Responsible ML — explainability, fairness, privacy, robustness |
 | `/dashboard` | Live dashboard — query stats, system health, recent activity |
 | `/about` | About the system — tech stack, how it works, key numbers |
+| `/landing` | Animated landing page — visual pipeline demo + graph visualization |
 
 ---
 

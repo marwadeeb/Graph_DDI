@@ -13,7 +13,7 @@ Endpoints:
 All responses are JSON.  The RAG pipeline (step7) is loaded once at startup.
 """
 
-import os, sys, time, json, threading, collections as _col, datetime as _dt
+import os, sys, time, json, threading, collections as _col, datetime as _dt, re
 import pandas as pd
 from flask import Flask, request, jsonify, render_template
 
@@ -44,6 +44,35 @@ os.environ["TF_CPP_MIN_LOG_LEVEL"] = "3"
 
 app = Flask(__name__)
 app.config["JSON_SORT_KEYS"] = False
+app.config["MAX_CONTENT_LENGTH"] = 512 * 1024   # 512 KB max request body
+
+# ---------------------------------------------------------------------------
+# Security helpers
+# ---------------------------------------------------------------------------
+_CTRL = re.compile(r'[\x00-\x1f\x7f]')
+
+def _sanitize(s: str, max_len: int = 120) -> str:
+    if not isinstance(s, str):
+        return ""
+    return _CTRL.sub('', s.strip())[:max_len]
+
+
+@app.after_request
+def _security_headers(response):
+    h = response.headers
+    h['X-Content-Type-Options']  = 'nosniff'
+    h['X-Frame-Options']         = 'DENY'
+    h['X-XSS-Protection']        = '1; mode=block'
+    h['Referrer-Policy']         = 'strict-origin-when-cross-origin'
+    # Inline scripts/styles needed for our vanilla templates
+    h['Content-Security-Policy'] = (
+        "default-src 'self'; "
+        "script-src 'self' 'unsafe-inline'; "
+        "style-src 'self' 'unsafe-inline'; "
+        "img-src 'self' data:; "
+        "connect-src 'self';"
+    )
+    return response
 
 # Lazy-loaded components
 _rag_ready     = False
@@ -110,6 +139,7 @@ _stats = {
     "not_found": 0, "drug_not_found": 0, "total_ms": 0.0,
 }
 _recent_queries = _col.deque(maxlen=200)
+_pair_counts    = _col.Counter()
 _server_start   = _dt.datetime.utcnow()
 
 
@@ -125,6 +155,9 @@ def _record_query(source: str, drug_a: str, drug_b: str, elapsed_ms: float):
         "source": source,
         "ms":     round(elapsed_ms),
     })
+    if source in ("documented", "gnn_predicted", "not_found"):
+        key = " × ".join(sorted([drug_a.lower(), drug_b.lower()]))
+        _pair_counts[key] += 1
 
 
 def _init_rag():
@@ -516,9 +549,9 @@ def check_pair():
     GNN_THRESHOLD = 0.43
 
     body    = request.get_json(silent=True) or {}
-    drug_a  = (body.get("drug_a") or "").strip()
-    drug_b  = (body.get("drug_b") or "").strip()
-    top_k   = int(body.get("top_k", 3))
+    drug_a  = _sanitize(body.get("drug_a") or "")
+    drug_b  = _sanitize(body.get("drug_b") or "")
+    top_k   = min(int(body.get("top_k", 3)), 10)
     use_rag = bool(body.get("use_rag", False))   # caller must opt-in to FAISS evidence
 
     if not drug_a or not drug_b:
@@ -702,7 +735,7 @@ def chat_api():
     _init_rag()
 
     body    = request.get_json(silent=True) or {}
-    message = (body.get("message") or "").strip()
+    message = _sanitize(body.get("message") or "", max_len=2000)
 
     if not message:
         return jsonify({"error": "message is required"}), 400
@@ -837,7 +870,7 @@ def check_batch():
 
     body  = request.get_json(silent=True) or {}
     pairs   = body.get("pairs", [])
-    top_k   = int(body.get("top_k", 3))
+    top_k   = min(int(body.get("top_k", 3)), 10)
     use_rag = bool(body.get("use_rag", False))
 
     if not pairs:
@@ -851,8 +884,8 @@ def check_batch():
 
     results = []
     for pair in pairs:
-        drug_a = (pair.get("drug_a") or "").strip()
-        drug_b = (pair.get("drug_b") or "").strip()
+        drug_a = _sanitize(pair.get("drug_a") or "")
+        drug_b = _sanitize(pair.get("drug_b") or "")
 
         if not drug_a or not drug_b:
             results.append({"error": "Both 'drug_a' and 'drug_b' are required."})
@@ -1045,6 +1078,11 @@ def drug_search():
     return jsonify({"results": matches[:limit]})
 
 
+@app.route("/landing", methods=["GET"])
+def landing_page():
+    return render_template("landing.html")
+
+
 @app.route("/about", methods=["GET"])
 def about_page():
     return render_template("about.html")
@@ -1072,6 +1110,7 @@ def api_stats():
     return jsonify({
         "stats":  dict(_stats),
         "recent": list(_recent_queries)[:25],
+        "top_pairs": [{"pair": p, "count": n} for p, n in _pair_counts.most_common(5)],
         "system": {
             "uptime":        f"{h}h {m:02d}m {s:02d}s",
             "avg_ms":        avg_ms,

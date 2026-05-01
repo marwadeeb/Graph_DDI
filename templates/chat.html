@@ -82,6 +82,33 @@
       background: rgba(255,255,255,.18);
       border-color: rgba(255,255,255,.4);
     }
+    .nav-more-wrap { position: relative; }
+    .nav-more-btn {
+      color: rgba(255,255,255,.88); background: transparent;
+      font-size: .78rem; font-weight: 600;
+      padding: 5px 12px; border-radius: 20px;
+      border: 1px solid rgba(255,255,255,.22);
+      cursor: pointer; transition: background .15s;
+      white-space: nowrap; display: flex; align-items: center; gap: 5px;
+    }
+    .nav-more-btn:hover, .nav-more-btn.open { background: rgba(255,255,255,.15); }
+    .nav-more-btn.has-active { background: rgba(255,255,255,.18); border-color: rgba(255,255,255,.4); }
+    .nav-more-menu {
+      display: none; position: absolute; top: calc(100% + 8px); right: 0;
+      background: #1e3a8a; border: 1px solid rgba(255,255,255,.18);
+      border-radius: 12px; padding: 6px; min-width: 175px;
+      box-shadow: 0 8px 24px rgba(0,0,0,.25); z-index: 200;
+    }
+    .nav-more-menu.open { display: block; }
+    .nav-more-menu a {
+      display: flex; align-items: center; gap: 7px;
+      color: rgba(255,255,255,.9); text-decoration: none;
+      font-size: .8rem; font-weight: 600;
+      padding: 8px 12px; border-radius: 8px;
+      transition: background .12s; white-space: nowrap;
+    }
+    .nav-more-menu a:hover { background: rgba(255,255,255,.12); }
+    .nav-more-menu a.active { background: rgba(255,255,255,.18); color: #fff; }
 
     /* ── Chat area ──────────────────────────────────────────── */
     #chat-area {
@@ -392,10 +419,15 @@
   <div class="header-nav">
     <a href="/">🔬 Checker</a>
     <a href="/chat" class="active">💬 Chat</a>
-    <a href="/results">📊 Results</a>
-    <a href="/responsible">🛡️ Responsible ML</a>
-    <a href="/dashboard">📈 Dashboard</a>
-    <a href="/about">ℹ️ About</a>
+    <div class="nav-more-wrap" id="nav-more-wrap">
+      <button class="nav-more-btn" id="nav-more-btn" onclick="toggleMore()" aria-expanded="false">⋯ More</button>
+      <div class="nav-more-menu" id="nav-more-menu">
+        <a href="/results">📊 Results</a>
+        <a href="/responsible">🛡️ Responsible ML</a>
+        <a href="/dashboard">📈 Dashboard</a>
+        <a href="/about">ℹ️ About</a>
+      </div>
+    </div>
   </div>
 </header>
 
@@ -686,6 +718,21 @@
       input.focus();
     }
   }
+
+  function toggleMore() {
+    const menu = document.getElementById('nav-more-menu');
+    const btn  = document.getElementById('nav-more-btn');
+    const open = menu.classList.toggle('open');
+    btn.classList.toggle('open', open);
+    btn.setAttribute('aria-expanded', open);
+  }
+  document.addEventListener('click', function(e) {
+    const wrap = document.getElementById('nav-more-wrap');
+    if (wrap && !wrap.contains(e.target)) {
+      document.getElementById('nav-more-menu').classList.remove('open');
+      document.getElementById('nav-more-btn').classList.remove('open');
+    }
+  });
 </script>
 </body>
 </html>
