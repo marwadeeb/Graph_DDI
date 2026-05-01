@@ -61,7 +61,7 @@ def _sanitize(s: str, max_len: int = 120) -> str:
 def _security_headers(response):
     h = response.headers
     h['X-Content-Type-Options']  = 'nosniff'
-    h['X-Frame-Options']         = 'DENY'
+    h['X-Frame-Options']         = 'SAMEORIGIN'
     h['X-XSS-Protection']        = '1; mode=block'
     h['Referrer-Policy']         = 'strict-origin-when-cross-origin'
     # Inline scripts/styles needed for our vanilla templates
