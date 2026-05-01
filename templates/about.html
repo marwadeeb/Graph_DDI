@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DDI — About</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --indigo:  #4f46e5; --blue: #2563eb;
+      --green:   #16a34a; --green-lt: #f0fdf4;
+      --amber:   #d97706;
+      --gray-50: #f9fafb; --gray-100: #f3f4f6; --gray-200: #e5e7eb;
+      --gray-400: #9ca3af; --gray-500: #6b7280; --gray-600: #4b5563;
+      --gray-700: #374151; --gray-800: #1f2937;
+      --radius: 10px;
+    }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background:
+        radial-gradient(ellipse 80% 60% at 20% -10%, rgba(37,99,235,.08) 0%, transparent 60%),
+        radial-gradient(ellipse 60% 50% at 90% 110%, rgba(99,102,241,.07) 0%, transparent 55%),
+        linear-gradient(160deg, #eef2ff 0%, #f4f7ff 45%, #faf5ff 100%);
+      background-attachment: fixed;
+      color: var(--gray-800); min-height: 100vh;
+    }
+    header {
+      background: linear-gradient(100deg, #1e3a8a 0%, #2563eb 55%, #4f46e5 100%);
+      color: #fff; padding: 14px 24px;
+      display: flex; align-items: center; gap: 14px;
+      box-shadow: 0 2px 12px rgba(37,99,235,.30);
+      position: sticky; top: 0; z-index: 10;
+    }
+    header h1 { font-size: 1.1rem; font-weight: 700; letter-spacing: -.3px; }
+    header p  { font-size: .74rem; opacity: .80; margin-top: 1px; }
+    .header-nav { margin-left: auto; display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+    .header-nav a {
+      color: rgba(255,255,255,.88); text-decoration: none;
+      font-size: .75rem; font-weight: 600;
+      padding: 5px 11px; border-radius: 20px;
+      border: 1px solid rgba(255,255,255,.22);
+      transition: background .15s; white-space: nowrap;
+    }
+    .header-nav a:hover  { background: rgba(255,255,255,.15); }
+    .header-nav a.active { background: rgba(255,255,255,.18); border-color: rgba(255,255,255,.4); }
+
+    main { max-width: 1060px; margin: 0 auto; padding: 36px 20px 64px; }
+
+    /* ── Hero ─────────────────────────────────────────── */
+    .hero {
+      background: linear-gradient(135deg, #1e3a8a 0%, #2563eb 55%, #4f46e5 100%);
+      border-radius: 20px; padding: 48px 44px;
+      color: #fff; margin-bottom: 36px;
+      position: relative; overflow: hidden;
+    }
+    .hero::after {
+      content: "💊";
+      position: absolute; right: 40px; bottom: 28px;
+      font-size: 7rem; opacity: .07; line-height: 1;
+      pointer-events: none;
+    }
+    .hero h2 { font-size: 2rem; font-weight: 800; letter-spacing: -.5px; margin-bottom: 14px; }
+    .hero p  { font-size: 1rem; opacity: .9; line-height: 1.75; max-width: 680px; margin-bottom: 24px; }
+    .hero-badges { display: flex; gap: 9px; flex-wrap: wrap; }
+    .hero-badge {
+      background: rgba(255,255,255,.14);
+      border: 1px solid rgba(255,255,255,.25);
+      border-radius: 20px; padding: 5px 14px;
+      font-size: .78rem; font-weight: 600;
+    }
+
+    /* ── Section heading ─────────────────────────────── */
+    .section-h {
+      font-size: .7rem; font-weight: 700; letter-spacing: .1em;
+      text-transform: uppercase; color: var(--gray-400);
+      margin: 36px 0 16px;
+    }
+
+    /* ── How it works ────────────────────────────────── */
+    .steps {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      gap: 16px; margin-bottom: 4px;
+    }
+    .step-card {
+      background: rgba(255,255,255,.84); backdrop-filter: blur(12px);
+      border: 1px solid rgba(99,102,241,.14); border-radius: 16px;
+      box-shadow: 0 2px 12px rgba(37,99,235,.07); padding: 24px;
+    }
+    .step-num   { font-size: 2.4rem; font-weight: 900; color: var(--indigo); opacity: .12; line-height: 1; margin-bottom: 10px; }
+    .step-title { font-size: .96rem; font-weight: 700; margin-bottom: 8px; color: var(--gray-800); }
+    .step-desc  { font-size: .8rem; color: var(--gray-600); line-height: 1.65; }
+    .step-desc code {
+      background: var(--gray-100); border-radius: 4px;
+      padding: 1px 5px; font-size: .75rem;
+    }
+
+    /* ── Stats strip ─────────────────────────────────── */
+    .stats-strip {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+      gap: 14px;
+    }
+    .stat-tile {
+      background: rgba(255,255,255,.84); backdrop-filter: blur(12px);
+      border: 1px solid rgba(99,102,241,.14); border-radius: 14px;
+      box-shadow: 0 2px 10px rgba(37,99,235,.06);
+      padding: 18px 16px; text-align: center;
+    }
+    .stat-tile .big { font-size: 1.85rem; font-weight: 800; color: var(--indigo); }
+    .stat-tile .lbl { font-size: .71rem; color: var(--gray-500); margin-top: 3px; line-height: 1.4; }
+
+    /* ── Tech stack ──────────────────────────────────── */
+    .tech-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+      gap: 14px;
+    }
+    .tech-group {
+      background: rgba(255,255,255,.84); backdrop-filter: blur(12px);
+      border: 1px solid rgba(99,102,241,.14); border-radius: 14px;
+      box-shadow: 0 2px 10px rgba(37,99,235,.06); padding: 20px 22px;
+    }
+    .tech-group h3 {
+      font-size: .72rem; font-weight: 700; color: var(--indigo);
+      text-transform: uppercase; letter-spacing: .07em; margin-bottom: 14px;
+    }
+    .tech-item { display: flex; align-items: flex-start; gap: 10px; margin-bottom: 10px; }
+    .tech-item:last-child { margin-bottom: 0; }
+    .tech-dot  { width: 6px; height: 6px; border-radius: 50%; background: var(--indigo); flex-shrink: 0; margin-top: 5px; }
+    .tech-name { font-size: .83rem; font-weight: 600; }
+    .tech-note { font-size: .73rem; color: var(--gray-500); margin-top: 1px; }
+
+    /* ── Pipeline flow ───────────────────────────────── */
+    .pipeline-flow {
+      display: flex; align-items: center; gap: 0;
+      overflow-x: auto; padding: 16px 0;
+    }
+    .pf-step {
+      background: rgba(255,255,255,.84); border: 1px solid rgba(99,102,241,.18);
+      border-radius: 10px; padding: 10px 14px; white-space: nowrap;
+      font-size: .76rem; font-weight: 600; color: var(--indigo);
+      flex-shrink: 0;
+    }
+    .pf-arrow { color: var(--gray-300); font-size: 1.1rem; padding: 0 6px; flex-shrink: 0; }
+
+    /* ── CTA strip ───────────────────────────────────── */
+    .cta-strip { display: flex; gap: 12px; flex-wrap: wrap; }
+    .cta-btn {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 12px 22px; border-radius: 10px;
+      text-decoration: none; font-weight: 700; font-size: .88rem;
+      transition: transform .15s, box-shadow .15s;
+    }
+    .cta-btn:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(37,99,235,.2); }
+    .cta-primary   { background: linear-gradient(135deg, #2563eb, #4f46e5); color: #fff; }
+    .cta-secondary {
+      background: rgba(255,255,255,.9);
+      border: 1.5px solid rgba(99,102,241,.22); color: var(--indigo);
+    }
+
+    /* ── Footer note ─────────────────────────────────── */
+    .footer-note {
+      font-size: .8rem; color: var(--gray-500);
+      border-top: 1px solid var(--gray-200);
+      padding-top: 20px; line-height: 1.7; margin-top: 36px;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"
+       stroke-linecap="round" stroke-linejoin="round">
+    <path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/>
+  </svg>
+  <div>
+    <h1>DDI Checker</h1>
+    <p>Drug-Drug Interaction Detection System</p>
+  </div>
+  <nav class="header-nav">
+    <a href="/">🔬 Checker</a>
+    <a href="/chat">💬 Chat</a>
+    <a href="/results">📊 Results</a>
+    <a href="/responsible">🛡️ Responsible ML</a>
+    <a href="/dashboard">📈 Dashboard</a>
+    <a href="/about" class="active">ℹ️ About</a>
+  </nav>
+</header>
+
+<main>
+
+  <!-- Hero -->
+  <div class="hero">
+    <h2>What is DDI Checker?</h2>
+    <p>
+      A two-stage clinical decision-support system that detects drug-drug interactions using a
+      direct DrugBank dictionary lookup and a Graph Neural Network trained on the pharmacological
+      interaction graph of 4,795 FDA-approved drugs. Built as a graduate-level ML project
+      demonstrating responsible AI in a healthcare context.
+    </p>
+    <div class="hero-badges">
+      <span class="hero-badge">4,795 FDA-approved drugs</span>
+      <span class="hero-badge">824,249 interaction pairs</span>
+      <span class="hero-badge">GNN AUROC 0.9738</span>
+      <span class="hero-badge">DrugBank v5.1</span>
+      <span class="hero-badge">Responsible ML certified</span>
+      <span class="hero-badge">Open source</span>
+    </div>
+  </div>
+
+  <!-- How it works -->
+  <div class="section-h">How it works</div>
+  <div class="steps">
+    <div class="step-card">
+      <div class="step-num">01</div>
+      <div class="step-title">Enter two drug names</div>
+      <div class="step-desc">
+        Type any drug name, brand name, or DrugBank ID. The resolver handles
+        case variants, common synonyms (<em>aspirin → Acetylsalicylic acid</em>,
+        <em>adrenaline → Epinephrine</em>), leading/trailing whitespace, and
+        DrugBank IDs like <code>DB00682</code>.
+      </div>
+    </div>
+    <div class="step-card">
+      <div class="step-num">02</div>
+      <div class="step-title">Two-stage lookup</div>
+      <div class="step-desc">
+        <strong>Stage 1 — Dict lookup:</strong> O(1) check against all 824,249 documented
+        DrugBank pairs. If found, returns the exact interaction sentence — no model involved,
+        fully auditable.<br><br>
+        <strong>Stage 2 — GNN:</strong> If nothing is found, a HeteroGraphSAGE network
+        predicts whether an interaction is likely from the pharmacological graph structure
+        and 980 per-drug features.
+      </div>
+    </div>
+    <div class="step-card">
+      <div class="step-num">03</div>
+      <div class="step-title">Transparent result</div>
+      <div class="step-desc">
+        Every response carries a <code>source</code> label:
+        <strong>documented</strong> (DrugBank ground truth),
+        <strong>gnn_predicted</strong> (model inference), or
+        <strong>not_found</strong> (no evidence either way).
+        GNN predictions always include a safety disclaimer and confidence score.
+        Users always know whether they are looking at established data or a model prediction.
+      </div>
+    </div>
+  </div>
+
+  <!-- Key numbers -->
+  <div class="section-h">Key numbers</div>
+  <div class="stats-strip">
+    <div class="stat-tile">
+      <div class="big">4,795</div>
+      <div class="lbl">FDA-approved drugs</div>
+    </div>
+    <div class="stat-tile">
+      <div class="big">824K</div>
+      <div class="lbl">Documented DDI pairs</div>
+    </div>
+    <div class="stat-tile">
+      <div class="big">980</div>
+      <div class="lbl">Features per drug</div>
+    </div>
+    <div class="stat-tile">
+      <div class="big">0.974</div>
+      <div class="lbl">GNN AUROC (warm eval)</div>
+    </div>
+    <div class="stat-tile">
+      <div class="big">&lt;5 ms</div>
+      <div class="lbl">Dict lookup latency (O(1))</div>
+    </div>
+    <div class="stat-tile">
+      <div class="big">3 / 4</div>
+      <div class="lbl">Responsible ML topics covered</div>
+    </div>
+  </div>
+
+  <!-- Tech stack -->
+  <div class="section-h">Technology stack</div>
+  <div class="tech-grid">
+    <div class="tech-group">
+      <h3>🐍 Backend</h3>
+      <div class="tech-item"><div class="tech-dot"></div>
+        <div><div class="tech-name">Python 3.11 + Flask</div>
+             <div class="tech-note">REST API · Jinja2 server-side rendering</div></div></div>
+      <div class="tech-item"><div class="tech-dot"></div>
+        <div><div class="tech-name">PyTorch + PyG</div>
+             <div class="tech-note">GNN inference — HeteroGraphSAGE + NCN</div></div></div>
+      <div class="tech-item"><div class="tech-dot"></div>
+        <div><div class="tech-name">scikit-learn</div>
+             <div class="tech-note">Logistic Regression baseline · TF-IDF</div></div></div>
+      <div class="tech-item"><div class="tech-dot"></div>
+        <div><div class="tech-name">FAISS</div>
+             <div class="tech-note">Vector similarity search — loaded on demand</div></div></div>
+      <div class="tech-item"><div class="tech-dot"></div>
+        <div><div class="tech-name">Groq API (llama-3.3-70b)</div>
+             <div class="tech-note">LLM NER + plain-language explanation</div></div></div>
+    </div>
+    <div class="tech-group">
+      <h3>🎨 Frontend</h3>
+      <div class="tech-item"><div class="tech-dot"></div>
+        <div><div class="tech-name">Vanilla HTML / CSS / JS</div>
+             <div class="tech-note">Zero framework dependencies</div></div></div>
+      <div class="tech-item"><div class="tech-dot"></div>
+        <div><div class="tech-name">Jinja2 Templates</div>
+             <div class="tech-note">Flask integration · auto-escaped output</div></div></div>
+      <div class="tech-item"><div class="tech-dot"></div>
+        <div><div class="tech-name">CSS Custom Properties</div>
+             <div class="tech-note">Consistent design system · glassmorphism</div></div></div>
+      <div class="tech-item"><div class="tech-dot"></div>
+        <div><div class="tech-name">Native Fetch API</div>
+             <div class="tech-note">Async autocomplete · live dashboard polling</div></div></div>
+    </div>
+    <div class="tech-group">
+      <h3>📊 ML &amp; Data</h3>
+      <div class="tech-item"><div class="tech-dot"></div>
+        <div><div class="tech-name">DrugBank v5.1</div>
+             <div class="tech-note">4,795 drugs · 824K pairs · CC BY-NC 4.0</div></div></div>
+      <div class="tech-item"><div class="tech-dot"></div>
+        <div><div class="tech-name">PubMedBERT</div>
+             <div class="tech-note">S-PubMedBert-MS-MARCO · 768-dim embeddings</div></div></div>
+      <div class="tech-item"><div class="tech-dot"></div>
+        <div><div class="tech-name">HeteroGraphSAGE + NCN</div>
+             <div class="tech-note">3-layer encoder + NCN link predictor · nnPU loss</div></div></div>
+      <div class="tech-item"><div class="tech-dot"></div>
+        <div><div class="tech-name">Pandas / NumPy</div>
+             <div class="tech-note">Feature engineering · 10-step data pipeline</div></div></div>
+    </div>
+    <div class="tech-group">
+      <h3>☁️ Infrastructure</h3>
+      <div class="tech-item"><div class="tech-dot"></div>
+        <div><div class="tech-name">Docker</div>
+             <div class="tech-note">Containerised deployment · reproducible builds</div></div></div>
+      <div class="tech-item"><div class="tech-dot"></div>
+        <div><div class="tech-name">HuggingFace Spaces</div>
+             <div class="tech-note">Live demo hosting — marwadeeb/ddi-checker</div></div></div>
+      <div class="tech-item"><div class="tech-dot"></div>
+        <div><div class="tech-name">Git + Git LFS</div>
+             <div class="tech-note">Source control · large model files (.pt) via LFS</div></div></div>
+      <div class="tech-item"><div class="tech-dot"></div>
+        <div><div class="tech-name">GitHub</div>
+             <div class="tech-note">Version control · CI-ready</div></div></div>
+    </div>
+  </div>
+
+  <!-- Pipeline overview -->
+  <div class="section-h">Pipeline at a glance</div>
+  <div class="pipeline-flow">
+    <div class="pf-step">DrugBank XML</div><div class="pf-arrow">→</div>
+    <div class="pf-step">Parse (Step 1)</div><div class="pf-arrow">→</div>
+    <div class="pf-step">Dedup DDI (2)</div><div class="pf-arrow">→</div>
+    <div class="pf-step">FDA filter (3)</div><div class="pf-arrow">→</div>
+    <div class="pf-step">Graph features (4)</div><div class="pf-arrow">→</div>
+    <div class="pf-step">PyG + Hetero graph (5)</div><div class="pf-arrow">→</div>
+    <div class="pf-step">FAISS index (6)</div><div class="pf-arrow">→</div>
+    <div class="pf-step">Dict + RAG query (7)</div><div class="pf-arrow">→</div>
+    <div class="pf-step">Baselines (9)</div><div class="pf-arrow">→</div>
+    <div class="pf-step">GNN training (notebook)</div><div class="pf-arrow">→</div>
+    <div class="pf-step">Flask API</div>
+  </div>
+
+  <!-- Get started -->
+  <div class="section-h">Get started</div>
+  <div class="cta-strip">
+    <a href="/"            class="cta-btn cta-primary">🔬 Try the Checker</a>
+    <a href="/chat"        class="cta-btn cta-secondary">💬 Chat Interface</a>
+    <a href="/results"     class="cta-btn cta-secondary">📊 View Results</a>
+    <a href="/responsible" class="cta-btn cta-secondary">🛡️ Responsible ML</a>
+    <a href="/dashboard"   class="cta-btn cta-secondary">📈 Dashboard</a>
+  </div>
+
+  <div class="footer-note">
+    Built as a graduate ML project · Data: DrugBank Full Database v5.1 (CC BY-NC 4.0, academic use only) ·
+    This is a <strong>decision-support tool, not a medical device</strong>.
+    Always consult a pharmacist or clinician before acting on any interaction data.
+  </div>
+
+</main>
+
+<!-- Floating chat button -->
+<a href="/chat" title="Ask about drug interactions"
+   style="position:fixed;bottom:28px;left:28px;z-index:100;width:56px;height:56px;border-radius:50%;
+          background:linear-gradient(135deg,#2563eb,#4f46e5);color:#fff;text-decoration:none;
+          display:flex;align-items:center;justify-content:center;font-size:1.4rem;
+          box-shadow:0 4px 18px rgba(37,99,235,.45);transition:transform .18s,box-shadow .18s;"
+   onmouseover="this.style.transform='scale(1.1)';this.style.boxShadow='0 6px 24px rgba(37,99,235,.55)'"
+   onmouseout="this.style.transform='scale(1)';this.style.boxShadow='0 4px 18px rgba(37,99,235,.45)'">💬</a>
+
+</body>
+</html>

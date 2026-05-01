@@ -45,6 +45,8 @@ The FAISS RAG index is loaded on demand only.
 | `/chat` | Chat interface — ask in plain English, NER extracts drug names |
 | `/results` | Model performance — cold-start (primary) + warm evaluation |
 | `/responsible` | Responsible ML — explainability, fairness, privacy, robustness |
+| `/dashboard` | Live dashboard — query stats, system health, recent activity |
+| `/about` | About the system — tech stack, how it works, key numbers |
 
 ---
 
@@ -136,8 +138,9 @@ Case-insensitive · brand names partially supported via synonym table.
 
 | Doc | Contents |
 |---|---|
-| [`docs/ARCHITECTURE.md`](docs/ARCHITECTURE.md) | Full pipeline, 27-table schema, feature groups, API reference |
+| [`docs/ARCHITECTURE.md`](docs/ARCHITECTURE.md) | Full pipeline, tech stack, 27-table schema, feature groups, API reference |
 | [`docs/responsible_ml.md`](docs/responsible_ml.md) | RM1 explainability · RM2 bias · RM3 privacy · RM4 robustness |
+| [`docs/security.md`](docs/security.md) | Attack surface audit, input validation posture, dependency scanning |
 
 ---
 

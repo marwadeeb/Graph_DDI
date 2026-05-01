@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DDI — Dashboard</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --indigo:  #4f46e5; --blue: #2563eb;
+      --green:   #16a34a; --green-lt: #f0fdf4;
+      --amber:   #d97706; --amber-lt: #fffbeb;
+      --red:     #dc2626;
+      --gray-50: #f9fafb; --gray-100: #f3f4f6; --gray-200: #e5e7eb;
+      --gray-400: #9ca3af; --gray-500: #6b7280; --gray-600: #4b5563;
+      --gray-700: #374151; --gray-800: #1f2937;
+      --radius: 10px;
+    }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background:
+        radial-gradient(ellipse 80% 60% at 20% -10%, rgba(37,99,235,.08) 0%, transparent 60%),
+        radial-gradient(ellipse 60% 50% at 90% 110%, rgba(99,102,241,.07) 0%, transparent 55%),
+        linear-gradient(160deg, #eef2ff 0%, #f4f7ff 45%, #faf5ff 100%);
+      background-attachment: fixed;
+      color: var(--gray-800);
+      min-height: 100vh;
+    }
+    header {
+      background: linear-gradient(100deg, #1e3a8a 0%, #2563eb 55%, #4f46e5 100%);
+      color: #fff; padding: 14px 24px;
+      display: flex; align-items: center; gap: 14px;
+      box-shadow: 0 2px 12px rgba(37,99,235,.30);
+      position: sticky; top: 0; z-index: 10;
+    }
+    header h1 { font-size: 1.1rem; font-weight: 700; letter-spacing: -.3px; }
+    header p  { font-size: .74rem; opacity: .80; margin-top: 1px; }
+    .header-nav { margin-left: auto; display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+    .header-nav a {
+      color: rgba(255,255,255,.88); text-decoration: none;
+      font-size: .75rem; font-weight: 600;
+      padding: 5px 11px; border-radius: 20px;
+      border: 1px solid rgba(255,255,255,.22);
+      transition: background .15s; white-space: nowrap;
+    }
+    .header-nav a:hover  { background: rgba(255,255,255,.15); }
+    .header-nav a.active { background: rgba(255,255,255,.18); border-color: rgba(255,255,255,.4); }
+
+    main { max-width: 1100px; margin: 0 auto; padding: 32px 20px 60px; }
+    .page-title { font-size: 1.6rem; font-weight: 800; letter-spacing: -.5px; color: #1e3a8a; margin-bottom: 2px; }
+    .page-sub   { font-size: .88rem; color: var(--gray-500); margin-bottom: 22px; }
+
+    .refresh-strip {
+      display: flex; align-items: center; gap: 12px;
+      font-size: .78rem; color: var(--gray-500); margin-bottom: 24px;
+    }
+    .refresh-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--green); animation: pulse 2s infinite; }
+    @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:.3} }
+    .refresh-btn {
+      background: none; border: 1px solid var(--gray-300); border-radius: 20px;
+      padding: 3px 12px; font-size: .75rem; cursor: pointer; color: var(--gray-600);
+    }
+    .refresh-btn:hover { background: var(--gray-100); }
+
+    .stat-row {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
+      gap: 16px; margin-bottom: 22px;
+    }
+    .stat-card {
+      background: rgba(255,255,255,.85); backdrop-filter: blur(12px);
+      border: 1px solid rgba(99,102,241,.14); border-radius: 16px;
+      box-shadow: 0 2px 12px rgba(37,99,235,.07); padding: 20px 22px;
+    }
+    .sc-lbl { font-size: .7rem; font-weight: 700; color: var(--gray-400); text-transform: uppercase; letter-spacing: .05em; margin-bottom: 6px; }
+    .sc-val { font-size: 2.1rem; font-weight: 800; color: var(--indigo); line-height: 1; }
+    .sc-sub { font-size: .73rem; color: var(--gray-500); margin-top: 4px; }
+    .col-green { color: var(--green) !important; }
+    .col-amber { color: var(--amber) !important; }
+
+    .card {
+      background: rgba(255,255,255,.82); backdrop-filter: blur(12px);
+      border: 1px solid rgba(99,102,241,.14); border-radius: 16px;
+      box-shadow: 0 2px 12px rgba(37,99,235,.07);
+      padding: 22px 26px; margin-bottom: 22px;
+    }
+    .card-title { font-size: .95rem; font-weight: 700; color: var(--indigo); margin-bottom: 16px; display: flex; align-items: center; gap: 8px; }
+
+    .bd-labels { display: flex; gap: 18px; margin-bottom: 10px; font-size: .8rem; flex-wrap: wrap; }
+    .bd-dot { width: 10px; height: 10px; border-radius: 50%; display: inline-block; margin-right: 5px; vertical-align: middle; }
+    .bd-bar  { height: 26px; background: var(--gray-100); border-radius: 13px; overflow: hidden; display: flex; }
+    .bd-seg  { height: 100%; transition: width .6s ease; }
+    .seg-doc { background: #16a34a; }
+    .seg-gnn { background: #d97706; }
+    .seg-nf  { background: #9ca3af; }
+
+    .health-grid {
+      display: grid; grid-template-columns: repeat(auto-fill, minmax(175px, 1fr)); gap: 12px;
+    }
+    .health-item {
+      background: var(--gray-50); border: 1px solid var(--gray-200);
+      border-radius: var(--radius); padding: 12px 14px;
+    }
+    .h-lbl { font-size: .7rem; color: var(--gray-500); margin-bottom: 4px; font-weight: 600; text-transform: uppercase; letter-spacing: .04em; }
+    .h-val { font-size: .96rem; font-weight: 700; }
+    .ok   { color: var(--green); }
+    .warn { color: var(--amber); }
+    .off  { color: var(--gray-400); }
+
+    .query-wrap { max-height: 400px; overflow-y: auto; border-radius: var(--radius); }
+    table { width: 100%; border-collapse: collapse; font-size: .84rem; }
+    th {
+      background: rgba(79,70,229,.06); color: var(--indigo); font-weight: 700;
+      text-align: left; padding: 9px 12px;
+      border-bottom: 2px solid rgba(79,70,229,.15);
+      position: sticky; top: 0; z-index: 1;
+    }
+    td { padding: 9px 12px; border-bottom: 1px solid var(--gray-100); }
+    tr:last-child td { border-bottom: none; }
+    tr:hover td { background: rgba(79,70,229,.03); }
+    .src-badge { display: inline-block; padding: 2px 9px; border-radius: 20px; font-size: .7rem; font-weight: 700; white-space: nowrap; }
+    .src-documented     { background: #d1fae5; color: #065f46; }
+    .src-gnn_predicted  { background: #fef3c7; color: #92400e; }
+    .src-not_found      { background: var(--gray-100); color: var(--gray-600); }
+    .src-drug_not_found { background: #fee2e2; color: #991b1b; }
+
+    .note { font-size: .78rem; color: var(--gray-500); background: var(--gray-50); border-left: 3px solid var(--indigo); padding: 8px 12px; border-radius: 0 6px 6px 0; margin-top: 14px; }
+  </style>
+</head>
+<body>
+
+<header>
+  <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"
+       stroke-linecap="round" stroke-linejoin="round">
+    <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/>
+  </svg>
+  <div>
+    <h1>DDI — Live Dashboard</h1>
+    <p>Query stats · System health · Recent activity</p>
+  </div>
+  <nav class="header-nav">
+    <a href="/">🔬 Checker</a>
+    <a href="/chat">💬 Chat</a>
+    <a href="/results">📊 Results</a>
+    <a href="/responsible">🛡️ Responsible ML</a>
+    <a href="/dashboard" class="active">📈 Dashboard</a>
+    <a href="/about">ℹ️ About</a>
+  </nav>
+</header>
+
+<main>
+  <p class="page-title">Live Dashboard</p>
+  <p class="page-sub">Real-time query statistics and system health. Counters reset on server restart.</p>
+
+  <div class="refresh-strip">
+    <div class="refresh-dot"></div>
+    <span>Auto-refreshing every 30 s &nbsp;·&nbsp; Last updated: <span id="last-updated">—</span></span>
+    <button class="refresh-btn" onclick="fetchStats()">↺ Refresh now</button>
+  </div>
+
+  <!-- Top stat cards -->
+  <div class="stat-row">
+    <div class="stat-card">
+      <div class="sc-lbl">Total Queries</div>
+      <div class="sc-val" id="s-total">—</div>
+      <div class="sc-sub">since server start</div>
+    </div>
+    <div class="stat-card">
+      <div class="sc-lbl">Hit Rate</div>
+      <div class="sc-val col-green" id="s-hitrate">—</div>
+      <div class="sc-sub">documented DDI found</div>
+    </div>
+    <div class="stat-card">
+      <div class="sc-lbl">GNN Predictions</div>
+      <div class="sc-val col-amber" id="s-gnn">—</div>
+      <div class="sc-sub">novel pair predictions</div>
+    </div>
+    <div class="stat-card">
+      <div class="sc-lbl">Avg Latency</div>
+      <div class="sc-val" id="s-ms">—</div>
+      <div class="sc-sub">ms per /api/check call</div>
+    </div>
+  </div>
+
+  <!-- Source breakdown -->
+  <div class="card">
+    <div class="card-title">Query Source Breakdown</div>
+    <div class="bd-labels">
+      <span><span class="bd-dot" style="background:#16a34a"></span>Documented (<span id="b-doc-n">0</span>)</span>
+      <span><span class="bd-dot" style="background:#d97706"></span>GNN Predicted (<span id="b-gnn-n">0</span>)</span>
+      <span><span class="bd-dot" style="background:#9ca3af"></span>Not Found (<span id="b-nf-n">0</span>)</span>
+    </div>
+    <div class="bd-bar">
+      <div class="bd-seg seg-doc" id="seg-doc" style="width:0%"></div>
+      <div class="bd-seg seg-gnn" id="seg-gnn" style="width:0%"></div>
+      <div class="bd-seg seg-nf"  id="seg-nf"  style="width:0%"></div>
+    </div>
+    <div class="note">Only <code>/api/check</code> calls are tracked. Chat and batch endpoints will be added in a future update.</div>
+  </div>
+
+  <!-- System health -->
+  <div class="card">
+    <div class="card-title">System Health</div>
+    <div class="health-grid">
+      <div class="health-item">
+        <div class="h-lbl">Uptime</div>
+        <div class="h-val" id="h-uptime">—</div>
+      </div>
+      <div class="health-item">
+        <div class="h-lbl">Dict Lookup</div>
+        <div class="h-val" id="h-dict">—</div>
+      </div>
+      <div class="health-item">
+        <div class="h-lbl">GNN Model</div>
+        <div class="h-val" id="h-gnn">—</div>
+      </div>
+      <div class="health-item">
+        <div class="h-lbl">FAISS Index</div>
+        <div class="h-val" id="h-faiss">—</div>
+      </div>
+      <div class="health-item">
+        <div class="h-lbl">DDI Pairs Loaded</div>
+        <div class="h-val" id="h-dict-size">—</div>
+      </div>
+      <div class="health-item">
+        <div class="h-lbl">RAG Pipeline</div>
+        <div class="h-val" id="h-rag">—</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Recent queries -->
+  <div class="card">
+    <div class="card-title">
+      Recent Queries
+      <span style="margin-left:auto;font-size:.75rem;font-weight:400;color:var(--gray-400)">Last 25 · newest first</span>
+    </div>
+    <div class="query-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Time</th>
+            <th>Drug A</th>
+            <th>Drug B</th>
+            <th>Source</th>
+            <th>Latency</th>
+          </tr>
+        </thead>
+        <tbody id="recent-tbody">
+          <tr><td colspan="5" style="text-align:center;color:var(--gray-400);padding:28px;">No queries yet</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="note">Queries are stored in memory only and cleared on server restart. No user data is persisted.</div>
+  </div>
+
+</main>
+
+<!-- Floating chat button -->
+<a href="/chat" title="Ask about drug interactions"
+   style="position:fixed;bottom:28px;left:28px;z-index:100;width:56px;height:56px;border-radius:50%;
+          background:linear-gradient(135deg,#2563eb,#4f46e5);color:#fff;text-decoration:none;
+          display:flex;align-items:center;justify-content:center;font-size:1.4rem;
+          box-shadow:0 4px 18px rgba(37,99,235,.45);transition:transform .18s,box-shadow .18s;"
+   onmouseover="this.style.transform='scale(1.1)';this.style.boxShadow='0 6px 24px rgba(37,99,235,.55)'"
+   onmouseout="this.style.transform='scale(1)';this.style.boxShadow='0 4px 18px rgba(37,99,235,.45)'">💬</a>
+
+<script>
+  const BADGE = {
+    documented:     '<span class="src-badge src-documented">Documented ✓</span>',
+    gnn_predicted:  '<span class="src-badge src-gnn_predicted">GNN Predicted</span>',
+    not_found:      '<span class="src-badge src-not_found">Not Found</span>',
+    drug_not_found: '<span class="src-badge src-drug_not_found">Drug Not Found</span>',
+  };
+
+  function fetchStats() {
+    fetch('/api/stats')
+      .then(r => r.json())
+      .then(({ stats: s, system: sys, recent }) => {
+
+        // Stat cards
+        document.getElementById('s-total').textContent   = s.total.toLocaleString();
+        document.getElementById('s-hitrate').textContent = sys.hit_rate + '%';
+        document.getElementById('s-gnn').textContent     = s.gnn_predicted.toLocaleString();
+        document.getElementById('s-ms').textContent      = sys.avg_ms + ' ms';
+
+        // Breakdown bar
+        const total = Math.max(s.total, 1);
+        const pct   = n => (n / total * 100).toFixed(1);
+        document.getElementById('seg-doc').style.width = pct(s.documented) + '%';
+        document.getElementById('seg-gnn').style.width = pct(s.gnn_predicted) + '%';
+        document.getElementById('seg-nf').style.width  = pct(s.not_found) + '%';
+        document.getElementById('b-doc-n').textContent = s.documented;
+        document.getElementById('b-gnn-n').textContent = s.gnn_predicted;
+        document.getElementById('b-nf-n').textContent  = s.not_found;
+
+        // System health
+        document.getElementById('h-uptime').textContent   = sys.uptime;
+        document.getElementById('h-dict-size').textContent = (sys.dict_size || 0).toLocaleString();
+
+        const set = (id, ok, okTxt, warnTxt) => {
+          const el = document.getElementById(id);
+          el.textContent = ok ? okTxt : warnTxt;
+          el.className   = 'h-val ' + (ok ? 'ok' : 'warn');
+        };
+        set('h-dict',  sys.rag_loaded,    '✓ Ready',   '⏳ Loading');
+        set('h-gnn',   sys.gnn_available, '✓ Loaded',  '⚠ Mock mode');
+        set('h-rag',   sys.rag_loaded,    '✓ Ready',   '⏳ Loading');
+
+        const faissEl = document.getElementById('h-faiss');
+        faissEl.textContent = sys.faiss_loaded ? '✓ Loaded' : '○ On-demand';
+        faissEl.className   = 'h-val ' + (sys.faiss_loaded ? 'ok' : 'off');
+
+        // Recent queries
+        const tbody = document.getElementById('recent-tbody');
+        if (!recent || recent.length === 0) {
+          tbody.innerHTML = '<tr><td colspan="5" style="text-align:center;color:var(--gray-400);padding:28px;">No queries yet</td></tr>';
+        } else {
+          tbody.innerHTML = recent.map(q => `
+            <tr>
+              <td style="color:var(--gray-400);font-size:.76rem;white-space:nowrap">${q.ts}</td>
+              <td><strong>${q.drug_a}</strong></td>
+              <td><strong>${q.drug_b}</strong></td>
+              <td>${BADGE[q.source] || q.source}</td>
+              <td style="color:var(--gray-500)">${q.ms} ms</td>
+            </tr>`).join('');
+        }
+
+        document.getElementById('last-updated').textContent = new Date().toLocaleTimeString();
+      })
+      .catch(() => {
+        document.getElementById('last-updated').textContent = 'error — retrying';
+      });
+  }
+
+  fetchStats();
+  setInterval(fetchStats, 30000);
+</script>
+
+</body>
+</html>

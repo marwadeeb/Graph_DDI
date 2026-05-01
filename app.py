@@ -13,7 +13,7 @@ Endpoints:
 All responses are JSON.  The RAG pipeline (step7) is loaded once at startup.
 """
 
-import os, sys, time, json, threading
+import os, sys, time, json, threading, collections as _col, datetime as _dt
 import pandas as pd
 from flask import Flask, request, jsonify, render_template
 
@@ -101,6 +101,30 @@ _tfidf_mat     = None
 _tfidf_meta    = None
 _baseline_lock = threading.Lock()
 TFIDF_THRESHOLD = 0.30
+
+# ---------------------------------------------------------------------------
+# Live stats  (in-memory — resets on server restart by design)
+# ---------------------------------------------------------------------------
+_stats = {
+    "total": 0, "documented": 0, "gnn_predicted": 0,
+    "not_found": 0, "drug_not_found": 0, "total_ms": 0.0,
+}
+_recent_queries = _col.deque(maxlen=200)
+_server_start   = _dt.datetime.utcnow()
+
+
+def _record_query(source: str, drug_a: str, drug_b: str, elapsed_ms: float):
+    _stats["total"]    += 1
+    _stats["total_ms"] += elapsed_ms
+    if source in _stats:
+        _stats[source] += 1
+    _recent_queries.appendleft({
+        "ts":     _dt.datetime.utcnow().strftime("%H:%M:%S"),
+        "drug_a": drug_a[:35],
+        "drug_b": drug_b[:35],
+        "source": source,
+        "ms":     round(elapsed_ms),
+    })
 
 
 def _init_rag():
@@ -487,6 +511,7 @@ def check_pair():
         }
     """
     _init_rag()
+    _t0 = time.time()
 
     GNN_THRESHOLD = 0.43
 
@@ -570,6 +595,7 @@ def check_pair():
 
     # ── Stage 1 hit: documented interaction ──────────────────────────────
     if rag_result and rag_result.get("found"):
+        _record_query("documented", name_a, name_b, (time.time() - _t0) * 1000)
         return jsonify({
             "drug_a": {"query": drug_a, "resolved": name_a, "id": id_a},
             "drug_b": {"query": drug_b, "resolved": name_b, "id": id_b},
@@ -598,6 +624,7 @@ def check_pair():
     gnn_found = (gnn_prob is not None) and (gnn_prob >= GNN_THRESHOLD)
 
     if gnn_found:
+        _record_query("gnn_predicted", name_a, name_b, (time.time() - _t0) * 1000)
         return jsonify({
             "drug_a": {"query": drug_a, "resolved": name_a, "id": id_a},
             "drug_b": {"query": drug_b, "resolved": name_b, "id": id_b},
@@ -625,6 +652,7 @@ def check_pair():
         })
 
     # ── No interaction found ──────────────────────────────────────────────
+    _record_query("not_found", name_a, name_b, (time.time() - _t0) * 1000)
     return jsonify({
         "drug_a": {"query": drug_a, "resolved": name_a, "id": id_a},
         "drug_b": {"query": drug_b, "resolved": name_b, "id": id_b},
@@ -1015,6 +1043,45 @@ def drug_search():
     ))
 
     return jsonify({"results": matches[:limit]})
+
+
+@app.route("/about", methods=["GET"])
+def about_page():
+    return render_template("about.html")
+
+
+@app.route("/dashboard", methods=["GET"])
+def dashboard_page():
+    return render_template("dashboard.html")
+
+
+@app.route("/api/stats", methods=["GET"])
+def api_stats():
+    uptime_s = int((_dt.datetime.utcnow() - _server_start).total_seconds())
+    h, rem   = divmod(uptime_s, 3600)
+    m, s     = divmod(rem, 60)
+    avg_ms   = round(_stats["total_ms"] / max(_stats["total"], 1))
+    hit_rate = round(_stats["documented"] / max(_stats["total"], 1) * 100, 1)
+
+    try:
+        import gnn_predictor
+        gnn_ok = gnn_predictor.is_available()
+    except Exception:
+        gnn_ok = False
+
+    return jsonify({
+        "stats":  dict(_stats),
+        "recent": list(_recent_queries)[:25],
+        "system": {
+            "uptime":        f"{h}h {m:02d}m {s:02d}s",
+            "avg_ms":        avg_ms,
+            "hit_rate":      hit_rate,
+            "rag_loaded":    _rag_ready,
+            "gnn_available": gnn_ok,
+            "dict_size":     len(_ddi_lookup) if _ddi_lookup else 0,
+            "faiss_loaded":  _faiss_loaded,
+        },
+    })
 
 
 # ---------------------------------------------------------------------------

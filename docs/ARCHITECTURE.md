@@ -5,6 +5,47 @@ For operational instructions see the main [README](../README.md).
 
 ---
 
+## Technology Stack
+
+### Backend
+| Library | Version | Role |
+|---|---|---|
+| Python | 3.11 | Runtime |
+| Flask | 2.x | REST API + Jinja2 server-side rendering |
+| PyTorch | 2.x | GNN inference + tensor ops |
+| PyTorch Geometric (PyG) | 2.x | Heterogeneous graph data structures + SAGEConv |
+| scikit-learn | 1.x | Logistic Regression baseline, TF-IDF, StandardScaler |
+| FAISS (`faiss-cpu`) | 1.7 | Vector similarity search — 824K DDI embeddings, on-demand |
+| sentence-transformers | 2.x | PubMedBERT embeddings (`S-PubMedBert-MS-MARCO`, 768-dim) |
+| Groq Python SDK | 0.9+ | LLM calls — NER extraction + plain-language explanations |
+| Pandas / NumPy | 2.x / 1.x | Feature engineering, data pipeline, evaluation |
+
+### Frontend
+| Technology | Role |
+|---|---|
+| Vanilla HTML / CSS / JS | Zero framework — no build step required |
+| Jinja2 templates | Server-side rendering, auto-escaped output (XSS safe by default) |
+| CSS Custom Properties + Grid/Flexbox | Consistent design system, glassmorphism cards |
+| Native Fetch API | Async drug autocomplete, live dashboard polling (`/api/stats`) |
+
+### Data
+| Source | Details |
+|---|---|
+| DrugBank Full Database v5.1 | 19,842 drugs · 2.9M DDI (directed) → 4,795 approved · 824K pairs · CC BY-NC 4.0 |
+| PubMedBERT | `pritamdeka/S-PubMedBert-MS-MARCO` — biomedical sentence encoder · Apache 2.0 |
+| FAISS index | 824K × 768 float32 vectors — IndexFlatIP · ~2.5 GB · gitignored |
+| PyG graph files | `ddi_graph.pt` (homo) + `hetero_ddi_graph.pt` (drug + protein nodes) · tracked via LFS |
+
+### Infrastructure
+| Tool | Role |
+|---|---|
+| Docker | Containerised deployment — `Dockerfile` in repo root |
+| HuggingFace Spaces | Live demo hosting (`marwadeeb/ddi-checker`) |
+| Git LFS | Large binary files: `*.pt` model files (2–46 MB each) |
+| GitHub | Source control, CI-ready |
+
+---
+
 ## Pipeline Overview
 
 | Step | Script | Output | Size |
