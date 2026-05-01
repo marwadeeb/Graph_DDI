@@ -61,16 +61,20 @@ def _sanitize(s: str, max_len: int = 120) -> str:
 def _security_headers(response):
     h = response.headers
     h['X-Content-Type-Options']  = 'nosniff'
-    h['X-Frame-Options']         = 'SAMEORIGIN'
+    # X-Frame-Options intentionally omitted: HF Spaces embeds the app in an
+    # iframe from huggingface.co — any DENY/SAMEORIGIN value breaks that.
+    # Framing is instead governed by the CSP frame-ancestors directive below.
     h['X-XSS-Protection']        = '1; mode=block'
     h['Referrer-Policy']         = 'strict-origin-when-cross-origin'
-    # Inline scripts/styles needed for our vanilla templates
+    # Inline scripts/styles needed for our vanilla templates.
+    # frame-ancestors: allow HF Spaces embedding, block all other third parties.
     h['Content-Security-Policy'] = (
         "default-src 'self'; "
         "script-src 'self' 'unsafe-inline'; "
         "style-src 'self' 'unsafe-inline'; "
         "img-src 'self' data:; "
-        "connect-src 'self';"
+        "connect-src 'self'; "
+        "frame-ancestors 'self' https://huggingface.co https://*.hf.space;"
     )
     return response
 
