@@ -1,42 +1,23 @@
 """
 step7_rag_query.py
 ------------------
-RAG query pipeline for DDI detection, following the paper's three-stage design:
+Drug name resolution utilities for DDI detection.
 
-  Stage 1 -- Retrieve top-k interaction sentences from FAISS (k=3)
-  Stage 2 -- Feed retrieved evidence to LLM with constrained JSON prompt
-  Stage 3 -- Return structured result: found, interaction_type, description
+Provides:
+  - get_drugs_df()   — load approved drugs table (drugbank_id, name)
+  - get_synonym_map() — synonym -> (drugbank_id, canonical_name) mapping
+  - resolve_drug()   — resolve a drug name / DrugBank ID to (id, canonical_name)
 
-LLM  : llama-3.3-70b-versatile via Groq (free tier, ~30 req/min)
-Model: pritamdeka/S-PubMedBert-MS-MARCO for query embedding (same as index)
-
-Usage (interactive):
-    python pipeline/step7_rag_query.py
-    python pipeline/step7_rag_query.py --drug-a Warfarin --drug-b Aspirin
-    python pipeline/step7_rag_query.py --drug-a DB00682 --drug-b DB00945
-    python pipeline/step7_rag_query.py --top-k 5   # retrieve 5 instead of 3
-
-Requires:
-    data/rag_index/faiss.index   (built by step6_rag_index.py)
-    data/rag_index/metadata.pkl
-    GROQ_API_KEY in .env or environment
+Used by app.py for all /api/check and /api/chat requests.
 """
 
-import os, sys, json, pickle, argparse, textwrap, time
-from typing import Optional
-import numpy as np
+import os
 import pandas as pd
-import faiss
 
-os.environ["TRANSFORMERS_NO_TF"] = "1"
-os.environ["TF_CPP_MIN_LOG_LEVEL"] = "3"
-
-# load .env
-def load_env():
-    # look in working dir root (parent of pipeline/)
+# Load .env if present (for local dev)
+def _load_env():
     env_path = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), ".env")
     if not os.path.exists(env_path):
-        # fallback: current working directory
         env_path = os.path.join(os.getcwd(), ".env")
     if os.path.exists(env_path):
         with open(env_path) as f:
@@ -44,61 +25,17 @@ def load_env():
                 line = line.strip()
                 if line and not line.startswith("#") and "=" in line:
                     k, v = line.split("=", 1)
-                    os.environ[k.strip()] = v.strip()   # always override
+                    os.environ[k.strip()] = v.strip()
 
-load_env()
+_load_env()
 
 # ---------------------------------------------------------------------------
 WORKING_DIR  = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-INDEX_DIR    = os.path.join(WORKING_DIR, "data", "rag_index")
 APPROVED_DIR = os.path.join(WORKING_DIR, "data", "step3_approved")
 
-MODEL_NAME   = "pritamdeka/S-PubMedBert-MS-MARCO"
-LLM_MODEL    = "llama-3.3-70b-versatile"   # Groq free tier — best quality
-LLM_API_URL  = "https://api.groq.com/openai/v1/chat/completions"
-TOP_K        = 3
-TEMPERATURE  = 0.0
-
-# ── Fast-path flag ──────────────────────────────────────────────────────────
-# When True (default): metadata direct-match is tried first.
-# If the exact drug pair is found in the retrieved passages, return immediately
-# with no LLM call (~250ms total).  If no exact match, return found=False and
-# let the caller fall through to GNN — the LLM is NOT called in that case
-# because reasoning from analogous evidence is speculation, not documentation.
-#
-# Set USE_LLM_FALLBACK = True to revert to the original LLM-always behaviour
-# (useful if accuracy drops on a specific test set and you want to diagnose why).
-USE_LLM_FALLBACK = False
-
-# ---------------------------------------------------------------------------
-
-_embed_model = None
-_faiss_index = None
-_metadata    = None
 _drugs_df    = None
-_synonym_map = None   # synonym (lowercase) -> (drugbank_id, canonical_name)
+_synonym_map = None  # synonym (lowercase) -> (drugbank_id, canonical_name)
 
-def get_embed_model():
-    global _embed_model
-    if _embed_model is None:
-        from sentence_transformers import SentenceTransformer
-        _embed_model = SentenceTransformer(MODEL_NAME)
-    return _embed_model
-
-def get_index():
-    global _faiss_index, _metadata
-    if _faiss_index is None:
-        index_path = os.path.join(INDEX_DIR, "faiss.index")
-        meta_path  = os.path.join(INDEX_DIR, "metadata.pkl")
-        if not os.path.exists(index_path):
-            raise FileNotFoundError(
-                f"FAISS index not found at {index_path}\n"
-                "Run: python pipeline/step6_rag_index.py"
-            )
-        _faiss_index = faiss.read_index(index_path)
-        with open(meta_path, "rb") as f:
-            _metadata = pickle.load(f)
-    return _faiss_index, _metadata
 
 def get_drugs_df():
     global _drugs_df
@@ -109,10 +46,11 @@ def get_drugs_df():
         )
     return _drugs_df
 
+
 def get_synonym_map():
     global _synonym_map
     if _synonym_map is None:
-        df   = get_drugs_df()
+        df = get_drugs_df()
         name_lookup = dict(zip(df["drugbank_id"], df["name"]))
         syn_df = pd.read_csv(
             os.path.join(APPROVED_DIR, "drug_attributes.csv"),
@@ -127,326 +65,38 @@ def get_synonym_map():
                 _synonym_map[key] = (did, name_lookup[did])
     return _synonym_map
 
-# ---------------------------------------------------------------------------
 
-def resolve_drug(query: str) -> tuple[str, str]:
+def resolve_drug(query: str) -> tuple:
     """
-    Resolve a drug name or DrugBank ID to (drugbank_id, name).
-    Accepts: 'DB00682', 'Warfarin', 'warfarin' (case-insensitive).
+    Resolve a drug name or DrugBank ID to (drugbank_id, canonical_name).
+    Accepts: 'DB00682', 'Warfarin', 'warfarin', 'aspirin' (synonym).
+    Raises ValueError if not found in the approved drug set.
     """
     df = get_drugs_df()
     q  = query.strip()
 
-    # exact DrugBank ID
+    # Exact DrugBank ID
     if q.upper().startswith("DB"):
         row = df[df["drugbank_id"] == q.upper()]
         if not row.empty:
             return row.iloc[0]["drugbank_id"], row.iloc[0]["name"]
 
-    # case-insensitive name match
+    # Case-insensitive exact name match
     row = df[df["name"].str.lower() == q.lower()]
     if not row.empty:
         return row.iloc[0]["drugbank_id"], row.iloc[0]["name"]
 
-    # partial name match
+    # Partial name match (substring)
     row = df[df["name"].str.lower().str.contains(q.lower(), na=False)]
     if not row.empty:
         if len(row) > 1:
             print(f"  [warn] Multiple matches for '{q}', using first: {row.iloc[0]['name']}")
         return row.iloc[0]["drugbank_id"], row.iloc[0]["name"]
 
-    # synonym lookup (e.g. "Aspirin" -> "Acetylsalicylic acid")
+    # Synonym lookup (e.g. "aspirin" -> "Acetylsalicylic acid")
     syn_map = get_synonym_map()
     if q.lower() in syn_map:
         did, canonical = syn_map[q.lower()]
-        print(f"  [info] '{q}' resolved via synonym -> {canonical} ({did})")
         return did, canonical
 
     raise ValueError(f"Drug not found in approved set: '{query}'")
-
-
-def retrieve(name_a: str, name_b: str, top_k: int = TOP_K) -> list[dict]:
-    """
-    Embed the query '{name_a} interaction with {name_b}' and retrieve
-    top-k most similar interaction sentences from the FAISS index.
-    """
-    model           = get_embed_model()
-    index, metadata = get_index()
-
-    query = f"{name_a} interaction with {name_b} is:"
-    vec   = model.encode([query], normalize_embeddings=True).astype("float32")
-
-    scores, indices = index.search(vec, top_k)
-    results = []
-    for score, idx in zip(scores[0], indices[0]):
-        if idx < 0:
-            continue
-        entry = metadata[idx].copy()
-        entry["score"] = float(score)
-        results.append(entry)
-    return results
-
-
-def match_retrieved(id_a: str, id_b: str, retrieved: list[dict]) -> Optional[dict]:
-    """
-    Check whether any retrieved passage is an exact match for the queried pair.
-
-    DrugBank is a structured database — every metadata entry already carries
-    drugbank_id_a and drugbank_id_b.  If the pair exists in DrugBank, FAISS
-    will surface it and we can return its description directly with no LLM.
-
-    Returns a result dict on hit, or None if the pair is not documented.
-    The FAISS cosine score is used as confidence (better-calibrated than LLM).
-    """
-    target = {id_a, id_b}
-    for r in retrieved:
-        if {r.get("drugbank_id_a"), r.get("drugbank_id_b")} == target:
-            # strip the "Drug A interaction with Drug B is: " prefix
-            text = r["text"]
-            desc = text.split(" is: ", 1)[1].strip() if " is: " in text else text.strip()
-            return {
-                "found":                   True,
-                "interaction_type":        None,   # not stored in FAISS metadata
-                "interaction_description": desc,
-                "confidence":              round(r["score"], 4),
-                "via_llm":                 False,
-            }
-    return None
-
-
-def call_llm(name_a: str, name_b: str, retrieved: list[dict],
-             max_retries: int = 3, base_delay: float = 3.0,
-             model: str = None) -> dict:
-    """
-    Call Groq LLM with retrieved evidence.
-    Returns structured dict: {found, interaction_type, interaction_description}.
-    Groq free tier: ~30 req/min for llama-3.3-70b-versatile, no daily cap.
-    Automatically retries on 429 (rate limit) with exponential backoff.
-    """
-    import urllib.request
-
-    api_key = os.environ.get("GROQ_API_KEY", "")
-    if not api_key:
-        raise EnvironmentError("GROQ_API_KEY not set. Add it to .env or environment.")
-
-    evidence = "\n".join(
-        f"[{i+1}] (similarity={r['score']:.3f}) {r['text']}"
-        for i, r in enumerate(retrieved)
-    )
-
-    prompt = textwrap.dedent(f"""
-        You are a clinical pharmacology expert. Based ONLY on the evidence below,
-        determine whether a drug-drug interaction (DDI) exists between {name_a} and {name_b}.
-
-        Set "found" to true if the evidence describes ANY pharmacological interaction
-        between these two drugs, including pharmacokinetic effects (absorption, metabolism,
-        excretion changes) and pharmacodynamic effects (additive, synergistic, or antagonistic).
-        Set "found" to false ONLY if the evidence clearly states no interaction exists,
-        or if the retrieved sentences are about completely different drug pairs.
-
-        Evidence:
-        {evidence}
-
-        Respond with ONLY a valid JSON object. No explanation, no markdown, no code block.
-        Use exactly this schema:
-        {{
-          "found": true or false,
-          "interaction_type": "<pharmacokinetic / pharmacodynamic / mixed, or null if not found>",
-          "interaction_description": "<concise evidence-grounded explanation, or null if not found>"
-        }}
-    """).strip()
-
-    payload = json.dumps({
-        "model":       model or LLM_MODEL,
-        "temperature": TEMPERATURE,
-        "messages":    [{"role": "user", "content": prompt}],
-    }).encode("utf-8")
-
-    headers = {
-        "Authorization": f"Bearer {api_key}",
-        "Content-Type":  "application/json",
-        "User-Agent":    "python-requests/2.31.0",
-    }
-
-    for attempt in range(max_retries + 1):
-        req = urllib.request.Request(
-            LLM_API_URL,
-            data=payload,
-            headers=headers,
-            method="POST",
-        )
-        try:
-            resp_obj = urllib.request.urlopen(req, timeout=60)
-        except urllib.error.HTTPError as e:
-            err_body = e.read().decode("utf-8", errors="replace")
-            if e.code == 429 and attempt < max_retries:
-                wait = base_delay * (2 ** attempt)   # 3, 6, 12 s
-                print(f"\n    [429 rate-limit] retry {attempt+1}/{max_retries} "
-                      f"after {wait:.0f}s ...", flush=True)
-                time.sleep(wait)
-                continue
-            raise RuntimeError(f"Groq API error {e.code}: {err_body}") from e
-        break   # success — exit retry loop
-    else:
-        raise RuntimeError("Max retries exceeded due to rate limiting (429).")
-
-    with resp_obj as resp:
-        body = json.loads(resp.read().decode("utf-8"))
-
-    content = body["choices"][0]["message"]["content"].strip()
-
-    # strip markdown code block if LLM wraps it
-    if content.startswith("```"):
-        content = content.split("```")[1]
-        if content.startswith("json"):
-            content = content[4:]
-    content = content.strip()
-
-    return json.loads(content)
-
-
-def detect(drug_a: str, drug_b: str, top_k: int = TOP_K, verbose: bool = True) -> dict:
-    """
-    Full pipeline for a single drug pair.
-    drug_a / drug_b: DrugBank ID (DB#####) or drug name string.
-
-    Flow:
-      1. resolve_drug()       — synonym/ID resolution, no network
-      2. retrieve()           — PubMedBERT embed + FAISS search (~200 ms)
-      3. match_retrieved()    — exact ID match in metadata, no LLM (~0 ms)
-         → found: return DrugBank description + FAISS score as confidence
-         → not found: return found=False (caller falls through to GNN)
-
-    USE_LLM_FALLBACK=True reverts to the original LLM path for diagnostics.
-    """
-    id_a, name_a = resolve_drug(drug_a)
-    id_b, name_b = resolve_drug(drug_b)
-
-    if verbose:
-        print(f"\n  Drug A : {name_a} ({id_a})")
-        print(f"  Drug B : {name_b} ({id_b})")
-        print(f"  Query  : '{name_a} interaction with {name_b} is:'")
-
-    retrieved = retrieve(name_a, name_b, top_k)
-
-    if verbose:
-        print(f"\n  Top-{top_k} retrieved:")
-        for i, r in enumerate(retrieved):
-            print(f"    [{i+1}] score={r['score']:.3f}  "
-                  f"ids=({r.get('drugbank_id_a')},{r.get('drugbank_id_b')})  "
-                  f"{r['text'][:80]}...")
-
-    # ── Fast path: exact metadata match (no LLM) ──────────────────────────
-    if not USE_LLM_FALLBACK:
-        result = match_retrieved(id_a, id_b, retrieved)
-        if result is None:
-            result = {"found": False, "interaction_type": None,
-                      "interaction_description": None, "via_llm": False}
-        if verbose:
-            path = "direct match" if result["found"] else "not found in DB"
-            print(f"\n  Result  : found={result['found']}  [{path}]")
-            if result.get("interaction_description"):
-                import textwrap
-                for line in textwrap.wrap(result["interaction_description"], 70):
-                    print(f"    {line}")
-    else:
-        # ── LLM fallback (original behaviour, kept for diagnostics) ───────
-        if verbose:
-            print(f"\n  [LLM fallback mode] calling {LLM_MODEL} ...")
-        result = call_llm(name_a, name_b, retrieved)
-        result["via_llm"] = True
-
-    output = {
-        "drugbank_id_a":           id_a,
-        "drugbank_id_b":           id_b,
-        "name_a":                  name_a,
-        "name_b":                  name_b,
-        "found":                   result.get("found", False),
-        "interaction_type":        result.get("interaction_type"),
-        "interaction_description": result.get("interaction_description"),
-        "confidence":              result.get("confidence"),
-        "via_llm":                 result.get("via_llm", False),
-        "retrieved":               retrieved,
-    }
-
-    if verbose:
-        print(f"\n  Result:")
-        print(f"    found               : {output['found']}")
-        print(f"    interaction_type    : {output['interaction_type']}")
-        print(f"    interaction_description:")
-        desc = output["interaction_description"] or "(none)"
-        for line in textwrap.wrap(desc, width=70):
-            print(f"      {line}")
-
-    return output
-
-
-def detect_multiple(drug_list: list[str], top_k: int = TOP_K) -> list[dict]:
-    """
-    Generate all unique pairs from a list of drugs and run detect() on each.
-    Matches the paper's endpoint behaviour (/drug with a list of drug names).
-    """
-    from itertools import combinations
-    pairs   = list(combinations(drug_list, 2))
-    results = []
-    print(f"\n  Evaluating {len(pairs)} unique pair(s) from {len(drug_list)} drugs ...")
-    for a, b in pairs:
-        print(f"\n{'='*68}")
-        results.append(detect(a, b, top_k=top_k))
-    return results
-
-
-# ---------------------------------------------------------------------------
-if __name__ == "__main__":
-    parser = argparse.ArgumentParser()
-    parser.add_argument("--drug-a", type=str, help="Drug A (name or DB ID)")
-    parser.add_argument("--drug-b", type=str, help="Drug B (name or DB ID)")
-    parser.add_argument("--drugs",  type=str, nargs="+",
-                        help="List of drugs — all pairs evaluated (paper mode)")
-    parser.add_argument("--top-k",  type=int, default=TOP_K)
-    args = parser.parse_args()
-
-    print("=" * 68)
-    print("  DDI RAG QUERY PIPELINE")
-    print(f"  Embed model : {MODEL_NAME}")
-    print(f"  LLM         : {LLM_MODEL}")
-    print(f"  Top-k       : {args.top_k}")
-    print("=" * 68)
-
-    print("\n[1/3] Loading embed model ...")
-    get_embed_model()
-    print("[2/3] Loading FAISS index ...")
-    get_index()
-    print("[3/3] Ready.\n")
-
-    if args.drugs:
-        results = detect_multiple(args.drugs, top_k=args.top_k)
-        print(f"\n{'='*68}")
-        print(f"  SUMMARY: {sum(r['found'] for r in results)}/{len(results)} interactions found")
-
-    elif args.drug_a and args.drug_b:
-        detect(args.drug_a, args.drug_b, top_k=args.top_k)
-
-    else:
-        # interactive mode
-        print("Interactive mode. Type drug names or DrugBank IDs.")
-        print("Enter a single drug name per line, blank line to run, 'q' to quit.\n")
-        while True:
-            drugs = []
-            while True:
-                line = input("  Drug> ").strip()
-                if line.lower() == "q":
-                    sys.exit(0)
-                if not line:
-                    break
-                drugs.append(line)
-
-            if len(drugs) == 0:
-                continue
-            elif len(drugs) == 1:
-                print("  Need at least 2 drugs.")
-                continue
-            elif len(drugs) == 2:
-                detect(drugs[0], drugs[1], top_k=args.top_k)
-            else:
-                detect_multiple(drugs, top_k=args.top_k)
