@@ -1,0 +1,13 @@
+services:
+  app:
+    build: .
+    container_name: ddi-checker
+    ports:
+      - "7860:5000"
+    volumes:
+      - .:/app
+    env_file:
+      - .env
+    environment:
+      - FLASK_DEBUG=1
+    command: python app.py

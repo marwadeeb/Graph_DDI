@@ -17,6 +17,13 @@ Detect drug-drug interactions (DDI) using a two-stage pipeline:
 
 **Live demo:** https://huggingface.co/spaces/marwadeeb/ddi-checker
 
+> **⏳ First visit:** HuggingFace Spaces hibernates after a period of inactivity. If the demo
+> shows a loading screen, wait ~30–60 seconds for the container to wake before using it.
+
+> **📚 Project scope:** This repository documents the full ML pipeline, baselines, ablation
+> results, and Responsible ML analysis for academic evaluation purposes. A production deployment
+> would strip out the evaluation pages and expose only the checker and chat interfaces.
+
 ---
 
 ## Quick Start (local — Docker Compose)
@@ -52,7 +59,7 @@ docker compose down
 | `/` | Landing page — animated pipeline demo + drug graph visualization |
 | `/checker` | Drug pair checker — type two drug names, get interaction details |
 | `/chat` | Chat interface — ask in plain English, NER extracts drug names |
-| `/results` | Model performance — cold-start (primary) + warm evaluation |
+| `/results` | Model performance — cold-start evaluation + full baseline comparison |
 | `/responsible` | Responsible ML — explainability, fairness, privacy, robustness |
 | `/dashboard` | Live dashboard — query stats, system health, recent activity |
 | `/about` | About the system — tech stack, how it works, key numbers |
@@ -60,18 +67,6 @@ docker compose down
 ---
 
 ## Key Results
-
-**Warm evaluation** (80/20 edge split · seed 42 · 1:1 pos:neg)
-
-| Model | AUC-ROC | Avg Precision | Category |
-|---|---|---|---|
-| **GNN — HeteroGraphSAGE + NCN** | **0.9738** | **0.9589** | Final model |
-| Jaccard (graph heuristic) | 0.9763 | 0.9669 | Non-AI baseline |
-| Adamic-Adar (graph heuristic) | 0.9748 | 0.9660 | Non-AI baseline |
-| Common Neighbors | 0.9738 | 0.9648 | Non-AI baseline |
-| Logistic Regression (node features) | 0.9570 | 0.9474 | Non-graph ML |
-| Degree Product | 0.9534 | 0.9383 | Non-AI baseline |
-| Feature Cosine Similarity | 0.6041 | 0.5952 | No-graph baseline |
 
 **Cold-start evaluation** (10 % of drugs held out entirely — the GNN's real use case)
 
@@ -144,8 +139,10 @@ Case-insensitive · brand names partially supported via synonym table.
 
 | Doc | Contents |
 |---|---|
+| [`readme_correction.md`](readme_correction.md) | **Grading map** — rubric code → exact file/page location |
 | [`docs/ARCHITECTURE.md`](docs/ARCHITECTURE.md) | Full pipeline, tech stack, 27-table schema, feature groups, API reference |
 | [`docs/responsible_ml.md`](docs/responsible_ml.md) | RM1 explainability · RM2 bias · RM3 privacy · RM4 robustness |
+| [`docs/rubric_notes.md`](docs/rubric_notes.md) | Internal rubric criterion notes and evidence mapping |
 | [`docs/security.md`](docs/security.md) | Attack surface audit, input validation posture, dependency scanning |
 
 ---
