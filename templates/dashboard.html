@@ -45,6 +45,7 @@
     }
     .header-nav a:hover  { background: rgba(255,255,255,.15); }
     .header-nav a.active { background: rgba(255,255,255,.18); border-color: rgba(255,255,255,.4); }
+    .status-dot { width:8px;height:8px;border-radius:50%;background:#4ade80;box-shadow:0 0 5px rgba(74,222,128,.7);flex-shrink:0; }
         /* ── Sidebar toggle ──────────────────────────────── */
     .sb-toggle {
       background: rgba(255,255,255,.12);
@@ -235,9 +236,14 @@
     <p>Query stats · System health · Recent activity</p>
   </div>
   
-  <button class="sb-toggle" onclick="openSb()" aria-label="Open navigation" style="margin-left:auto;">
-    <span></span><span></span><span></span>
-  </button>
+  <div style="margin-left:auto;display:flex;align-items:center;gap:10px;">
+    <div style="display:flex;align-items:center;gap:7px;font-size:.72rem;opacity:.85;white-space:nowrap;">
+      <div class="status-dot"></div>System online
+    </div>
+    <button class="sb-toggle" onclick="openSb()" aria-label="Open navigation">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
 
 </header>
 
