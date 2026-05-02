@@ -40,8 +40,7 @@ To stop:
 ```bash
 docker compose down
 ```
-
-> **Without Docker:** `pip install -r requirements.txt && python app.py`  
+ 
 > The server starts in ~3 s. Only `GROQ_API_KEY` is required for the AI chat feature.
 
 ---
@@ -62,16 +61,6 @@ docker compose down
 
 ## Key Results
 
-**Warm evaluation** (80/20 edge split · seed 42 · 1:1 pos:neg) — *context only; heuristics exploit dense graph, not generalisation*
-
-| Model | AUC-ROC | Avg Precision | Category |
-|---|---|---|---|
-| **GNN — HeteroGraphSAGE + NCN** | **0.9738** | **0.9589** | Final model |
-| Jaccard (graph heuristic) | 0.9845 | 0.9823 | Non-AI baseline |
-| Adamic-Adar (graph heuristic) | 0.9828 | 0.9813 | Non-AI baseline |
-| Common Neighbors | 0.9818 | 0.9801 | Non-AI baseline |
-| Logistic Regression (node features) | 0.9502 | 0.9505 | Non-graph ML |
-| Random chance | 0.5000 | — | Trivial |
 
 **Cold-start evaluation** (10 % of drugs held out entirely — the GNN's real use case)
 
