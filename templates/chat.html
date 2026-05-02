@@ -82,33 +82,68 @@
       background: rgba(255,255,255,.18);
       border-color: rgba(255,255,255,.4);
     }
-    .nav-more-wrap { position: relative; }
-    .nav-more-btn {
-      color: rgba(255,255,255,.88); background: transparent;
-      font-size: .78rem; font-weight: 600;
-      padding: 5px 12px; border-radius: 20px;
-      border: 1px solid rgba(255,255,255,.22);
-      cursor: pointer; transition: background .15s;
-      white-space: nowrap; display: flex; align-items: center; gap: 5px;
+        /* ── Sidebar toggle ──────────────────────────────── */
+    .sb-toggle {
+      background: rgba(255,255,255,.12);
+      border: 1px solid rgba(255,255,255,.2);
+      border-radius: 9px; cursor: pointer;
+      padding: 7px 9px; margin-left: 10px;
+      display: flex; flex-direction: column; gap: 4px;
+      transition: background .14s; flex-shrink: 0;
     }
-    .nav-more-btn:hover, .nav-more-btn.open { background: rgba(255,255,255,.15); }
-    .nav-more-btn.has-active { background: rgba(255,255,255,.18); border-color: rgba(255,255,255,.4); }
-    .nav-more-menu {
-      display: none; position: absolute; top: calc(100% + 8px); right: 0;
-      background: #1e3a8a; border: 1px solid rgba(255,255,255,.18);
-      border-radius: 12px; padding: 6px; min-width: 175px;
-      box-shadow: 0 8px 24px rgba(0,0,0,.25); z-index: 200;
+    .sb-toggle:hover { background: rgba(255,255,255,.22); }
+    .sb-toggle span { display: block; width: 18px; height: 2px; background: rgba(255,255,255,.9); border-radius: 2px; }
+
+    /* ── Sidebar overlay + panel ─────────────────────── */
+    .sb-overlay {
+      display: none; position: fixed; inset: 0;
+      background: rgba(0,0,0,.42); z-index: 400;
+      backdrop-filter: blur(3px);
     }
-    .nav-more-menu.open { display: block; }
-    .nav-more-menu a {
-      display: flex; align-items: center; gap: 7px;
-      color: rgba(255,255,255,.9); text-decoration: none;
-      font-size: .8rem; font-weight: 600;
-      padding: 8px 12px; border-radius: 8px;
-      transition: background .12s; white-space: nowrap;
+    .sb-overlay.open { display: block; }
+    .sb {
+      position: fixed; top: 0; right: 0; bottom: 0;
+      width: 272px;
+      background: linear-gradient(180deg, #1e3a8a 0%, #1a2d6e 100%);
+      z-index: 401; transform: translateX(100%);
+      transition: transform .28s cubic-bezier(.4,0,.2,1);
+      display: flex; flex-direction: column;
+      box-shadow: -6px 0 28px rgba(0,0,0,.28);
     }
-    .nav-more-menu a:hover { background: rgba(255,255,255,.12); }
-    .nav-more-menu a.active { background: rgba(255,255,255,.18); color: #fff; }
+    .sb.open { transform: translateX(0); }
+    .sb-head {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 18px 20px 16px;
+      border-bottom: 1px solid rgba(255,255,255,.1);
+    }
+    .sb-brand { display: flex; align-items: center; gap: 9px; color: #fff; font-weight: 800; font-size: .92rem; }
+    .sb-close {
+      background: rgba(255,255,255,.1); border: none; cursor: pointer;
+      color: rgba(255,255,255,.8); width: 30px; height: 30px; border-radius: 7px;
+      font-size: .85rem; display: flex; align-items: center; justify-content: center;
+      transition: background .12s;
+    }
+    .sb-close:hover { background: rgba(255,255,255,.2); color: #fff; }
+    .sb-body { flex: 1; padding: 14px 10px; overflow-y: auto; }
+    .sb-sec {
+      font-size: .58rem; font-weight: 700; letter-spacing: .12em;
+      text-transform: uppercase; color: rgba(255,255,255,.3);
+      padding: 6px 12px 3px;
+    }
+    .sb-lnk {
+      display: flex; align-items: center; gap: 9px;
+      color: rgba(255,255,255,.72); text-decoration: none;
+      font-size: .86rem; font-weight: 600;
+      padding: 9px 12px; border-radius: 9px;
+      transition: all .14s; margin-bottom: 1px;
+    }
+    .sb-lnk:hover { background: rgba(255,255,255,.1); color: #fff; }
+    .sb-lnk.active { background: rgba(255,255,255,.16); color: #fff; }
+    .sb-div { height: 1px; background: rgba(255,255,255,.09); margin: 8px 10px; }
+    .sb-foot {
+      padding: 13px 20px; border-top: 1px solid rgba(255,255,255,.07);
+      font-size: .65rem; color: rgba(255,255,255,.22); text-align: center;
+    }
 
     /* ── Chat area ──────────────────────────────────────────── */
     #chat-area {
@@ -406,6 +441,35 @@
 <body>
 
 <!-- ── Header ── -->
+<div class="sb-overlay" id="sb-overlay" onclick="closeSb()"></div>
+<nav class="sb" id="sb" aria-label="Site navigation">
+  <div class="sb-head">
+    <div class="sb-brand">
+      <svg width="20" height="20" viewBox="0 0 32 32" fill="none">
+        <rect width="32" height="32" rx="8" fill="rgba(255,255,255,.15)"/>
+        <path d="M16 7v18M7 16h18" stroke="white" stroke-width="3" stroke-linecap="round"/>
+        <circle cx="16" cy="16" r="6" stroke="white" stroke-width="2"/>
+      </svg>
+      DDI Checker
+    </div>
+    <button class="sb-close" onclick="closeSb()" aria-label="Close menu">✕</button>
+  </div>
+  <div class="sb-body">
+    <div class="sb-sec">Main</div>
+    <a href="/" class="sb-lnk">🏠 Home</a>
+    <a href="/checker" class="sb-lnk">🔬 Drug Checker</a>
+    <a href="/chat" class="sb-lnk active">💬 AI Assistant</a>
+    <div class="sb-div"></div>
+    <div class="sb-sec">Analysis</div>
+    <a href="/results" class="sb-lnk">📊 Model Results</a>
+    <a href="/responsible" class="sb-lnk">🛡️ Responsible ML</a>
+    <a href="/dashboard" class="sb-lnk">📈 Dashboard</a>
+    <div class="sb-div"></div>
+    <a href="/about" class="sb-lnk">ℹ️ About</a>
+  </div>
+  <div class="sb-foot">ML Capstone 2025–2026 · DrugBank v5.1</div>
+</nav>
+
 <header>
   <svg width="30" height="30" viewBox="0 0 32 32" fill="none">
     <rect width="32" height="32" rx="8" fill="white" fill-opacity=".15"/>
@@ -416,19 +480,14 @@
     <h1>DDI Chat</h1>
     <p>Ask about drug interactions in plain language</p>
   </div>
-  <div class="header-nav">
-    <a href="/">🔬 Checker</a>
-    <a href="/chat" class="active">💬 Chat</a>
-    <div class="nav-more-wrap" id="nav-more-wrap">
-      <button class="nav-more-btn" id="nav-more-btn" onclick="toggleMore()" aria-expanded="false">⋯ More</button>
-      <div class="nav-more-menu" id="nav-more-menu">
-        <a href="/landing">🚀 Landing</a>
-        <a href="/results">📊 Results</a>
-        <a href="/responsible">🛡️ Responsible ML</a>
-        <a href="/dashboard">📈 Dashboard</a>
-        <a href="/about">ℹ️ About</a>
-      </div>
+    <div class="header-nav">
+    <div class="header-status" style="display:flex;align-items:center;gap:7px;font-size:.72rem;opacity:.85;white-space:nowrap;margin-right:4px;">
+      <div class="status-dot"></div>
+      System online
     </div>
+    <button class="sb-toggle" onclick="openSb()" aria-label="Open navigation">
+      <span></span><span></span><span></span>
+    </button>
   </div>
 </header>
 
@@ -720,20 +779,18 @@
     }
   }
 
-  function toggleMore() {
-    const menu = document.getElementById('nav-more-menu');
-    const btn  = document.getElementById('nav-more-btn');
-    const open = menu.classList.toggle('open');
-    btn.classList.toggle('open', open);
-    btn.setAttribute('aria-expanded', open);
+    // ── Sidebar navigation ──────────────────────────────────────────
+  function openSb() {
+    document.getElementById('sb').classList.add('open');
+    document.getElementById('sb-overlay').classList.add('open');
+    document.body.style.overflow = 'hidden';
   }
-  document.addEventListener('click', function(e) {
-    const wrap = document.getElementById('nav-more-wrap');
-    if (wrap && !wrap.contains(e.target)) {
-      document.getElementById('nav-more-menu').classList.remove('open');
-      document.getElementById('nav-more-btn').classList.remove('open');
-    }
-  });
+  function closeSb() {
+    document.getElementById('sb').classList.remove('open');
+    document.getElementById('sb-overlay').classList.remove('open');
+    document.body.style.overflow = '';
+  }
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeSb(); });
 </script>
 </body>
 </html>

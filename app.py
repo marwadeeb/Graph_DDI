@@ -361,8 +361,12 @@ def generate_chat_reply(
 
 @app.route("/", methods=["GET"])
 def index():
-    return render_template("index.html")
+    return render_template("landing.html")
 
+
+@app.route("/checker", methods=["GET"])
+def checker_page():
+    return render_template("checker.html")
 
 @app.route("/chat", methods=["GET"])
 def chat_page():
@@ -795,7 +799,8 @@ def drug_search():
 
 @app.route("/landing", methods=["GET"])
 def landing_page():
-    return render_template("landing.html")
+    from flask import redirect
+    return redirect("/")
 
 
 @app.route("/about", methods=["GET"])
