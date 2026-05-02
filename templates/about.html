@@ -227,6 +227,27 @@
       border-top: 1px solid var(--gray-200);
       padding-top: 20px; line-height: 1.7; margin-top: 36px;
     }
+
+    /* ── Architecture diagram ────────────────────────── */
+    .arch-card {
+      background: rgba(255,255,255,.84); backdrop-filter: blur(12px);
+      border: 1px solid rgba(99,102,241,.14); border-radius: 16px;
+      box-shadow: 0 2px 12px rgba(37,99,235,.07); padding: 24px 28px;
+      margin-bottom: 16px;
+    }
+    .arch-card h3 { font-size: .72rem; font-weight: 700; color: var(--indigo);
+      text-transform: uppercase; letter-spacing: .07em; margin-bottom: 14px; }
+    .arch-row { display: flex; align-items: flex-start; gap: 12px; padding: 10px 0;
+      border-bottom: 1px solid var(--gray-100); font-size: .83rem; }
+    .arch-row:last-child { border-bottom: none; }
+    .arch-label { font-weight: 700; min-width: 140px; color: var(--indigo); flex-shrink: 0; }
+    .arch-val { color: var(--gray-700); line-height: 1.5; }
+    .arch-val code { background: var(--gray-100); border-radius: 4px; padding: 1px 5px; font-size: .76rem; }
+
+    /* ── Limitations ─────────────────────────────────── */
+    .limit-item { display: flex; gap: 12px; padding: 10px 0; border-bottom: 1px solid var(--gray-100); font-size: .84rem; line-height: 1.55; }
+    .limit-item:last-child { border-bottom: none; }
+    .limit-icon { font-size: 1.1rem; flex-shrink: 0; margin-top: 1px; }
   </style>
 </head>
 <body>
@@ -336,6 +357,37 @@
     </div>
   </div>
 
+  <!-- Graph Model Architecture -->
+  <div class="section-h">Graph model architecture</div>
+  <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:16px;margin-bottom:4px;">
+    <div class="arch-card">
+      <h3>🧠 Encoder — HeteroGraphSAGEEncoder</h3>
+      <div class="arch-row"><div class="arch-label">Type</div><div class="arch-val">3-layer <code>HeteroConv</code> with <code>SAGEConv</code>, aggregation: sum</div></div>
+      <div class="arch-row"><div class="arch-label">Edge types</div><div class="arch-val"><code>ddi</code> (drug↔drug) · <code>targets</code> (drug→protein) · <code>rev_targets</code> (protein→drug)</div></div>
+      <div class="arch-row"><div class="arch-label">Drug input dim</div><div class="arch-val">980 — 212 structural + 768 PubMedBERT</div></div>
+      <div class="arch-row"><div class="arch-label">Protein input dim</div><div class="arch-val">5 — 4 role flags + log-degree</div></div>
+      <div class="arch-row"><div class="arch-label">Hidden / output dim</div><div class="arch-val">256 hidden → 64 output per node</div></div>
+      <div class="arch-row"><div class="arch-label">Dropout</div><div class="arch-val">0.3 between layers</div></div>
+    </div>
+    <div class="arch-card">
+      <h3>🔗 Decoder — EnhancedLinkPredictor (NCN)</h3>
+      <div class="arch-row"><div class="arch-label">Inspiration</div><div class="arch-val">NCN — Wang et al., ICLR 2024</div></div>
+      <div class="arch-row"><div class="arch-label">MLP input</div><div class="arch-val"><code>[z_u | z_v | mean(z_shared_ddi) | mean(z_shared_protein)]</code> = 256-dim</div></div>
+      <div class="arch-row"><div class="arch-label">MLP layers</div><div class="arch-val">Linear(256→128) → ReLU → Dropout(0.3) → Linear(128→1) → Sigmoid</div></div>
+      <div class="arch-row"><div class="arch-label">CN pooling</div><div class="arch-val">Pools shared DDI neighbours (same graph) + shared protein targets (bipartite)</div></div>
+      <div class="arch-row"><div class="arch-label">Total parameters</div><div class="arch-val">1,532,353</div></div>
+    </div>
+    <div class="arch-card">
+      <h3>⚙️ Training Configuration</h3>
+      <div class="arch-row"><div class="arch-label">Loss</div><div class="arch-val">nnPU (Kiryo et al. 2017) · prior π = 0.0717 (observed positive rate)</div></div>
+      <div class="arch-row"><div class="arch-label">Optimiser</div><div class="arch-val">Adam · lr 0.001</div></div>
+      <div class="arch-row"><div class="arch-label">Epochs</div><div class="arch-val">500 max · early stopping patience 30 · converged ~500</div></div>
+      <div class="arch-row"><div class="arch-label">Masking</div><div class="arch-val">20 % of DDI edges masked before split (nnPU masked positives)</div></div>
+      <div class="arch-row"><div class="arch-label">Data loader</div><div class="arch-val">NeighborLoader · batch 512 · 25/15/10 DDI neighbours per layer</div></div>
+      <div class="arch-row"><div class="arch-label">Threshold</div><div class="arch-val">0.43 (calibrated on held-out sample)</div></div>
+    </div>
+  </div>
+
   <!-- Key numbers -->
   <div class="section-h">Key numbers</div>
   <div class="stats-strip">
@@ -360,9 +412,39 @@
       <div class="lbl">Dict lookup latency (O(1))</div>
     </div>
     <div class="stat-tile">
-      <div class="big">3 / 4</div>
+      <div class="big">4 / 4</div>
       <div class="lbl">Responsible ML topics covered</div>
     </div>
+  </div>
+
+  <!-- Context & Limitations -->
+  <div class="section-h">Context &amp; limitations</div>
+  <div class="arch-card" style="margin-bottom:0;">
+    <h3>👤 Users · Decision · Deployers</h3>
+    <div class="arch-row">
+      <div class="arch-label">Users</div>
+      <div class="arch-val">Clinical pharmacists, physicians, and clinical decision support system operators</div>
+    </div>
+    <div class="arch-row">
+      <div class="arch-label">Decision augmented</div>
+      <div class="arch-val">Screening drug pairs for potential interactions before prescribing</div>
+    </div>
+    <div class="arch-row">
+      <div class="arch-label">Deployers</div>
+      <div class="arch-val">Hospital pharmacy systems, EHR providers (e.g. Epic, Cerner), or formulary management tools</div>
+    </div>
+    <div class="arch-row">
+      <div class="arch-label">Payer / incentive</div>
+      <div class="arch-val">Hospitals seeking to reduce adverse drug event liability and readmissions</div>
+    </div>
+  </div>
+  <div class="arch-card" style="margin-top:14px;">
+    <h3>⚠️ Known Limitations</h3>
+    <div class="limit-item"><div class="limit-icon">⚠️</div><div>DrugBank DDI labels are <strong>incomplete</strong> — many real interactions are undocumented, making true negatives uncertain. The model is trained under PU (positive-unlabelled) learning for this reason.</div></div>
+    <div class="limit-item"><div class="limit-icon">⚠️</div><div><strong>2,107 / 4,795 drugs</strong> have no protein target data. Their embeddings rely solely on DDI graph topology; cold-start predictions for these drugs are less reliable.</div></div>
+    <div class="limit-item"><div class="limit-icon">⚠️</div><div>Model trained only on <strong>FDA-approved small molecules</strong>. Performance on biologics, prodrugs, or new chemical entities is untested.</div></div>
+    <div class="limit-item"><div class="limit-icon">⚠️</div><div>The decision <strong>threshold (0.43)</strong> was selected on a held-out sample. Clinical deployment would require prospective recalibration against a reference population.</div></div>
+    <div class="limit-item"><div class="limit-icon">ℹ️</div><div>This is a <strong>decision-support tool, not a medical device</strong>. All GNN predictions carry a mandatory disclaimer. Documented DrugBank interactions are returned as ground truth; novel pair predictions are clearly labelled as model output.</div></div>
   </div>
 
   <!-- Tech stack -->
@@ -439,7 +521,6 @@
     <div class="pf-step">FDA filter (3)</div><div class="pf-arrow">→</div>
     <div class="pf-step">Graph features (4)</div><div class="pf-arrow">→</div>
     <div class="pf-step">PyG + Hetero graph (5)</div><div class="pf-arrow">→</div>
-    <div class="pf-step">Dict lookup (6)</div><div class="pf-arrow">→</div>
     <div class="pf-step">Baselines (9)</div><div class="pf-arrow">→</div>
     <div class="pf-step">GNN training (notebook)</div><div class="pf-arrow">→</div>
     <div class="pf-step">Flask API</div>
@@ -448,7 +529,7 @@
   <!-- Get started -->
   <div class="section-h">Get started</div>
   <div class="cta-strip">
-    <a href="/"            class="cta-btn cta-primary">🔬 Try the Checker</a>
+    <a href="/checker"     class="cta-btn cta-primary">🔬 Try the Checker</a>
     <a href="/chat"        class="cta-btn cta-secondary">💬 Chat Interface</a>
     <a href="/results"     class="cta-btn cta-secondary">📊 View Results</a>
     <a href="/responsible" class="cta-btn cta-secondary">🛡️ Responsible ML</a>
