@@ -218,6 +218,7 @@
     .badge-gnn     { background: #d1fae5; color: #065f46; }
     .badge-trivial { background: var(--gray-100); color: var(--gray-500); }
     .val-tbd { color: var(--gray-400); font-style: italic; font-size: .82rem; }
+    .status-dot { width:8px;height:8px;border-radius:50%;background:#4ade80;box-shadow:0 0 5px rgba(74,222,128,.7);flex-shrink:0; }
 
     /* ── Confusion matrix ────────────────────────────────────── */
     .conf-matrix { display:grid; grid-template-columns:1fr 1fr; gap:12px; max-width:460px; margin:14px 0 22px; }
@@ -333,9 +334,14 @@
     <p>Link-prediction evaluation · DrugBank interaction graph</p>
   </div>
   
-  <button class="sb-toggle" onclick="openSb()" aria-label="Open navigation" style="margin-left:auto;">
-    <span></span><span></span><span></span>
-  </button>
+  <div style="margin-left:auto;display:flex;align-items:center;gap:10px;">
+    <div style="display:flex;align-items:center;gap:7px;font-size:.72rem;opacity:.85;white-space:nowrap;">
+      <div class="status-dot"></div>System online
+    </div>
+    <button class="sb-toggle" onclick="openSb()" aria-label="Open navigation">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
 
 </header>
 
@@ -343,7 +349,7 @@
 
   <p class="page-title">Model Performance Evaluation</p>
   <p class="page-sub">
-    All numbers from <code>hetero_model.ipynb</code> · 4,795 drugs · 824,249 DDI pairs · DrugBank v5.1 · seed 42.
+    4,795 drugs · 824,249 DDI pairs · DrugBank v5.1 · seed 42
   </p>
 
   <!-- ════════ WHY COLD-START MATTERS ════════ -->

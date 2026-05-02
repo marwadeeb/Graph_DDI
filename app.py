@@ -764,6 +764,10 @@ def check_batch():
             "error": None,
         })
 
+    return jsonify({"results": results})
+
+
+@app.route("/api/drug/search", methods=["GET"])
 def drug_search():
     """
     Drug name autocomplete / lookup.

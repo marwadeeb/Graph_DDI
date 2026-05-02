@@ -35,6 +35,7 @@
     }
     .sb-toggle:hover { background: rgba(255,255,255,.22); }
     .sb-toggle span { display: block; width: 18px; height: 2px; background: rgba(255,255,255,.9); border-radius: 2px; }
+    .status-dot { width:8px;height:8px;border-radius:50%;background:#4ade80;box-shadow:0 0 5px rgba(74,222,128,.7);flex-shrink:0; }
 
     /* ── Sidebar overlay + panel ─────────────────────────── */
     .sb-overlay {
@@ -373,6 +374,9 @@
     <p>Drug Interaction Detection · DrugBank v5.1 · 824K documented pairs</p>
   </div>
   <div class="header-right">
+    <div style="display:flex;align-items:center;gap:7px;font-size:.72rem;opacity:.85;white-space:nowrap;">
+      <div class="status-dot"></div>System online
+    </div>
     <button class="sb-toggle" onclick="openSb()" aria-label="Open navigation">
       <span></span><span></span><span></span>
     </button>
