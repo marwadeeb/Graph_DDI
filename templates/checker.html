@@ -1034,6 +1034,7 @@
       <span class="sample-chip" title="Documented in DrugBank — myopathy risk" onclick="loadSample('Simvastatin','Clarithromycin')">Simvastatin × Clarithromycin 📋</span>
       <span class="sample-chip" title="Novel pair — not in DrugBank, GNN assessment" onclick="loadSample('Metformin','Vitamin D')">Metformin × Vitamin D 🔍</span>
       <span class="sample-chip" title="Novel pair — not in DrugBank, GNN assessment" onclick="loadSample('Omeprazole','Metformin')">Omeprazole × Metformin 🔍</span>
+      <span class="sample-chip" title="No interaction found — not in DrugBank, GNN below threshold" onclick="loadSample('Cetirizine','Loratadine')" style="background:#f9fafb;color:#6b7280;border-color:#d1d5db;">Cetirizine × Loratadine ○</span>
     </div>
     <div id="status-bar"></div>
     </div><!-- /.search-card-body -->
@@ -1656,9 +1657,10 @@
       +'<div class="disclaimer"><strong>&#9888; Medical Disclaimer:</strong> This report is for informational and research purposes only. It is <strong>not a substitute for professional medical advice, diagnosis, or treatment</strong>. Drug interaction data is sourced from DrugBank v5.1 (documented) or predicted by a machine learning model (novel pairs). Always consult a qualified healthcare professional or licensed pharmacist before making any clinical decisions.</div>'
       +((idA||idB)?'<div class="ids">DrugBank IDs: '+idA+' &times; '+idB+'</div>':'')
       +'<div class="footer">DDI Checker &middot; ML Capstone 2025&ndash;2026 &middot; Laure Mohsen &amp; Marwa Deeb<br>Data: DrugBank v5.1 &middot; CC BY-NC 4.0 &middot; For research purposes only</div>'
-      +'<script>window.addEventListener("load",function(){ window.print(); });<\/script>'
       +'</body></html>');
     win.document.close();
+    // Trigger print from opener — more reliable than load event inside document.write
+    setTimeout(function(){ try { win.print(); } catch(e) {} }, 600);
   }
 
   // Allow Enter key to submit

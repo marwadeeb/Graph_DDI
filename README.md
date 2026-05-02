@@ -19,21 +19,30 @@ Detect drug-drug interactions (DDI) using a two-stage pipeline:
 
 ---
 
-## Quick Start
+## Quick Start (local — Docker Compose)
+
+Create a `.env` file first (see `.env.example`):
 
 ```bash
-git clone https://huggingface.co/spaces/marwadeeb/ddi-checker
-cd ddi-checker
-pip install -r requirements.txt
-
-# Copy your .env (needs GROQ_API_KEY for NLP features)
-echo "GROQ_API_KEY=gsk_..." > .env
-
-python app.py          # starts on http://localhost:7860
+cp .env.example .env
+# edit .env and fill in GROQ_API_KEY
 ```
 
-The server is ready in ~3 s (dict lookup loads instantly).
-The FAISS RAG index is loaded on demand only.
+Then start the app:
+
+```bash
+docker compose up --build
+# App is available at http://localhost:7860
+```
+
+To stop:
+
+```bash
+docker compose down
+```
+
+> **Without Docker:** `pip install -r requirements.txt && python app.py`  
+> The server starts in ~3 s. Only `GROQ_API_KEY` is required for the AI chat feature.
 
 ---
 
@@ -41,13 +50,13 @@ The FAISS RAG index is loaded on demand only.
 
 | URL | Description |
 |---|---|
-| `/` | Drug pair checker — type two drug names, get interaction details |
+| `/` | Landing page — animated pipeline demo + drug graph visualization |
+| `/checker` | Drug pair checker — type two drug names, get interaction details |
 | `/chat` | Chat interface — ask in plain English, NER extracts drug names |
 | `/results` | Model performance — cold-start (primary) + warm evaluation |
 | `/responsible` | Responsible ML — explainability, fairness, privacy, robustness |
 | `/dashboard` | Live dashboard — query stats, system health, recent activity |
 | `/about` | About the system — tech stack, how it works, key numbers |
-| `/landing` | Animated landing page — visual pipeline demo + graph visualization |
 
 ---
 
@@ -87,9 +96,6 @@ DrugBank XML (19,842 drugs · 2.9M DDI)
     ↓ step4_embed                 [Step 4b] + 768-dim PubMedBERT = 980 features
     ↓ step5_pyg_data              [Step 5a] PyG homogeneous ddi_graph.pt
     ↓ step5_hetero_graph          [Step 5b] + drug-protein edges → hetero_ddi_graph.pt
-    ↓ step6_rag_index             [Step 6]  FAISS index of 824K DDI descriptions
-    ↓ step7_rag_query             [Step 7]  dict lookup + optional FAISS query
-    ↓ step8_evaluate_rag          [Step 8]  precision/recall/F1 evaluation
     ↓ step9_baseline              [Step 9]  graph heuristics + LR + cold-start split
     ↓ step10_responsible_ml       [Step 10] bias + robustness analysis
     ↓ hetero_model.ipynb                    GNN training (HeteroGraphSAGE + NCN)
@@ -104,9 +110,8 @@ python pipeline/step2_dedup_interactions.py     # ~3.5 min
 python pipeline/step3_fda_approved.py           # ~20 s
 python pipeline/step4_build_graph.py            # ~15 s
 python pipeline/step4_embed.py                  # ~25 min (CPU)
-python pipeline/step5_pyg_data.py              # ~2 s
+python pipeline/step5_pyg_data.py               # ~2 s
 python pipeline/step5_hetero_graph.py           # ~30 s  (drug-protein hetero graph)
-python pipeline/step6_rag_index.py              # ~3-4 hrs (CPU, resumable)
 python pipeline/step9_baseline.py               # ~30 s  (graph heuristics + LR + cold split)
 python pipeline/step10_responsible_ml.py        # ~5 s   (bias + robustness)
 python pipeline/step10_responsible_ml.py --section gnn_auc  # per-category GNN AUC (needs model .pt files)
@@ -148,10 +153,8 @@ Case-insensitive · brand names partially supported via synonym table.
 ## Deployment
 
 Deployed on HuggingFace Spaces via Docker. The `Dockerfile` installs dependencies, copies
-`data/step3_approved/` and `data/step4_graph/` (tracked via Git LFS), and starts `app.py`.
-
-The FAISS index (`data/rag_index/`, ~2.5 GB) is **not** included in the deployment image —
-the system operates fully without it using the in-memory DrugBank dict.
+`data/step3_approved/` and `data/step4_graph/` (tracked via Git LFS), and starts `app.py`
+on port 7860 with Gunicorn (1 worker, 4 threads).
 
 ---
 
