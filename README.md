@@ -31,7 +31,7 @@ cp .env.example .env
 Then start the app:
 
 ```bash
-docker compose up --build
+docker compose up --build -d
 # App is available at http://localhost:7860
 ```
 
