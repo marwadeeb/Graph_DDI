@@ -61,16 +61,27 @@ docker compose down
 
 ## Key Results
 
+**Warm evaluation** (80/20 edge split · seed 42 · 1:1 pos:neg)
+
+| Model | AUC-ROC | Avg Precision | Category |
+|---|---|---|---|
+| **GNN — HeteroGraphSAGE + NCN** | **0.9738** | **0.9589** | Final model |
+| Jaccard (graph heuristic) | 0.9763 | 0.9669 | Non-AI baseline |
+| Adamic-Adar (graph heuristic) | 0.9748 | 0.9660 | Non-AI baseline |
+| Common Neighbors | 0.9738 | 0.9648 | Non-AI baseline |
+| Logistic Regression (node features) | 0.9570 | 0.9474 | Non-graph ML |
+| Degree Product | 0.9534 | 0.9383 | Non-AI baseline |
+| Feature Cosine Similarity | 0.6041 | 0.5952 | No-graph baseline |
 
 **Cold-start evaluation** (10 % of drugs held out entirely — the GNN's real use case)
 
-| Model | Cold AUC-ROC | Note |
-|---|---|---|
-| **GNN — HeteroGraphSAGE + NCN** | *run pending* | Uses node features + graph structure |
-| Logistic Regression | *run pending* | Uses node features only |
-| Graph heuristics | **0.5000** | Analytically guaranteed — zero training edges = zero score |
+| Model | Cold AUC-ROC | Cold Avg Precision | Note |
+|---|---|---|---|
+| **GNN — HeteroGraphSAGE + NCN** | **0.9175** | **0.8824** | Features + graph context |
+| Logistic Regression | 0.8974 | 0.9032 | Node features only |
+| Graph heuristics (all) | 0.5000 | 0.5000 | Analytically guaranteed — zero training edges = zero score |
 
-> Graph heuristics score 0.98 on warm evaluation because DrugBank is extremely dense (avg degree 344). On cold-start they collapse to 0.50 = random chance. The GNN's purpose is novel pair prediction — see `/results` for full analysis.
+> Graph heuristics score ~0.97 on warm eval because DrugBank is extremely dense (avg degree ~344). On cold-start they collapse to 0.50 = random chance. The GNN holds at 0.9175, outperforming LR by +0.0201 AUROC — see `/results` for full analysis.
 
 ---
 
