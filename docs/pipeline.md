@@ -21,7 +21,7 @@ For tech stack and infrastructure see [ARCHITECTURE.md](ARCHITECTURE.md).
 | 8 — RAG Evaluation | `pipeline/evaluate_rag.py` | `data/evaluation/` — precision/recall/F1 | — |
 | 9 — Baselines + Split | `pipeline/run_baselines.py` | `data/evaluation/` — graph heuristics + LR + cold-start split files | — |
 | 10 — Responsible ML | `pipeline/responsible_ml.py` | `data/evaluation/` — bias JSON · robustness JSON | — |
-| GNN Training | `hetero_model.ipynb` | `data/step4_graph/bestHeteroModel.pt` | 6 MB · **on GitHub** |
+| GNN Training | `pipeline/hetero_model.ipynb` | `data/step4_graph/bestHeteroModel.pt` | 6 MB · **on GitHub** |
 | Serving | `app.py` | Flask REST API + Web UI on port 7860 | — |
 
 ## Run Commands
@@ -36,7 +36,7 @@ python pipeline/build_pyg_homo.py               # ~2 s
 python pipeline/build_pyg_hetero.py             # ~30 s
 python pipeline/run_baselines.py                # ~30 s  (graph heuristics + LR + cold split)
 python pipeline/responsible_ml.py               # ~5 s   (bias + robustness)
-# GNN training: run hetero_model.ipynb in Jupyter
+# GNN training: run pipeline/hetero_model.ipynb in Jupyter
 ```
 
 ---
@@ -126,8 +126,8 @@ Pipeline: `StandardScaler` + `LogisticRegression(max_iter=1000, C=1.0)`
 │   ├── run_baselines.py
 │   ├── responsible_ml.py
 │   ├── error_analysis.py
-│   └── gnn_predictor.py             GNN inference interface (Flask ↔ model)
-├── hetero_model.ipynb               GNN training
+│   ├── gnn_predictor.py             GNN inference interface (Flask ↔ model)
+│   └── hetero_model.ipynb           GNN training
 ├── app.py                           Flask REST API
 └── data/
     ├── step1_full/                  [gitignored]

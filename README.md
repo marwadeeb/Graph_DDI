@@ -93,7 +93,7 @@ DrugBank XML (19,842 drugs · 2.9M DDI)
     ↓ build_pyg_hetero.py          [Step 5b] + drug-protein edges → hetero_ddi_graph.pt
     ↓ run_baselines.py             [Step 9]  graph heuristics + LR + cold-start split
     ↓ responsible_ml.py            [Step 10] bias + robustness analysis
-    ↓ hetero_model.ipynb                     GNN training (HeteroGraphSAGE + NCN)
+    ↓ pipeline/hetero_model.ipynb            GNN training (HeteroGraphSAGE + NCN)
     ↓ app.py                                 Flask REST API + Web UI
 ```
 
@@ -109,7 +109,7 @@ python pipeline/build_pyg_homo.py               # ~2 s
 python pipeline/build_pyg_hetero.py             # ~30 s  (drug-protein hetero graph)
 python pipeline/run_baselines.py                # ~30 s  (graph heuristics + LR + cold split)
 python pipeline/responsible_ml.py               # ~5 s   (bias + robustness)
-# GNN training: run hetero_model.ipynb in Jupyter
+# GNN training: run pipeline/hetero_model.ipynb in Jupyter
 ```
 
 ---

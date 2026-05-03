@@ -21,7 +21,7 @@ GNN model, node features, PyG data objects, and baseline details.
 
 Reference: Wang et al., "Neural Common Neighbor with Completion for Link Prediction", ICLR 2024.
 
-Training notebook: [`hetero_model.ipynb`](../hetero_model.ipynb)
+Training notebook: [`pipeline/hetero_model.ipynb`](../pipeline/hetero_model.ipynb)
 
 ---
 
