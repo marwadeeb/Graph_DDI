@@ -293,17 +293,39 @@
       flex-shrink: 0;
       white-space: nowrap;
     }
-    .brand-notice {
+    .combo-banner {
       margin-top: 10px;
-      padding: 9px 13px;
-      background: #fffbeb;
-      border: 1px solid #fcd34d;
-      border-radius: 6px;
+      padding: 9px 14px;
+      background: #eff6ff;
+      border: 1px solid #bfdbfe;
+      border-radius: 8px;
       font-size: .82rem;
-      color: #78350f;
+      color: #1e40af;
       line-height: 1.5;
     }
-    .brand-notice strong { color: #92400e; }
+    .additional-checks { margin-top: 10px; }
+    .additional-checks-header {
+      font-size: .72rem; font-weight: 700; text-transform: uppercase;
+      letter-spacing: .06em; color: #6b7280; margin-bottom: 8px;
+    }
+    .result-card-mini {
+      border-radius: 10px; padding: 12px 16px; margin-bottom: 8px;
+      border: 1.5px solid; font-size: .85rem;
+    }
+    .result-card-mini.documented {
+      background: linear-gradient(135deg, #fef2f2, #fee2e2);
+      border-color: #fca5a5;
+    }
+    .result-card-mini.not-found {
+      background: linear-gradient(135deg, #f0fdf4, #ecfdf5);
+      border-color: #86efac;
+    }
+    .rcm-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 5px; gap: 10px; }
+    .rcm-label  { font-size: .68rem; font-weight: 700; text-transform: uppercase; letter-spacing: .08em; flex-shrink: 0; }
+    .result-card-mini.documented .rcm-label { color: #dc2626; }
+    .result-card-mini.not-found  .rcm-label { color: #15803d; }
+    .rcm-pair   { font-size: .8rem; font-weight: 600; color: #374151; }
+    .rcm-desc   { font-size: .8rem; color: #4b5563; line-height: 1.6; }
 
     .btn-row {
       display: flex;
@@ -382,28 +404,29 @@
       border: 1.5px solid;
       box-shadow: 0 4px 16px rgba(0,0,0,.06);
     }
+    /* Interaction found → red; no interaction → green */
     .result-card.documented {
+      background: linear-gradient(135deg, #fef2f2, #fee2e2);
+      border-color: #fca5a5;
+      box-shadow: 0 4px 20px rgba(220,38,38,.12);
+    }
+    .result-card.predicted  {
+      background: linear-gradient(135deg, #fff7ed, #fee2e2);
+      border-color: #fdba74;
+      box-shadow: 0 4px 20px rgba(234,88,12,.14);
+    }
+    .result-card.not-found  {
       background: linear-gradient(135deg, #f0fdf4, #ecfdf5);
       border-color: #86efac;
       box-shadow: 0 4px 20px rgba(22,163,74,.12);
-    }
-    .result-card.predicted  {
-      background: linear-gradient(135deg, #fffbeb, #fef9c3);
-      border-color: #fcd34d;
-      box-shadow: 0 4px 20px rgba(217,119,6,.12);
-    }
-    .result-card.not-found  {
-      background: rgba(255,255,255,.7);
-      border-color: #e0e7ff;
-      box-shadow: 0 4px 16px rgba(0,0,0,.05);
     }
     .result-card .rc-label {
       font-size: .68rem; font-weight: 700; text-transform: uppercase;
       letter-spacing: .1em; margin-bottom: 6px;
     }
-    .documented .rc-label { color: #15803d; }
-    .predicted  .rc-label { color: #b45309; }
-    .not-found  .rc-label { color: #6b7280; }
+    .documented .rc-label { color: #dc2626; }
+    .predicted  .rc-label { color: #c2410c; }
+    .not-found  .rc-label { color: #15803d; }
     .result-card .rc-type {
       font-size: .82rem; font-weight: 600; margin-bottom: 10px; text-transform: capitalize;
       color: var(--gray-700, #374151);
@@ -1372,9 +1395,9 @@
     const cls = src === 'documented' ? 'documented'
               : src === 'gnn_predicted'  ? 'predicted'
               : 'not-found';
-    const label = src === 'documented' ? '✓ Documented Interaction — DrugBank'
-                : src === 'gnn_predicted'  ? '⚡ Predicted Interaction — GNN Model'
-                : '✕ No Interaction Found';
+    const label = src === 'documented' ? '⚠ Interaction Found — DrugBank (Documented)'
+                : src === 'gnn_predicted'  ? '⚠ Potential Interaction — GNN Model (Predicted)'
+                : '✓ No Interaction Found — Safe to Take Together';
 
     // GNN probability bar (shown only for predicted)
     let gnnHtml = '';
@@ -1428,19 +1451,44 @@
       if (split !== -1) descHtml = escHtml(data.interaction_description.slice(0, split).trim());
     }
 
-    // Multi-drug brand notice
-    function brandNoticeHtml(notice, label) {
-      if (!notice || notice.others.length === 0) return '';
-      const others = notice.others.map(n => `<strong>${escHtml(n)}</strong>`).join(', ');
-      return `<div class="brand-notice">
-        ⚠ <strong>${escHtml(label)}</strong> is a combination product containing
-        ${escHtml(notice.primary)} and ${others}.
-        The interaction above is checked for <strong>${escHtml(notice.primary)}</strong> only.
-        Consider checking the other components separately.
+    // Build combination-product banner (shown when a brand has multiple drugs)
+    function comboBannerHtml(noticeA, noticeB, queryA, queryB) {
+      const notices = [];
+      if (noticeA && noticeA.others.length > 0) {
+        const all = noticeA.all.map(n => `<strong>${escHtml(n)}</strong>`).join(' + ');
+        notices.push(`<em>${escHtml(queryA)}</em> is a combination product: ${all}`);
+      }
+      if (noticeB && noticeB.others.length > 0) {
+        const all = noticeB.all.map(n => `<strong>${escHtml(n)}</strong>`).join(' + ');
+        notices.push(`<em>${escHtml(queryB)}</em> is a combination product: ${all}`);
+      }
+      if (!notices.length) return '';
+      return `<div class="combo-banner">💊 ${notices.join(' &nbsp;·&nbsp; ')} — all component pairs checked below.</div>`;
+    }
+    const comboBanner = comboBannerHtml(data.brand_notice_a, data.brand_notice_b,
+                                        data.drug_a?.query || '', data.drug_b?.query || '');
+
+    // Additional checks for combination-product component pairs
+    function additionalChecksHtml(checks) {
+      if (!checks || !checks.length) return '';
+      const cards = checks.map(c => {
+        const c_cls  = c.source === 'documented' ? 'documented' : 'not-found';
+        const c_icon = c.source === 'documented' ? '⚠' : '✓';
+        const c_lbl  = c.source === 'documented' ? 'Interaction Found' : 'No Interaction Found';
+        return `
+          <div class="result-card-mini ${c_cls}">
+            <div class="rcm-header">
+              <span class="rcm-label">${c_icon} ${c_lbl}</span>
+              <span class="rcm-pair">${escHtml(c.drug_a?.resolved||'')} × ${escHtml(c.drug_b?.resolved||'')}</span>
+            </div>
+            <div class="rcm-desc">${escHtml(c.interaction_description||'')}</div>
+          </div>`;
+      }).join('');
+      return `<div class="additional-checks">
+        <div class="additional-checks-header">Other component pairs:</div>
+        ${cards}
       </div>`;
     }
-    const noticeAHtml = brandNoticeHtml(data.brand_notice_a, data.drug_a?.query || '');
-    const noticeBHtml = brandNoticeHtml(data.brand_notice_b, data.drug_b?.query || '');
 
     primary.innerHTML = `
       <div class="result-card ${cls}">
@@ -1451,9 +1499,9 @@
         ${disclaimerHtml}
         ${explanationHtml}
         ${safetyHtml}
-        ${noticeAHtml}
-        ${noticeBHtml}
-      </div>`;
+      </div>
+      ${comboBanner}
+      ${additionalChecksHtml(data.additional_checks)}`;
     primary.style.display = 'block';
 
     // Header
@@ -1683,41 +1731,107 @@
   // ── PDF Export — inline overlay (no popup permission needed) ─────────────
   function exportPDF() {
     if (!_lastResult) return;
-    const src = _lastResult.source || '';
-    const srcLabel = src === 'documented'   ? 'DrugBank Database (Documented)'
-                   : src === 'gnn_predicted'? 'GNN Prediction (Novel Pair)'
-                   : 'Not Found in Database';
-    const srcClass = src === 'documented' ? 'documented'
-                   : src === 'gnn_predicted' ? 'predicted' : 'not-found';
-    const conf = (_lastResult.gnn && _lastResult.gnn.probability != null)
-      ? 'GNN confidence: ' + (_lastResult.gnn.probability * 100).toFixed(0) + '%' : '';
-    const h = s => String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
-    const desc  = h(_lastResult.interaction_description || 'No interaction description available.');
-    const nameA = h(_lastResult.drug_a && _lastResult.drug_a.resolved ? _lastResult.drug_a.resolved : (_lastResult.drug_a || ''));
-    const nameB = h(_lastResult.drug_b && _lastResult.drug_b.resolved ? _lastResult.drug_b.resolved : (_lastResult.drug_b || ''));
-    const idA   = _lastResult.drug_a && _lastResult.drug_a.drugbank_id ? _lastResult.drug_a.drugbank_id : '';
-    const idB   = _lastResult.drug_b && _lastResult.drug_b.drugbank_id ? _lastResult.drug_b.drugbank_id : '';
+    const r   = _lastResult;
+    const src = r.source || '';
+    const h   = s => String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
     const today = new Date().toLocaleDateString('en-US',{year:'numeric',month:'long',day:'numeric'});
+
+    const nameA = h(r.drug_a?.resolved || '');
+    const nameB = h(r.drug_b?.resolved || '');
+    const idA   = r.drug_a?.id || '';
+    const idB   = r.drug_b?.id || '';
+    const desc  = h(r.interaction_description || 'No interaction description available.');
+
+    // Status badge colours: red = interaction, green = safe
+    const badgeStyle = src === 'documented'
+      ? 'background:#fee2e2;color:#dc2626;border:1px solid #fca5a5;'
+      : src === 'gnn_predicted'
+        ? 'background:#fff7ed;color:#c2410c;border:1px solid #fdba74;'
+        : 'background:#dcfce7;color:#15803d;border:1px solid #86efac;';
+    const srcLabel = src === 'documented'    ? '⚠ Interaction Found — DrugBank (Documented)'
+                   : src === 'gnn_predicted' ? '⚠ Potential Interaction — GNN Model (Predicted)'
+                   : '✓ No Interaction Found';
+
+    // GNN confidence bar
+    let gnnSection = '';
+    if (src === 'gnn_predicted' && r.gnn?.probability != null) {
+      const pct = Math.round(r.gnn.probability * 100);
+      gnnSection =
+        '<div style="margin-top:14px;">'
+        +'<div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#6b7280;margin-bottom:6px;">GNN Confidence</div>'
+        +'<div style="display:flex;align-items:center;gap:10px;">'
+        +'<div style="flex:1;height:8px;background:#f3f4f6;border-radius:4px;overflow:hidden;">'
+        +'<div style="width:'+pct+'%;height:100%;background:linear-gradient(90deg,#f97316,#ef4444);border-radius:4px;"></div></div>'
+        +'<span style="font-size:13px;font-weight:700;color:#c2410c;">'+pct+'%</span>'
+        +'</div></div>';
+    }
+
+    // Explainability reasons
+    let explainSection = '';
+    if (src === 'gnn_predicted' && r.explanation?.reasons?.length) {
+      const items = r.explanation.reasons.map(rr =>
+        '<li style="margin-bottom:5px;">'+h(rr)+'</li>'
+      ).join('');
+      explainSection =
+        '<div style="margin-top:18px;padding:12px 16px;background:#f5f3ff;border-left:3px solid #818cf8;border-radius:0 6px 6px 0;">'
+        +'<div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#4338ca;margin-bottom:8px;">Why this was flagged</div>'
+        +'<ul style="margin:0;padding-left:18px;font-size:12px;color:#374151;line-height:1.7;">'+items+'</ul>'
+        +'</div>';
+    }
+
+    // Disclaimer
+    const disclaimerSection = r.disclaimer
+      ? '<div style="margin-top:14px;padding:10px 14px;background:#fff7ed;border-left:3px solid #f97316;border-radius:0 6px 6px 0;font-size:12px;color:#92400e;line-height:1.6;">'+h(r.disclaimer)+'</div>'
+      : '';
+
+    // Additional checks (combination products)
+    let additionalSection = '';
+    if (r.additional_checks && r.additional_checks.length) {
+      // Combo banner
+      const bA = r.brand_notice_a, bB = r.brand_notice_b;
+      let comboNote = '';
+      if (bA) comboNote += h((r.drug_a?.query||'')) + ' = ' + bA.all.map(h).join(' + ') + '  ';
+      if (bB) comboNote += h((r.drug_b?.query||'')) + ' = ' + bB.all.map(h).join(' + ');
+      if (comboNote) {
+        additionalSection += '<div style="margin-top:16px;padding:8px 12px;background:#eff6ff;border:1px solid #bfdbfe;border-radius:6px;font-size:11px;color:#1e40af;">💊 '+comboNote+'</div>';
+      }
+      additionalSection += '<div style="margin-top:14px;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#6b7280;margin-bottom:6px;">Other Component Pairs</div>';
+      r.additional_checks.forEach(c => {
+        const found = c.source === 'documented';
+        const aBg   = found ? '#fee2e2' : '#f0fdf4';
+        const aBdr  = found ? '#fca5a5' : '#86efac';
+        const aClr  = found ? '#dc2626' : '#15803d';
+        const aIcon = found ? '⚠' : '✓';
+        additionalSection +=
+          '<div style="margin-bottom:8px;padding:10px 14px;background:'+aBg+';border:1px solid '+aBdr+';border-radius:8px;">'
+          +'<div style="display:flex;justify-content:space-between;margin-bottom:4px;">'
+          +'<span style="font-size:10px;font-weight:700;text-transform:uppercase;color:'+aClr+';">'+aIcon+' '+(found?'Interaction Found':'No Interaction')+'</span>'
+          +'<span style="font-size:11px;font-weight:600;color:#374151;">'+h(c.drug_a?.resolved||'')+' × '+h(c.drug_b?.resolved||'')+'</span>'
+          +'</div>'
+          +'<div style="font-size:11px;color:#4b5563;line-height:1.6;">'+h(c.interaction_description||'')+'</div>'
+          +'</div>';
+      });
+    }
 
     const overlay = document.getElementById('pdf-overlay');
     overlay.innerHTML =
-      '<div style="max-width:680px;margin:0 auto;">'
+      '<div style="max-width:700px;margin:0 auto;font-family:Arial,sans-serif;">'
       +'<h1 style="font-size:18px;color:#1e3a8a;margin-bottom:4px;">Drug Interaction Report</h1>'
-      +'<div style="color:#6b7280;font-size:11px;margin-bottom:22px;padding-bottom:14px;border-bottom:1px solid #e5e7eb;">Generated by DDI Checker &middot; '+today+'</div>'
-      +'<div style="font-size:22px;font-weight:800;color:#1e3a8a;margin-bottom:10px;">'+nameA+' &times; '+nameB+'</div>'
-      +'<span style="display:inline-block;padding:4px 14px;border-radius:20px;font-size:11px;font-weight:700;margin-bottom:18px;'
-        +(src==='documented'?'background:#dcfce7;color:#15803d;border:1px solid #86efac;'
-         :src==='gnn_predicted'?'background:#fef9c3;color:#b45309;border:1px solid #fcd34d;'
-         :'background:#f3f4f6;color:#6b7280;border:1px solid #d1d5db;')+'">'+srcLabel+(conf?' &middot; '+conf:'')+'</span>'
-      +'<div style="font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#6366f1;margin:20px 0 8px;">Interaction Summary</div>'
+      +'<div style="color:#6b7280;font-size:11px;margin-bottom:22px;padding-bottom:12px;border-bottom:1px solid #e5e7eb;">Generated by DDI Checker &middot; '+today+'</div>'
+      +'<div style="font-size:22px;font-weight:800;color:#1e3a8a;margin-bottom:12px;">'+nameA+' &times; '+nameB+'</div>'
+      +'<span style="display:inline-block;padding:5px 16px;border-radius:20px;font-size:11px;font-weight:700;margin-bottom:20px;'+badgeStyle+'">'+srcLabel+'</span>'
+      +'<div style="font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#6366f1;margin:0 0 8px;">Interaction Summary</div>'
       +'<div style="font-size:13px;line-height:1.75;background:#f9fafb;padding:14px 16px;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;color:#374151;">'+desc+'</div>'
+      +gnnSection
+      +explainSection
+      +disclaimerSection
+      +additionalSection
       +'<div style="margin-top:22px;padding:14px 16px;background:#fff7ed;border-left:3px solid #f59e0b;border-radius:0 6px 6px 0;font-size:12px;color:#92400e;line-height:1.65;"><strong>&#9888; Medical Disclaimer:</strong> This report is for informational and research purposes only. It is <strong>not a substitute for professional medical advice, diagnosis, or treatment</strong>. Drug interaction data is sourced from DrugBank v5.1 (documented) or predicted by a machine learning model (novel pairs). Always consult a qualified healthcare professional or licensed pharmacist before making any clinical decisions.</div>'
-      +((idA||idB)?'<div style="margin-top:14px;font-size:11px;color:#9ca3af;font-family:monospace;">DrugBank IDs: '+idA+' &times; '+idB+'</div>':'')
+      +((idA||idB)?'<div style="margin-top:12px;font-size:11px;color:#9ca3af;font-family:monospace;">DrugBank IDs: '+h(idA)+' &times; '+h(idB)+'</div>':'')
       +'<div style="margin-top:26px;padding-top:12px;border-top:1px solid #e5e7eb;font-size:10px;color:#9ca3af;line-height:1.8;">DDI Checker &middot; ML Capstone 2025&ndash;2026 &middot; Laure Mohsen &amp; Marwa Deeb<br>Data: DrugBank v5.1 &middot; CC BY-NC 4.0 &middot; For research purposes only</div>'
       +'</div>';
 
     overlay.style.display = 'block';
-    // Restore after printing
     window.onafterprint = function() { overlay.style.display = 'none'; };
     setTimeout(function() { window.print(); }, 80);
   }

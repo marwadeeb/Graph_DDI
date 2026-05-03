@@ -172,27 +172,6 @@
     .stat-tile .big { font-size: 1.85rem; font-weight: 800; color: var(--indigo); }
     .stat-tile .lbl { font-size: .71rem; color: var(--gray-500); margin-top: 3px; line-height: 1.4; }
 
-    /* ── Tech stack ──────────────────────────────────── */
-    .tech-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
-      gap: 14px;
-    }
-    .tech-group {
-      background: rgba(255,255,255,.84); backdrop-filter: blur(12px);
-      border: 1px solid rgba(99,102,241,.14); border-radius: 14px;
-      box-shadow: 0 2px 10px rgba(37,99,235,.06); padding: 20px 22px;
-    }
-    .tech-group h3 {
-      font-size: .72rem; font-weight: 700; color: var(--indigo);
-      text-transform: uppercase; letter-spacing: .07em; margin-bottom: 14px;
-    }
-    .tech-item { display: flex; align-items: flex-start; gap: 10px; margin-bottom: 10px; }
-    .tech-item:last-child { margin-bottom: 0; }
-    .tech-dot  { width: 6px; height: 6px; border-radius: 50%; background: var(--indigo); flex-shrink: 0; margin-top: 5px; }
-    .tech-name { font-size: .83rem; font-weight: 600; }
-    .tech-note { font-size: .73rem; color: var(--gray-500); margin-top: 1px; }
-
     /* ── Pipeline flow ───────────────────────────────── */
     .pipeline-flow {
       display: flex; align-items: center; gap: 0;
@@ -456,71 +435,6 @@
     <div class="limit-item"><div class="limit-icon">⚠️</div><div>Model trained only on <strong>FDA-approved small molecules</strong>. Performance on biologics, prodrugs, or new chemical entities is untested.</div></div>
     <div class="limit-item"><div class="limit-icon">⚠️</div><div>The decision <strong>threshold (0.43)</strong> was selected on a held-out sample. Clinical deployment would require prospective recalibration against a reference population.</div></div>
     <div class="limit-item"><div class="limit-icon">ℹ️</div><div>This is a <strong>decision-support tool, not a medical device</strong>. All GNN predictions carry a mandatory disclaimer. Documented DrugBank interactions are returned as ground truth; novel pair predictions are clearly labelled as model output.</div></div>
-  </div>
-
-  <!-- Tech stack -->
-  <div class="section-h">Technology stack</div>
-  <div class="tech-grid">
-    <div class="tech-group">
-      <h3>🐍 Backend</h3>
-      <div class="tech-item"><div class="tech-dot"></div>
-        <div><div class="tech-name">Python 3.11 + Flask</div>
-             <div class="tech-note">REST API · Jinja2 server-side rendering</div></div></div>
-      <div class="tech-item"><div class="tech-dot"></div>
-        <div><div class="tech-name">PyTorch + PyG</div>
-             <div class="tech-note">GNN inference — HeteroGraphSAGE + NCN</div></div></div>
-      <div class="tech-item"><div class="tech-dot"></div>
-        <div><div class="tech-name">scikit-learn</div>
-             <div class="tech-note">Logistic Regression baseline · TF-IDF</div></div></div>
-      <div class="tech-item"><div class="tech-dot"></div>
-        <div><div class="tech-name">Groq API (llama-3.3-70b)</div>
-             <div class="tech-note">LLM NER + plain-language explanation</div></div></div>
-    </div>
-    <div class="tech-group">
-      <h3>🎨 Frontend</h3>
-      <div class="tech-item"><div class="tech-dot"></div>
-        <div><div class="tech-name">Vanilla HTML / CSS / JS</div>
-             <div class="tech-note">Zero framework dependencies</div></div></div>
-      <div class="tech-item"><div class="tech-dot"></div>
-        <div><div class="tech-name">Jinja2 Templates</div>
-             <div class="tech-note">Flask integration · auto-escaped output</div></div></div>
-      <div class="tech-item"><div class="tech-dot"></div>
-        <div><div class="tech-name">CSS Custom Properties</div>
-             <div class="tech-note">Consistent design system · glassmorphism</div></div></div>
-      <div class="tech-item"><div class="tech-dot"></div>
-        <div><div class="tech-name">Native Fetch API</div>
-             <div class="tech-note">Async autocomplete · live dashboard polling</div></div></div>
-    </div>
-    <div class="tech-group">
-      <h3>📊 ML &amp; Data</h3>
-      <div class="tech-item"><div class="tech-dot"></div>
-        <div><div class="tech-name">DrugBank v5.1</div>
-             <div class="tech-note">4,795 drugs · 824K pairs · CC BY-NC 4.0</div></div></div>
-      <div class="tech-item"><div class="tech-dot"></div>
-        <div><div class="tech-name">PubMedBERT</div>
-             <div class="tech-note">S-PubMedBert-MS-MARCO · 768-dim embeddings</div></div></div>
-      <div class="tech-item"><div class="tech-dot"></div>
-        <div><div class="tech-name">HeteroGraphSAGE + NCN</div>
-             <div class="tech-note">3-layer encoder + NCN link predictor · nnPU loss</div></div></div>
-      <div class="tech-item"><div class="tech-dot"></div>
-        <div><div class="tech-name">Pandas / NumPy</div>
-             <div class="tech-note">Feature engineering · 10-step data pipeline</div></div></div>
-    </div>
-    <div class="tech-group">
-      <h3>☁️ Infrastructure</h3>
-      <div class="tech-item"><div class="tech-dot"></div>
-        <div><div class="tech-name">Docker</div>
-             <div class="tech-note">Containerised deployment · reproducible builds</div></div></div>
-      <div class="tech-item"><div class="tech-dot"></div>
-        <div><div class="tech-name">HuggingFace Spaces</div>
-             <div class="tech-note">Live demo hosting — marwadeeb/ddi-checker</div></div></div>
-      <div class="tech-item"><div class="tech-dot"></div>
-        <div><div class="tech-name">Git + Git LFS</div>
-             <div class="tech-note">Source control · large model files (.pt) via LFS</div></div></div>
-      <div class="tech-item"><div class="tech-dot"></div>
-        <div><div class="tech-name">GitHub</div>
-             <div class="tech-note">Version control · CI-ready</div></div></div>
-    </div>
   </div>
 
   <!-- Pipeline overview -->
