@@ -166,11 +166,11 @@ The `resolve_drug()` function (`pipeline/rag_query.py`) is tested against realis
 | Whitespace variants (trailing, leading) | 2 | PASS |
 | 1-character typo (warrfarin) | 1 | PASS (correctly rejected) |
 | Nonsense / empty / numeric | 3 | PASS (correctly rejected) |
-| Brand names (Tylenol, Advil, Prozac, Lipitor) | 4 | **FAIL** (synonym table gap) |
+| Brand names (Tylenol, Advil, Prozac, Lipitor) | 4 | PASS (via `products.csv`) |
 | Drug class as input (anticoagulant) | 1 | PASS (correctly rejected) |
-| Hydrochloride suffix | 1 | Varies by build |
+| Hydrochloride suffix | 1 | PASS (via `products.csv`) |
 
-**Pass rate: 60–65 %** depending on synonym table completeness.
+**Pass rate: ~95 %** (19 of 20 cases pass; single-character typos rejected by design).
 
 ### Key findings
 
@@ -183,9 +183,9 @@ The `resolve_drug()` function (`pipeline/rag_query.py`) is tested against realis
 **By design — not handled:**
 - **Single-character typos are rejected** (conservative design choice).  In a clinical safety
   context a false positive ("banana" → some drug) is more dangerous than a false negative.
-- **Brand names** (Tylenol, Advil, Prozac, Lipitor) — the synonym table in `drug_attributes.csv`
-  maps DrugBank synonym entries but not all commercial brand names.  Mitigation: expand the
-  synonym table from an FDA NDC / RxNorm cross-reference.
+- **Brand names** (Tylenol, Advil, Prozac, Lipitor) — resolved via `data/step3_approved/products.csv`
+  (473,660 product entries across 4,109 drugs). The synonym map now covers INN names, DrugBank
+  synonyms, and commercial brand names in a single lookup.
 
 **Distribution shift — data currency:**
 DrugBank v5.1 contains 4,795 approved drugs.  Any drug approved after this snapshot will not
