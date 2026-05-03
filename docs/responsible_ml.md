@@ -34,22 +34,33 @@ Logistic Regression produces **coefficient-level feature attribution**.  The top
 The `prod_cat_*` features are directly clinically meaningful: if both drugs are "CYP3A4 substrates",
 they compete for the same metabolic pathway, directly causing pharmacokinetic interactions.
 
-### GNN — gradient attribution (partial)
+### GNN — feature ablation
 SAGEConv is non-linear, so LR-style coefficient attribution does not apply directly.
-The practical approach is **gradient-based feature attribution**: compute `∂output/∂input_features`
-via PyTorch autograd after a forward pass, then inspect `x['drug'].grad` to see which of the
-980 input dimensions (physicochemical + PubMedBERT) drove each prediction.
+We use **feature-group ablation** and **decoder component ablation** to quantify what drives each prediction.
 
-```python
-x['drug'].requires_grad_(True)
-score = model(x, edge_index)
-score.backward()
-importance = x['drug'].grad.abs().mean(dim=0)  # per-feature importance
-```
+**Feature ablation** (warm AUROC drop when feature group is removed):
 
-GNNExplainer (attention-weighted subgraph attribution) is the next step after gradient attribution
-is validated — it produces per-edge importance maps showing which graph neighbours most influenced
-each prediction.
+| Group removed | AUROC | Drop |
+|---|---|---|
+| Nothing (full 980-dim) | 0.9738 | — |
+| Structural features [0:212] | 0.8993 | **−0.0745** |
+| PubMedBERT embeddings [212:980] | 0.9661 | −0.0077 |
+
+Structural features dominate: physicochemical and pharmacological dimensions carry the strongest signal; BERT embeddings add a small but consistent improvement.
+
+**CN pooling ablation** (which decoder components contribute):
+
+| Decoder variant | AUROC | Drop |
+|---|---|---|
+| Full NCN pooling | 0.9738 | — |
+| Remove shared DDI neighbours | 0.9719 | −0.0019 |
+| Remove shared protein targets | 0.9717 | −0.0021 |
+| Remove both (plain MLP) | 0.9724 | −0.0014 |
+
+Full tables are in [`docs/model_architecture.md`](model_architecture.md).
+
+### Source transparency label
+Every prediction carries a `source` field: `"documented"` (DrugBank verbatim hit), `"gnn_predicted"` (GNN score above threshold 0.43), or `"not_found"`. This allows users to calibrate trust — a documented DDI includes a literature-backed description; a GNN-predicted one does not.
 
 ---
 

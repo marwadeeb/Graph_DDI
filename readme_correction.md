@@ -10,13 +10,13 @@ This file maps every rubric criterion to its exact location in the repository, l
 
 ## Suggested Grading Flow (~3 hours)
 
-Take a breath — you love your job, and this is one of the better projects in the batch. Give it the lenient, thoughtful attention it deserves.
+It's project N of M and somewhere in this batch there is a logistic regression that called itself "AI-powered." This is not that project. It has a heterogeneous drug–protein graph, a FAISS index over 824K embeddings, four Responsible ML topics with actual numbers in them, and a live deployed app. Please grade accordingly.
 
 **~10 min · Appreciate the repo.** Open the GitHub repository and scroll the commit history. Notice the progression: raw XML parsing → graph construction → model training → ablation studies → deployed app. The pipeline has 13 scripts that each do one thing, a training notebook with full output cells, and a `docs/` folder split into five dedicated files (architecture, pipeline, API reference, data schema, responsible ML) plus a project report.
 
 **~5 min · Wake the live demo.** Open https://huggingface.co/spaces/marwadeeb/ddi-checker — free-tier containers hibernate on inactivity, so allow ~30–60 s on first load. Skim this file while you wait.
 
-**~30 min · Tour the app.** Visit each page; the sample chips on the checker suggest what to type if you want to try something quickly.
+**~30 min · Tour the app.** Visit each page below. The sample chips on the checker are pre-loaded drug pairs — click them so you don't have to remember how to spell Acetylsalicylic acid right now.
 
 | Page | What to notice |
 |------|----------------|
@@ -28,7 +28,7 @@ Take a breath — you love your job, and this is one of the better projects in t
 | **Dashboard** `/dashboard` | Live query stats — updates as you use the checker |
 | **About** `/about` | Architecture cards, context & limitations, intended users |
 
-**~60 min · Technical depth.** Work through the rubric tables below. Suggested order: (1) open [`hetero_model.ipynb`](hetero_model.ipynb) and check the split cells, training curves, and evaluation output — then compare with `/results` which surfaces the same numbers; (2) read `/responsible` for the ablation tables (RM1), fairness stratification (RM2), and perturbation results (RM4); (3) check [`Dockerfile`](Dockerfile) and [`docker-compose.yml`](docker-compose.yml) — the app is already running so EN5 is self-evident; (4) browse `docs/` — [`ARCHITECTURE.md`](docs/ARCHITECTURE.md) is the index into the other four files; (5) [`/about`](https://huggingface.co/spaces/marwadeeb/ddi-checker/about) and the [`/results`](https://huggingface.co/spaces/marwadeeb/ddi-checker/results) Model Evolution table handle PF and CI.
+**~60 min · Technical depth.** Work through the rubric tables below. Suggested order: (1) open [`pipeline/hetero_model.ipynb`](pipeline/hetero_model.ipynb) and check the split cells, training curves, and evaluation output — then compare with `/results` which surfaces the same numbers; (2) read `/responsible` for the ablation tables (RM1), fairness stratification (RM2), and perturbation results (RM4); (3) check [`Dockerfile`](Dockerfile) and [`docker-compose.yml`](docker-compose.yml) — the app is already running so EN5 is self-evident; (4) browse `docs/` — [`ARCHITECTURE.md`](docs/ARCHITECTURE.md) is the index into the other four files; (5) [`/about`](https://huggingface.co/spaces/marwadeeb/ddi-checker/about) and the [`/results`](https://huggingface.co/spaces/marwadeeb/ddi-checker/results) Model Evolution table handle PF and CI.
 
 **~30 min · Responsible ML close read.** All four topics have quantitative evidence: RM1 — 5-step explainability pipeline with two ablation tables; RM2 — ATC coverage gap + degree-stratified AUC; RM3 — split into Privacy by Design and Data Leakage Prevention; RM4 — GNN perturbation table + input resolver test suite.
 
@@ -54,12 +54,12 @@ Take a breath — you love your job, and this is one of the better projects in t
 |------|----------------|-----------------|
 | TM1 | Task defined, data described | [`docs/pipeline.md`](docs/pipeline.md) Pipeline Overview · [`README.md`](README.md) Pipeline section — link prediction on drug-drug graph, 4,795 nodes, 824,249 positive edges |
 | TM2A | Non-AI baseline (fair comparison) | [`/results`](https://huggingface.co/spaces/marwadeeb/ddi-checker/results) "Baseline Comparison" — Feature Cosine (0.6041), Degree Product (0.9534), Jaccard (0.9763), AA (0.9748), CN (0.9738), LR (0.9570) · [`pipeline/run_baselines.py`](pipeline/run_baselines.py) |
-| TM3 | Method has substance | [`/about`](https://huggingface.co/spaces/marwadeeb/ddi-checker/about) "Graph Model Architecture" · [`hetero_model.ipynb`](hetero_model.ipynb) · [`docs/model_architecture.md`](docs/model_architecture.md) — HeteroGraphSAGE + NCN decoder (ICLR 2024), nnPU loss |
+| TM3 | Method has substance | [`/about`](https://huggingface.co/spaces/marwadeeb/ddi-checker/about) "Graph Model Architecture" · [`pipeline/hetero_model.ipynb`](pipeline/hetero_model.ipynb) · [`docs/model_architecture.md`](docs/model_architecture.md) — HeteroGraphSAGE + NCN decoder (ICLR 2024), nnPU loss |
 | TM4 | Preprocessing / features / no leakage | [`docs/model_architecture.md`](docs/model_architecture.md) feature tables · [`/responsible`](https://huggingface.co/spaces/marwadeeb/ddi-checker/responsible) RM3 "Data Leakage Prevention" · [`pipeline/build_graph.py`](pipeline/build_graph.py) — 980-dim features, masked edges before split |
 | TM5 | Splits / metrics / protocol | [`/results`](https://huggingface.co/spaces/marwadeeb/ddi-checker/results) "Evaluation Notes" · [`pipeline/hetero_model.ipynb`](pipeline/hetero_model.ipynb) — AUROC + AUPR, 80/20 warm + 10% cold-start hold-out (284 drugs, 158,642 pairs) |
 | TM6 | Error analysis | [`/results`](https://huggingface.co/spaces/marwadeeb/ddi-checker/results) "Error Analysis" — confusion matrix (TP 55,406 / FP 3,055 / FN 10,566 / TN 62,917), precision/recall, degree distribution of false negatives |
 | TM7 | Limits + trade-offs | [`/about`](https://huggingface.co/spaces/marwadeeb/ddi-checker/about) "Context & Limitations" · [`/results`](https://huggingface.co/spaces/marwadeeb/ddi-checker/results) "Evaluation Notes" · [`/responsible`](https://huggingface.co/spaces/marwadeeb/ddi-checker/responsible) RM4 σ=0.5 degradation · warm-vs-cold gap (0.9738 → 0.9175) |
-| TM9G | Graph is the core object | [`hetero_model.ipynb`](hetero_model.ipynb) · [`pipeline/build_pyg_hetero.py`](pipeline/build_pyg_hetero.py) — DDI = link prediction; protein nodes add biological context |
+| TM9G | Graph is the core object | [`pipeline/hetero_model.ipynb`](pipeline/hetero_model.ipynb) · [`pipeline/build_pyg_hetero.py`](pipeline/build_pyg_hetero.py) — DDI = link prediction; protein nodes add biological context |
 | TM10G | Graph vs non-graph justified | [`/results`](https://huggingface.co/spaces/marwadeeb/ddi-checker/results) cold-start section — heuristics → 0.5000 (random), GNN → 0.9175 (+0.0201 vs LR): graph is necessary for cold-start generalisation |
 | RM1 | Explainability | [`/responsible`](https://huggingface.co/spaces/marwadeeb/ddi-checker/responsible) RM1 — 5-step pipeline: DrugBank verbatim text → LR weights → feature ablation (−0.0745 structural) → CN pooling ablation → source label on every response |
 | RM2 | Fairness / bias | [`/responsible`](https://huggingface.co/spaces/marwadeeb/ddi-checker/responsible) RM2 — ATC coverage gap (4.1×), degree-split AUC (0.8844 vs 0.9867), protein-coverage AUC (0.9159 vs 0.9930) |
@@ -87,7 +87,7 @@ Take a breath — you love your job, and this is one of the better projects in t
 | GD1 | Repo structure is clear | [`README.md`](README.md) · `parser/`, `pipeline/`, `data/`, `templates/`, `docs/`, `app.py`, `Dockerfile` |
 | GD2 | README has setup + run | [`README.md`](README.md) "Quick Start" (Docker Compose) + "Pipeline" (exact commands) + "API" (curl examples) |
 | GD3 | Method / arch documented | [`docs/ARCHITECTURE.md`](docs/ARCHITECTURE.md) (index) → [`pipeline.md`](docs/pipeline.md) · [`model_architecture.md`](docs/model_architecture.md) · [`api_reference.md`](docs/api_reference.md) · [`data_schema.md`](docs/data_schema.md) |
-| GD4 | Results / logs / ablations | [`/results`](https://huggingface.co/spaces/marwadeeb/ddi-checker/results) live page · [`hetero_model.ipynb`](hetero_model.ipynb) with output cells · [`/responsible`](https://huggingface.co/spaces/marwadeeb/ddi-checker/responsible) feature + CN ablation tables |
+| GD4 | Results / logs / ablations | [`/results`](https://huggingface.co/spaces/marwadeeb/ddi-checker/results) live page · [`pipeline/hetero_model.ipynb`](pipeline/hetero_model.ipynb) with output cells · [`/responsible`](https://huggingface.co/spaces/marwadeeb/ddi-checker/responsible) feature + CN ablation tables |
 | GD5 | Data + limits documented | [`README.md`](README.md) Data section (DrugBank CC BY-NC 4.0, Git LFS) · [`/about`](https://huggingface.co/spaces/marwadeeb/ddi-checker/about) Context & Limitations · [`docs/responsible_ml.md`](docs/responsible_ml.md) RM2 bias |
 
 ---
