@@ -69,13 +69,14 @@ def get_synonym_map():
                 os.path.join(APPROVED_DIR, "products.csv"),
                 usecols=["drugbank_id", "name"]
             )
+            prod_df = prod_df.dropna(subset=["name"])
             for _, row in prod_df.iterrows():
-                key = str(row["value"]).strip().lower()
+                key = str(row["name"]).strip().lower()
                 did = row["drugbank_id"]
-                if did in name_lookup and key not in _synonym_map:
+                if key and did in name_lookup and key not in _synonym_map:
                     _synonym_map[key] = (did, name_lookup[did])
-        except Exception:
-            pass
+        except Exception as e:
+            print(f"  [warn] Could not load brand names from products.csv: {e}")
     return _synonym_map
 
 
