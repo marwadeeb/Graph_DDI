@@ -1,27 +1,3 @@
-"""
-gnn_predictor.py
-----------------
-Interface between the Flask API and Laure's GNN model.
-
-This module exposes a single public function:
-
-    predict(id_a, id_b)  ->  {"found": bool, "probability": float, "note": str}
-
-Integration checklist for Laure:
-  1. Train your GNN and save the model checkpoint, e.g.:
-         torch.save(model.state_dict(), "data/step4_graph/gnn_model.pt")
-  2. Replace _load_model() below with real model loading code.
-  3. Replace _predict_real() with real inference code.
-  4. The predict() function signature must NOT change — Flask calls it directly.
-
-Until the model file exists, predict() returns mock data so the UI renders correctly.
-
-Mock behaviour (DEMO ONLY):
-    - If the pair is in the DrugBank DDI database → mock says "found", prob ~0.92
-    - Otherwise                                   → mock says "not found", prob ~0.08
-    The mock adds ±0.05 random noise per pair for visual realism.
-"""
-
 import os
 import torch
 import torch.nn as nn
@@ -208,6 +184,8 @@ def _load():
                 "id_to_idx": {db_id: i for i, db_id in enumerate(graph["drug"].drugbank_ids)},
                 "loaded": True,
             })
+            _state["protein_features"] = graph["protein"].x.cpu()  #[N_p, 5]: target/enzyme/transporter/carrier/log_degree
+            _state["protein_ids"] = list(graph["protein"].polypeptide_ids)
             print(f"[GNN] Hetero model loaded. Drug emb: {z_drug.shape}, Protein emb: {z_protein.shape}. Device: {device}")
             return
         except Exception as e:
@@ -267,6 +245,59 @@ def predict(drugbank_id_a: str, drugbank_id_b: str) -> dict:
             score = _state["predictor"](_state["embeddings"], edge).item()
     return {"probability": round(score, 4), "found": True, "mock": False, "variant": _state["variant"]}
 
+def explain(drugbank_id_a: str, drugbank_id_b: str) -> dict:
+    _ensure_loaded()
+    if _state["variant"] != "hetero" or _state["mock"]:
+        return {"shared_protein_targets": None, "shared_ddi_neighbours": None, "reasons": []}
+
+    id_to_idx = _state["id_to_idx"]
+    if drugbank_id_a not in id_to_idx or drugbank_id_b not in id_to_idx:
+        return {"shared_protein_targets": None, "shared_ddi_neighbours": None, "reasons": []}
+
+    idx_a = id_to_idx[drugbank_id_a]
+    idx_b = id_to_idx[drugbank_id_b]
+    ddi_adj = _state["ddi_adj"]
+    dp_adj = _state["dp_adj"]
+    prot_feats = _state.get("protein_features")  #[N_p, 5]
+
+    #Shared DDI neighbours
+    cn_mask = ddi_adj[idx_a] & ddi_adj[idx_b]
+    n_shared_ddi = int(cn_mask.sum().item())
+
+    #Shared protein targets
+    sp_mask = dp_adj[idx_a] & dp_adj[idx_b]
+    n_shared_proteins = int(sp_mask.sum().item())
+
+    #Break down by role using protein feature vector [target, enzyme, transporter, carrier, log_deg]
+    role_names = ["target", "enzyme", "transporter", "carrier"]
+    role_counts = {r: 0 for r in role_names}
+    if prot_feats is not None and n_shared_proteins > 0:
+        shared_indices = sp_mask.nonzero(as_tuple=True)[0].cpu()
+        shared_feats = prot_feats[shared_indices]  #[n_shared, 5]
+        for i, role in enumerate(role_names):
+            role_counts[role] = int((shared_feats[:, i] > 0.5).sum().item())
+
+    #Build human-readable reasons
+    reasons = []
+    if role_counts["enzyme"] > 0:
+        reasons.append(f"Both drugs share {role_counts['enzyme']} metabolic enzyme(s) — possible pharmacokinetic interaction (e.g. CYP450 competition).")
+    if role_counts["transporter"] > 0:
+        reasons.append(f"Both drugs share {role_counts['transporter']} transporter protein(s) — possible absorption or elimination competition.")
+    if role_counts["target"] > 0:
+        reasons.append(f"Both drugs share {role_counts['target']} pharmacological target(s) — possible additive or antagonistic effect.")
+    if role_counts["carrier"] > 0:
+        reasons.append(f"Both drugs share {role_counts['carrier']} carrier protein(s).")
+    if n_shared_ddi > 0:
+        reasons.append(f"Both drugs share {n_shared_ddi} known DDI interaction partner(s) in DrugBank.")
+    if not reasons:
+        reasons.append("Interaction predicted from learned structural similarity in the pharmacological graph. No direct shared targets found.")
+
+    return {
+        "shared_protein_targets": n_shared_proteins,
+        "shared_ddi_neighbours": n_shared_ddi,
+        "role_breakdown": role_counts,
+        "reasons": reasons,
+    }
 
 def get_model_info() -> dict:
     _ensure_loaded()
