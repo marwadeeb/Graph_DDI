@@ -63,6 +63,19 @@ def get_synonym_map():
             did = row["drugbank_id"]
             if did in name_lookup:
                 _synonym_map[key] = (did, name_lookup[did])
+        
+        try:
+            prod_df = pd.read_csv(
+                os.path.join(APPROVED_DIR, "products.csv"),
+                usecols=["drugbank_id", "name"]
+            )
+            for _, row in prod_df.iterrows():
+                key = str(row["value"]).strip().lower()
+                did = row["drugbank_id"]
+                if did in name_lookup and key not in _synonym_map:
+                    _synonym_map[key] = (did, name_lookup[did])
+        except Exception:
+            pass
     return _synonym_map
 
 
