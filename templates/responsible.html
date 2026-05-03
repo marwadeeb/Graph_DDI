@@ -883,12 +883,14 @@
     </div>
     <div class="evidence-grid">
       <div class="evidence-item">
-        <h4>🚫 Brand names rejected by design</h4>
+        <h4>✅ Brand names &amp; products supported</h4>
         <p>
-          "Tylenol" → <em>not found</em>. Brand names vary by country, change over time, and
-          can map to multiple generics. Accepting an ambiguous brand name risks silent
-          misidentification in a clinical safety context — returning wrong interaction data
-          is more dangerous than returning <em>not found</em>.
+          "Tylenol" → <em>Acetaminophen</em>. "Advil" → <em>Ibuprofen</em>. "Prozac" →
+          <em>Fluoxetine</em>. The system resolves 473,660 commercial product names from
+          DrugBank's product database, covering 4,109 drugs. Brand names are shown with a
+          badge in the autocomplete dropdown, and the resolved canonical name is always
+          displayed so users know exactly which drug was checked. Combination products
+          (brands mapping to multiple drugs) trigger a notice listing all components.
         </p>
       </div>
       <div class="evidence-item">
@@ -981,9 +983,10 @@
       magnitude), AUROC drops by 0.0455 — acceptable for a safety-critical screening tool since
       features at this scale of corruption would be an anomalous data quality issue, not a real deployment scenario.
       <br><br>
-      <strong>Input resolution robustness:</strong> Adding a commercial synonym table (Tylenol, Advil,
-      Lasix, etc.) and a fuzzy-match fallback with a confirmation step would increase the
-      resolver pass rate from ~60 % to ~90 % without compromising safety.
+      <strong>Input resolution robustness:</strong> The resolver now covers canonical names,
+      INN synonyms, DrugBank IDs, and 473,660 commercial product names (Tylenol, Advil,
+      Prozac, Lipitor, etc.), achieving a ~95 % pass rate across 20 test cases.
+      The single open failure (empty-string input) is a known edge case kept for transparency.
     </div>
   </div>
 

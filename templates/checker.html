@@ -283,6 +283,27 @@
       font-family: monospace;
       flex-shrink: 0;
     }
+    .brand-tag {
+      font-size: .68rem;
+      background: #fef3c7;
+      color: #92400e;
+      border: 1px solid #fcd34d;
+      border-radius: 10px;
+      padding: 1px 7px;
+      flex-shrink: 0;
+      white-space: nowrap;
+    }
+    .brand-notice {
+      margin-top: 10px;
+      padding: 9px 13px;
+      background: #fffbeb;
+      border: 1px solid #fcd34d;
+      border-radius: 6px;
+      font-size: .82rem;
+      color: #78350f;
+      line-height: 1.5;
+    }
+    .brand-notice strong { color: #92400e; }
 
     .btn-row {
       display: flex;
@@ -1253,18 +1274,24 @@
 
   function renderDrop(items, inp, drop) {
     if (!items.length) { closeDrop(drop); return; }
-    drop.innerHTML = items.map(d =>
-      `<div class="dropdown-item" onclick="selectDrug('${escHtml(d.name)}','${escHtml(d.drugbank_id)}','${inp.id}','${drop.id}')">
-        <span>${escHtml(d.name)}</span>
-        <span class="db-id">${escHtml(d.drugbank_id)}</span>
-      </div>`
-    ).join('');
+    drop.innerHTML = items.map(d => {
+      const brandAttr = d.is_brand ? ` data-brand="${escHtml(d.brand_name)}"` : '';
+      const brandBadge = d.is_brand
+        ? `<span class="brand-tag">brand: ${escHtml(d.brand_name)}</span>`
+        : `<span class="db-id">${escHtml(d.drugbank_id)}</span>`;
+      const displayName = d.is_brand ? escHtml(d.brand_name) : escHtml(d.name);
+      return `<div class="dropdown-item" onclick="selectDrug('${escHtml(d.name)}','${escHtml(d.drugbank_id)}','${inp.id}','${drop.id}',${d.is_brand ? `'${escHtml(d.brand_name)}'` : 'null'})">
+        <span>${displayName}</span>
+        ${brandBadge}
+      </div>`;
+    }).join('');
     drop.classList.add('open');
   }
 
-  function selectDrug(name, id, inputId, dropId) {
-    document.getElementById(inputId).value = name;
-    document.getElementById(inputId).dataset.dbid = id;
+  function selectDrug(name, id, inputId, dropId, brandName) {
+    const el = document.getElementById(inputId);
+    el.value = brandName || name;
+    el.dataset.dbid = id;
     closeDrop(document.getElementById(dropId));
   }
 
@@ -1401,6 +1428,20 @@
       if (split !== -1) descHtml = escHtml(data.interaction_description.slice(0, split).trim());
     }
 
+    // Multi-drug brand notice
+    function brandNoticeHtml(notice, label) {
+      if (!notice || notice.others.length === 0) return '';
+      const others = notice.others.map(n => `<strong>${escHtml(n)}</strong>`).join(', ');
+      return `<div class="brand-notice">
+        ⚠ <strong>${escHtml(label)}</strong> is a combination product containing
+        ${escHtml(notice.primary)} and ${others}.
+        The interaction above is checked for <strong>${escHtml(notice.primary)}</strong> only.
+        Consider checking the other components separately.
+      </div>`;
+    }
+    const noticeAHtml = brandNoticeHtml(data.brand_notice_a, data.drug_a?.query || '');
+    const noticeBHtml = brandNoticeHtml(data.brand_notice_b, data.drug_b?.query || '');
+
     primary.innerHTML = `
       <div class="result-card ${cls}">
         <div class="rc-label">${label}</div>
@@ -1410,6 +1451,8 @@
         ${disclaimerHtml}
         ${explanationHtml}
         ${safetyHtml}
+        ${noticeAHtml}
+        ${noticeBHtml}
       </div>`;
     primary.style.display = 'block';
 

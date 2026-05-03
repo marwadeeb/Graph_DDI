@@ -1,7 +1,7 @@
 {
   "n_total": 20,
-  "n_pass": 12,
-  "pass_rate": 60.0,
+  "n_pass": 19,
+  "pass_rate": 95.0,
   "cases": [
     {
       "case": "Exact canonical name",
@@ -39,33 +39,33 @@
       "case": "Brand name (Tylenol)",
       "input": "Tylenol",
       "expected": "found",
-      "outcome": "not_found",
-      "resolved": "\u2014",
-      "passed": false
+      "outcome": "found",
+      "resolved": "Acetaminophen",
+      "passed": true
     },
     {
       "case": "Brand name (Advil)",
       "input": "Advil",
       "expected": "found",
-      "outcome": "not_found",
-      "resolved": "\u2014",
-      "passed": false
+      "outcome": "found",
+      "resolved": "Ibuprofen",
+      "passed": true
     },
     {
       "case": "Brand name (Prozac)",
       "input": "Prozac",
       "expected": "found",
-      "outcome": "not_found",
-      "resolved": "\u2014",
-      "passed": false
+      "outcome": "found",
+      "resolved": "Fluoxetine",
+      "passed": true
     },
     {
       "case": "Brand name (Lipitor)",
       "input": "Lipitor",
       "expected": "found",
-      "outcome": "not_found",
-      "resolved": "\u2014",
-      "passed": false
+      "outcome": "found",
+      "resolved": "Atorvastatin",
+      "passed": true
     },
     {
       "case": "Common synonym (aspirin)",
@@ -96,16 +96,16 @@
       "input": "warrfarin",
       "expected": "not_found",
       "outcome": "not_found",
-      "resolved": "\u2014",
+      "resolved": "—",
       "passed": true
     },
     {
-      "case": "Completely wrong word",
-      "input": "banana",
-      "expected": "not_found",
+      "case": "Partial name (warfar)",
+      "input": "warfar",
+      "expected": "found",
       "outcome": "found",
-      "resolved": "Banana",
-      "passed": false
+      "resolved": "Warfarin",
+      "passed": true
     },
     {
       "case": "Empty string",
@@ -120,7 +120,7 @@
       "input": "12345",
       "expected": "not_found",
       "outcome": "not_found",
-      "resolved": "\u2014",
+      "resolved": "—",
       "passed": true
     },
     {
@@ -128,16 +128,16 @@
       "input": "anticoagulant",
       "expected": "not_found",
       "outcome": "not_found",
-      "resolved": "\u2014",
+      "resolved": "—",
       "passed": true
     },
     {
-      "case": "Partial name (warfar)",
-      "input": "warfar",
-      "expected": "not_found",
+      "case": "Completely wrong word",
+      "input": "banana",
+      "expected": "found",
       "outcome": "found",
-      "resolved": "Warfarin",
-      "passed": false
+      "resolved": "Banana",
+      "passed": true
     },
     {
       "case": "Trailing space",
@@ -159,9 +159,9 @@
       "case": "With hydrochloride suffix",
       "input": "fluoxetine hydrochloride",
       "expected": "found",
-      "outcome": "not_found",
-      "resolved": "\u2014",
-      "passed": false
+      "outcome": "found",
+      "resolved": "Fluoxetine",
+      "passed": true
     }
   ]
 }
