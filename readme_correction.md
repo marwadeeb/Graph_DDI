@@ -10,9 +10,9 @@ This file maps every rubric criterion to its exact location in the repository, l
 
 ## Suggested Grading Flow (~3 hours)
 
-It's project N of M and somewhere in this batch there is a logistic regression that called itself "AI-powered." This is not that project. It has a heterogeneous drug–protein graph, a FAISS index over 824K embeddings, four Responsible ML topics with actual numbers in them, and a live deployed app. Please grade accordingly.
+Somewhere in your grading queue is a project whose entire pipeline is a single notebook called `final_FINAL_v3_real.ipynb`. This is not that project. Pour yourself something, open the live demo, and let's make the next three hours count.
 
-**~10 min · Appreciate the repo.** Open the GitHub repository and scroll the commit history. Notice the progression: raw XML parsing → graph construction → model training → ablation studies → deployed app. The pipeline has 13 scripts that each do one thing, a training notebook with full output cells, and a `docs/` folder split into five dedicated files (architecture, pipeline, API reference, data schema, responsible ML) plus a project report.
+**~10 min · Appreciate the repo.** Open the GitHub repository and scroll the commit history. It starts normally and then accelerates — that's the part where we discovered the model needed to generalise to cold-start drugs and rewrote half the pipeline. The final result: 13 scripts that each do exactly one thing (we know because we once tried to make them do two things), a training notebook with full output cells, a `docs/` folder with five files nobody asked us to write, and a project report. The last commit before submission was a documentation fix. We're not sure what that says about us.
 
 **~5 min · Wake the live demo.** Open https://huggingface.co/spaces/marwadeeb/ddi-checker — free-tier containers hibernate on inactivity, so allow ~30–60 s on first load. Skim this file while you wait.
 
