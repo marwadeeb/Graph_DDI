@@ -1,5 +1,5 @@
 """
-step6_rag_index.py
+build_rag_index.py
 ------------------
 Embed all 824,249 DDI interaction descriptions using PubMedBERT and build a
 FAISS index for semantic retrieval in the RAG pipeline.
@@ -16,9 +16,9 @@ Output (data/rag_index/):
     index_info.json      -- stats: num_vectors, embedding_dim, model
 
 Usage:
-    python pipeline/step6_rag_index.py
-    python pipeline/step6_rag_index.py --chunk-size 5000   # smaller checkpoints
-    python pipeline/step6_rag_index.py --rebuild            # ignore checkpoints, start fresh
+    python pipeline/build_rag_index.py
+    python pipeline/build_rag_index.py --chunk-size 5000   # smaller checkpoints
+    python pipeline/build_rag_index.py --rebuild            # ignore checkpoints, start fresh
 """
 
 import os, sys, json, pickle, argparse, time
@@ -225,4 +225,4 @@ if __name__ == "__main__":
     print(f"  Total time: {(time.time()-t_total)/60:.1f} min")
     print(f"  Index ready at: {OUTPUT_DIR}")
     print()
-    print("  Next: python pipeline/step7_rag_query.py")
+    print("  Next: python pipeline/rag_query.py")

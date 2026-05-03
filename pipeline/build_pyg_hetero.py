@@ -1,5 +1,5 @@
 """
-step5_hetero_graph.py
+build_pyg_hetero.py
 Augments ddi_graph.pt with drug-target relationships to produce hetero_ddi_graph.pt
 
 Node types: drug (4795, 980-dim), protein (2708 human proteins, 5-dim)
@@ -7,7 +7,7 @@ Edge types: (drug,ddi,drug), (drug,targets,protein), (protein,rev_targets,drug)
 Protein features: [is_target, is_enzyme, is_transporter, is_carrier, log_degree]
 
 Run from repo root with venv active:
-    python pipeline/step5_hetero_graph.py
+    python pipeline/build_pyg_hetero.py
 """
 
 import os, sys

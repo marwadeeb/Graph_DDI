@@ -1,5 +1,5 @@
 """
-step5_pyg_data.py
+build_pyg_homo.py
 -----------------
 Build a PyTorch Geometric Data object from step4_graph CSVs and save as
 data/step4_graph/ddi_graph.pt
@@ -9,8 +9,8 @@ Edge index     : edge_index.csv              (824,249 undirected DDI pairs)
 Edge labels    : all 1 (positive edges only -- negative sampling done at train time)
 
 Usage:
-    python pipeline/step5_pyg_data.py
-    python pipeline/step5_pyg_data.py --structural-only   # use 191-dim features only
+    python pipeline/build_pyg_homo.py
+    python pipeline/build_pyg_homo.py --structural-only   # use 191-dim features only
 
 Output files (data/step4_graph/):
     ddi_graph.pt               -- full PyG Data object (959-dim node features)

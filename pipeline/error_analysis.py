@@ -1,5 +1,5 @@
 """
-step11_error_analysis.py
+error_analysis.py
 ------------------------
 TM6: Error analysis for the RAG DDI pipeline.
 
@@ -21,8 +21,8 @@ Outputs:
   data/evaluation/error_analysis.json  -- summary statistics
 
 Usage:
-    python pipeline/step11_error_analysis.py
-    python pipeline/step11_error_analysis.py --verbose   # print each case
+    python pipeline/error_analysis.py
+    python pipeline/error_analysis.py --verbose   # print each case
 """
 
 import os, sys, json, argparse

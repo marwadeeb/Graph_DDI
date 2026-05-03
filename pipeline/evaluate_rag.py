@@ -1,7 +1,7 @@
 """
-step8_evaluate_rag.py
+evaluate_rag.py
 ---------------------
-Evaluate the RAG interaction detection pipeline (step7) on a sampled
+Evaluate the RAG interaction detection pipeline on a sampled
 ground-truth dataset drawn from DrugBank.
 
 Methodology:
@@ -15,11 +15,11 @@ Results are saved incrementally -- if interrupted, re-run with --resume
 to skip already-evaluated pairs.
 
 Usage:
-    python pipeline/step8_evaluate_rag.py                     # 500 pairs default
-    python pipeline/step8_evaluate_rag.py --n-pairs 2000
-    python pipeline/step8_evaluate_rag.py --n-pairs 500 --seed 99
-    python pipeline/step8_evaluate_rag.py --resume            # continue interrupted run
-    python pipeline/step8_evaluate_rag.py --results-only      # print metrics from saved results
+    python pipeline/evaluate_rag.py                     # 500 pairs default
+    python pipeline/evaluate_rag.py --n-pairs 2000
+    python pipeline/evaluate_rag.py --n-pairs 500 --seed 99
+    python pipeline/evaluate_rag.py --resume            # continue interrupted run
+    python pipeline/evaluate_rag.py --results-only      # print metrics from saved results
 """
 
 import os, sys, json, time, random, argparse, csv
@@ -228,9 +228,8 @@ if __name__ == "__main__":
     print(f"  Top-k retrieval   : {args.top_k}")
     print(f"  API delay         : {args.delay}s")
 
-    # import RAG components from step7
     sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
-    from step7_rag_query import get_embed_model, get_index, get_synonym_map, call_llm, retrieve
+    from rag_query import get_embed_model, get_index, get_synonym_map, call_llm, retrieve
 
     print("\n[1/3] Loading embed model ...")
     get_embed_model()

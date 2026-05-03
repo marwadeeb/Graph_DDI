@@ -1,5 +1,5 @@
 """
-step4_embed.py — generate pharmacological text embeddings for all FDA-approved drugs.
+embed_drugs.py — generate pharmacological text embeddings for all FDA-approved drugs.
 
 For each drug, builds a rich text document by concatenating:
   - name, drug_type
@@ -23,8 +23,8 @@ Outputs:
 
 Usage:
     pip install sentence-transformers
-    python pipeline/step4_embed.py
-    python pipeline/step4_embed.py --model all-MiniLM-L6-v2   # faster, 384-dim
+    python pipeline/embed_drugs.py
+    python pipeline/embed_drugs.py --model all-MiniLM-L6-v2   # faster, 384-dim
 """
 import os, sys, time, warnings
 
@@ -222,7 +222,7 @@ if os.path.exists(struct_path):
 else:
     comb_path  = None
     comb_size  = 0
-    print("  [warn] node_features.csv not found — run step4_build_graph.py first for combined output.")
+    print("  [warn] node_features.csv not found — run build_graph.py first for combined output.")
 
 emb_size  = os.path.getsize(emb_path) / 1024 / 1024
 

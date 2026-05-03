@@ -84,32 +84,31 @@ docker compose down
 
 ```
 DrugBank XML (19,842 drugs · 2.9M DDI)
-    ↓ parser/run_all.py           [Step 1]  parse → 27 CSVs
-    ↓ step2_dedup_interactions    [Step 2]  directed → undirected DDI pairs
-    ↓ step3_fda_approved          [Step 3]  filter to 4,795 approved drugs
-    ↓ step4_build_graph           [Step 4a] 212 structural node features
-    ↓ step4_embed                 [Step 4b] + 768-dim PubMedBERT = 980 features
-    ↓ step5_pyg_data              [Step 5a] PyG homogeneous ddi_graph.pt
-    ↓ step5_hetero_graph          [Step 5b] + drug-protein edges → hetero_ddi_graph.pt
-    ↓ step9_baseline              [Step 9]  graph heuristics + LR + cold-start split
-    ↓ step10_responsible_ml       [Step 10] bias + robustness analysis
-    ↓ hetero_model.ipynb                    GNN training (HeteroGraphSAGE + NCN)
-    ↓ app.py                               Flask REST API + Web UI
+    ↓ parser/run_all.py            [Step 1]  parse → 27 CSVs
+    ↓ dedup_interactions.py        [Step 2]  directed → undirected DDI pairs
+    ↓ filter_approved.py           [Step 3]  filter to 4,795 approved drugs
+    ↓ build_graph.py               [Step 4a] 212 structural node features
+    ↓ embed_drugs.py               [Step 4b] + 768-dim PubMedBERT = 980 features
+    ↓ build_pyg_homo.py            [Step 5a] PyG homogeneous ddi_graph.pt
+    ↓ build_pyg_hetero.py          [Step 5b] + drug-protein edges → hetero_ddi_graph.pt
+    ↓ run_baselines.py             [Step 9]  graph heuristics + LR + cold-start split
+    ↓ responsible_ml.py            [Step 10] bias + robustness analysis
+    ↓ hetero_model.ipynb                     GNN training (HeteroGraphSAGE + NCN)
+    ↓ app.py                                 Flask REST API + Web UI
 ```
 
 Full run commands:
 
 ```bash
 python parser/run_all.py                        # ~2 min
-python pipeline/step2_dedup_interactions.py     # ~3.5 min
-python pipeline/step3_fda_approved.py           # ~20 s
-python pipeline/step4_build_graph.py            # ~15 s
-python pipeline/step4_embed.py                  # ~25 min (CPU)
-python pipeline/step5_pyg_data.py               # ~2 s
-python pipeline/step5_hetero_graph.py           # ~30 s  (drug-protein hetero graph)
-python pipeline/step9_baseline.py               # ~30 s  (graph heuristics + LR + cold split)
-python pipeline/step10_responsible_ml.py        # ~5 s   (bias + robustness)
-python pipeline/step10_responsible_ml.py --section gnn_auc  # per-category GNN AUC (needs model .pt files)
+python pipeline/dedup_interactions.py           # ~3.5 min
+python pipeline/filter_approved.py             # ~20 s
+python pipeline/build_graph.py                  # ~15 s
+python pipeline/embed_drugs.py                  # ~25 min (CPU)
+python pipeline/build_pyg_homo.py               # ~2 s
+python pipeline/build_pyg_hetero.py             # ~30 s  (drug-protein hetero graph)
+python pipeline/run_baselines.py                # ~30 s  (graph heuristics + LR + cold split)
+python pipeline/responsible_ml.py               # ~5 s   (bias + robustness)
 # GNN training: run hetero_model.ipynb in Jupyter
 ```
 
@@ -140,10 +139,13 @@ Case-insensitive · brand names partially supported via synonym table.
 | Doc | Contents |
 |---|---|
 | [`readme_correction.md`](readme_correction.md) | **Grading map** — rubric code → exact file/page location |
-| [`docs/ARCHITECTURE.md`](docs/ARCHITECTURE.md) | Full pipeline, tech stack, 27-table schema, feature groups, API reference |
+| [`docs/ARCHITECTURE.md`](docs/ARCHITECTURE.md) | Tech stack index → pipeline · model · API · data schema |
+| [`docs/pipeline.md`](docs/pipeline.md) | Step-by-step pipeline, run commands, file structure |
+| [`docs/model_architecture.md`](docs/model_architecture.md) | GNN architecture, 980-dim features, ablation results |
+| [`docs/api_reference.md`](docs/api_reference.md) | All REST endpoints, request/response format |
+| [`docs/data_schema.md`](docs/data_schema.md) | 27 normalised DrugBank tables, key statistics |
 | [`docs/responsible_ml.md`](docs/responsible_ml.md) | RM1 explainability · RM2 bias · RM3 privacy · RM4 robustness |
-| [`docs/rubric_notes.md`](docs/rubric_notes.md) | Internal rubric criterion notes and evidence mapping |
-| [`docs/security.md`](docs/security.md) | Attack surface audit, input validation posture, dependency scanning |
+| [`docs/security.md`](docs/security.md) | Attack surface audit, input validation posture |
 
 ---
 
