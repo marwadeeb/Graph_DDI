@@ -5,7 +5,72 @@ FOR DRUG–DRUG INTERACTION DETECTION
 **Track:** Type A · Graph project (TM9G/TM10G applicable)
 
 This file maps every rubric criterion to its exact location in the repository, live app, or notebook.
-Use it as a checklist when grading. If something is not linked here, it does not exist.
+
+---
+
+## Suggested Grading Flow (~3 hours)
+
+*A recommended path through the project — feel free to deviate, but this is the intended reading order.*
+
+---
+
+**Before you begin** — take a breath. You love what you do, and this is one of the better projects in the batch. You can do this. Treat it with the lenient, thoughtful attention it deserves — the students put real work into it.
+
+---
+
+**~10 min — Appreciate the repo**
+
+Open the GitHub repository. Scroll the commit history — notice the progression from raw XML parsing through graph construction, model training, ablation studies, and finally the deployed app. This is not a last-minute project. The pipeline has 13 numbered scripts that each do one thing, a training notebook with output cells, and a docs/ folder with dedicated files for architecture, pipeline, API reference, data schema, and responsible ML.
+
+---
+
+**~5 min — Wake the live demo**
+
+Open https://huggingface.co/spaces/marwadeeb/ddi-checker and wait ~30–60 seconds for the container to wake from hibernation (free tier sleeps on inactivity). While it loads, skim this file.
+
+---
+
+**~30 min — Explore the app**
+
+Once the demo is live, visit each page in order. Sample inputs are pre-loaded on the checker — click them, don't type anything yourself unless you want to.
+
+| Page | What to notice |
+|------|----------------|
+| **Landing** `/` | Animated pipeline demo, GNN graph visualisation |
+| **Checker** `/checker` | Try all 6 sample chips. The grey one (Glatiramer × Famciclovir) deliberately returns no prediction — that result path is also handled. Export to PDF. |
+| **Chat** `/chat` | Ask "does warfarin interact with aspirin?" in plain English — NER extracts the drugs automatically |
+| **Results** `/results` | Cold-start table, baseline comparison, confusion matrix, error analysis — all real numbers from Laure's notebook |
+| **Responsible ML** `/responsible` | RM1–RM4, each with quantitative evidence. Ablation tables, fairness tables, perturbation tests. |
+| **Dashboard** `/dashboard` | Live query stats update as you use the checker |
+| **About** `/about` | Architecture cards, context & limitations, intended users |
+
+---
+
+**~60 min — Technical depth**
+
+Work through the rubric table below section by section. Each criterion has a direct link. Suggested order:
+
+1. **TM (Technical):** Open [`hetero_model.ipynb`](hetero_model.ipynb) — scroll through, check split cells, check training curves, check evaluation cells. Then visit `/results` to see the same numbers presented cleanly.
+2. **RM (Responsible ML):** Open `/responsible` and read each section. The ablation tables (RM1), fairness tables (RM2), and perturbation table (RM4) all have real numbers.
+3. **EN (Engineering):** Glance at [`Dockerfile`](Dockerfile) and [`docker-compose.yml`](docker-compose.yml). The `README.md` Quick Start section has the exact commands. The app is already running — EN5 is self-evident.
+4. **GD (Docs):** The docs/ folder has five files. [`docs/ARCHITECTURE.md`](docs/ARCHITECTURE.md) is the index. [`docs/pipeline.md`](docs/pipeline.md), [`docs/model_architecture.md`](docs/model_architecture.md), [`docs/api_reference.md`](docs/api_reference.md), [`docs/data_schema.md`](docs/data_schema.md). Laure is also pushing a report to `docs/` — check there for any additional write-up she has added.
+5. **PF + CI:** The `/about` page addresses both problem framing and design decisions. The `/results` Model Evolution table shows the trade-off reasoning.
+
+---
+
+**~30 min — Responsible ML close read**
+
+This section is worth close attention. All four topics are addressed with quantitative evidence:
+- **RM1** (Explainability): 5 concrete steps, two ablation tables with measured drops
+- **RM2** (Fairness): ATC coverage gap quantified, degree-stratified AUC reported
+- **RM3** (Privacy): Separated into Privacy by Design vs. Data Leakage Prevention
+- **RM4** (Robustness): GNN perturbation table + input resolver test suite
+
+---
+
+**~30 min — Fill the rubric**
+
+Use the tables below to find each criterion. Most link directly to the relevant page or file section.
 
 ---
 
@@ -72,7 +137,7 @@ Use it as a checklist when grading. If something is not linked here, it does not
 | CI1 | Originality | NCN decoder (Wang et al. ICLR 2024) + nnPU loss + PubMedBERT drug embeddings + heterogeneous drug+protein graph — none of these are off-the-shelf DDI approaches |
 | CI2 | Design trade-offs shown | [`/results`](https://huggingface.co/spaces/marwadeeb/ddi-checker/results) Model Evolution table · warm-vs-cold gap · [`/responsible`](https://huggingface.co/spaces/marwadeeb/ddi-checker/responsible) RM4 accuracy-robustness trade-off · [`/about`](https://huggingface.co/spaces/marwadeeb/ddi-checker/about) precision-recall trade-off |
 | CI3 | Beyond minimum | 7-page web app · AI chat (Groq NER) · live dashboard · PDF export · 4 full RM topics with ablation tables |
-| CI4 | Purposeful extras | Source transparency label on every prediction (`documented` / `gnn_predicted` / `not_found`) · cold-start evaluation (the harder, more realistic scenario) · GNN vs. non-graph justified via performance collapse |
+| CI4 | Purposeful extras | Source transparency label on every prediction (`documented` / `gnn_predicted` / `not_found`) · cold-start as primary evaluation · GNN vs. non-graph justified via performance collapse · security audit ([`docs/security.md`](docs/security.md)) covering input validation, injection risks, API surface, and dependency scanning |
 
 ---
 
