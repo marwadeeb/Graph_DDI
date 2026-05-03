@@ -1,5 +1,5 @@
 """
-step7_rag_query.py
+rag_query.py
 ------------------
 Drug name resolution utilities for DDI detection.
 

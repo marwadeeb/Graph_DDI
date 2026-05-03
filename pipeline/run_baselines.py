@@ -1,5 +1,5 @@
 """
-step9_baseline.py
+run_baselines.py
 -----------------
 Link-prediction baselines for the DDI project.
 
@@ -38,10 +38,10 @@ Outputs
 
 Usage
 -----
-  python pipeline/step9_baseline.py                 # warm + cold (default)
-  python pipeline/step9_baseline.py --warm-only     # skip cold-start
-  python pipeline/step9_baseline.py --test-size 0.2 --neg-ratio 1 --seed 42
-  python pipeline/step9_baseline.py --results-only
+  python pipeline/run_baselines.py                 # warm + cold (default)
+  python pipeline/run_baselines.py --warm-only     # skip cold-start
+  python pipeline/run_baselines.py --test-size 0.2 --neg-ratio 1 --seed 42
+  python pipeline/run_baselines.py --results-only
 """
 
 import os, sys, json, argparse, time, warnings

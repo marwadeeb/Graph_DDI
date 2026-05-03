@@ -1,5 +1,5 @@
 """
-step4_build_graph.py — build structural node features + edge index from the FDA-approved subset.
+build_graph.py — build structural node features + edge index from the FDA-approved subset.
 
 Reads all relevant tables from data/step3_approved/ and produces:
   node_mapping.csv        node_idx | drugbank_id | name
@@ -8,7 +8,7 @@ Reads all relevant tables from data/step3_approved/ and produces:
   edge_index.csv          src_idx | dst_idx | interaction_id      [E x 3]
   feature_names.json      feature name list + group labels
 
-Run step4_embed.py afterwards to generate text embeddings and the combined feature matrix.
+Run embed_drugs.py afterwards to generate text embeddings and the combined feature matrix.
 
 Feature groups (printed at runtime):
   A  Drug masses          average_mass, monoisotopic_mass
@@ -37,8 +37,8 @@ Missing values: continuous → median imputation; binary/count/one-hot → 0.
 Continuous features standardised (mean=0, std=1); others left as-is.
 
 Usage:
-    python pipeline/step4_build_graph.py          # preview + save
-    python pipeline/step4_build_graph.py --dry-run # preview only, no files written
+    python pipeline/build_graph.py          # preview + save
+    python pipeline/build_graph.py --dry-run # preview only, no files written
 """
 import os, sys, json, warnings
 import numpy as np
@@ -473,7 +473,7 @@ if os.path.exists(emb_path):
           f"[{N} x {feat_df.shape[1] + emb_df.shape[1]} = "
           f"{feat_df.shape[1]} struct + {emb_df.shape[1]} embed]")
 else:
-    print("\n[step4] node_embeddings.csv not found — run step4_embed.py to generate combined features.")
+    print("\n[build_graph] node_embeddings.csv not found — run embed_drugs.py to generate combined features.")
 
 sep()
 print("[step4] Done.")

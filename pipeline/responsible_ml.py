@@ -1,9 +1,9 @@
 """
-step10_responsible_ml.py
+responsible_ml.py
 ------------------------
-Responsible ML analyses for the DDI project (new architecture: dict lookup + GNN).
+Responsible ML analyses for the DDI project (dict lookup + GNN architecture).
 
-Covers three of the four required RM topics (at least 3 of 4 needed):
+Covers all four required RM topics:
 
   RM2 — Bias / Fairness
         Identifies over- and under-represented drug categories in the
@@ -34,9 +34,9 @@ Outputs
 
 Usage
 -----
-  python pipeline/step10_responsible_ml.py
-  python pipeline/step10_responsible_ml.py --section bias
-  python pipeline/step10_responsible_ml.py --section robustness
+  python pipeline/responsible_ml.py
+  python pipeline/responsible_ml.py --section bias
+  python pipeline/responsible_ml.py --section robustness
 """
 
 import os, sys, json, argparse, time
@@ -205,7 +205,7 @@ def run_per_category_gnn_auc():
     — directly exposing the training-data bias.
 
     Requires:
-      data/evaluation/edge_split.npz   (from step9_baseline.py)
+      data/evaluation/edge_split.npz   (from run_baselines.py)
       data/step4_graph/node_mapping.csv
       data/step3_approved/atc_codes.csv
       pipeline/gnn_predictor.py + model files
@@ -219,7 +219,7 @@ def run_per_category_gnn_auc():
 
     # ── Prerequisite checks ───────────────────────────────────────────────
     if not split_path.exists():
-        print("  [SKIP] edge_split.npz not found. Run step9_baseline.py first.")
+        print("  [SKIP] edge_split.npz not found. Run run_baselines.py first.")
         return None
     if not node_map_path.exists():
         print("  [SKIP] node_mapping.csv not found.")
@@ -376,11 +376,11 @@ def run_robustness_analysis():
     sep("RM4 — ROBUSTNESS / DISTRIBUTION SHIFT")
 
     try:
-        import step7_rag_query as rag
+        import rag_query as rag
         rag.get_drugs_df()
         rag.get_synonym_map()
     except Exception as e:
-        print(f"  ERROR loading step7_rag_query: {e}")
+        print(f"  ERROR loading rag_query: {e}")
         print("  Make sure app.py pipeline is set up and data/step3_approved/ is present.")
         return {}
 

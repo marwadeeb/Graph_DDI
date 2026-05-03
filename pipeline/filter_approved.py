@@ -1,5 +1,5 @@
 """
-step3_fda_approved.py — filter all CSVs to FDA-approved drugs only.
+filter_approved.py — filter all CSVs to FDA-approved drugs only.
 
 A drug is considered FDA-approved if it has at least one row in drug_attributes
 with attr_type='group' and value='approved'.
@@ -17,8 +17,8 @@ Inputs:  data/step1_full/*.csv  (all 27 tables)
 Outputs: data/step3_approved/*.csv  (filtered subset)
 
 Usage:
-    python step3_fda_approved.py
-    (run after step2_dedup_interactions.py)
+    python pipeline/filter_approved.py
+    (run after dedup_interactions.py)
 """
 import os
 import time

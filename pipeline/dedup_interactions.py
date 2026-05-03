@@ -1,5 +1,5 @@
 """
-step2_dedup_interactions.py — deduplicate DDI pairs under the assumption that
+dedup_interactions.py — deduplicate DDI pairs under the assumption that
 A interacts with B === B interacts with A.
 
 For each pair (drugbank_id, interacting_drugbank_id), the canonical form is
@@ -11,7 +11,7 @@ Input:  data/step1_full/drug_interactions.csv   (2,911,156 directed rows)
 Output: data/step2_dedup/drug_interactions_dedup.csv
 
 Usage:
-    python step2_dedup_interactions.py
+    python pipeline/dedup_interactions.py
 """
 import os
 import time
