@@ -495,6 +495,19 @@ def check_pair():
             "error":          None,
         })
 
+    # Combination-product notice — if either input is a multi-drug brand
+    def _brand_notice(query, primary_name):
+        comps = rag.get_brand_components(query)
+        if len(comps) > 1:
+            others = [c[1] for c in comps if c[1] != primary_name]
+            return {"primary": primary_name,
+                    "others":  others,
+                    "all":     [c[1] for c in comps]}
+        return None
+
+    brand_notice_a = _brand_notice(drug_a, name_a)
+    brand_notice_b = _brand_notice(drug_b, name_b)
+
     # Stage 1: dict lookup (O(1))
     lookup_key = frozenset([id_a, id_b])
     dict_desc  = _ddi_lookup.get(lookup_key)
@@ -511,9 +524,11 @@ def check_pair():
             "interaction_description": dict_desc or (
                 f"Documented interaction between {name_a} and {name_b} in DrugBank."
             ),
-            "gnn":        None,
-            "disclaimer": None,
-            "error":      None,
+            "gnn":             None,
+            "disclaimer":      None,
+            "brand_notice_a":  brand_notice_a,
+            "brand_notice_b":  brand_notice_b,
+            "error":           None,
         })
     # Stage 2: GNN (dict lookup found nothing)
     gnn_result = None
@@ -548,7 +563,9 @@ def check_pair():
                 "Consult a pharmacist or clinician before use. "
                 "This is a clinical decision support signal, not a confirmed finding."
             ),
-            "error":      None,
+            "brand_notice_a":  brand_notice_a,
+            "brand_notice_b":  brand_notice_b,
+            "error":           None,
         })
 
     # No interaction found
@@ -565,9 +582,11 @@ def check_pair():
             "Absence of a recorded interaction does not guarantee safety "
             "- always consult a pharmacist or clinician when in doubt."
         ),
-        "gnn":        gnn_result,
-        "disclaimer": None,
-        "error":      None,
+        "gnn":             gnn_result,
+        "disclaimer":      None,
+        "brand_notice_a":  brand_notice_a,
+        "brand_notice_b":  brand_notice_b,
+        "error":           None,
     })
 
 @app.route("/api/chat", methods=["POST"])
@@ -796,17 +815,39 @@ def drug_search():
         return jsonify({"results": []})
 
     pop = _drug_pop or {}
-    matches = [
-        d for d in (_drug_names or [])
-        if q in d["name"].lower()
-    ]
-    # starts-with first, then by interaction count descending
-    matches.sort(key=lambda d: (
-        not d["name"].lower().startswith(q),
-        -pop.get(d["drugbank_id"], 0),
-    ))
 
-    return jsonify({"results": matches[:limit]})
+    # 1. Canonical drug name matches
+    seen_ids = set()
+    canon = []
+    for d in (_drug_names or []):
+        if q in d["name"].lower():
+            canon.append({"drugbank_id": d["drugbank_id"], "name": d["name"],
+                          "is_brand": False, "brand_name": None})
+            seen_ids.add(d["drugbank_id"])
+    canon.sort(key=lambda d: (not d["name"].lower().startswith(q),
+                               -pop.get(d["drugbank_id"], 0)))
+
+    # 2. Brand / product name matches from products.csv
+    import rag_query as _raq
+    _COMPANY_TOKENS = (' llc', ' inc', ' inc.', ' ltd', ' corp', ' gmbh', ' ag ')
+    bc = getattr(_raq, "_brand_components", None) or {}
+    bd = getattr(_raq, "_brand_display", None) or {}
+    brand = []
+    for brand_lower, entries in bc.items():
+        if q not in brand_lower:
+            continue
+        if len(brand_lower) > 45 or any(t in brand_lower for t in _COMPANY_TOKENS):
+            continue
+        brand_display = bd.get(brand_lower, brand_lower.title())
+        for did, canonical in entries:
+            if did not in seen_ids:
+                brand.append({"drugbank_id": did, "name": canonical,
+                              "is_brand": True, "brand_name": brand_display})
+                seen_ids.add(did)
+    brand.sort(key=lambda d: (not d["brand_name"].lower().startswith(q),
+                               -pop.get(d["drugbank_id"], 0)))
+
+    return jsonify({"results": (canon + brand)[:limit]})
 
 
 @app.route("/landing", methods=["GET"])

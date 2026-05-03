@@ -33,8 +33,10 @@ _load_env()
 WORKING_DIR  = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 APPROVED_DIR = os.path.join(WORKING_DIR, "data", "step3_approved")
 
-_drugs_df    = None
-_synonym_map = None  # synonym (lowercase) -> (drugbank_id, canonical_name)
+_drugs_df         = None
+_synonym_map      = None  # synonym (lowercase) -> (drugbank_id, canonical_name)
+_brand_components = None  # brand_lower -> [(drugbank_id, canonical_name), ...]
+_brand_display    = None  # brand_lower -> original-case display name
 
 
 def get_drugs_df():
@@ -47,8 +49,19 @@ def get_drugs_df():
     return _drugs_df
 
 
+def get_brand_components(brand_name: str) -> list:
+    """Return all drugs sharing a brand name (for combination products).
+    e.g. get_brand_components("Viadur") -> [("DB00041", "Leuprolide"), ("DB00281", "Lidocaine")]
+    Returns [] if not a brand or brand maps to a single drug.
+    """
+    get_synonym_map()  # ensure loaded
+    if not _brand_components:
+        return []
+    return _brand_components.get(brand_name.strip().lower(), [])
+
+
 def get_synonym_map():
-    global _synonym_map
+    global _synonym_map, _brand_components, _brand_display
     if _synonym_map is None:
         df = get_drugs_df()
         name_lookup = dict(zip(df["drugbank_id"], df["name"]))
@@ -64,6 +77,8 @@ def get_synonym_map():
             if did in name_lookup:
                 _synonym_map[key] = (did, name_lookup[did])
         
+        _brand_components = {}
+        _brand_display    = {}
         try:
             prod_df = pd.read_csv(
                 os.path.join(APPROVED_DIR, "products.csv"),
@@ -71,10 +86,24 @@ def get_synonym_map():
             )
             prod_df = prod_df.dropna(subset=["name"])
             for _, row in prod_df.iterrows():
-                key = str(row["name"]).strip().lower()
-                did = row["drugbank_id"]
-                if key and did in name_lookup and key not in _synonym_map:
-                    _synonym_map[key] = (did, name_lookup[did])
+                raw  = str(row["name"]).strip()
+                key  = raw.lower()
+                did  = row["drugbank_id"]
+                if not key or did not in name_lookup:
+                    continue
+                canonical = name_lookup[did]
+                # Track original-case display name (first occurrence wins)
+                if key not in _brand_display:
+                    _brand_display[key] = raw
+                # Build per-brand component list (for combination products)
+                if key not in _brand_components:
+                    _brand_components[key] = []
+                existing_ids = [x[0] for x in _brand_components[key]]
+                if did not in existing_ids:
+                    _brand_components[key].append((did, canonical))
+                # Synonym map: first drug per brand wins (primary resolution)
+                if key not in _synonym_map:
+                    _synonym_map[key] = (did, canonical)
         except Exception as e:
             print(f"  [warn] Could not load brand names from products.csv: {e}")
     return _synonym_map
