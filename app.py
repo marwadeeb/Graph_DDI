@@ -165,7 +165,15 @@ def _init_dict():
         # ── Warm up drug-resolution caches ────────────────────────────────
         import rag_query as rag
         rag.get_drugs_df()      # drugs.csv  (name <-> id table)
-        rag.get_synonym_map()   # drug_attributes.csv (synonym -> canonical name)
+        rag.get_synonym_map()   # drug_attributes.csv + products.csv synonym/brand map
+
+        # ── Pre-warm GNN model so first query latency is not inflated ─────
+        try:
+            import gnn_predictor as _gnn_warm
+            _gnn_warm.is_available()   # triggers model load in background thread
+            print("[DDI] GNN predictor warmed up.", flush=True)
+        except Exception as _we:
+            print(f"[DDI] GNN warmup skipped: {_we}", flush=True)
 
         _dict_ready = True
         print(f"[DDI] Pipeline ready in {time.time()-t0:.1f}s", flush=True)
@@ -495,27 +503,50 @@ def check_pair():
             "error":          None,
         })
 
-    # Combination-product notice — if either input is a multi-drug brand
-    def _brand_notice(query, primary_name):
+    # ── Resolve all components for combination-product brands ─────────────
+    def _get_components(query, primary_id, primary_name):
+        """Return [(id, name), ...] for all drugs in a brand (or just the primary)."""
         comps = rag.get_brand_components(query)
         if len(comps) > 1:
-            others = [c[1] for c in comps if c[1] != primary_name]
-            return {"primary": primary_name,
-                    "others":  others,
-                    "all":     [c[1] for c in comps]}
-        return None
+            return comps
+        return [(primary_id, primary_name)]
 
-    brand_notice_a = _brand_notice(drug_a, name_a)
-    brand_notice_b = _brand_notice(drug_b, name_b)
+    comps_a = _get_components(drug_a, id_a, name_a)
+    comps_b = _get_components(drug_b, id_b, name_b)
 
-    # Stage 1: dict lookup (O(1))
+    brand_notice_a = (
+        {"primary": name_a, "others": [c[1] for c in comps_a if c[1] != name_a],
+         "all": [c[1] for c in comps_a]}
+        if len(comps_a) > 1 else None
+    )
+    brand_notice_b = (
+        {"primary": name_b, "others": [c[1] for c in comps_b if c[1] != name_b],
+         "all": [c[1] for c in comps_b]}
+        if len(comps_b) > 1 else None
+    )
+
+    # ── Stage 1: dict lookup for primary pair (O(1)) ───────────────────────
     lookup_key = frozenset([id_a, id_b])
     dict_desc  = _ddi_lookup.get(lookup_key)
     dict_hit   = dict_desc is not None
 
+    # ── Stage 2: GNN (only when dict has no result for primary pair) ───────
+    gnn_result = None
+    gnn_found  = False
+    gnn_prob   = None
+    if not dict_hit:
+        try:
+            import gnn_predictor
+            gnn_result = gnn_predictor.predict(id_a, id_b)
+        except Exception as e:
+            gnn_result = {"found": None, "probability": None, "note": str(e), "mock": True}
+        gnn_prob  = gnn_result.get("probability") if gnn_result else None
+        gnn_found = (gnn_prob is not None) and (gnn_prob >= GNN_THRESHOLD)
+
+    # ── Build primary result ───────────────────────────────────────────────
     if dict_hit:
-        _record_query("documented", name_a, name_b, (time.time() - _t0) * 1000)
-        return jsonify({
+        source = "documented"
+        result = {
             "drug_a": {"query": drug_a, "resolved": name_a, "id": id_a},
             "drug_b": {"query": drug_b, "resolved": name_b, "id": id_b},
             "source":                  "documented",
@@ -524,27 +555,16 @@ def check_pair():
             "interaction_description": dict_desc or (
                 f"Documented interaction between {name_a} and {name_b} in DrugBank."
             ),
-            "gnn":             None,
-            "disclaimer":      None,
-            "brand_notice_a":  brand_notice_a,
-            "brand_notice_b":  brand_notice_b,
-            "error":           None,
-        })
-    # Stage 2: GNN (dict lookup found nothing)
-    gnn_result = None
-    try:
-        import gnn_predictor
-        gnn_result = gnn_predictor.predict(id_a, id_b)
-    except Exception as e:
-        gnn_result = {"found": None, "probability": None, "note": str(e), "mock": True}
-
-    gnn_prob  = gnn_result.get("probability") if gnn_result else None
-    gnn_found = (gnn_prob is not None) and (gnn_prob >= GNN_THRESHOLD)
-
-    if gnn_found:
-        _record_query("gnn_predicted", name_a, name_b, (time.time() - _t0) * 1000)
+            "gnn":            None,
+            "disclaimer":     None,
+            "brand_notice_a": brand_notice_a,
+            "brand_notice_b": brand_notice_b,
+            "error":          None,
+        }
+    elif gnn_found:
+        source = "gnn_predicted"
         explanation = gnn_predictor.explain(id_a, id_b)
-        return jsonify({
+        result = {
             "drug_a": {"query": drug_a, "resolved": name_a, "id": id_a},
             "drug_b": {"query": drug_b, "resolved": name_b, "id": id_b},
             "source":                  "gnn_predicted",
@@ -563,31 +583,56 @@ def check_pair():
                 "Consult a pharmacist or clinician before use. "
                 "This is a clinical decision support signal, not a confirmed finding."
             ),
-            "brand_notice_a":  brand_notice_a,
-            "brand_notice_b":  brand_notice_b,
-            "error":           None,
-        })
+            "brand_notice_a": brand_notice_a,
+            "brand_notice_b": brand_notice_b,
+            "error":          None,
+        }
+    else:
+        source = "not_found"
+        result = {
+            "drug_a": {"query": drug_a, "resolved": name_a, "id": id_a},
+            "drug_b": {"query": drug_b, "resolved": name_b, "id": id_b},
+            "source":                  "not_found",
+            "found":                   False,
+            "interaction_type":        None,
+            "interaction_description": (
+                f"No interaction between {name_a} and {name_b} was found in DrugBank, "
+                "and the GNN model did not predict one above the confidence threshold. "
+                "Absence of a recorded interaction does not guarantee safety "
+                "— always consult a pharmacist or clinician when in doubt."
+            ),
+            "gnn":            gnn_result,
+            "disclaimer":     None,
+            "brand_notice_a": brand_notice_a,
+            "brand_notice_b": brand_notice_b,
+            "error":          None,
+        }
 
-    # No interaction found
-    _record_query("not_found", name_a, name_b, (time.time() - _t0) * 1000)
-    return jsonify({
-        "drug_a": {"query": drug_a, "resolved": name_a, "id": id_a},
-        "drug_b": {"query": drug_b, "resolved": name_b, "id": id_b},
-        "source":                  "not_found",
-        "found":                   False,
-        "interaction_type":        None,
-        "interaction_description": (
-            f"No interaction between {name_a} and {name_b} was found in DrugBank, "
-            "and the GNN model did not predict one above the confidence threshold. "
-            "Absence of a recorded interaction does not guarantee safety "
-            "- always consult a pharmacist or clinician when in doubt."
-        ),
-        "gnn":             gnn_result,
-        "disclaimer":      None,
-        "brand_notice_a":  brand_notice_a,
-        "brand_notice_b":  brand_notice_b,
-        "error":           None,
-    })
+    # ── Additional checks for all component combinations (multi-drug brands) ─
+    # Covers every (comp_a, comp_b) pair that isn't the primary pair already shown
+    additional_checks = []
+    primary_key = frozenset([id_a, id_b])
+    for (a_id, a_name) in comps_a:
+        for (b_id, b_name) in comps_b:
+            pair_key = frozenset([a_id, b_id])
+            if pair_key == primary_key:
+                continue   # already shown above
+            desc = _ddi_lookup.get(pair_key)
+            additional_checks.append({
+                "drug_a": {"resolved": a_name, "id": a_id},
+                "drug_b": {"resolved": b_name, "id": b_id},
+                "source": "documented" if desc is not None else "not_found",
+                "found":  desc is not None,
+                "interaction_description": desc if desc is not None else (
+                    f"No documented interaction found for {a_name} and {b_name}."
+                ),
+            })
+    if additional_checks:
+        result["additional_checks"] = additional_checks
+
+    _record_query(source, name_a, name_b, (time.time() - _t0) * 1000)
+    return jsonify(result)
+
 
 @app.route("/api/chat", methods=["POST"])
 def chat_api():
@@ -833,17 +878,21 @@ def drug_search():
     bc = getattr(_raq, "_brand_components", None) or {}
     bd = getattr(_raq, "_brand_display", None) or {}
     brand = []
+    brand_seen_lower = set()  # deduplicate by brand name (one entry per brand)
     for brand_lower, entries in bc.items():
         if q not in brand_lower:
             continue
         if len(brand_lower) > 45 or any(t in brand_lower for t in _COMPANY_TOKENS):
             continue
+        if brand_lower in brand_seen_lower:
+            continue
+        brand_seen_lower.add(brand_lower)
         brand_display = bd.get(brand_lower, brand_lower.title())
-        for did, canonical in entries:
-            if did not in seen_ids:
-                brand.append({"drugbank_id": did, "name": canonical,
-                              "is_brand": True, "brand_name": brand_display})
-                seen_ids.add(did)
+        # Use the primary (first) component's ID to represent the brand
+        primary_did, primary_canonical = entries[0]
+        brand.append({"drugbank_id": primary_did, "name": primary_canonical,
+                      "is_brand": True, "brand_name": brand_display})
+        seen_ids.add(primary_did)
     brand.sort(key=lambda d: (not d["brand_name"].lower().startswith(q),
                                -pop.get(d["drugbank_id"], 0)))
 
