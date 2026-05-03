@@ -1368,6 +1368,18 @@
     const disclaimerHtml = data.disclaimer
       ? `<div class="rc-disclaimer">${escHtml(data.disclaimer)}</div>` : '';
 
+    let explanationHtml = '';
+    if (src === 'gnn_predicted' && data.explanation?.reasons?.length) {
+      const items = data.explanation.reasons
+        .map(r => `<li style="margin-bottom:4px">${escHtml(r)}</li>`)
+        .join('');
+      explanationHtml = `
+        <div class="rc-safety" style="border-left-color:#6366f1">
+          <strong style="display:block;margin-bottom:6px">Why this was flagged:</strong>
+          <ul style="margin:0;padding-left:18px;line-height:1.6">${items}</ul>
+        </div>`;
+    }
+
     // Safety note — shown for documented AND predicted interactions
     let safetyHtml = '';
     if (src === 'documented') {
@@ -1396,6 +1408,7 @@
         <div class="rc-desc">${descHtml}</div>
         ${gnnHtml}
         ${disclaimerHtml}
+        ${explanationHtml}
         ${safetyHtml}
       </div>`;
     primary.style.display = 'block';
