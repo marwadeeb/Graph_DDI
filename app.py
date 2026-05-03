@@ -524,6 +524,7 @@ def check_pair():
 
     if gnn_found:
         _record_query("gnn_predicted", name_a, name_b, (time.time() - _t0) * 1000)
+        explanation = gnn_predictor.explain(id_a, id_b)
         return jsonify({
             "drug_a": {"query": drug_a, "resolved": name_a, "id": id_a},
             "drug_b": {"query": drug_b, "resolved": name_b, "id": id_b},
@@ -536,6 +537,7 @@ def check_pair():
                 f"(probability {gnn_prob:.0%})."
             ),
             "gnn":        gnn_result,
+            "explanation": explanation,
             "disclaimer": (
                 "This interaction is not documented in DrugBank but is predicted "
                 "by the Graph Neural Network based on pharmacological graph patterns. "
@@ -663,10 +665,12 @@ def chat_api():
             gnn_found = gnn_prob is not None and gnn_prob >= GNN_THRESHOLD
 
             if gnn_found:
+                explanation = gnn_predictor.explain(id_a, id_b)
                 pair_results.append({
                     "drug_a": {"query": da["query"], "resolved": name_a, "id": id_a},
                     "drug_b": {"query": db["query"], "resolved": name_b, "id": id_b},
                     "source":                  "gnn_predicted",
+                    "explanation": explanation,
                     "found":                   True,
                     "interaction_description": (
                         f"No documented interaction found in DrugBank for {name_a} and {name_b}. "
