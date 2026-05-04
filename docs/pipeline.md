@@ -16,8 +16,8 @@ For tech stack and infrastructure see [ARCHITECTURE.md](ARCHITECTURE.md).
 | 4b — Text Embeddings | `pipeline/embed_drugs.py` | `data/step4_graph/` — 768-dim PubMedBERT + combined 980-dim | 94 MB · **on GitHub** |
 | 5a — PyG Homo Graph | `pipeline/build_pyg_homo.py` | `data/step4_graph/ddi_graph.pt` — homogeneous | 58 MB · **on GitHub** |
 | 5b — PyG Hetero Graph | `pipeline/build_pyg_hetero.py` | `data/step4_graph/hetero_ddi_graph.pt` — drug + protein nodes | 46 MB · **on GitHub** |
-| 6 — RAG Vector Index | `pipeline/build_rag_index.py` | `data/rag_index/` — FAISS index of 824K DDI descriptions | ~2.5 GB · gitignored |
-| 7 — RAG / Dict Query | `pipeline/rag_query.py` | CLI/API — O(1) dict lookup + optional FAISS | — |
+| 6 — RAG Vector Index | `pipeline/build_rag_index.py` | `data/rag_index/` — PubMedBERT embeddings of 824K DDI descriptions (offline; not loaded at serve time) | ~2.5 GB · gitignored |
+| 7 — RAG / Dict Query | `pipeline/rag_query.py` | CLI/API — O(1) dict lookup + GNN fallback | — |
 | 8 — RAG Evaluation | `pipeline/evaluate_rag.py` | `data/evaluation/` — precision/recall/F1 | — |
 | 9 — Baselines + Split | `pipeline/run_baselines.py` | `data/evaluation/` — graph heuristics + LR + cold-start split files | — |
 | 10 — Responsible ML | `pipeline/responsible_ml.py` | `data/evaluation/` — bias JSON · robustness JSON | — |
@@ -74,13 +74,13 @@ Raw XML stores directed pairs `(A→B)` and `(B→A)` separately. `dedup_interac
 ### Primary path — O(1) dict lookup
 `rag_query.py` builds an in-memory `frozenset → description` dict from `drug_interactions_dedup.csv` at startup (~3 s load).
 
-### Optional path — FAISS semantic search
-824,249 DDI descriptions embedded with PubMedBERT → FAISS IndexFlatIP. Loaded on demand (~30 s first call).
+### Secondary path — GNN link prediction
+When no documented DDI exists in the dict, `rag_query.py` invokes `gnn_predictor.predict()` which runs the HeteroGraphSAGE + NCN decoder and returns a probability score. A threshold of 0.43 (calibrated to balance precision/recall on the cold-start test set) determines whether the pair is reported as `gnn_predicted`. The explain() method additionally surfaces shared protein targets and DDI neighbours as human-readable reasons.
 
 | File | Description |
 |---|---|
-| `data/rag_index/faiss.index` | FAISS IndexFlatIP — 824,249 × 768 vectors |
-| `data/rag_index/metadata.pkl` | Per-vector metadata: interaction_id, names, text |
+| `data/step4_graph/bestHeteroModel.pt` | Trained GNN weights (6 MB) |
+| `data/step4_graph/hetero_ddi_graph.pt` | PyG HeteroData object for inference (46 MB) |
 
 ### LLM (Groq)
 `llama-3.3-70b-versatile` via Groq free tier. Used for NER extraction from chat input and natural-language explanation of results. Requires `GROQ_API_KEY` in `.env`.
@@ -121,7 +121,7 @@ Pipeline: `StandardScaler` + `LogisticRegression(max_iter=1000, C=1.0)`
 │   ├── build_pyg_homo.py
 │   ├── build_pyg_hetero.py
 │   ├── build_rag_index.py
-│   ├── rag_query.py                 drug name resolver + FAISS + LLM
+│   ├── rag_query.py                 drug name resolver + GNN fallback + LLM
 │   ├── evaluate_rag.py
 │   ├── run_baselines.py
 │   ├── responsible_ml.py

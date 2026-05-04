@@ -15,7 +15,7 @@ Detect drug-drug interactions (DDI) using a two-stage pipeline:
 **DrugBank dictionary lookup** (O(1), 824 K documented pairs) +
 **GNN link prediction** (novel pairs not yet in DrugBank).
 
-**Live demo:** https://huggingface.co/spaces/marwadeeb/ddi-checker
+**Live demo:** https://marwadeeb-ddi-checker.hf.space
 
 > **⏳ First visit:** HuggingFace Spaces hibernates after a period of inactivity. If the demo
 > shows a loading screen, wait ~30–60 seconds for the container to wake before using it.

@@ -62,6 +62,14 @@ Full tables are in [`docs/model_architecture.md`](model_architecture.md).
 ### Source transparency label
 Every prediction carries a `source` field: `"documented"` (DrugBank verbatim hit), `"gnn_predicted"` (GNN score above threshold 0.43), or `"not_found"`. This allows users to calibrate trust — a documented DDI includes a literature-backed description; a GNN-predicted one does not.
 
+### "Why this was flagged" box (GNN predictions)
+For every `gnn_predicted` result, the checker UI renders a human-readable evidence summary via `gnn_predictor.explain()`. The box surfaces:
+- **Shared protein targets** — e.g. "Shares 3 common protein targets: CYP2C9, CYP1A2, VKORC1"
+- **Shared DDI neighbours** — e.g. "12 common DDI neighbours — strong graph connectivity"
+- **Structural overlap** — shared CYP substrate classifications, molecular weight proximity
+
+These reasons derive from the same graph signals that drive the NCN decoder (shared-neighbour pooling + node features), closing the explainability loop from model internals to user-visible output. Users never see a bare probability — they always see why.
+
 ---
 
 ## RM2 — Bias / Fairness
@@ -125,7 +133,7 @@ DrugBank is a publicly available curated database of approved drugs and their in
 | DDI descriptions | DrugBank XML | Public |
 | ATC codes, pathways, MeSH categories | DrugBank XML | Public |
 | Text embeddings (PubMedBERT) | Computed from above | Derived — no new personal data |
-| FAISS index | Computed from above | Derived — no new personal data |
+| GNN model weights | Trained on DrugBank graph | Derived — no new personal data |
 
 ### No patient data
 The system contains **zero patient records**, zero clinical trial participant data, and zero
