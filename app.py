@@ -533,15 +533,46 @@ def check_pair():
         for (a_id, a_name) in comps_a:
             for (b_id, b_name) in comps_b:
                 pair_desc = _ddi_lookup.get(frozenset([a_id, b_id]))
-                all_checks.append({
-                    "drug_a": {"resolved": a_name, "id": a_id},
-                    "drug_b": {"resolved": b_name, "id": b_id},
-                    "source": "documented" if pair_desc is not None else "not_found",
-                    "found":  pair_desc is not None,
-                    "interaction_description": pair_desc if pair_desc is not None else (
-                        f"No documented interaction found for {a_name} and {b_name}."
-                    ),
-                })
+                if pair_desc is not None:
+                    all_checks.append({
+                        "drug_a": {"resolved": a_name, "id": a_id},
+                        "drug_b": {"resolved": b_name, "id": b_id},
+                        "source": "documented",
+                        "found":  True,
+                        "interaction_description": pair_desc,
+                        "gnn": None,
+                        "explanation": None,
+                    })
+                else:
+                    # Try GNN for undocumented combo pairs
+                    pair_gnn = None
+                    pair_explanation = None
+                    pair_source = "not_found"
+                    pair_found = False
+                    pair_desc_text = f"No documented interaction found for {a_name} and {b_name}."
+                    try:
+                        import gnn_predictor
+                        pair_gnn = gnn_predictor.predict(a_id, b_id)
+                        gnn_prob = pair_gnn.get("probability") if pair_gnn else None
+                        if gnn_prob is not None and gnn_prob >= GNN_THRESHOLD:
+                            pair_source = "gnn_predicted"
+                            pair_found  = True
+                            pair_explanation = gnn_predictor.explain(a_id, b_id)
+                            pair_desc_text = (
+                                f"No documented interaction found in DrugBank for {a_name} and {b_name}. "
+                                f"The GNN predicts a possible interaction (probability {gnn_prob:.0%})."
+                            )
+                    except Exception:
+                        pass
+                    all_checks.append({
+                        "drug_a": {"resolved": a_name, "id": a_id},
+                        "drug_b": {"resolved": b_name, "id": b_id},
+                        "source": pair_source,
+                        "found":  pair_found,
+                        "interaction_description": pair_desc_text,
+                        "gnn": pair_gnn,
+                        "explanation": pair_explanation,
+                    })
 
         # Overall status = worst case across all pairs
         has_documented = any(c["source"] == "documented" for c in all_checks)

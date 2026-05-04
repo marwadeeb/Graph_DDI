@@ -1409,12 +1409,37 @@
       const comboBannerHtml = comboLines.length
         ? `<div class="combo-banner">💊 ${comboLines.join(' &nbsp;·&nbsp; ')}</div>` : '';
 
-      // Overall status header card
+      // Mini-cards: one per component pair, with GNN bar + explain box if predicted
       const overallCards = data.all_checks.map(c => {
         const c_src  = c.source || 'not_found';
         const c_cls  = c_src === 'documented' ? 'documented' : c_src === 'gnn_predicted' ? 'predicted' : 'not-found';
         const c_icon = c_src === 'documented' ? '⚠' : c_src === 'gnn_predicted' ? '⚠' : '✓';
         const c_lbl  = c_src === 'documented' ? 'Interaction Found' : c_src === 'gnn_predicted' ? 'Potential Interaction' : 'No Interaction';
+
+        // GNN confidence bar (predicted pairs only)
+        let c_gnnHtml = '';
+        if (c_src === 'gnn_predicted' && c.gnn?.probability != null) {
+          const pct = Math.round(c.gnn.probability * 100);
+          c_gnnHtml = `
+            <div class="rc-gnn" style="margin-top:8px;">
+              <span>GNN confidence</span>
+              <div class="rc-prob-bar-bg"><div class="rc-prob-bar-fill" style="width:${pct}%"></div></div>
+              <span>${c.gnn.probability.toFixed(3)}</span>
+            </div>`;
+        }
+
+        // "Why this was flagged" explain box (predicted pairs only)
+        let c_explainHtml = '';
+        if (c_src === 'gnn_predicted' && c.explanation?.reasons?.length) {
+          const items = c.explanation.reasons
+            .map(r => `<li style="margin-bottom:4px">${escHtml(r)}</li>`).join('');
+          c_explainHtml = `
+            <div class="rc-safety" style="border-left-color:#6366f1;margin-top:8px;">
+              <strong style="display:block;margin-bottom:6px">Why this was flagged:</strong>
+              <ul style="margin:0;padding-left:18px;line-height:1.6">${items}</ul>
+            </div>`;
+        }
+
         return `
           <div class="result-card-mini ${c_cls}">
             <div class="rcm-header">
@@ -1422,6 +1447,8 @@
               <span class="rcm-pair">${escHtml(c.drug_a?.resolved||'')} × ${escHtml(c.drug_b?.resolved||'')}</span>
             </div>
             <div class="rcm-desc">${escHtml(c.interaction_description||'')}</div>
+            ${c_gnnHtml}
+            ${c_explainHtml}
           </div>`;
       }).join('');
 
