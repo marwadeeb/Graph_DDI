@@ -1,118 +1,17 @@
 # Grading Map — DDI Checker
-**Team:** Marwa Deeb · Laure Mohsen  
-**Project:** GRAPH-ENHANCED CLINICAL DECISION SUPPORT
-FOR DRUG–DRUG INTERACTION DETECTION  
-**Track:** Type A · Graph project (TM9G/TM10G applicable)
+**Team:** Marwa Deeb · Laure Mohsen
+**Project:** Graph-Enhanced Clinical Decision Support for Drug–Drug Interaction Detection
+**Track:** Type A · Graph: Yes
+**Repository:** https://github.com/marwadeeb/Graph_DDI
+**Live Demo:** https://marwadeeb-ddi-checker.hf.space
 
-This file maps every rubric criterion to its exact location in the repository, live app, or notebook.
+This file serves as a quick-reference index mapping each rubric criterion to its exact location in the repository or live application. A more detailed, properly written account of all rubric items, including methodology, equations, ablation tables, results, and limitations, is provided in the submitted project report titled "EECE 690 - Rubric Report.pdf". 
 
----
-
-## Suggested Grading Flow (~3 hours)
-
-Somewhere in your grading queue is a project whose entire pipeline is a single notebook called `final_FINAL_v3_real.ipynb`. This is not that project. Pour yourself something, open the live demo, and let's make the next three hours count.
-
-**~10 min · Appreciate the repo.** Open the GitHub repository. Scroll slowly. Two students. One semester. One 1.1 GB XML file, a graph with 824,000 edges, a GNN that needed to be retrained four times, and a 6-page deployed app. The documentation matches the code. We'd like you to appreciate that last part specifically.
-
-**~5 min · Wake the live demo.** Open https://marwadeeb-ddi-checker.hf.space/ — free-tier containers hibernate on inactivity, so allow ~30–60 s on first load. Skim this file while you wait.
-
-**~30 min · Tour the app.** Visit each page below. The sample chips on the checker are pre-loaded drug pairs — click them so you don't have to remember how to spell Acetylsalicylic acid right now.
-
-| Page | What to notice |
-|------|----------------|
-| **Landing** `/` | Animated pipeline demo, interactive GNN graph |
-| **Checker** `/checker` | 6 sample chips covering documented, GNN-predicted, and not-found paths. The grey chip (Glatiramer × Famciclovir) is a confirmed non-interacting pair. Try the PDF export. |
-| **Chat** `/chat` | Type "does warfarin interact with aspirin?" — NER extracts the drugs automatically |
-| **Results** `/results` | Cold-start table, full baseline comparison, confusion matrix, error analysis |
-| **Responsible ML** `/responsible` | RM1–RM4 each with quantitative tables |
-| **Dashboard** `/dashboard` | Live query stats — updates as you use the checker |
-| **About** `/about` | Architecture cards, context & limitations, intended users |
-
-**~60 min · Technical depth.** Work through the rubric tables below. Suggested order: (1) open [`pipeline/hetero_model.ipynb`](pipeline/hetero_model.ipynb) and check the split cells, training curves, and evaluation output — then compare with `/results` which surfaces the same numbers; (2) read `/responsible` for the ablation tables (RM1), fairness stratification (RM2), and perturbation results (RM4); (3) check [`Dockerfile`](Dockerfile) and [`docker-compose.yml`](docker-compose.yml) — the app is already running so EN5 is self-evident; (4) browse `docs/` — [`ARCHITECTURE.md`](docs/ARCHITECTURE.md) is the index into the other four files; (5) [`/about`](https://marwadeeb-ddi-checker.hf.space/about) and the [`/results`](https://marwadeeb-ddi-checker.hf.space/results) Model Evolution table handle PF and CI.
-
-**~30 min · Responsible ML close read.** All four topics have quantitative evidence: RM1 — 5-step explainability pipeline with two ablation tables; RM2 — ATC coverage gap + degree-stratified AUC; RM3 — split into Privacy by Design and Data Leakage Prevention; RM4 — GNN perturbation table + input resolver test suite.
-
-**~30 min · Fill the rubric** using the tables below. Every criterion links directly to the relevant page or file.
+> **Note:** The live application runs on HuggingFace Spaces free tier and may hibernate after inactivity. Allow 30–60 seconds on first load.
 
 ---
 
-## Problem & Fit — 15%
-
-| Code | What is checked | Where to find it |
-|------|----------------|-----------------|
-| PF1 | Specific, well-defined problem | [`README.md`](README.md) intro · [`/about`](https://marwadeeb-ddi-checker.hf.space/about) — detect novel DDIs among FDA-approved drugs; specific input (drug pair) and output (probability + source label) |
-| PF2A | Who uses it / who decides / who deploys | [`/about`](https://marwadeeb-ddi-checker.hf.space/about) "Context & Limitations" → "Intended users" — clinical pharmacists, medical students (users); hospital IT (deployers) |
-| PF3A | Why ML, not a lookup table | [`/about`](https://marwadeeb-ddi-checker.hf.space/about) "Why a GNN" · [`/results`](https://marwadeeb-ddi-checker.hf.space/results) — graph heuristics collapse to 0.50 on cold-start; GNN holds at 0.9175 |
-| PF4 | Impact / significance | [`/about`](https://marwadeeb-ddi-checker.hf.space/about) stat block · [`/`](https://marwadeeb-ddi-checker.hf.space) landing hero — 824K known pairs, many novel combos enter practice before evidence accumulates |
-| PF5 | Track fit + success criteria defined | [`/results`](https://marwadeeb-ddi-checker.hf.space/results) "Evaluation Notes" — AUROC primary, AUPR secondary; cold-start as primary eval scenario |
-
----
-
-## Technical Rigor & Responsible ML — 30%
-
-| Code | What is checked | Where to find it |
-|------|----------------|-----------------|
-| TM1 | Task defined, data described | [`docs/pipeline.md`](docs/pipeline.md) Pipeline Overview · [`README.md`](README.md) Pipeline section — link prediction on drug-drug graph, 4,795 nodes, 824,249 positive edges |
-| TM2A | Non-AI baseline (fair comparison) | [`/results`](https://marwadeeb-ddi-checker.hf.space/results) "Baseline Comparison" — Feature Cosine (0.6041), Degree Product (0.9534), Jaccard (0.9763), AA (0.9748), CN (0.9738), LR (0.9570) · [`pipeline/run_baselines.py`](pipeline/run_baselines.py) |
-| TM3 | Method has substance | [`/about`](https://marwadeeb-ddi-checker.hf.space/about) "Graph Model Architecture" · [`pipeline/hetero_model.ipynb`](pipeline/hetero_model.ipynb) · [`docs/model_architecture.md`](docs/model_architecture.md) — HeteroGraphSAGE + NCN decoder (ICLR 2024), nnPU loss |
-| TM4 | Preprocessing / features / no leakage | [`docs/model_architecture.md`](docs/model_architecture.md) feature tables · [`/responsible`](https://marwadeeb-ddi-checker.hf.space/responsible) RM3 "Data Leakage Prevention" · [`pipeline/build_graph.py`](pipeline/build_graph.py) — 980-dim features, masked edges before split |
-| TM5 | Splits / metrics / protocol | [`/results`](https://marwadeeb-ddi-checker.hf.space/results) "Evaluation Notes" · [`pipeline/hetero_model.ipynb`](pipeline/hetero_model.ipynb) — AUROC + AUPR, 80/20 warm + 10% cold-start hold-out (284 drugs, 158,642 pairs) |
-| TM6 | Error analysis | [`/results`](https://marwadeeb-ddi-checker.hf.space/results) "Error Analysis" — confusion matrix (TP 55,406 / FP 3,055 / FN 10,566 / TN 62,917), precision/recall, degree distribution of false negatives |
-| TM7 | Limits + trade-offs | [`/about`](https://marwadeeb-ddi-checker.hf.space/about) "Context & Limitations" · [`/results`](https://marwadeeb-ddi-checker.hf.space/results) "Evaluation Notes" · [`/responsible`](https://marwadeeb-ddi-checker.hf.space/responsible) RM4 σ=0.5 degradation · warm-vs-cold gap (0.9738 → 0.9175) |
-| TM9G | Graph is the core object | [`pipeline/hetero_model.ipynb`](pipeline/hetero_model.ipynb) · [`pipeline/build_pyg_hetero.py`](pipeline/build_pyg_hetero.py) — DDI = link prediction; protein nodes add biological context |
-| TM10G | Graph vs non-graph justified | [`/results`](https://marwadeeb-ddi-checker.hf.space/results) cold-start section — heuristics → 0.5000 (random), GNN → 0.9175 (+0.0201 vs LR): graph is necessary for cold-start generalisation |
-| RM1 | Explainability | [`/responsible`](https://marwadeeb-ddi-checker.hf.space/responsible) RM1 — 5-step pipeline: DrugBank verbatim text → LR weights → feature ablation (−0.0745 structural) → CN pooling ablation → source label on every response · **"Why this was flagged" box** (shared protein targets + DDI neighbours) on every GNN-predicted result |
-| RM2 | Fairness / bias | [`/responsible`](https://marwadeeb-ddi-checker.hf.space/responsible) RM2 — ATC coverage gap (4.1×), degree-split AUC (0.8844 vs 0.9867), protein-coverage AUC (0.9159 vs 0.9930) |
-| RM3 | Privacy / leakage | [`/responsible`](https://marwadeeb-ddi-checker.hf.space/responsible) RM3 — two subsections: **Privacy by Design** (public data, no user storage) + **Data Leakage Prevention** (masked edges, fixed features, clean negatives) |
-| RM4 | Robustness / distribution shift | [`/responsible`](https://marwadeeb-ddi-checker.hf.space/responsible) RM4 — perturbation table (edge dropout 20/40%, feature noise σ=0.1/0.5); input resolver test suite (6 cases) |
-
----
-
-## Deployment & Engineering — 20%
-
-| Code | What is checked | Where to find it |
-|------|----------------|-----------------|
-| EN1 | Dockerized REST API | [`Dockerfile`](Dockerfile) · [`docker-compose.yml`](docker-compose.yml) · [`README.md`](README.md) Quick Start — `docker compose up --build` |
-| EN2 | Separation of data / model / serving | `data/` (artifacts) · `pipeline/` (training) · `app.py` (serving only, loads pre-built `.pt` + `.csv`) — model never retrained at serve time |
-| EN3 | Reproducible env + run path | [`README.md`](README.md) Pipeline section (exact commands + timings) · [`requirements.txt`](requirements.txt) · [`Dockerfile`](Dockerfile) · [`pipeline/run_baselines.py`](pipeline/run_baselines.py) uses `--seed 42` for reproducible splits |
-| EN4 | UI / demo flow | Live: https://marwadeeb-ddi-checker.hf.space — 6 pages: Landing (/), Checker (/checker), Chat (/chat), Results (/results), Responsible ML (/responsible), Dashboard (/dashboard) |
-| EN5 | Running artifact / service | https://marwadeeb-ddi-checker.hf.space — Docker-deployed on HuggingFace Spaces (wakes in ~60 s from hibernation) |
-
----
-
-## GitHub & Documentation — 15%
-
-| Code | What is checked | Where to find it |
-|------|----------------|-----------------|
-| GD1 | Repo structure is clear | [`README.md`](README.md) · `parser/`, `pipeline/`, `data/`, `templates/`, `docs/`, `app.py`, `Dockerfile` |
-| GD2 | README has setup + run | [`README.md`](README.md) "Quick Start" (Docker Compose) + "Pipeline" (exact commands) + "API" (curl examples) |
-| GD3 | Method / arch documented | [`docs/ARCHITECTURE.md`](docs/ARCHITECTURE.md) (index) → [`pipeline.md`](docs/pipeline.md) · [`model_architecture.md`](docs/model_architecture.md) · [`api_reference.md`](docs/api_reference.md) · [`data_schema.md`](docs/data_schema.md) |
-| GD4 | Results / logs / ablations | [`/results`](https://marwadeeb-ddi-checker.hf.space/results) live page · [`pipeline/hetero_model.ipynb`](pipeline/hetero_model.ipynb) with output cells · [`/responsible`](https://marwadeeb-ddi-checker.hf.space/responsible) feature + CN ablation tables |
-| GD5 | Data + limits documented | [`README.md`](README.md) Data section (DrugBank CC BY-NC 4.0, Git LFS) · [`/about`](https://marwadeeb-ddi-checker.hf.space/about) Context & Limitations · [`docs/responsible_ml.md`](docs/responsible_ml.md) RM2 bias |
-
----
-
-## Creativity & Initiative — 10%
-
-| Code | What is checked | Where to find it |
-|------|----------------|-----------------|
-| CI1 | Originality | NCN decoder (Wang et al. ICLR 2024) + nnPU loss + PubMedBERT drug embeddings + heterogeneous drug+protein graph — none of these are off-the-shelf DDI approaches |
-| CI2 | Design trade-offs shown | [`/results`](https://marwadeeb-ddi-checker.hf.space/results) Model Evolution table · warm-vs-cold gap · [`/responsible`](https://marwadeeb-ddi-checker.hf.space/responsible) RM4 accuracy-robustness trade-off · [`/about`](https://marwadeeb-ddi-checker.hf.space/about) precision-recall trade-off |
-| CI3 | Beyond minimum | 6-page web app · AI chat (Groq NER) · live dashboard · PDF export · 4 full RM topics with ablation tables |
-| CI4 | Purposeful extras | Source transparency label on every prediction (`documented` / `gnn_predicted` / `not_found`) · cold-start as primary evaluation · GNN vs. non-graph justified via performance collapse · security audit ([`docs/security.md`](docs/security.md)) covering input validation, injection risks, API surface, and dependency scanning |
-
----
-
-## Bonus (BX)
-
-| Code | Criterion | Status |
-|------|-----------|--------|
-| BX2 | RM beyond minimum | All 4 RM topics addressed with quantitative evidence (ablation tables, fairness tables, perturbation tests) |
-| BX3 | Exceptional extension | NCN (Neural Common Neighbours) decoder from ICLR 2024 applied to heterogeneous biomedical graph; nnPU loss for PU learning; full 6-page deployed app |
-
----
-
-## Quick Reference — Live Pages
+## Live Pages
 
 | Page | URL |
 |------|-----|
@@ -124,4 +23,98 @@ Somewhere in your grading queue is a project whose entire pipeline is a single n
 | Dashboard | https://marwadeeb-ddi-checker.hf.space/dashboard |
 | About | https://marwadeeb-ddi-checker.hf.space/about |
 
-> **Note:** First visit may require ~30–60 s to wake from HuggingFace Spaces hibernation.
+---
+
+## Problem & Fit
+
+| Code | Criterion | Location |
+|------|-----------|----------|
+| **PF1** | Specific problem | [`/about`](https://marwadeeb-ddi-checker.hf.space/about) → Problem Definition · [`README.md`](README.md) intro · Report §1.1 |
+| **PF2A** | User / decision / deployer | [`/about`](https://marwadeeb-ddi-checker.hf.space/about) → "Context & Limitations" → "Intended Users" · Report §1.2 |
+| **PF3A** | Why ML, not a simpler approach | [`/about`](https://marwadeeb-ddi-checker.hf.space/about) → "Why a GNN" · [`/results`](https://marwadeeb-ddi-checker.hf.space/results) cold-start collapse · Report §1.3 |
+| **PF4** | Impact and significance | [`/about`](https://marwadeeb-ddi-checker.hf.space/about) stat block · [`/`](https://marwadeeb-ddi-checker.hf.space) landing hero · Report §1.4 |
+| **PF5** | Track fit + success criteria | [`/results`](https://marwadeeb-ddi-checker.hf.space/results) → "Evaluation Notes" · Report §1.5 |
+
+---
+
+## Technical Rigor
+
+| Code | Criterion | Location |
+|------|-----------|----------|
+| **TM1** | Task formulation + data | [`docs/pipeline.md`](docs/pipeline.md) · [`README.md`](README.md) Pipeline section · Report §2.1 |
+| **TM2A** | Non-AI baseline | [`/results`](https://marwadeeb-ddi-checker.hf.space/results) → "Baseline Comparison" · [`pipeline/step9_baseline.py`](pipeline/step9_baseline.py) · Report §2.2 — 5 baselines: Feature Cosine (0.6041), Degree Product (0.9534), Common Neighbors (0.9738), Adamic–Adar (0.9748), Jaccard (0.9763) |
+| **TM3** | Method choice + substance | [`/about`](https://marwadeeb-ddi-checker.hf.space/about) → "Graph Model Architecture" · [`pipeline/hetero_model.ipynb`](pipeline/hetero_model.ipynb) · [`docs/model_architecture.md`](docs/model_architecture.md) · Report §2.3 |
+| **TM4** | Preprocessing / features / leakage | [`docs/model_architecture.md`](docs/model_architecture.md) feature tables · [`/responsible`](https://marwadeeb-ddi-checker.hf.space/responsible) → RM3 · [`pipeline/step4_build_graph.py`](pipeline/step4_build_graph.py) · Report §2.4 |
+| **TM5** | Splits / metrics / protocol | [`/results`](https://marwadeeb-ddi-checker.hf.space/results) → "Evaluation Notes" · [`pipeline/hetero_model.ipynb`](pipeline/hetero_model.ipynb) split cells · Report §2.5 |
+| **TM6** | Error analysis | [`/results`](https://marwadeeb-ddi-checker.hf.space/results) → "Error Analysis" · [`pipeline/hetero_model.ipynb`](pipeline/hetero_model.ipynb) error analysis cell · Report §2.6 |
+| **TM7** | Limitations + trade-offs | [`/about`](https://marwadeeb-ddi-checker.hf.space/about) → "Context & Limitations" · [`/results`](https://marwadeeb-ddi-checker.hf.space/results) → "Evaluation Notes" · Report §2.7 |
+| **TM9G** | Graph as core object | [`pipeline/hetero_model.ipynb`](pipeline/hetero_model.ipynb) model definition cells · [`pipeline/step5_hetero_graph.py`](pipeline/step5_hetero_graph.py) · Report §2.8 |
+| **TM10G** | Graph vs. non-graph justified | [`/results`](https://marwadeeb-ddi-checker.hf.space/results) → Cold-Start table · [`pipeline/hetero_model.ipynb`](pipeline/hetero_model.ipynb) cold-start cell · Report §2.9 |
+
+---
+
+## Responsible ML (within Technical Rigor)
+
+| Code | Criterion | Location |
+|------|-----------|----------|
+| **RM1** | Explainability | [`/responsible`](https://marwadeeb-ddi-checker.hf.space/responsible) → RM1 · [`pipeline/hetero_model.ipynb`](pipeline/hetero_model.ipynb) explainability cells · [`pipeline/gnn_predictor.py`](pipeline/gnn_predictor.py) `explain()` · Report §2.10 |
+| **RM2** | Fairness / bias | [`/responsible`](https://marwadeeb-ddi-checker.hf.space/responsible) → RM2 · [`pipeline/hetero_model.ipynb`](pipeline/hetero_model.ipynb) fairness cell · Report §2.11 |
+| **RM3** | Privacy / leakage | [`/responsible`](https://marwadeeb-ddi-checker.hf.space/responsible) → RM3 · Report §2.12 |
+| **RM4** | Robustness / shift | [`/responsible`](https://marwadeeb-ddi-checker.hf.space/responsible) → RM4 · [`pipeline/hetero_model.ipynb`](pipeline/hetero_model.ipynb) robustness cell · Report §2.13 |
+
+---
+
+## Deployment & Engineering
+
+| Code | Criterion | Location |
+|------|-----------|----------|
+| **EN1** | Dockerized REST API | [`Dockerfile`](Dockerfile) · [`docker-compose.yml`](docker-compose.yml) · [`README.md`](README.md) → Quick Start |
+| **EN2** | Separation of data / model / serving | `data/` (artifacts) · `pipeline/` (training) · `app.py` (serving) · [`pipeline/gnn_predictor.py`](pipeline/gnn_predictor.py) (inference module) · Report §3.2 |
+| **EN3** | Reproducible environment + run path | [`README.md`](README.md) → Pipeline section · [`requirements.txt`](requirements.txt) · Report §3.3 |
+| **EN4** | Functional UI / demo flow | https://marwadeeb-ddi-checker.hf.space — 6 pages, autocomplete, three-state results, PDF export, live dashboard · Report §3.4 |
+| **EN5** | Running deployed artifact | https://marwadeeb-ddi-checker.hf.space — Docker on HuggingFace Spaces · `/health` endpoint · Report §3.5 |
+
+---
+
+## GitHub & Documentation
+
+| Code | Criterion | Location |
+|------|-----------|----------|
+| **GD1** | Repository structure | [`README.md`](README.md) structure section · Report §4.1 |
+| **GD2** | README: setup + run | [`README.md`](README.md) → Quick Start + Pipeline + API |
+| **GD3** | Method / architecture docs | [`docs/ARCHITECTURE.md`](docs/ARCHITECTURE.md) (index) · [`docs/model_architecture.md`](docs/model_architecture.md) · [`docs/pipeline.md`](docs/pipeline.md) · [`docs/api_reference.md`](docs/api_reference.md) · [`docs/data_schema.md`](docs/data_schema.md) · [`docs/responsible_ml.md`](docs/responsible_ml.md) |
+| **GD4** | Results / logs / ablations | [`pipeline/hetero_model.ipynb`](pipeline/hetero_model.ipynb) (embedded outputs) · [`/results`](https://marwadeeb-ddi-checker.hf.space/results) · [`/responsible`](https://marwadeeb-ddi-checker.hf.space/responsible) · `data/evaluation/` |
+| **GD5** | Data + limits + notes | [`README.md`](README.md) → Data section · [`/about`](https://marwadeeb-ddi-checker.hf.space/about) → Limitations · [`docs/responsible_ml.md`](docs/responsible_ml.md) |
+
+---
+
+## Creativity & Initiative
+
+| Code | Criterion | Location |
+|------|-----------|----------|
+| **CI1** | Originality | [`/about`](https://marwadeeb-ddi-checker.hf.space/about) → Architecture · Report §5 |
+| **CI2** | Design trade-offs | [`/results`](https://marwadeeb-ddi-checker.hf.space/results) → Model Evolution table · [`/responsible`](https://marwadeeb-ddi-checker.hf.space/responsible) → RM4 · Report §5 |
+| **CI3** | Beyond minimum | 6-page deployed app · AI chat with Groq LLaMA NER · live dashboard · PDF export · cold-start evaluation |
+| **CI4** | Purposeful extras | Per-prediction explanation box on checker · three-state source labeling · [`docs/security.md`](docs/security.md) |
+
+---
+
+## Bonus
+
+| Code | Criterion | Evidence |
+|------|-----------|----------|
+| **BX2** | RM beyond minimum | All 4 RM topics with quantitative tables — see `/responsible` and Report §2.10–2.13 |
+| **BX3** | Exceptional extension | NCN decoder on heterogeneous biomedical graph · nnPU PU learning · fully deployed 6-page clinical app with AI chatbot |
+
+---
+
+## Demo Pairs for `/checker`
+
+| Expected output | Drug A | Drug B |
+|-----------------|--------|--------|
+| `documented` | Warfarin | Aspirin |
+| `documented` | Sildenafil | Nitroglycerin |
+| `documented` | Simvastatin | Clarithromycin |
+| `gnn_predicted` | Metformin | Vitamin D |
+| `gnn_predicted` | Atomoxetine | Methylphenidate |
+| `not_found` | Glatiramer | Famciclovir |
