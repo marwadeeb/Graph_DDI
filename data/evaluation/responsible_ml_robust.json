@@ -1,7 +1,7 @@
 {
   "n_total": 20,
-  "n_pass": 19,
-  "pass_rate": 95.0,
+  "n_pass": 20,
+  "pass_rate": 100.0,
   "cases": [
     {
       "case": "Exact canonical name",
@@ -111,9 +111,9 @@
       "case": "Empty string",
       "input": "",
       "expected": "not_found",
-      "outcome": "found",
-      "resolved": "Lepirudin",
-      "passed": false
+      "outcome": "not_found",
+      "resolved": "—",
+      "passed": true
     },
     {
       "case": "Numeric string",

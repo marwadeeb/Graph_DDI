@@ -118,6 +118,9 @@ def resolve_drug(query: str) -> tuple:
     df = get_drugs_df()
     q  = query.strip()
 
+    if not q:
+        raise ValueError("Drug not found in approved set: ''")
+
     # Exact DrugBank ID
     if q.upper().startswith("DB"):
         row = df[df["drugbank_id"] == q.upper()]

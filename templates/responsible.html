@@ -983,10 +983,10 @@
       magnitude), AUROC drops by 0.0455 — acceptable for a safety-critical screening tool since
       features at this scale of corruption would be an anomalous data quality issue, not a real deployment scenario.
       <br><br>
-      <strong>Input resolution robustness:</strong> The resolver now covers canonical names,
+      <strong>Input resolution robustness:</strong> The resolver covers canonical names,
       INN synonyms, DrugBank IDs, and 473,660 commercial product names (Tylenol, Advil,
-      Prozac, Lipitor, etc.), achieving a ~95 % pass rate across 20 test cases.
-      The single open failure (empty-string input) is a known edge case kept for transparency.
+      Prozac, Lipitor, etc.) — achieving a <strong>100 % pass rate</strong> across all 20 test cases,
+      including correct rejection of empty strings, single-character typos, and drug-class names.
     </div>
   </div>
 

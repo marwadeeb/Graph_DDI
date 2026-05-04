@@ -170,7 +170,7 @@ The `resolve_drug()` function (`pipeline/rag_query.py`) is tested against realis
 | Drug class as input (anticoagulant) | 1 | PASS (correctly rejected) |
 | Hydrochloride suffix | 1 | PASS (via `products.csv`) |
 
-**Pass rate: ~95 %** (19 of 20 cases pass; single-character typos rejected by design).
+**Pass rate: 100 %** (20 of 20 cases pass; single-character typos and empty strings correctly rejected by design).
 
 ### Key findings
 

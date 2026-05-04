@@ -35,3 +35,5 @@ venv/
 # OS
 .DS_Store
 Thumbs.db
+
+docs/EECE690-RubricReport.pdf

@@ -1399,6 +1399,63 @@
                 : src === 'gnn_predicted'  ? '⚠ Potential Interaction — GNN Model (Predicted)'
                 : '✓ No Interaction Found — Safe to Take Together';
 
+    // ── Combination-product path: all pairs shown as equal cards ──────────
+    if (data.all_checks && data.all_checks.length) {
+      // Combo info banner
+      const bA = data.brand_notice_a, bB = data.brand_notice_b;
+      const comboLines = [];
+      if (bA) comboLines.push(`<em>${escHtml(data.drug_a?.query||'')}</em> → ${bA.all.map(n=>`<strong>${escHtml(n)}</strong>`).join(' + ')}`);
+      if (bB) comboLines.push(`<em>${escHtml(data.drug_b?.query||'')}</em> → ${bB.all.map(n=>`<strong>${escHtml(n)}</strong>`).join(' + ')}`);
+      const comboBannerHtml = comboLines.length
+        ? `<div class="combo-banner">💊 ${comboLines.join(' &nbsp;·&nbsp; ')}</div>` : '';
+
+      // Overall status header card
+      const overallCards = data.all_checks.map(c => {
+        const c_src  = c.source || 'not_found';
+        const c_cls  = c_src === 'documented' ? 'documented' : c_src === 'gnn_predicted' ? 'predicted' : 'not-found';
+        const c_icon = c_src === 'documented' ? '⚠' : c_src === 'gnn_predicted' ? '⚠' : '✓';
+        const c_lbl  = c_src === 'documented' ? 'Interaction Found' : c_src === 'gnn_predicted' ? 'Potential Interaction' : 'No Interaction';
+        return `
+          <div class="result-card-mini ${c_cls}">
+            <div class="rcm-header">
+              <span class="rcm-label">${c_icon} ${c_lbl}</span>
+              <span class="rcm-pair">${escHtml(c.drug_a?.resolved||'')} × ${escHtml(c.drug_b?.resolved||'')}</span>
+            </div>
+            <div class="rcm-desc">${escHtml(c.interaction_description||'')}</div>
+          </div>`;
+      }).join('');
+
+      const hasInteraction = data.found;
+      const overallBannerCls = hasInteraction ? 'documented' : 'not-found';
+      const overallBannerLabel = hasInteraction
+        ? '⚠ Interaction Found — at least one component pair has a documented interaction'
+        : '✓ No Interactions Found — no component pair has a documented interaction';
+
+      primary.innerHTML = `
+        <div class="result-card ${overallBannerCls}" style="margin-bottom:14px;">
+          <div class="rc-label">${overallBannerLabel}</div>
+          <div class="rc-safety">ℹ All component pairs are listed below. Consult a pharmacist or clinician before use.</div>
+        </div>
+        ${comboBannerHtml}
+        <div class="additional-checks" style="margin-top:10px;">
+          ${overallCards}
+        </div>`;
+      primary.style.display = 'block';
+
+      // Prefer the query (brand name as typed) for the header
+      const nameA = data.drug_a?.query || data.drug_a?.resolved || '';
+      const nameB = data.drug_b?.query || data.drug_b?.resolved || '';
+      document.getElementById('results-header').textContent = `${nameA}  ×  ${nameB}`;
+      document.getElementById('fallback-banner').style.display = 'none';
+      document.getElementById('rag-detail').style.display = 'none';
+      document.querySelectorAll('.method-card').forEach(c => c.style.display = 'none');
+      document.getElementById('btn-pdf').disabled = false;
+      document.getElementById('results').classList.add('visible');
+      return;
+    }
+
+    // ── Standard single × single path ─────────────────────────────────────
+
     // GNN probability bar (shown only for predicted)
     let gnnHtml = '';
     if (src === 'gnn_predicted' && data.gnn?.probability != null) {
@@ -1430,64 +1487,24 @@
         </div>`;
     }
 
-    // Safety note — shown for documented AND predicted interactions
+    // Safety note
     let safetyHtml = '';
     if (src === 'documented') {
       safetyHtml = `<div class="rc-safety">ℹ To reduce risk from this documented
         interaction, consider separating doses by at least 2–3 hours and consult a
         pharmacist or clinician before use.</div>`;
     } else if (src === 'not_found') {
-      // split "Important:" note from the main description
       const split = (data.interaction_description || '').indexOf('Important:');
       if (split !== -1) {
         safetyHtml = `<div class="rc-safety">ℹ ${escHtml(data.interaction_description.slice(split))}</div>`;
       }
     }
 
-    // For not-found: strip the "Important:..." part from descHtml
+    // For not-found: strip "Important:..." from main description
     let descHtml = escHtml(data.interaction_description || '');
     if (src === 'not_found') {
       const split = (data.interaction_description || '').indexOf('Important:');
       if (split !== -1) descHtml = escHtml(data.interaction_description.slice(0, split).trim());
-    }
-
-    // Build combination-product banner (shown when a brand has multiple drugs)
-    function comboBannerHtml(noticeA, noticeB, queryA, queryB) {
-      const notices = [];
-      if (noticeA && noticeA.others.length > 0) {
-        const all = noticeA.all.map(n => `<strong>${escHtml(n)}</strong>`).join(' + ');
-        notices.push(`<em>${escHtml(queryA)}</em> is a combination product: ${all}`);
-      }
-      if (noticeB && noticeB.others.length > 0) {
-        const all = noticeB.all.map(n => `<strong>${escHtml(n)}</strong>`).join(' + ');
-        notices.push(`<em>${escHtml(queryB)}</em> is a combination product: ${all}`);
-      }
-      if (!notices.length) return '';
-      return `<div class="combo-banner">💊 ${notices.join(' &nbsp;·&nbsp; ')} — all component pairs checked below.</div>`;
-    }
-    const comboBanner = comboBannerHtml(data.brand_notice_a, data.brand_notice_b,
-                                        data.drug_a?.query || '', data.drug_b?.query || '');
-
-    // Additional checks for combination-product component pairs
-    function additionalChecksHtml(checks) {
-      if (!checks || !checks.length) return '';
-      const cards = checks.map(c => {
-        const c_cls  = c.source === 'documented' ? 'documented' : 'not-found';
-        const c_icon = c.source === 'documented' ? '⚠' : '✓';
-        const c_lbl  = c.source === 'documented' ? 'Interaction Found' : 'No Interaction Found';
-        return `
-          <div class="result-card-mini ${c_cls}">
-            <div class="rcm-header">
-              <span class="rcm-label">${c_icon} ${c_lbl}</span>
-              <span class="rcm-pair">${escHtml(c.drug_a?.resolved||'')} × ${escHtml(c.drug_b?.resolved||'')}</span>
-            </div>
-            <div class="rcm-desc">${escHtml(c.interaction_description||'')}</div>
-          </div>`;
-      }).join('');
-      return `<div class="additional-checks">
-        <div class="additional-checks-header">Other component pairs:</div>
-        ${cards}
-      </div>`;
     }
 
     primary.innerHTML = `
@@ -1499,9 +1516,7 @@
         ${disclaimerHtml}
         ${explanationHtml}
         ${safetyHtml}
-      </div>
-      ${comboBanner}
-      ${additionalChecksHtml(data.additional_checks)}`;
+      </div>`;
     primary.style.display = 'block';
 
     // Header
@@ -1784,19 +1799,19 @@
       ? '<div style="margin-top:14px;padding:10px 14px;background:#fff7ed;border-left:3px solid #f97316;border-radius:0 6px 6px 0;font-size:12px;color:#92400e;line-height:1.6;">'+h(r.disclaimer)+'</div>'
       : '';
 
-    // Additional checks (combination products)
+    // Combination-product pairs section (all_checks replaces additional_checks)
+    const pairList = r.all_checks || r.additional_checks || [];
     let additionalSection = '';
-    if (r.additional_checks && r.additional_checks.length) {
-      // Combo banner
+    if (pairList.length) {
       const bA = r.brand_notice_a, bB = r.brand_notice_b;
       let comboNote = '';
-      if (bA) comboNote += h((r.drug_a?.query||'')) + ' = ' + bA.all.map(h).join(' + ') + '  ';
-      if (bB) comboNote += h((r.drug_b?.query||'')) + ' = ' + bB.all.map(h).join(' + ');
+      if (bA) comboNote += h(r.drug_a?.query||'') + ' = ' + bA.all.map(h).join(' + ') + '  ';
+      if (bB) comboNote += h(r.drug_b?.query||'') + ' = ' + bB.all.map(h).join(' + ');
       if (comboNote) {
         additionalSection += '<div style="margin-top:16px;padding:8px 12px;background:#eff6ff;border:1px solid #bfdbfe;border-radius:6px;font-size:11px;color:#1e40af;">💊 '+comboNote+'</div>';
       }
-      additionalSection += '<div style="margin-top:14px;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#6b7280;margin-bottom:6px;">Other Component Pairs</div>';
-      r.additional_checks.forEach(c => {
+      additionalSection += '<div style="margin-top:14px;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#6b7280;margin-bottom:6px;">All Component Pairs</div>';
+      pairList.forEach(c => {
         const found = c.source === 'documented';
         const aBg   = found ? '#fee2e2' : '#f0fdf4';
         const aBdr  = found ? '#fca5a5' : '#86efac';
@@ -1813,6 +1828,11 @@
       });
     }
 
+    // Single-result summary block — omitted in combo mode (pairs listed in additionalSection)
+    const summarySection = pairList.length ? ''
+      : '<div style="font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#6366f1;margin:0 0 8px;">Interaction Summary</div>'
+        +'<div style="font-size:13px;line-height:1.75;background:#f9fafb;padding:14px 16px;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;color:#374151;">'+desc+'</div>';
+
     const overlay = document.getElementById('pdf-overlay');
     overlay.innerHTML =
       '<div style="max-width:700px;margin:0 auto;font-family:Arial,sans-serif;">'
@@ -1820,8 +1840,7 @@
       +'<div style="color:#6b7280;font-size:11px;margin-bottom:22px;padding-bottom:12px;border-bottom:1px solid #e5e7eb;">Generated by DDI Checker &middot; '+today+'</div>'
       +'<div style="font-size:22px;font-weight:800;color:#1e3a8a;margin-bottom:12px;">'+nameA+' &times; '+nameB+'</div>'
       +'<span style="display:inline-block;padding:5px 16px;border-radius:20px;font-size:11px;font-weight:700;margin-bottom:20px;'+badgeStyle+'">'+srcLabel+'</span>'
-      +'<div style="font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#6366f1;margin:0 0 8px;">Interaction Summary</div>'
-      +'<div style="font-size:13px;line-height:1.75;background:#f9fafb;padding:14px 16px;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;color:#374151;">'+desc+'</div>'
+      +summarySection
       +gnnSection
       +explainSection
       +disclaimerSection

@@ -525,12 +525,54 @@ def check_pair():
         if len(comps_b) > 1 else None
     )
 
-    # ── Stage 1: dict lookup for primary pair (O(1)) ───────────────────────
+    is_combo = len(comps_a) > 1 or len(comps_b) > 1
+
+    # ── Combination-product path: all pairs shown equally ─────────────────
+    if is_combo:
+        all_checks = []
+        for (a_id, a_name) in comps_a:
+            for (b_id, b_name) in comps_b:
+                pair_desc = _ddi_lookup.get(frozenset([a_id, b_id]))
+                all_checks.append({
+                    "drug_a": {"resolved": a_name, "id": a_id},
+                    "drug_b": {"resolved": b_name, "id": b_id},
+                    "source": "documented" if pair_desc is not None else "not_found",
+                    "found":  pair_desc is not None,
+                    "interaction_description": pair_desc if pair_desc is not None else (
+                        f"No documented interaction found for {a_name} and {b_name}."
+                    ),
+                })
+
+        # Overall status = worst case across all pairs
+        has_documented = any(c["source"] == "documented" for c in all_checks)
+        has_gnn        = any(c["source"] == "gnn_predicted" for c in all_checks)
+        overall_source = "documented" if has_documented else "gnn_predicted" if has_gnn else "not_found"
+        overall_found  = has_documented or has_gnn
+
+        result = {
+            "drug_a":         {"query": drug_a, "resolved": name_a, "id": id_a},
+            "drug_b":         {"query": drug_b, "resolved": name_b, "id": id_b},
+            "source":         overall_source,
+            "found":          overall_found,
+            "all_checks":     all_checks,
+            "brand_notice_a": brand_notice_a,
+            "brand_notice_b": brand_notice_b,
+            "interaction_description": None,
+            "gnn":            None,
+            "disclaimer":     None,
+            "error":          None,
+        }
+        _record_query(overall_source, name_a, name_b, (time.time() - _t0) * 1000)
+        return jsonify(result)
+
+    # ── Standard single × single path ────────────────────────────────────
+
+    # Stage 1: dict lookup (O(1))
     lookup_key = frozenset([id_a, id_b])
     dict_desc  = _ddi_lookup.get(lookup_key)
     dict_hit   = dict_desc is not None
 
-    # ── Stage 2: GNN (only when dict has no result for primary pair) ───────
+    # Stage 2: GNN (only when dict has no result)
     gnn_result = None
     gnn_found  = False
     gnn_prob   = None
@@ -543,7 +585,6 @@ def check_pair():
         gnn_prob  = gnn_result.get("probability") if gnn_result else None
         gnn_found = (gnn_prob is not None) and (gnn_prob >= GNN_THRESHOLD)
 
-    # ── Build primary result ───────────────────────────────────────────────
     if dict_hit:
         source = "documented"
         result = {
@@ -607,28 +648,6 @@ def check_pair():
             "brand_notice_b": brand_notice_b,
             "error":          None,
         }
-
-    # ── Additional checks for all component combinations (multi-drug brands) ─
-    # Covers every (comp_a, comp_b) pair that isn't the primary pair already shown
-    additional_checks = []
-    primary_key = frozenset([id_a, id_b])
-    for (a_id, a_name) in comps_a:
-        for (b_id, b_name) in comps_b:
-            pair_key = frozenset([a_id, b_id])
-            if pair_key == primary_key:
-                continue   # already shown above
-            desc = _ddi_lookup.get(pair_key)
-            additional_checks.append({
-                "drug_a": {"resolved": a_name, "id": a_id},
-                "drug_b": {"resolved": b_name, "id": b_id},
-                "source": "documented" if desc is not None else "not_found",
-                "found":  desc is not None,
-                "interaction_description": desc if desc is not None else (
-                    f"No documented interaction found for {a_name} and {b_name}."
-                ),
-            })
-    if additional_checks:
-        result["additional_checks"] = additional_checks
 
     _record_query(source, name_a, name_b, (time.time() - _t0) * 1000)
     return jsonify(result)
