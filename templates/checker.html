@@ -1453,10 +1453,13 @@
       }).join('');
 
       const hasInteraction = data.found;
-      const overallBannerCls = hasInteraction ? 'documented' : 'not-found';
-      const overallBannerLabel = hasInteraction
+      const overallSrc = data.source || 'not_found';
+      const overallBannerCls = overallSrc === 'documented' ? 'documented' : overallSrc === 'gnn_predicted' ? 'predicted' : 'not-found';
+      const overallBannerLabel = overallSrc === 'documented'
         ? '⚠ Interaction Found — at least one component pair has a documented interaction'
-        : '✓ No Interactions Found — no component pair has a documented interaction';
+        : overallSrc === 'gnn_predicted'
+          ? '⚠ Potential Interaction — GNN predicts an interaction for at least one component pair'
+          : '✓ No Interactions Found — no component pair has a documented or predicted interaction';
 
       primary.innerHTML = `
         <div class="result-card ${overallBannerCls}" style="margin-bottom:14px;">

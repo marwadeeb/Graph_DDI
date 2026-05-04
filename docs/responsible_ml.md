@@ -164,7 +164,7 @@ standard in the DDI literature.
 **Live:** `/responsible` page, RM4 section
 
 ### Test battery (20 cases)
-The `resolve_drug()` function (`pipeline/rag_query.py`) is tested against realistic input variations.
+The `resolve_drug()` function (`pipeline/ddi_query.py`) is tested against realistic input variations.
 
 | Category | Cases | Result |
 |---|---|---|

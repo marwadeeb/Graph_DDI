@@ -17,7 +17,7 @@ For tech stack and infrastructure see [ARCHITECTURE.md](ARCHITECTURE.md).
 | 5a — PyG Homo Graph | `pipeline/build_pyg_homo.py` | `data/step4_graph/ddi_graph.pt` — homogeneous | 58 MB · **on GitHub** |
 | 5b — PyG Hetero Graph | `pipeline/build_pyg_hetero.py` | `data/step4_graph/hetero_ddi_graph.pt` — drug + protein nodes | 46 MB · **on GitHub** |
 | 6 — RAG Vector Index | `pipeline/build_rag_index.py` | `data/rag_index/` — PubMedBERT embeddings of 824K DDI descriptions (offline; not loaded at serve time) | ~2.5 GB · gitignored |
-| 7 — RAG / Dict Query | `pipeline/rag_query.py` | CLI/API — O(1) dict lookup + GNN fallback | — |
+| 7 — RAG / Dict Query | `pipeline/ddi_query.py` | CLI/API — O(1) dict lookup + GNN fallback | — |
 | 8 — RAG Evaluation | `pipeline/evaluate_rag.py` | `data/evaluation/` — precision/recall/F1 | — |
 | 9 — Baselines + Split | `pipeline/run_baselines.py` | `data/evaluation/` — graph heuristics + LR + cold-start split files | — |
 | 10 — Responsible ML | `pipeline/responsible_ml.py` | `data/evaluation/` — bias JSON · robustness JSON | — |
@@ -72,10 +72,10 @@ Raw XML stores directed pairs `(A→B)` and `(B→A)` separately. `dedup_interac
 ## Steps 6 & 7 — RAG / Dict Pipeline
 
 ### Primary path — O(1) dict lookup
-`rag_query.py` builds an in-memory `frozenset → description` dict from `drug_interactions_dedup.csv` at startup (~3 s load).
+`ddi_query.py` builds an in-memory `frozenset → description` dict from `drug_interactions_dedup.csv` at startup (~3 s load).
 
 ### Secondary path — GNN link prediction
-When no documented DDI exists in the dict, `rag_query.py` invokes `gnn_predictor.predict()` which runs the HeteroGraphSAGE + NCN decoder and returns a probability score. A threshold of 0.43 (calibrated to balance precision/recall on the cold-start test set) determines whether the pair is reported as `gnn_predicted`. The explain() method additionally surfaces shared protein targets and DDI neighbours as human-readable reasons.
+When no documented DDI exists in the dict, `ddi_query.py` invokes `gnn_predictor.predict()` which runs the HeteroGraphSAGE + NCN decoder and returns a probability score. A threshold of 0.43 (calibrated to balance precision/recall on the cold-start test set) determines whether the pair is reported as `gnn_predicted`. The explain() method additionally surfaces shared protein targets and DDI neighbours as human-readable reasons.
 
 | File | Description |
 |---|---|
@@ -121,7 +121,7 @@ Pipeline: `StandardScaler` + `LogisticRegression(max_iter=1000, C=1.0)`
 │   ├── build_pyg_homo.py
 │   ├── build_pyg_hetero.py
 │   ├── build_rag_index.py
-│   ├── rag_query.py                 drug name resolver + GNN fallback + LLM
+│   ├── ddi_query.py                 drug name resolver + GNN fallback + LLM
 │   ├── evaluate_rag.py
 │   ├── run_baselines.py
 │   ├── responsible_ml.py

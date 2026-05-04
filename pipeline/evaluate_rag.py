@@ -229,7 +229,7 @@ if __name__ == "__main__":
     print(f"  API delay         : {args.delay}s")
 
     sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
-    from rag_query import get_embed_model, get_index, get_synonym_map, call_llm, retrieve
+    from ddi_query import get_embed_model, get_index, get_synonym_map, call_llm, retrieve
 
     print("\n[1/3] Loading embed model ...")
     get_embed_model()

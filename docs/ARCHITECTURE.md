@@ -25,7 +25,6 @@ For operational setup (Docker, env vars, quick start) see the main [README](../R
 | PyTorch Geometric (PyG) | 2.x | Heterogeneous graph data structures + SAGEConv |
 | scikit-learn | 1.x | Logistic Regression baseline, StandardScaler |
 | sentence-transformers | 2.x | PubMedBERT embeddings (`S-PubMedBert-MS-MARCO`, 768-dim) |
-| FAISS (`faiss-cpu`) | 1.7 | Vector similarity search — 824K DDI embeddings, on-demand |
 | Groq Python SDK | 0.9+ | LLM calls — NER extraction + plain-language explanations |
 | Pandas / NumPy | 2.x / 1.x | Feature engineering, data pipeline, evaluation |
 

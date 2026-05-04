@@ -376,11 +376,11 @@ def run_robustness_analysis():
     sep("RM4 — ROBUSTNESS / DISTRIBUTION SHIFT")
 
     try:
-        import rag_query as rag
+        import ddi_query as rag
         rag.get_drugs_df()
         rag.get_synonym_map()
     except Exception as e:
-        print(f"  ERROR loading rag_query: {e}")
+        print(f"  ERROR loading ddi_query: {e}")
         print("  Make sure app.py pipeline is set up and data/step3_approved/ is present.")
         return {}
 

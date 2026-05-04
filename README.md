@@ -24,16 +24,16 @@ Detect drug-drug interactions (DDI) using a two-stage pipeline:
 > results, and Responsible ML analysis for academic evaluation purposes. A production deployment
 > would strip out the evaluation pages and expose only the checker and chat interfaces.
 
-> **⏳ First visit:** HuggingFace Spaces hibernates after a period of inactivity. If the demo
-> shows a loading screen, wait ~30–60 seconds for the container to wake before using it.
-
-> **📚 Project scope:** This repository documents the full ML pipeline, baselines, ablation
-> results, and Responsible ML analysis for academic evaluation purposes. A production deployment
-> would strip out the evaluation pages and expose only the checker and chat interfaces.
-
 ---
 
 ## Quick Start (local — Docker Compose)
+
+Clone the repository:
+
+```bash
+git clone https://github.com/marwadeeb/Graph_DDI.git
+cd Graph_DDI
+```
 
 Create a `.env` file first (see `.env.example`):
 

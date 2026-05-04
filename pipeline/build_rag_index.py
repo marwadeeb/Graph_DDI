@@ -225,4 +225,4 @@ if __name__ == "__main__":
     print(f"  Total time: {(time.time()-t_total)/60:.1f} min")
     print(f"  Index ready at: {OUTPUT_DIR}")
     print()
-    print("  Next: python pipeline/rag_query.py")
+    print("  Next: python pipeline/ddi_query.py")

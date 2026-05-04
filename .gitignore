@@ -29,8 +29,6 @@ __pycache__/
 venv/
 .venv/
 
-# Claude Code settings
-.claude/
 
 # OS
 .DS_Store

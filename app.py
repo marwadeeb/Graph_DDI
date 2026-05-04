@@ -163,7 +163,7 @@ def _init_dict():
             _drug_names = []
 
         # ── Warm up drug-resolution caches ────────────────────────────────
-        import rag_query as rag
+        import ddi_query as rag
         rag.get_drugs_df()      # drugs.csv  (name <-> id table)
         rag.get_synonym_map()   # drug_attributes.csv + products.csv synonym/brand map
 
@@ -481,7 +481,7 @@ def check_pair():
     if not drug_a or not drug_b:
         return jsonify({"error": "Both 'drug_a' and 'drug_b' are required."}), 400
 
-    import rag_query as rag
+    import ddi_query as rag
 
     try:
         id_a, name_a = rag.resolve_drug(drug_a)
@@ -718,7 +718,7 @@ def chat_api():
     if len(message) > 2000:
         return jsonify({"error": "message too long (max 2000 chars)"}), 400
 
-    import rag_query as rag
+    import ddi_query as rag
 
     llm_available   = _get_groq() is not None
 
@@ -854,7 +854,7 @@ def check_batch():
     if len(pairs) > 50:
         return jsonify({"error": "Maximum 50 pairs per batch request."}), 400
 
-    import rag_query as rag
+    import ddi_query as rag
 
     results = []
     for pair in pairs:
@@ -923,7 +923,7 @@ def drug_search():
                                -pop.get(d["drugbank_id"], 0)))
 
     # 2. Brand / product name matches from products.csv
-    import rag_query as _raq
+    import ddi_query as _raq
     _COMPANY_TOKENS = (' llc', ' inc', ' inc.', ' ltd', ' corp', ' gmbh', ' ag ')
     bc = getattr(_raq, "_brand_components", None) or {}
     bd = getattr(_raq, "_brand_display", None) or {}
