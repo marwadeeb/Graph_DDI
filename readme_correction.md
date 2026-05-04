@@ -1,9 +1,9 @@
-# Grading Map — DDI Checker
-**Team:** Marwa Deeb · Laure Mohsen
-**Project:** Graph-Enhanced Clinical Decision Support for Drug–Drug Interaction Detection
-**Track:** Type A · Graph: Yes
-**Repository:** https://github.com/marwadeeb/Graph_DDI
-**Live Demo:** https://marwadeeb-ddi-checker.hf.space
+# Grading Map: DDI Checker
+**Team:** Marwa Deeb · Laure Mohsen  
+**Project:** Graph-Enhanced Clinical Decision Support for Drug–Drug Interaction Detection  
+**Track:** Type A · Graph: Yes  
+**Repository:** https://github.com/marwadeeb/Graph_DDI  
+**Live Demo:** https://marwadeeb-ddi-checker.hf.space  
 
 This file serves as a quick-reference index mapping each rubric criterion to its exact location in the repository or live application. A more detailed, properly written account of all rubric items, including methodology, equations, ablation tables, results, and limitations, is provided in the submitted project report titled "EECE 690 - Rubric Report.pdf". 
 
